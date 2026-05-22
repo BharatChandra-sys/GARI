@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/sections/Hero';
 import AnimatedStats from '../components/sections/AnimatedStats';
 import ParallaxSection from '../components/sections/ParallaxSection';
+import Sponsors from '../components/sections/Sponsors';
 import ImageGallery from '../components/sections/ImageGallery';
 import './HomePage.css';
 
@@ -53,6 +54,9 @@ const HomePage = () => {
 
       {/* Parallax Section */}
       <ParallaxSection />
+
+      {/* Sponsors Section */}
+      <Sponsors />
 
       {/* Image Gallery */}
       <ImageGallery />
