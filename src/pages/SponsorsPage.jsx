@@ -78,7 +78,7 @@ const SponsorsPage = () => {
           >
             <h1>Our Sponsors</h1>
             <p>
-              We are grateful to our sponsors who make our aerospace research and innovation possible.
+              We are grateful to our sponsors who make our aerospace rocketry and innovation possible.
               Their support enables us to push the boundaries of technology and engineering excellence.
             </p>
           </motion.div>
@@ -231,7 +231,7 @@ const SponsorsPage = () => {
             <h2>Become a Sponsor</h2>
             <p>
               Join us in shaping the future of aerospace innovation. Partner with GARI to support
-              student-driven research and engineering excellence.
+              student-driven rocketry and engineering excellence.
             </p>
             <a href="/contact" className="cta-button">
               Get in Touch

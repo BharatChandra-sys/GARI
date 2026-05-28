@@ -199,7 +199,7 @@ function getNewsletterWelcomeEmail(email) {
         <div class="header">
           <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
-          <div class="tagline">GITAM Aerospace Research Initiative</div>
+          <div class="tagline">GITAM Aerospace rocketry Initiative</div>
         </div>
         <div class="content">
           <div class="title">Welcome Aboard!</div>
@@ -221,7 +221,7 @@ function getNewsletterWelcomeEmail(email) {
           </div>
         </div>
         <div class="footer">
-          <div class="footer-brand">GARI - GITAM Aerospace Research Initiative</div>
+          <div class="footer-brand">GARI - GITAM Aerospace rocketry Initiative</div>
           <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
           <div style="margin: 8px 0;">Building the future of aerospace technology</div>
           <div style="margin-top: 16px; font-size: 12px; color: #9ca3af;">
@@ -249,7 +249,7 @@ function getContactConfirmationEmail(name, subject) {
         <div class="header">
           <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
-          <div class="tagline">GITAM Aerospace Research Initiative</div>
+          <div class="tagline">GITAM Aerospace rocketry Initiative</div>
         </div>
         <div class="content">
           <div class="title">Thank You for Reaching Out!</div>
@@ -270,7 +270,7 @@ function getContactConfirmationEmail(name, subject) {
           </div>
         </div>
         <div class="footer">
-          <div class="footer-brand">GARI - GITAM Aerospace Research Initiative</div>
+          <div class="footer-brand">GARI - GITAM Aerospace rocketry Initiative</div>
           <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
           <div style="margin: 8px 0;">contact@gari.live</div>
         </div>
@@ -310,7 +310,7 @@ function getLeadNotificationEmail(type, data) {
         <div class="wrapper">
           <div class="header">
             <div class="brand">New Contact Form Submission</div>
-            <div class="tagline">GARI Aerospace Research Initiative</div>
+            <div class="tagline">GARI Aerospace rocketry Initiative</div>
           </div>
           <div class="content">
             <div class="field">

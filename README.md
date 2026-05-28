@@ -1,6 +1,6 @@
 # GARI Aerospace Website
 
-Modern, minimal aerospace website for GITAM Aerospace Research Initiative.
+Modern, minimal aerospace website for GITAM Aerospace rocketry Initiative.
 
 ## 🚀 Quick Deploy
 
@@ -58,7 +58,7 @@ See **DEPLOY.md** for complete deployment instructions.
 ## 👥 Team
 
 **Lead**: bc833498@gmail.com  
-**Organization**: GITAM Aerospace Research Initiative  
+**Organization**: GITAM Aerospace rocketry Initiative  
 **University**: GITAM University, Hyderabad
 
 ---

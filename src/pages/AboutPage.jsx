@@ -49,7 +49,7 @@ const AboutPage = () => {
             >
               <h2>Who We Are</h2>
               <p>
-                GARI is a GITAM-based aerospace and research initiative dedicated to
+                GARI is a GITAM-based aerospace and rocketry initiative dedicated to
                 engineering innovation, aerospace systems, and mission-oriented
                 technological development.
               </p>

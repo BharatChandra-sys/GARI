@@ -73,7 +73,7 @@ function getTestEmail() {
         <div class="header">
           <img src="https://raw.githubusercontent.com/chandu1234678/GARI/main/GARI/gari-react/public/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
-          <div class="tagline">GITAM Aerospace Research Initiative</div>
+          <div class="tagline">GITAM Aerospace rocketry Initiative</div>
         </div>
         <div class="content">
           <div class="title">Test Email - System Working! ✅</div>
@@ -97,7 +97,7 @@ function getTestEmail() {
           </div>
         </div>
         <div class="footer">
-          <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">GARI - GITAM Aerospace Research Initiative</div>
+          <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">GARI - GITAM Aerospace rocketry Initiative</div>
           <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
           <div style="margin: 8px 0;">contact@gari.live</div>
         </div>

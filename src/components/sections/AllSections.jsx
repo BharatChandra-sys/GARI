@@ -202,7 +202,7 @@ export const Contact = () => {
           </h2>
           <p className="section-description">
             Reach out for collaborations, sponsorships, aerospace initiatives,
-            research opportunities, and technical partnerships.
+            rocketry opportunities, and technical partnerships.
           </p>
 
           <div className="contact-info">

@@ -41,11 +41,11 @@ const About = () => {
             Through Engineering
           </h2>
           <p className="section-description">
-            GARI is a GITAM-based aerospace and research initiative dedicated to
+            GARI is a GITAM-based aerospace and rocketry initiative dedicated to
             engineering innovation, aerospace systems, and mission-oriented
             technological development. The team works across CanSat systems,
             avionics, telemetry, communication technologies, software systems, and
-            aerospace research through practical engineering exploration and
+            aerospace rocketry through practical engineering exploration and
             multidisciplinary collaboration.
           </p>
         </motion.div>

@@ -76,10 +76,10 @@ const Footer = () => {
           <div className="footer-brand">
             <Logo variant="default" size="medium" />
             <p className="footer-tagline">
-              GITAM Aerospace Research Initiative
+              GITAM Aerospace rocketry Initiative
             </p>
             <p className="footer-description">
-              Building the future of aerospace innovation through student-driven research and engineering excellence.
+              Building the future of aerospace innovation through student-driven rocketry and engineering excellence.
             </p>
             
             {/* Social Media Links */}

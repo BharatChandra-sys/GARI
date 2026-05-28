@@ -62,7 +62,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          GARI is a student-driven aerospace and research initiative based at
+          GARI is a student-driven aerospace and rocketry initiative based at
           GITAM University, focused on innovation, engineering excellence, and
           next-generation technological development.
         </motion.p>
