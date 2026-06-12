@@ -4,63 +4,71 @@ import AnimatedStats from '../components/sections/AnimatedStats';
 import ParallaxSection from '../components/sections/ParallaxSection';
 import Sponsors from '../components/sections/Sponsors';
 import ImageGallery from '../components/sections/ImageGallery';
+import SEO from '../components/common/SEO';
 import './HomePage.css';
 
 const HomePage = () => {
   return (
-    <div className="home-page">
-      <Hero />
-      
-      {/* Quick Overview Section */}
-      <section className="overview-section">
-        <div className="container">
-          <div className="overview-grid">
-            <div className="overview-card">
-              <div className="card-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=800&q=80" 
-                  alt="Aerospace Research"
-                />
+    <>
+      <SEO
+        title="GITAM Aerospace Rocketry Initiative"
+        description="GARI is GITAM University's student-led aerospace and rocketry team. We compete in CanSat, build sounding rockets, and push the boundaries of student aerospace engineering."
+        path="/"
+      />
+      <div className="home-page">
+        <Hero />
+        
+        {/* Quick Overview Section */}
+        <section className="overview-section">
+          <div className="container">
+            <div className="overview-grid">
+              <div className="overview-card">
+                <div className="card-image">
+                  <img 
+                    src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=800&q=80" 
+                    alt="Aerospace Research"
+                  />
+                </div>
+                <h3>Aerospace Research</h3>
+                <p>Exploring advanced aerospace systems and engineering innovation</p>
               </div>
-              <h3>Aerospace Research</h3>
-              <p>Exploring advanced aerospace systems and engineering innovation</p>
-            </div>
-            <div className="overview-card">
-              <div className="card-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80" 
-                  alt="CanSat Mission"
-                />
+              <div className="overview-card">
+                <div className="card-image">
+                  <img 
+                    src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80" 
+                    alt="CanSat Mission"
+                  />
+                </div>
+                <h3>CanSat Mission</h3>
+                <p>Developing advanced satellite systems for IN-SPACe competition</p>
               </div>
-              <h3>CanSat Mission</h3>
-              <p>Developing advanced satellite systems for IN-SPACe competition</p>
-            </div>
-            <div className="overview-card">
-              <div className="card-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" 
-                  alt="Student Innovation"
-                />
+              <div className="overview-card">
+                <div className="card-image">
+                  <img 
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" 
+                    alt="Student Innovation"
+                  />
+                </div>
+                <h3>Student Innovation</h3>
+                <p>30+ members building the future of aerospace technology</p>
               </div>
-              <h3>Student Innovation</h3>
-              <p>30+ members building the future of aerospace technology</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Animated Stats */}
-      <AnimatedStats />
+        {/* Animated Stats */}
+        <AnimatedStats />
 
-      {/* Parallax Section */}
-      <ParallaxSection />
+        {/* Parallax Section */}
+        <ParallaxSection />
 
-      {/* Sponsors Section */}
-      <Sponsors />
+        {/* Sponsors Section */}
+        <Sponsors />
 
-      {/* Image Gallery */}
-      <ImageGallery />
-    </div>
+        {/* Image Gallery */}
+        <ImageGallery />
+      </div>
+    </>
   );
 };
 

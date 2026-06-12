@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './ContactPage.css';
 
 const ContactPage = () => {
@@ -122,6 +123,11 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with GARI for sponsorship, collaboration, or media inquiries. Reach GITAM Aerospace Rocketry Initiative at GITAM University, Hyderabad."
+        path="/contact"
+      />
       <section className="page-hero">
         <div className="container">
           <motion.div

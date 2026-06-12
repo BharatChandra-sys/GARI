@@ -4,17 +4,181 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="GARI - GITAM Aerospace rocketry Initiative. Student-driven aerospace and rocketry initiative focused on innovation, engineering excellence, and next-generation technological development." />
-    <meta name="keywords" content="GARI, GITAM, aerospace, rocket team, CanSat, student research, engineering, innovation" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <title>GARI | GITAM Aerospace rocketry Initiative</title>
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Primary SEO -->
+    <title>GARI | GITAM Aerospace Rocketry Initiative</title>
+    <meta name="description" content="GARI (GITAM Aerospace Rocketry Initiative) is a student-driven aerospace and rocketry team at GITAM University, Hyderabad. Competing in CanSat, sounding rockets, and pioneering next-generation space technology." />
+    <meta name="keywords" content="GARI, GITAM, aerospace, rocketry, CanSat, student rocket team, GITAM University, Hyderabad, India, space technology, engineering" />
+    <meta name="author" content="GARI - GITAM Aerospace Rocketry Initiative" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gari.live/" />
+
+    <!-- Open Graph / Facebook / LinkedIn (sponsor sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gari.live/" />
+    <meta property="og:title" content="GARI | GITAM Aerospace Rocketry Initiative" />
+    <meta property="og:description" content="Student-led aerospace and rocketry team at GITAM University. Competing in CanSat competitions and developing next-generation rocket technology." />
+    <meta property="og:image" content="https://gari.live/gari-logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="GARI" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://gari.live/" />
+    <meta name="twitter:title" content="GARI | GITAM Aerospace Rocketry Initiative" />
+    <meta name="twitter:description" content="Student-led aerospace and rocketry team at GITAM University. Competing in CanSat and building next-gen rockets." />
+    <meta name="twitter:image" content="https://gari.live/gari-logo.png" />
+
+    <!-- Structured Data (JSON-LD) for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GARI - GITAM Aerospace Rocketry Initiative",
+      "url": "https://gari.live",
+      "logo": "https://gari.live/gari-logo.png",
+      "description": "Student-driven aerospace and rocketry initiative at GITAM University, Hyderabad. Focused on CanSat competition, sounding rockets, and aerospace innovation.",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "GITAM University, Hyderabad, India"
+      },
+      "memberOf": {
+        "@type": "EducationalOrganization",
+        "name": "GITAM University"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <!-- SiteNavigationElement schema — tells Google exactly what sitelinks to show -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "GARI",
+      "url": "https://gari.live",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://gari.live/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SiteLinksSearchBox",
+      "url": "https://gari.live",
+      "potentialAction": [{
+        "@type": "SearchAction",
+        "target": "https://gari.live/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "About",
+        "description": "Learn about GARI — our team, values, and aerospace research focus at GITAM University.",
+        "url": "https://gari.live/about"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Mission",
+        "description": "GARI's mission to advance aerospace engineering through CanSat competitions and rocketry.",
+        "url": "https://gari.live/mission"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "CanSat Project",
+        "description": "Our CanSat mission with NavIC GNSS, real-time telemetry, competing in IN-SPACe CAN-7USAT.",
+        "url": "https://gari.live/cansat"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Team",
+        "description": "Meet the GARI team — students from GITAM University building rockets and competing.",
+        "url": "https://gari.live/team"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Achievements",
+        "description": "GARI competition results, awards, and milestones in aerospace engineering.",
+        "url": "https://gari.live/achievements"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Sponsors",
+        "description": "Sponsorship opportunities — support GARI and invest in the next generation of aerospace engineers.",
+        "url": "https://gari.live/sponsors"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Contact",
+        "description": "Get in touch with GARI for sponsorship, collaboration, or media inquiries.",
+        "url": "https://gari.live/contact"
+      }
+    ]
+    </script>
+
+    <!-- Performance: Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <style>
+        .noscript-fallback {
+          background: #000;
+          color: #fff;
+          font-family: Arial, sans-serif;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 2rem;
+        }
+        .noscript-fallback h1 { font-size: 2.5rem; letter-spacing: 0.4em; margin-bottom: 1rem; }
+        .noscript-fallback h2 { font-size: 1rem; letter-spacing: 0.2em; opacity: 0.6; font-weight: 300; margin-bottom: 2rem; }
+        .noscript-fallback p { max-width: 500px; line-height: 1.8; opacity: 0.7; margin-bottom: 1rem; }
+        .noscript-fallback a { color: #60a5fa; }
+        .noscript-nav { margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        .noscript-nav a { color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.1em; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; }
+        .noscript-nav a:hover { color: #fff; }
+      </style>
+      <div class="noscript-fallback">
+        <h1>GARI</h1>
+        <h2>GITAM AEROSPACE ROCKETRY INITIATIVE</h2>
+        <p>We are a student-led aerospace and rocketry team at GITAM University, Hyderabad. We compete in CanSat competitions and develop next-generation rocket technology.</p>
+        <p>This website works best with JavaScript enabled. Please enable JavaScript in your browser settings to access the full experience.</p>
+        <p>For sponsorship inquiries, contact us at: <a href="mailto:gari@gitam.edu">gari@gitam.edu</a></p>
+        <nav class="noscript-nav">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/mission">Mission</a>
+          <a href="/team">Team</a>
+          <a href="/sponsors">Sponsors</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

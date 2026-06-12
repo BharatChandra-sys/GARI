@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './CanSatPage.css';
 
 const CanSatPage = () => {
@@ -19,6 +20,12 @@ const CanSatPage = () => {
 
   return (
     <div className="cansat-page">
+      <SEO
+        title="CanSat Project"
+        description="GARI's CanSat project: a 1000m altitude launch with NavIC GNSS integration, real-time telemetry, and dual recovery mechanism. Competing in IN-SPACe CAN-7USAT."
+        path="/cansat"
+      />
+
       <section className="page-hero">
         <div className="container">
           <motion.div

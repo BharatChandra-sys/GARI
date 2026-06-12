@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/layout/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -22,30 +23,32 @@ function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      
-      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
-      
-      <div className="App">
-        <Navbar />
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
         
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/mission" element={<MissionPage />} />
-            <Route path="/cansat" element={<CanSatPage />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/achievements" element={<AchievementsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/sponsors" element={<SponsorsPage />} />
-          </Routes>
-        </main>
+        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+        
+        <div className="App">
+          <Navbar />
+          
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/mission" element={<MissionPage />} />
+              <Route path="/cansat" element={<CanSatPage />} />
+              <Route path="/team" element={<TeamPage />} />
+              <Route path="/achievements" element={<AchievementsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/sponsors" element={<SponsorsPage />} />
+            </Routes>
+          </main>
 
-        <Footer />
-      </div>
-    </Router>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './AboutPage.css';
 
 const AboutPage = () => {
@@ -20,7 +21,11 @@ const AboutPage = () => {
 
   return (
     <div className="about-page">
-      {/* Hero Section */}
+      <SEO
+        title="About GARI"
+        description="Learn about GARI — GITAM's student aerospace and rocketry team. Our values, research focus, and commitment to engineering innovation at GITAM University, Hyderabad."
+        path="/about"
+      />
       <section className="page-hero">
         <div className="container">
           <motion.div

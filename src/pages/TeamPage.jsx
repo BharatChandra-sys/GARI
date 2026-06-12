@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './TeamPage.css';
 
 const TeamPage = () => {
@@ -327,6 +328,11 @@ const TeamPage = () => {
 
   return (
     <div className="team-page">
+      <SEO
+        title="Our Team"
+        description="Meet the GARI team — students from GITAM University building rockets, competing in CanSat, and pioneering aerospace engineering in India."
+        path="/team"
+      />
       <section className="page-hero">
         <div className="container">
           <motion.div

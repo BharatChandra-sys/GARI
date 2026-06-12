@@ -1,10 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './MissionPage.css';
 
 const MissionPage = () => {
   return (
     <div className="mission-page">
+      <SEO
+        title="Our Mission"
+        description="GARI's mission is to advance aerospace engineering through hands-on rocketry, CanSat competitions, and student-led research at GITAM University, Hyderabad."
+        path="/mission"
+      />
+
       <section className="page-hero">
         <div className="container">
           <motion.div

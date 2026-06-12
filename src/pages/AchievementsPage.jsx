@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './AchievementsPage.css';
 
 const AchievementsPage = () => {
@@ -44,6 +45,11 @@ const AchievementsPage = () => {
 
   return (
     <div className="achievements-page">
+      <SEO
+        title="Achievements"
+        description="GARI's competition results, awards, and milestones. From IN-SPACe CAN-7USAT to Spaceport America Cup targets — GITAM's rocketry team is making waves."
+        path="/achievements"
+      />
       <section className="page-hero">
         <div className="container">
           <motion.div

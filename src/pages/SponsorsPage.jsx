@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/common/SEO';
 import './SponsorsPage.css';
 
 const SponsorsPage = () => {
@@ -67,6 +68,11 @@ const SponsorsPage = () => {
 
   return (
     <div className="sponsors-page">
+      <SEO
+        title="Sponsors"
+        description="Support GARI — GITAM's student aerospace and rocketry team. Sponsorship opportunities for companies that want to invest in the next generation of aerospace engineers."
+        path="/sponsors"
+      />
       {/* Hero Section */}
       <section className="sponsors-hero">
         <div className="container">
