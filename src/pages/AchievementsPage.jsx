@@ -46,9 +46,43 @@ const AchievementsPage = () => {
   return (
     <div className="achievements-page">
       <SEO
-        title="Achievements"
-        description="GARI's competition results, awards, and milestones. From IN-SPACe CAN-7USAT to Spaceport America Cup targets — GITAM's rocketry team is making waves."
+        title="Achievements & Competition Results"
+        description="GARI achievements: Selected for IN-SPACe CAN-7USAT 2026 national CanSat competition. GITAM University's aerospace rocketry team milestones and competition history."
         path="/achievements"
+        keywords="GARI achievements, IN-SPACe CanSat results, student aerospace competition India, GITAM rocketry awards, CanSat competition 2026"
+        breadcrumbs={[{ name: 'Achievements', url: 'https://gari.live/achievements' }]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          'name': 'GARI Achievements and Competition Results',
+          'description': 'Competition results and milestones of GARI — GITAM Aerospace Rocketry Initiative',
+          'url': 'https://gari.live/achievements',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'item': {
+                '@type': 'Event',
+                'name': 'IN-SPACe CAN-7USAT Competition 2026',
+                'description': 'National CanSat competition — GARI selected to compete',
+                'startDate': '2026',
+                'eventStatus': 'https://schema.org/EventScheduled',
+                'performer': { '@id': 'https://gari.live/#organization' },
+              },
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'item': {
+                '@type': 'Event',
+                'name': 'GARI Team Formation',
+                'description': 'GARI officially established at GITAM University',
+                'startDate': '2025',
+                'eventStatus': 'https://schema.org/EventScheduled',
+              },
+            },
+          ],
+        }}
       />
       <section className="page-hero">
         <div className="container">

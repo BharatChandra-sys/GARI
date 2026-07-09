@@ -21,9 +21,25 @@ const CanSatPage = () => {
   return (
     <div className="cansat-page">
       <SEO
-        title="CanSat Project"
-        description="GARI's CanSat project: a 1000m altitude launch with NavIC GNSS integration, real-time telemetry, and dual recovery mechanism. Competing in IN-SPACe CAN-7USAT."
+        title="CanSat Project — IN-SPACe CAN-7USAT 2026"
+        description="GARI's CanSat: 1000m altitude launch with NavIC GNSS integration, real-time telemetry, and dual recovery. Competing in India's IN-SPACe CAN-7USAT 2026 national competition."
         path="/cansat"
+        keywords="CanSat India 2026, IN-SPACe CAN-7USAT, NavIC GNSS, student CanSat competition India, GARI CanSat, CanSat telemetry avionics"
+        breadcrumbs={[{ name: 'CanSat Project', url: 'https://gari.live/cansat' }]}
+        faq={[
+          { q: 'What is a CanSat?', a: 'A CanSat is a small satellite the size of a soda can (330ml). It carries instruments and launches to ~1000m altitude, transmitting real-time data before descending on a parachute.' },
+          { q: 'What is IN-SPACe CAN-7USAT?', a: 'IN-SPACe CAN-7USAT is India\'s national student CanSat competition by the Indian National Space Promotion and Authorization Center. GARI is competing in 2026.' },
+          { q: 'What makes GARI\'s CanSat unique?', a: 'GARI\'s CanSat features NavIC (India\'s own GNSS) integration, real-time telemetry, dual parachute recovery, and a custom ground station software system.' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ResearchProject',
+          'name': 'GARI CanSat — IN-SPACe CAN-7USAT 2026',
+          'description': '1000m altitude CanSat with NavIC GNSS, real-time telemetry, dual recovery. Competing in IN-SPACe CAN-7USAT 2026.',
+          'url': 'https://gari.live/cansat',
+          'member': { '@id': 'https://gari.live/#organization' },
+          'keywords': ['CanSat', 'NavIC', 'telemetry', 'avionics', 'IN-SPACe', 'India', 'GITAM'],
+        }}
       />
 
       <section className="page-hero">

@@ -1,0 +1,22 @@
+/* TEAM */
+Organization: GARI — GITAM Aerospace Rocketry Initiative
+Site: https://gari.live
+Contact: gari@gitam.edu
+Location: GITAM University, Hyderabad, Telangana, India
+
+/* LEADS */
+CanSat Team Lead: Harsha Vardan
+Rocket Team Lead: Shaik Aadil Iftikhar
+Ground Station & Software: Bodapati Bharat Chandra — https://bharatchandra.me
+
+/* TECHNOLOGY */
+Frontend: React, Framer Motion, Three.js
+Hosting: Vercel
+Email: Brevo
+
+/* STANDARDS */
+Charset: UTF-8
+Language: English (India)
+
+/* SITE */
+Last update: 2026/07

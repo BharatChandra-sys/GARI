@@ -69,9 +69,26 @@ const SponsorsPage = () => {
   return (
     <div className="sponsors-page">
       <SEO
-        title="Sponsors"
-        description="Support GARI — GITAM's student aerospace and rocketry team. Sponsorship opportunities for companies that want to invest in the next generation of aerospace engineers."
+        title="Sponsors — Partner with GARI Aerospace"
+        description="Sponsor GARI — GITAM University's student aerospace and rocketry team. Partner with India's next-generation aerospace engineers. Title, Platinum, Gold, and Silver tiers available."
         path="/sponsors"
+        keywords="sponsor GARI aerospace India, GITAM aerospace sponsorship, student rocket team sponsor, aerospace education sponsor India, IN-SPACe CanSat sponsor"
+        breadcrumbs={[{ name: 'Sponsors', url: 'https://gari.live/sponsors' }]}
+        faq={[
+          { q: 'Why sponsor GARI?', a: 'Sponsoring GARI gives your brand visibility among top engineering students, association with India\'s national CanSat competition, and contribution to next-generation aerospace development.' },
+          { q: 'What sponsorship tiers does GARI offer?', a: 'GARI offers Title, Platinum, Gold, and Silver sponsorship tiers with different benefits including logo placement, social media features, and team acknowledgment.' },
+          { q: 'How do I become a GARI sponsor?', a: 'Contact GARI at gari@gitam.edu or visit gari.live/contact. Our team will respond within 48 hours with a detailed sponsorship brochure.' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': 'https://gari.live/sponsors#webpage',
+          'url': 'https://gari.live/sponsors',
+          'name': 'Sponsors — GARI GITAM Aerospace Rocketry',
+          'description': 'Partner with GARI — sponsor India\'s next-generation student aerospace engineers at GITAM University.',
+          'isPartOf': { '@id': 'https://gari.live/#website' },
+          'about': { '@id': 'https://gari.live/#organization' },
+        }}
       />
       {/* Hero Section */}
       <section className="sponsors-hero">

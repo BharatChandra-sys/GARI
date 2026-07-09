@@ -23,8 +23,20 @@ const AboutPage = () => {
     <div className="about-page">
       <SEO
         title="About GARI"
-        description="Learn about GARI — GITAM's student aerospace and rocketry team. Our values, research focus, and commitment to engineering innovation at GITAM University, Hyderabad."
+        description="Learn about GARI — GITAM University's student aerospace and rocketry team. Our mission, values, research focus, and commitment to engineering excellence in India."
         path="/about"
+        keywords="about GARI, GITAM aerospace team, student rocketry club India, GITAM aerospace research"
+        breadcrumbs={[{ name: 'About', url: 'https://gari.live/about' }]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          '@id': 'https://gari.live/about#webpage',
+          'url': 'https://gari.live/about',
+          'name': 'About GARI — GITAM Aerospace Rocketry Initiative',
+          'description': 'GARI is GITAM University\'s student aerospace and rocketry team built on innovation, collaboration, and research.',
+          'isPartOf': { '@id': 'https://gari.live/#website' },
+          'about': { '@id': 'https://gari.live/#organization' },
+        }}
       />
       <section className="page-hero">
         <div className="container">

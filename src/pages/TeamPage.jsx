@@ -289,9 +289,11 @@ const TeamPage = () => {
             {member.image ? (
               <img 
                 src={member.image} 
-                alt={member.name}
+                alt={`${member.name} — ${member.role} at GARI GITAM Aerospace Rocketry Initiative`}
                 loading="lazy"
                 decoding="async"
+                width="300"
+                height="300"
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.parentElement.innerHTML = `<div class="image-placeholder"><span>${member.name.split(' ').map(n => n[0]).join('')}</span></div>`;
@@ -341,62 +343,61 @@ const TeamPage = () => {
   return (
     <div className="team-page">
       <SEO
-        title="Our Team"
-        description="Meet the GARI team — students from GITAM University building rockets, competing in CanSat, and pioneering aerospace engineering in India."
+        title="Our Team — 30+ Aerospace Engineers"
+        description="Meet GARI's 30+ member team from GITAM University — rocket engineers, avionics specialists, software developers, and aerospace students building next-gen space technology in India."
         path="/team"
+        keywords="GARI team members, GITAM aerospace students, rocket team India, CanSat team members, Bodapati Bharat Chandra GARI"
+        breadcrumbs={[{ name: 'Team', url: 'https://gari.live/team' }]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': 'https://gari.live/#organization',
+          'name': 'GARI — GITAM Aerospace Rocketry Initiative',
+          'url': 'https://gari.live',
+          'logo': 'https://gari.live/gari-logo.png',
+          'parentOrganization': {
+            '@type': 'CollegeOrUniversity',
+            'name': 'GITAM University Hyderabad',
+            'url': 'https://gitam.edu',
+            'sameAs': 'https://en.wikipedia.org/wiki/GITAM_University',
+          },
+          'member': [
+            {
+              '@type': 'OrganizationMember',
+              'member': {
+                '@type': 'Person',
+                'name': 'Bodapati Bharat Chandra',
+                'url': 'https://bharatchandra.me',
+                'jobTitle': 'Ground Station & Software Lead',
+                'image': 'https://gari.live/team/bodapati-bharat-chandra.jpg',
+                'sameAs': [
+                  'https://bharatchandra.me',
+                  'https://github.com/BharatChandra-sys',
+                  'https://www.linkedin.com/in/bharat-chandra-bodapati/',
+                ],
+              },
+              'roleName': 'Ground Station & Software Lead',
+              'startDate': '2026-02',
+            },
+            {
+              '@type': 'OrganizationMember',
+              'member': { '@type': 'Person', 'name': 'Shaik Aadil Iftikhar', 'jobTitle': 'Team Lead & Analysis Engineer' },
+              'roleName': 'Rocket Team Lead',
+            },
+            {
+              '@type': 'OrganizationMember',
+              'member': { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead & Electronics Engineer' },
+              'roleName': 'CanSat Team Lead',
+            },
+            {
+              '@type': 'OrganizationMember',
+              'member': { '@type': 'Person', 'name': 'Saketh Muppala', 'url': 'https://www.linkedin.com/in/sakethmuppala/', 'jobTitle': 'Co-Lead & Supportive Engineer' },
+              'roleName': 'Rocket Co-Lead',
+            },
+          ],
+        }}
       />
-      {/* JSON-LD: Organization + OrganizationMember for entity linking */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://gari.live/#organization",
-        "name": "GARI — GITAM Aerospace Rocketry Initiative",
-        "url": "https://gari.live",
-        "logo": "https://gari.live/gari-logo.png",
-        "parentOrganization": {
-          "@type": "CollegeOrUniversity",
-          "name": "GITAM University Hyderabad",
-          "url": "https://gitam.edu"
-        },
-        "member": [
-          {
-            "@type": "OrganizationMember",
-            "member": {
-              "@type": "Person",
-              "name": "Bodapati Bharat Chandra",
-              "url": "https://bharatchandra.me",
-              "jobTitle": "Ground Station & Software Lead",
-              "image": "https://gari.live/team/bodapati-bharat-chandra.jpg",
-              "sameAs": [
-                "https://bharatchandra.me",
-                "https://github.com/BharatChandra-sys",
-                "https://www.linkedin.com/in/bharat-chandra-bodapati/"
-              ]
-            },
-            "roleName": "Ground Station & Software Lead",
-            "startDate": "2026-02"
-          },
-          {
-            "@type": "OrganizationMember",
-            "member": {
-              "@type": "Person",
-              "name": "Shaik Aadil Iftikhar",
-              "jobTitle": "Team Lead & Analysis Engineer"
-            },
-            "roleName": "Rocket Team Lead"
-          },
-          {
-            "@type": "OrganizationMember",
-            "member": {
-              "@type": "Person",
-              "name": "Saketh Muppala",
-              "url": "https://www.linkedin.com/in/sakethmuppala/",
-              "jobTitle": "Co-Lead & Supportive Engineer"
-            },
-            "roleName": "Rocket Co-Lead"
-          }
-        ]
-      })}} />
+      {/* Raw script tag for dangerouslySetInnerHTML removed — schema passed via SEO component */}
       <section className="page-hero">
         <div className="container">
           <motion.div

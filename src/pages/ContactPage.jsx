@@ -124,9 +124,32 @@ const ContactPage = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact Us"
-        description="Get in touch with GARI for sponsorship, collaboration, or media inquiries. Reach GITAM Aerospace Rocketry Initiative at GITAM University, Hyderabad."
+        title="Contact GARI — Sponsorship & Collaboration"
+        description="Contact GARI for sponsorship, collaboration, media, or membership. Reach GITAM Aerospace Rocketry Initiative at GITAM University, Hyderabad. Email: gari@gitam.edu"
         path="/contact"
+        keywords="contact GARI, GARI sponsorship enquiry, GITAM aerospace contact, aerospace collaboration India, gari@gitam.edu"
+        breadcrumbs={[{ name: 'Contact', url: 'https://gari.live/contact' }]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          '@id': 'https://gari.live/contact#webpage',
+          'url': 'https://gari.live/contact',
+          'name': 'Contact GARI — GITAM Aerospace Rocketry Initiative',
+          'description': 'Contact GARI for sponsorship, collaboration, or membership at GITAM University, Hyderabad.',
+          'isPartOf': { '@id': 'https://gari.live/#website' },
+          'about': {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            '@id': 'https://gari.live/#organization',
+            'contactPoint': {
+              '@type': 'ContactPoint',
+              'contactType': 'general inquiries',
+              'email': 'gari@gitam.edu',
+              'url': 'https://gari.live/contact',
+              'availableLanguage': 'English',
+            },
+          },
+        }}
       />
       <section className="page-hero">
         <div className="container">
