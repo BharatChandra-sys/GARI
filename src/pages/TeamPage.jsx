@@ -108,6 +108,7 @@ const TeamPage = () => {
       description: 'Leading ground station software and mission control systems development.',
       image: '/team/bodapati-bharat-chandra.jpg',
       linkedin: null,
+      portfolio: 'https://bharatchandra.me',
     },
     {
       name: 'Singam Sai Harshith',
@@ -315,6 +316,17 @@ const TeamPage = () => {
                 LinkedIn →
               </a>
             )}
+            {member.portfolio && (
+              <a
+                href={member.portfolio}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="overlay-linkedin"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Portfolio →
+              </a>
+            )}
           </div>
         </div>
         <div className="team-info">
@@ -333,6 +345,58 @@ const TeamPage = () => {
         description="Meet the GARI team — students from GITAM University building rockets, competing in CanSat, and pioneering aerospace engineering in India."
         path="/team"
       />
+      {/* JSON-LD: Organization + OrganizationMember for entity linking */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://gari.live/#organization",
+        "name": "GARI — GITAM Aerospace Rocketry Initiative",
+        "url": "https://gari.live",
+        "logo": "https://gari.live/gari-logo.png",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "GITAM University Hyderabad",
+          "url": "https://gitam.edu"
+        },
+        "member": [
+          {
+            "@type": "OrganizationMember",
+            "member": {
+              "@type": "Person",
+              "name": "Bodapati Bharat Chandra",
+              "url": "https://bharatchandra.me",
+              "jobTitle": "Ground Station & Software Lead",
+              "image": "https://gari.live/team/bodapati-bharat-chandra.jpg",
+              "sameAs": [
+                "https://bharatchandra.me",
+                "https://github.com/BharatChandra-sys",
+                "https://www.linkedin.com/in/bharat-chandra-bodapati/"
+              ]
+            },
+            "roleName": "Ground Station & Software Lead",
+            "startDate": "2026-02"
+          },
+          {
+            "@type": "OrganizationMember",
+            "member": {
+              "@type": "Person",
+              "name": "Shaik Aadil Iftikhar",
+              "jobTitle": "Team Lead & Analysis Engineer"
+            },
+            "roleName": "Rocket Team Lead"
+          },
+          {
+            "@type": "OrganizationMember",
+            "member": {
+              "@type": "Person",
+              "name": "Saketh Muppala",
+              "url": "https://www.linkedin.com/in/sakethmuppala/",
+              "jobTitle": "Co-Lead & Supportive Engineer"
+            },
+            "roleName": "Rocket Co-Lead"
+          }
+        ]
+      })}} />
       <section className="page-hero">
         <div className="container">
           <motion.div
