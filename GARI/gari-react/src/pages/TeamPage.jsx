@@ -343,59 +343,94 @@ const TeamPage = () => {
   return (
     <div className="team-page">
       <SEO
-        title="Our Team — 30+ Aerospace Engineers"
-        description="Meet GARI's 30+ member team from GITAM University — rocket engineers, avionics specialists, software developers, and aerospace students building next-gen space technology in India."
+        title="Our Team — 30+ Aerospace Engineers at GARI GITAM"
+        description="Meet GARI's 30+ member team at GITAM University Hyderabad — Harshith Venkata, Bodapati Bharat Chandra, and aerospace engineers building rockets and CanSat systems for IN-SPACe CAN-7USAT 2026."
         path="/team"
-        keywords="GARI team members, GITAM aerospace students, rocket team India, CanSat team members, Bodapati Bharat Chandra GARI"
+        keywords="GARI team members, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI, GITAM aerospace students, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Singam Sai Harshith GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM"
         breadcrumbs={[{ name: 'Team', url: 'https://gari.live/team' }]}
-        schema={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          '@id': 'https://gari.live/#organization',
-          'name': 'GARI — GITAM Aerospace Rocketry Initiative',
-          'url': 'https://gari.live',
-          'logo': 'https://gari.live/gari-logo.png',
-          'parentOrganization': {
-            '@type': 'CollegeOrUniversity',
-            'name': 'GITAM University Hyderabad',
-            'url': 'https://gitam.edu',
-            'sameAs': 'https://en.wikipedia.org/wiki/GITAM_University',
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            '@id': 'https://gari.live/#organization',
+            'name': 'GARI — GITAM Aerospace Rocketry Initiative',
+            'url': 'https://gari.live',
+            'logo': 'https://gari.live/gari-logo.png',
+            'parentOrganization': {
+              '@type': 'CollegeOrUniversity',
+              'name': 'GITAM University Hyderabad',
+              'url': 'https://gitam.edu',
+              'sameAs': 'https://en.wikipedia.org/wiki/GITAM_University',
+            },
+            'member': [
+              { '@type': 'OrganizationMember', 'roleName': 'Aerospace Engineer — GARI', 'member': { '@type': 'Person', 'name': 'Harshith Venkata Naga Pavana Jangala', 'jobTitle': 'Aerospace Engineer', 'image': 'https://gari.live/team/harshith-venkata.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'url': 'https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306', 'sameAs': ['https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Ground Station & Software Lead', 'member': { '@type': 'Person', 'name': 'Bodapati Bharat Chandra', 'jobTitle': 'Ground Station & Software Lead', 'image': 'https://gari.live/team/bodapati-bharat-chandra.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'url': 'https://bharatchandra.me', 'sameAs': ['https://bharatchandra.me', 'https://github.com/BharatChandra-sys'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'CanSat Team Lead', 'member': { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead & Electronics Engineer', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Rocket Team Lead', 'member': { '@type': 'Person', 'name': 'Shaik Aadil Iftikhar', 'jobTitle': 'Rocket Team Lead & Analysis Engineer', 'image': 'https://gari.live/team/shaik-aadil-iftikhar.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Rocket Co-Lead', 'member': { '@type': 'Person', 'name': 'Saketh Muppala', 'jobTitle': 'Co-Lead & Supportive Engineer', 'image': 'https://gari.live/team/saketh-muppala.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/sakethmuppala/'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Communication Engineer', 'member': { '@type': 'Person', 'name': 'Nischal Aditya M', 'jobTitle': 'Communication Engineer', 'image': 'https://gari.live/team/nischal-aditya.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/nischaladityam'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Design Engineer', 'member': { '@type': 'Person', 'name': 'Sreehitha Tadavarthy', 'jobTitle': 'Design Engineer', 'image': 'https://gari.live/team/sreehitha-tadavarthy.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/sreehitha-tadavarthy-9a986a270/'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Propulsion Engineer', 'member': { '@type': 'Person', 'name': 'Thrinadh Tirumalasetti', 'jobTitle': 'Propulsion Engineer', 'image': 'https://gari.live/team/thrinadh-tirumalasetti.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/thrinadh1876'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Electronics Engineer', 'member': { '@type': 'Person', 'name': 'Achanta Sri Karthikeya', 'jobTitle': 'Electronics Engineer', 'image': 'https://gari.live/team/achanta-sri-karthikeya.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Computer Engineer', 'member': { '@type': 'Person', 'name': 'Mokshagna Mopidevi', 'jobTitle': 'Computer Engineer', 'image': 'https://gari.live/team/mokshagna-mopidevi.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/mokshagna-mopidevi-49148b303/'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Structural Engineer', 'member': { '@type': 'Person', 'name': 'Shreemann Narayana Karnakoti', 'jobTitle': 'Structural Engineer', 'image': 'https://gari.live/team/shreemann-narayana.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/shreemann-narayana'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'CanSat Co-Lead & Structures', 'member': { '@type': 'Person', 'name': 'Tanmaay Sharma', 'jobTitle': 'Co-Lead & Structures/Mechanical', 'image': 'https://gari.live/team/tanmaay-sharma.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Avionics & Flight Software', 'member': { '@type': 'Person', 'name': 'Singam Sai Harshith', 'jobTitle': 'Avionics & Flight Software Lead', 'image': 'https://gari.live/team/singam-sai-harshith.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Communication & RF Systems', 'member': { '@type': 'Person', 'name': 'Varshith Pappuri', 'jobTitle': 'Communication & RF Systems Lead', 'image': 'https://gari.live/team/varshith-pappuri.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Sensor & Payload Systems', 'member': { '@type': 'Person', 'name': 'Rohan Jason Bellapu', 'jobTitle': 'Sensor & Payload Systems Lead', 'image': 'https://gari.live/team/rohan-jason-bellapu.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Power & Electrical Systems', 'member': { '@type': 'Person', 'name': 'Satya Rishi Chodesetty', 'jobTitle': 'Power & Electrical Systems Lead', 'image': 'https://gari.live/team/satya-rishi-chodesetty.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/satya-rishi-chodesetty/'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Descent & Recovery Systems', 'member': { '@type': 'Person', 'name': 'Hanzel Vergis Thomas', 'jobTitle': 'Descent & Recovery Systems Lead', 'image': 'https://gari.live/team/hanzel-vergis-thomas.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Krishna Nishita', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/krishna-nishita.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Shaik Farhat Raheem', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/shaik-farhat-raheem.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Krrish Mathur', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/krrish-mathur.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/krrish-mathur-286794392'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Prajwal KM', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/prajwal-km.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Naga Manikanta Uppala', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/naga-manikanta-uppala.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' }, 'sameAs': ['https://www.linkedin.com/in/naga-manikanta-uppala-003877302'] } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Gill Mandeep Kaur', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/gill-mandeep-kaur.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Vutukuru Sai Pranav', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/vutukuru-sai-pranav.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Pulidindi Abhinav', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/pulidindi-abhinav.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Toka Priyanka', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/toka-priyanka.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+              { '@type': 'OrganizationMember', 'roleName': 'Core Team Member', 'member': { '@type': 'Person', 'name': 'Bhimineni Yoga Nandini', 'jobTitle': 'Core Team Member', 'image': 'https://gari.live/team/bhimineni-yoga-nandini.jpg', 'worksFor': { '@id': 'https://gari.live/#organization' } } },
+            ],
           },
-          'member': [
-            {
-              '@type': 'OrganizationMember',
-              'member': {
-                '@type': 'Person',
-                'name': 'Bodapati Bharat Chandra',
-                'url': 'https://bharatchandra.me',
-                'jobTitle': 'Ground Station & Software Lead',
-                'image': 'https://gari.live/team/bodapati-bharat-chandra.jpg',
-                'sameAs': [
-                  'https://bharatchandra.me',
-                  'https://github.com/BharatChandra-sys',
-                  'https://www.linkedin.com/in/bharat-chandra-bodapati/',
-                ],
-              },
-              'roleName': 'Ground Station & Software Lead',
-              'startDate': '2026-02',
-            },
-            {
-              '@type': 'OrganizationMember',
-              'member': { '@type': 'Person', 'name': 'Shaik Aadil Iftikhar', 'jobTitle': 'Team Lead & Analysis Engineer' },
-              'roleName': 'Rocket Team Lead',
-            },
-            {
-              '@type': 'OrganizationMember',
-              'member': { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead & Electronics Engineer' },
-              'roleName': 'CanSat Team Lead',
-            },
-            {
-              '@type': 'OrganizationMember',
-              'member': { '@type': 'Person', 'name': 'Saketh Muppala', 'url': 'https://www.linkedin.com/in/sakethmuppala/', 'jobTitle': 'Co-Lead & Supportive Engineer' },
-              'roleName': 'Rocket Co-Lead',
-            },
-          ],
-        }}
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            'name': 'GARI Team Members — GITAM Aerospace Rocketry Initiative',
+            'description': 'All 30+ members of GARI, the student aerospace and rocketry team at GITAM University Hyderabad competing in IN-SPACe CAN-7USAT 2026.',
+            'url': 'https://gari.live/team',
+            'numberOfItems': 28,
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'item': { '@type': 'Person', 'name': 'Harshith Venkata Naga Pavana Jangala', 'jobTitle': 'Aerospace Engineer — GARI', 'image': 'https://gari.live/team/harshith-venkata.jpg', 'url': 'https://gari.live/team', 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
+              { '@type': 'ListItem', 'position': 2, 'item': { '@type': 'Person', 'name': 'Bodapati Bharat Chandra', 'jobTitle': 'Ground Station & Software Lead — GARI', 'image': 'https://gari.live/team/bodapati-bharat-chandra.jpg', 'url': 'https://gari.live/team', 'sameAs': ['https://bharatchandra.me'], 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
+              { '@type': 'ListItem', 'position': 3, 'item': { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead — GARI', 'url': 'https://gari.live/team', 'worksFor': { '@type': 'Organization', 'name': 'GARI', 'url': 'https://gari.live' } } },
+              { '@type': 'ListItem', 'position': 4, 'item': { '@type': 'Person', 'name': 'Shaik Aadil Iftikhar', 'jobTitle': 'Rocket Team Lead — GARI', 'image': 'https://gari.live/team/shaik-aadil-iftikhar.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 5, 'item': { '@type': 'Person', 'name': 'Saketh Muppala', 'jobTitle': 'Rocket Co-Lead — GARI', 'image': 'https://gari.live/team/saketh-muppala.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 6, 'item': { '@type': 'Person', 'name': 'Nischal Aditya M', 'jobTitle': 'Communication Engineer — GARI', 'image': 'https://gari.live/team/nischal-aditya.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 7, 'item': { '@type': 'Person', 'name': 'Sreehitha Tadavarthy', 'jobTitle': 'Design Engineer — GARI', 'image': 'https://gari.live/team/sreehitha-tadavarthy.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 8, 'item': { '@type': 'Person', 'name': 'Thrinadh Tirumalasetti', 'jobTitle': 'Propulsion Engineer — GARI', 'image': 'https://gari.live/team/thrinadh-tirumalasetti.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 9, 'item': { '@type': 'Person', 'name': 'Achanta Sri Karthikeya', 'jobTitle': 'Electronics Engineer — GARI', 'image': 'https://gari.live/team/achanta-sri-karthikeya.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 10, 'item': { '@type': 'Person', 'name': 'Mokshagna Mopidevi', 'jobTitle': 'Computer Engineer — GARI', 'image': 'https://gari.live/team/mokshagna-mopidevi.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 11, 'item': { '@type': 'Person', 'name': 'Shreemann Narayana Karnakoti', 'jobTitle': 'Structural Engineer — GARI', 'image': 'https://gari.live/team/shreemann-narayana.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 12, 'item': { '@type': 'Person', 'name': 'Tanmaay Sharma', 'jobTitle': 'CanSat Co-Lead & Structures — GARI', 'image': 'https://gari.live/team/tanmaay-sharma.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 13, 'item': { '@type': 'Person', 'name': 'Singam Sai Harshith', 'jobTitle': 'Avionics & Flight Software Lead — GARI', 'image': 'https://gari.live/team/singam-sai-harshith.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 14, 'item': { '@type': 'Person', 'name': 'Varshith Pappuri', 'jobTitle': 'Communication & RF Systems — GARI', 'image': 'https://gari.live/team/varshith-pappuri.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 15, 'item': { '@type': 'Person', 'name': 'Rohan Jason Bellapu', 'jobTitle': 'Sensor & Payload Systems Lead — GARI', 'image': 'https://gari.live/team/rohan-jason-bellapu.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 16, 'item': { '@type': 'Person', 'name': 'Satya Rishi Chodesetty', 'jobTitle': 'Power & Electrical Systems — GARI', 'image': 'https://gari.live/team/satya-rishi-chodesetty.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 17, 'item': { '@type': 'Person', 'name': 'Hanzel Vergis Thomas', 'jobTitle': 'Descent & Recovery Systems — GARI', 'image': 'https://gari.live/team/hanzel-vergis-thomas.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 18, 'item': { '@type': 'Person', 'name': 'Krishna Nishita', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/krishna-nishita.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 19, 'item': { '@type': 'Person', 'name': 'Shaik Farhat Raheem', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/shaik-farhat-raheem.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 20, 'item': { '@type': 'Person', 'name': 'Krrish Mathur', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/krrish-mathur.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 21, 'item': { '@type': 'Person', 'name': 'Prajwal KM', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/prajwal-km.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 22, 'item': { '@type': 'Person', 'name': 'Naga Manikanta Uppala', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/naga-manikanta-uppala.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 23, 'item': { '@type': 'Person', 'name': 'Gill Mandeep Kaur', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/gill-mandeep-kaur.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 24, 'item': { '@type': 'Person', 'name': 'Vutukuru Sai Pranav', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/vutukuru-sai-pranav.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 25, 'item': { '@type': 'Person', 'name': 'Pulidindi Abhinav', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/pulidindi-abhinav.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 26, 'item': { '@type': 'Person', 'name': 'Toka Priyanka', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/toka-priyanka.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 27, 'item': { '@type': 'Person', 'name': 'Bhimineni Yoga Nandini', 'jobTitle': 'Core Team — GARI', 'image': 'https://gari.live/team/bhimineni-yoga-nandini.jpg', 'url': 'https://gari.live/team' } },
+              { '@type': 'ListItem', 'position': 28, 'item': { '@type': 'Person', 'name': 'E Krishna Chaitanya', 'jobTitle': 'Core Team — GARI', 'url': 'https://gari.live/team' } },
+            ],
+          },
+        ]}
       />
       {/* Raw script tag for dangerouslySetInnerHTML removed — schema passed via SEO component */}
       <section className="page-hero">
