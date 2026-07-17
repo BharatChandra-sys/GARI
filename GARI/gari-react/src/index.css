@@ -40,7 +40,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
   color: #0f172a;
-  overflow-x: hidden;
   line-height: 1.55;
   /* Prevent CLS */
   min-height: 100vh;
@@ -174,13 +173,16 @@ a:hover {
    CONTENT VISIBILITY — Performance SEO
    ===================================== */
 
-/* Defer rendering of off-screen content */
-.content-section,
-.team-section,
-.sponsor-tier,
-.achievements-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
+/* Defer rendering of off-screen content — desktop only */
+/* Disabled on mobile: content-visibility breaks IntersectionObserver (framer-motion) */
+@media (min-width: 769px) {
+  .content-section,
+  .team-section,
+  .sponsor-tier,
+  .achievements-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
 }
 
 @media (max-width: 768px) {

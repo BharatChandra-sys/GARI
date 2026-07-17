@@ -4,7 +4,7 @@ import './AnimatedStats.css';
 
 const AnimatedStats = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: 0 });
 
   const stats = [
     { value: 30, suffix: '+', label: 'Team Members', duration: 2 },
@@ -18,8 +18,8 @@ const AnimatedStats = () => {
       <div className="container">
         <motion.div
           className="stats-header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h2>By The Numbers</h2>
@@ -68,9 +68,10 @@ const StatCard = ({ stat, index, isInView }) => {
   return (
     <motion.div
       className="animated-stat-card"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       whileHover={{ scale: 1.05, y: -5 }}
     >
       <div className="stat-icon">

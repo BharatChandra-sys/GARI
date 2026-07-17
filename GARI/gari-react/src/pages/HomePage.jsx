@@ -4,6 +4,7 @@ import AnimatedStats from '../components/sections/AnimatedStats';
 import Sponsors from '../components/sections/Sponsors';
 import SEO from '../components/common/SEO';
 import './HomePage.css';
+import './HomePageMobile.css';
 
 const HomePage = () => {
   return (
@@ -46,44 +47,44 @@ const HomePage = () => {
               <div className="overview-card">
                 <div className="card-image">
                   <img 
-                    src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=800&q=80" 
-                    alt="GARI aerospace research and rocket engineering at GITAM University"
+                    src="/achievements/01_rover_for_extraterrestrial_planets/rover_extraterrestrial_photo_01.jpeg" 
+                    alt="GARI rover prototype for extraterrestrial planet exploration"
                     loading="lazy"
                     decoding="async"
                     width="800"
                     height="450"
                   />
                 </div>
-                <h3>Aerospace Research</h3>
-                <p>Exploring advanced aerospace systems and engineering innovation</p>
+                <h3>Rover for Extraterrestrial Planets</h3>
+                <p>Planetary rover prototype with chassis, wiring, and motion-testing documentation</p>
               </div>
               <div className="overview-card">
                 <div className="card-image">
                   <img 
-                    src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80" 
-                    alt="GARI CanSat mission — student satellite competing in IN-SPACe CAN-7USAT"
+                    src="/achievements/03_hexa_copter_making/hexa_copter_photo_01.jpeg" 
+                    alt="GARI hexa copter build — frame, motors and electronics assembly"
                     loading="lazy"
                     decoding="async"
                     width="800"
                     height="450"
                   />
                 </div>
-                <h3>CanSat Mission</h3>
-                <p>Developing advanced satellite systems for IN-SPACe competition</p>
+                <h3>Hexa Copter Making</h3>
+                <p>Multirotor build covering frame assembly, propulsion, and electronics integration</p>
               </div>
               <div className="overview-card">
                 <div className="card-image">
                   <img 
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" 
-                    alt="GARI student innovation — 30+ aerospace engineering students at GITAM"
+                    src="/achievements/06_fixed_wing_aircraft_model/fixed_wing_aircraft_photo_11.jpeg" 
+                    alt="GARI fixed-wing aircraft model — structure and flight prototype"
                     loading="lazy"
                     decoding="async"
                     width="800"
                     height="450"
                   />
                 </div>
-                <h3>Student Innovation</h3>
-                <p>30+ members building the future of aerospace technology</p>
+                <h3>Fixed-Wing Aircraft Model</h3>
+                <p>Full fixed-wing prototype with structure, electronics placement, and test setup</p>
               </div>
             </div>
           </div>

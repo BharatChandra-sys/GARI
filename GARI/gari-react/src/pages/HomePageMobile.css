@@ -1,0 +1,172 @@
+/* ================================================
+   HOME PAGE — MOBILE ONLY
+   All rules scoped to .home-page to avoid side effects
+   ================================================ */
+
+@media (max-width: 768px) {
+
+  /* ── Hero: full-screen, content anchored bottom-left ── */
+  .home-page .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Spacer grows to fill empty space above content */
+  .home-page .hero-spacer {
+    display: block !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Content sits at the bottom */
+  .home-page .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    flex-shrink: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 1.25rem 1.5rem 4rem !important;
+    /* stronger gradient behind text */
+    background: linear-gradient(
+      to top,
+      rgba(5, 10, 25, 0.88) 0%,
+      rgba(5, 10, 25, 0.60) 60%,
+      transparent 100%
+    ) !important;
+  }
+
+  .home-page .hero-eyebrow {
+    text-align: left !important;
+    font-size: 0.65rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .home-page .hero h1 {
+    font-size: clamp(2rem, 9.5vw, 2.8rem) !important;
+    letter-spacing: -0.5px !important;
+    text-align: left !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  .home-page .hero-sub {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    margin: 0 0 1.4rem 0 !important;
+    max-width: 100% !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .home-page .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+  }
+
+  .home-page .hero-btn {
+    width: auto !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* PDR strip pinned to very bottom */
+  .home-page .hero-pdr-strip {
+    bottom: 0 !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .home-page .hero-pdr-inner {
+    padding: 0 1.25rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .home-page .hero-pdr-label {
+    display: none !important;
+  }
+
+  /* No scroll cue on mobile */
+  .home-page .hero-scroll-cue {
+    display: none !important;
+  }
+
+  /* ── Cards: horizontal scroll row ── */
+  .home-page .overview-section {
+    padding: 2rem 0 2.5rem !important;
+  }
+
+  .home-page .overview-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.9rem !important;
+    padding: 0 1.25rem 0.5rem !important;
+    overflow-x: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .overview-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .home-page .overview-card {
+    flex: 0 0 80vw !important;
+    max-width: 80vw !important;
+    height: 280px !important;
+    scroll-snap-align: start !important;
+    border-radius: 14px !important;
+    transform: none !important;
+  }
+
+  .home-page .overview-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .home-page .card-image {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+  }
+
+  .home-page .overview-card h3 {
+    font-size: 1.1rem !important;
+    bottom: 4rem !important;
+    left: 1.1rem !important;
+    right: 1.1rem !important;
+  }
+
+  .home-page .overview-card p {
+    font-size: 0.8rem !important;
+    bottom: 1.25rem !important;
+    left: 1.1rem !important;
+    right: 1.1rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page .hero-content {
+    padding: 1rem 1.25rem 3.75rem !important;
+  }
+
+  .home-page .hero h1 {
+    font-size: clamp(1.85rem, 10vw, 2.4rem) !important;
+  }
+
+  .home-page .overview-card {
+    flex: 0 0 88vw !important;
+    max-width: 88vw !important;
+  }
+}

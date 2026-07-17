@@ -1,0 +1,39 @@
+.sqs-block[data-definition-name="website.components.button"] {
+  /* Button Block Base Style
+=================================================*/
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-block-content {
+  flex: var(--sqs-block-content-flex, 0);
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-stretched {
+  flex: 1;
+  height: 100%;
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-stretched .sqs-block-button-element {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  flex: 1;
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-block-button-container {
+  display: flex;
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-block-button-container--left {
+  text-align: left;
+  justify-content: flex-start;
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-block-button-container--center {
+  text-align: center;
+  justify-content: center;
+}
+.sqs-block[data-definition-name="website.components.button"] .sqs-block-button-container--right {
+  text-align: right;
+  justify-content: flex-end;
+}
+.sqs-block[data-definition-name="website.components.button"] [data-has-block-animations] .sqs-block-button-element {
+  transition: none !important;
+  opacity: 1 !important;
+}
+

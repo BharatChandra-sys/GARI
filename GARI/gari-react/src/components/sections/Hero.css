@@ -39,15 +39,22 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(5, 10, 25, 0.45) 0%,
-    rgba(5, 10, 25, 0.55) 50%,
-    rgba(5, 10, 25, 0.75) 100%
+    rgba(5, 10, 25, 0.55) 0%,
+    rgba(5, 10, 25, 0.35) 40%,
+    rgba(5, 10, 25, 0.65) 75%,
+    rgba(5, 10, 25, 0.85) 100%
   );
 }
 
 /* =====================
    Content
    ===================== */
+
+/* Spacer: hidden on desktop, used on mobile to push content to bottom */
+.hero-spacer {
+  display: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -148,7 +155,7 @@
    ===================== */
 .hero-scroll-cue {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -185,7 +192,6 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
-    padding: 0 1.25rem;
   }
 
   /* Disable parallax zoom on mobile — prevents white edges */
@@ -195,46 +201,19 @@
     background-position: center 30%;
   }
 
-  .hero h1 {
-    font-size: clamp(2rem, 9vw, 2.8rem);
-    letter-spacing: -1px;
-  }
-
-  .hero-sub {
-    font-size: 0.88rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .hero-btn {
-    width: 100%;
-    max-width: 280px;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
   .hero-scroll-cue {
     display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-content {
-    margin-top: -2vh;
-  }
-
   .hero h1 {
-    font-size: clamp(1.75rem, 10vw, 2.4rem);
+    font-size: clamp(2rem, 11vw, 2.6rem);
   }
 }
 
 /* =====================
-   PDR strip — overlaid at hero bottom, fades on hover
+   PDR strip — no background, pinned to very bottom of hero
    ===================== */
 .hero-pdr-strip {
   position: absolute;
@@ -242,18 +221,8 @@
   left: 0;
   right: 0;
   z-index: 3;
-  padding: 0.75rem 0;
-  background: rgba(5, 10, 25, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  transition: opacity 0.3s ease;
-}
-
-/* Fade out when hovering anywhere on the hero */
-.hero:hover .hero-pdr-strip {
-  opacity: 0;
-  pointer-events: none;
+  padding: 0.6rem 0;
+  background: transparent;
 }
 
 .hero-pdr-inner {
@@ -262,8 +231,16 @@
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.25rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.hero-pdr-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
 }
 
 .hero-pdr-label {
@@ -295,7 +272,6 @@
 }
 
 .hero-pdr-link {
-  margin-left: auto;
   font-size: 0.78rem;
   font-weight: 600;
   color: #60a5fa;
@@ -303,6 +279,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   transition: color 0.2s ease;
+  margin-top: 10px;
 }
 
 .hero-pdr-link:hover {
@@ -312,13 +289,8 @@
 
 @media (max-width: 768px) {
   .hero-pdr-strip {
-    /* Always visible on mobile — no hover state on touch */
-    padding: 0.6rem 0;
-  }
-
-  .hero:hover .hero-pdr-strip {
-    opacity: 1;
-    pointer-events: auto;
+    bottom: 0;
+    padding: 0.4rem 0;
   }
 
   .hero-pdr-inner {

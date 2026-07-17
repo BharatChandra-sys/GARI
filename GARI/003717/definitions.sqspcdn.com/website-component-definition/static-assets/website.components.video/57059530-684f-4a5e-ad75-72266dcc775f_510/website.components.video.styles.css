@@ -1,0 +1,112 @@
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder {
+  padding-bottom: 65%;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 33%, rgba(0, 0, 0, 0) 100%);
+  background-color: #313131;
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder + iframe {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder .loading-indicator {
+  line-height: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 15px;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder .loading-indicator__spinner {
+  animation: loading-indicator-rotate-spinner 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder .loading-indicator__path {
+  fill: transparent;
+  stroke-dasharray: 150, 200;
+  stroke-dashoffset: -10;
+  animation: loading-indicator-dash 1.5s ease-in-out infinite;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder__ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sqs-block-video-placeholder--empty .sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder__icon {
+  width: 26px;
+}
+.sqs-block-video-placeholder--in-progress .sqs-block[data-definition-name="website.components.video"] .sqs-block-video-placeholder__icon {
+  background-color: transparent;
+  width: 80px;
+  height: 80px;
+}
+@keyframes loading-indicator-rotate-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-indicator-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-native-video .native-video-player {
+  padding-top: 56.25%;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-native-video .native-video-player.native-video-player--has-aspect-ratio {
+  padding-top: 0;
+  aspect-ratio: 1.77777778;
+  position: relative;
+  /* stylelint-disable-next-line selector-pseudo-class-disallowed-list */
+  /* stylelint-disable-next-line selector-pseudo-class-disallowed-list */
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-native-video .native-video-player.native-video-player--has-aspect-ratio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-native-video .native-video-player.native-video-player--has-aspect-ratio:has(.plyr)::before {
+  opacity: 1;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-native-video .native-video-player.native-video-player--has-aspect-ratio:has(.plyr.plyr--hide-controls)::before {
+  opacity: 0;
+}
+.sqs-block[data-definition-name="website.components.video"] .intrinsic,
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-content .intrinsic {
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.video"] .intrinsic .embed-block-wrapper,
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-content .intrinsic .embed-block-wrapper {
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.video"] .intrinsic .embed-block-wrapper .sqs-video-wrapper,
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-content .intrinsic .embed-block-wrapper .sqs-video-wrapper,
+.sqs-block[data-definition-name="website.components.video"] .intrinsic .embed-block-wrapper iframe,
+.sqs-block[data-definition-name="website.components.video"] .sqs-block-content .intrinsic .embed-block-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.sqs-block[data-definition-name="website.components.video"] .sqs-video-wrapper iframe,
+.sqs-block[data-definition-name="website.components.video"] .sqs-video-overlay {
+  transition: opacity 1000ms ease;
+}
+

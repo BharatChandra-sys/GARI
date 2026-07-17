@@ -91,8 +91,9 @@
 
 @media (max-width: 768px) {
   .animated-stats-section {
-    padding: 2rem 1rem;
-    background: linear-gradient(180deg, #e0e7ff 0%, #dbeafe 50%, #ffffff 100%);
+    padding: 2.5rem 1rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
   }
 
   .stats-header {
@@ -124,14 +125,12 @@
   .animated-stat-card h3 {
     font-size: 2.6rem;
     margin-bottom: 0.35rem;
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1e40af;
   }
 
   .stat-suffix {
     font-size: 2rem;
+    color: #3b82f6;
   }
 
   .animated-stat-card p {

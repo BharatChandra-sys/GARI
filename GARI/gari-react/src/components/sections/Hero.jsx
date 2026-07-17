@@ -17,6 +17,7 @@ const Hero = () => {
       </div>
 
       {/* Centered content over image */}
+      <div className="hero-spacer" aria-hidden="true" />
       <div className="hero-content">
         <motion.p
           className="hero-eyebrow"
@@ -71,13 +72,15 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* PDR milestone strip — overlaid at the bottom of the hero, fades on hover */}
+      {/* PDR milestone strip — no background, overlaid on image above scroll cue */}
       <div className="hero-pdr-strip" aria-label="Latest milestone">
         <div className="hero-pdr-inner">
-          <span className="hero-pdr-label">Latest milestone</span>
-          <div className="hero-pdr-badges">
-            <span className="hero-pdr-badge">PDR Cleared — CanSat</span>
-            <span className="hero-pdr-badge">PDR Cleared — Rocket</span>
+          <div className="hero-pdr-left">
+            <span className="hero-pdr-label">Latest milestone</span>
+            <div className="hero-pdr-badges">
+              <span className="hero-pdr-badge">PDR Cleared — CanSat</span>
+              <span className="hero-pdr-badge">PDR Cleared — Rocket</span>
+            </div>
           </div>
           <a href="/cansat" className="hero-pdr-link">View mission →</a>
         </div>
