@@ -39,7 +39,7 @@ const JoinGARI = () => {
             you want engineering experience that stands up in a job interview, this is it.
           </p>
 
-          <ul className="jg-reasons" role="list" aria-label="Reasons to join GARI">
+          <ul className="jg-reasons" aria-label="Reasons to join GARI">
             {[
               'Work on nationally competing hardware',
               'Learn by building, not just studying',
