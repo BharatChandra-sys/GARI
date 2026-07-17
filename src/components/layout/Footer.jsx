@@ -70,35 +70,73 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      role="contentinfo"
+      aria-label="GARI site footer"
+      itemScope
+      itemType="https://schema.org/WPFooter"
+    >
       <div className="footer-content">
         <div className="footer-top">
           <div className="footer-brand">
             <Logo variant="default" size="medium" />
-            <p className="footer-tagline">
-              GITAM Aerospace rocketry Initiative
+            {/* E-E-A-T signal: clear organization description */}
+            <p className="footer-tagline" itemProp="name">
+              GITAM Aerospace Rocketry Initiative
             </p>
-            <p className="footer-description">
-              Building the future of aerospace innovation through student-driven rocketry and engineering excellence.
+            <p className="footer-description" itemProp="description">
+              Student-driven aerospace and rocketry team at GITAM University,
+              Hyderabad. Competing in IN-SPACe CAN-7USAT 2026 and building
+              next-generation rockets.
             </p>
-            
+
+            {/* E-E-A-T: location signals */}
+            <p
+              className="footer-location-text"
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+              style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}
+            >
+              <span itemProp="addressLocality">Hyderabad</span>,{' '}
+              <span itemProp="addressRegion">Telangana</span>,{' '}
+              <span itemProp="addressCountry">India</span>
+            </p>
+
             {/* Social Media Links */}
             <div className="footer-social">
-              <a href="mailto:contact@gari.live" className="social-link" aria-label="Email">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <a
+                href="mailto:contact@gari.live"
+                className="social-link"
+                aria-label="Email GARI at contact@gari.live"
+                rel="noopener"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
               </a>
-              <a href="https://instagram.com/gari.live" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <a
+                href="https://instagram.com/gari.gitam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="Follow GARI on Instagram @gari.gitam"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <a
+                href="https://linkedin.com/company/gari-gitam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="Follow GARI on LinkedIn"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/>
                   <circle cx="4" cy="4" r="2"/>
@@ -108,33 +146,36 @@ const Footer = () => {
           </div>
 
           <div className="footer-links-section">
-            <div className="footer-column">
-              <h4>Quick Links</h4>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/mission">Mission</Link></li>
-                <li><Link to="/achievements">Achievements</Link></li>
+            {/* Internal linking with descriptive anchor text (Semrush technique #3) */}
+            <nav className="footer-column" aria-label="About GARI">
+              <h4>About GARI</h4>
+              <ul role="list">
+                <li><Link to="/">GARI Home</Link></li>
+                <li><Link to="/about">About GITAM Aerospace</Link></li>
+                <li><Link to="/mission">Our Aerospace Mission</Link></li>
+                <li><Link to="/achievements">Competition Achievements</Link></li>
               </ul>
-            </div>
+            </nav>
 
-            <div className="footer-column">
-              <h4>Projects</h4>
-              <ul>
-                <li><Link to="/cansat">CanSat Mission</Link></li>
-                <li><Link to="/team">Our Team</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
-                <li><Link to="/sponsors">Sponsors</Link></li>
+            <nav className="footer-column" aria-label="GARI Projects">
+              <h4>Projects & Team</h4>
+              <ul role="list">
+                <li><Link to="/cansat">CanSat IN-SPACe 2026</Link></li>
+                <li><Link to="/team">Meet the 30+ Member Team</Link></li>
+                <li><Link to="/sponsors">Become a Sponsor</Link></li>
+                <li><Link to="/contact">Contact GARI</Link></li>
               </ul>
-            </div>
+            </nav>
 
             <div className="footer-column">
               <h4>Newsletter</h4>
-              <p className="newsletter-text">Stay updated with our latest projects</p>
-              <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
+              <p className="newsletter-text">Stay updated with GARI&apos;s latest aerospace projects and competition results</p>
+              <form className="newsletter-form" onSubmit={handleNewsletterSubmit} aria-label="Newsletter subscription">
+                <label htmlFor="footer-email" className="sr-only">Your email address</label>
+                <input
+                  type="email"
+                  id="footer-email"
+                  placeholder="Your email"
                   className={`newsletter-input ${error ? 'error' : ''}`}
                   value={email}
                   onChange={(e) => {
@@ -143,23 +184,23 @@ const Footer = () => {
                   }}
                   required
                   disabled={isSubmitting}
+                  autoComplete="email"
                 />
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="newsletter-button"
                   disabled={isSubmitting}
+                  aria-label={isSubmitting ? 'Subscribing to GARI newsletter...' : 'Subscribe to GARI newsletter'}
                 >
                   {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </form>
-              {error && (
-                <p className="newsletter-error">{error}</p>
-              )}
+              {error && <p className="newsletter-error" role="alert">{error}</p>}
               {submitStatus === 'success' && (
-                <p className="newsletter-success">✓ Subscribed successfully!</p>
+                <p className="newsletter-success" role="status">✓ Subscribed successfully!</p>
               )}
               {submitStatus === 'error' && !error && (
-                <p className="newsletter-error">✗ Failed to subscribe. Try again.</p>
+                <p className="newsletter-error" role="alert">✗ Failed to subscribe. Try again.</p>
               )}
             </div>
           </div>
@@ -167,10 +208,21 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © 2026 GARI. All rights reserved.
+            © 2026 GARI — GITAM Aerospace Rocketry Initiative. All rights reserved.
           </p>
           <p className="footer-location">
-            GITAM University, Hyderabad
+            <a href="https://www.gitam.edu" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8' }}>
+              GITAM University
+            </a>
+            , Hyderabad, Telangana, India
+          </p>
+          {/* Humans.txt credit — E-E-A-T signal */}
+          <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>
+            Built by{' '}
+            <a href="https://bharatchandra.me" target="_blank" rel="me noopener noreferrer" style={{ color: '#60a5fa' }}>
+              Bodapati Bharat Chandra
+            </a>
+            {' '}— Ground Station &amp; Software Lead, GARI CanSat Team
           </p>
         </div>
       </div>

@@ -8,31 +8,32 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.95rem 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
 }
 
 .navbar.scrolled {
-  padding: 0.75rem 0;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.8rem 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-container {
-  max-width: 1400px;
+  width: min(100% - 1.5rem, 1360px);
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.75rem;
 }
 
 /* =====================================
@@ -56,20 +57,22 @@
 
 .nav-links {
   display: flex;
+  margin-left: auto;
   list-style: none;
-  gap: 2.5rem;
+  justify-content: center;
+  gap: 2rem;
   align-items: center;
 }
 
 .nav-links li a {
   color: #0f172a;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 600;
   position: relative;
   transition: all 0.2s ease;
   padding: 0.5rem 0;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
@@ -100,7 +103,7 @@
 
 /* Professional Contact Button - Modern & Clean */
 .nav-links li:last-child a {
-  padding: 0.7rem 1.8rem;
+  padding: 0.75rem 1.55rem;
   background: #1e40af;
   color: #ffffff !important;
   border-radius: 6px;
@@ -174,20 +177,20 @@
 
 @media (max-width: 968px) {
   .nav-links {
-    gap: 1.75rem;
+    gap: 1.35rem;
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
   }
 
   .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.55);
+    background: transparent;
   }
 
   .hamburger {
@@ -214,17 +217,17 @@
     right: -100%;
     height: 100vh;
     width: 280px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     flex-direction: column;
-    padding: 5rem 2rem 2rem;
+    padding: 4.5rem 1.5rem 1.5rem;
     gap: 0;
-    box-shadow: -4px 0 40px rgba(15, 23, 42, 0.12);
+    box-shadow: none;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     overflow-y: auto;
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid transparent;
   }
 
   .nav-links.mobile-active {
@@ -256,8 +259,8 @@
 
   .nav-links li a {
     display: block;
-    padding: 1.2rem 0;
-    font-size: 1.05rem;
+    padding: 1.05rem 0;
+    font-size: 1rem;
     text-align: left;
     transition: all 0.2s ease;
   }
@@ -292,6 +295,8 @@
   }
   
   .nav-container {
-    padding: 0 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 0.9rem;
   }
 }

@@ -8,6 +8,7 @@ import MissionPage from './pages/MissionPage';
 import CanSatPage from './pages/CanSatPage';
 import TeamPage from './pages/TeamPage';
 import AchievementsPage from './pages/AchievementsPage';
+import AchievementProjectPage from './pages/AchievementProjectPage';
 import ContactPage from './pages/ContactPage';
 import SponsorsPage from './pages/SponsorsPage';
 import Footer from './components/layout/Footer';
@@ -30,15 +31,19 @@ function App() {
         {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
         
         <div className="App">
+          {/* Skip Navigation — Accessibility + SEO (Semrush technique #1) */}
+          <a href="#main-content" className="skip-nav">Skip to main content</a>
+
           <Navbar />
           
-          <main>
+          <main id="main-content" role="main">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/mission" element={<MissionPage />} />
               <Route path="/cansat" element={<CanSatPage />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/achievements/:slug" element={<AchievementProjectPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/sponsors" element={<SponsorsPage />} />

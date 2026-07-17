@@ -1,137 +1,114 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/common/SEO';
 import './AchievementsPage.css';
+import { competitions, featuredProject, projectArchives, projectStats } from '../data/achievementsData';
 
 const AchievementsPage = () => {
-  const achievements = [
-    {
-      year: '2026',
-      title: 'IN-SPACe CAN-7USAT Competition',
-      description: 'Selected for national CanSat competition',
-      status: 'Ongoing',
-    },
-    {
-      year: '2025',
-      title: 'Team Formation',
-      description: 'GARI officially established at GITAM University',
-      status: 'Completed',
-    },
-  ];
-
-  const sponsors = [
-    {
-      name: 'Sponsor Name',
-      logo: null,
-      tier: 'Platinum',
-    },
-    // Add more sponsors here
-  ];
-
-  const competitions = [
-    {
-      name: 'IN-SPACe CanSat Competition',
-      year: '2026',
-      category: 'CAN-7USAT',
-      description: 'National level student satellite competition',
-    },
-    {
-      name: 'Spaceport America Cup',
-      year: 'Future',
-      category: 'Target',
-      description: 'World\'s largest intercollegiate rocket competition',
-    },
-  ];
+  const sponsors = [];
 
   return (
     <div className="achievements-page">
       <SEO
-        title="Achievements & Competition Results"
-        description="GARI achievements: Selected for IN-SPACe CAN-7USAT 2026 national CanSat competition. GITAM University's aerospace rocketry team milestones and competition history."
-        path="/achievements"
-        keywords="GARI achievements, IN-SPACe CanSat results, student aerospace competition India, GITAM rocketry awards, CanSat competition 2026"
-        breadcrumbs={[{ name: 'Achievements', url: 'https://gari.live/achievements' }]}
+        title="Achievements, Past Works & Media Archive"
+        description="GARI achievements and past works: national CanSat selection, rover systems, thrust control studies, rescue robotics, aerial systems, and fixed-wing prototypes with real photos and videos."
+        keywords="GARI achievements, past works, aerospace media archive, student rocketry India, IN-SPACe CanSat results, GITAM rocketry awards, CanSat competition 2026"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ItemList',
-          'name': 'GARI Achievements and Competition Results',
-          'description': 'Competition results and milestones of GARI — GITAM Aerospace Rocketry Initiative',
-          'url': 'https://gari.live/achievements',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'item': {
-                '@type': 'Event',
-                'name': 'IN-SPACe CAN-7USAT Competition 2026',
-                'description': 'National CanSat competition — GARI selected to compete',
-                'startDate': '2026',
-                'eventStatus': 'https://schema.org/EventScheduled',
-                'performer': { '@id': 'https://gari.live/#organization' },
-              },
+          name: 'GARI Project Archive',
+          description: 'Photos, videos, CAD work, and prototype documentation from GARI aerospace projects',
+          url: 'https://gari.live/achievements',
+          itemListElement: projectArchives.map((project, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'CreativeWork',
+              name: project.title,
+              description: project.summary,
+              url: `https://gari.live/achievements#${project.slug}`,
             },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'item': {
-                '@type': 'Event',
-                'name': 'GARI Team Formation',
-                'description': 'GARI officially established at GITAM University',
-                'startDate': '2025',
-                'eventStatus': 'https://schema.org/EventScheduled',
-              },
-            },
-          ],
+          })),
         }}
       />
+
       <section className="page-hero">
         <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1>Achievements & Recognition</h1>
-            <p className="hero-subtitle">
-              Building Excellence Through Competition and Innovation
-            </p>
-          </motion.div>
+          <div className="hero-layout">
+            <motion.div
+              className="hero-copy"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1>Engineering proof that stands up in a boardroom.</h1>
+              <p className="hero-subtitle">
+                A curated archive of GARI&apos;s competition milestones, prototype builds, and media assets designed to show serious technical depth to sponsors, partners, and recruiters.
+              </p>
+              <div className="hero-actions">
+                <a href="/contact" className="btn btn-primary">
+                  <span>Talk to GARI</span>
+                </a>
+                <a href="#archive" className="btn btn-secondary">
+                  <span>View project archive</span>
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="hero-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <div className="hero-card-image">
+                {featuredProject.heroMedia.type === 'video' ? (
+                  <video
+                    src={featuredProject.heroMedia.src}
+                    poster={featuredProject.heroMedia.poster}
+                    controls
+                    preload="metadata"
+                  />
+                ) : (
+                  <img src={featuredProject.heroMedia.src} alt={featuredProject.title} loading="lazy" decoding="async" />
+                )}
+              </div>
+              <div className="hero-card-body">
+                <h2>{featuredProject.title}</h2>
+                <p>{featuredProject.about}</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Achievements Timeline */}
-      <section className="content-section">
+      <section className="content-section metrics-section">
         <div className="container">
-          <h2 className="section-title">Our Journey</h2>
-          <div className="timeline">
-            {achievements.map((achievement, index) => (
+          <div className="metrics-grid">
+            {projectStats.map((metric, index) => (
               <motion.div
-                key={index}
-                className="timeline-item"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={metric.label}
+                className="metric-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                transition={{ delay: index * 0.08 }}
               >
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <span className="timeline-year">{achievement.year}</span>
-                  <h3>{achievement.title}</h3>
-                  <p>{achievement.description}</p>
-                  <span className={`status ${achievement.status.toLowerCase()}`}>
-                    {achievement.status}
-                  </span>
-                </div>
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Competitions */}
       <section className="content-section competitions-section">
         <div className="container">
-          <h2 className="section-title">Competitions</h2>
+          <h2 className="section-title">Competitions and target programs</h2>
+          <p className="section-subtitle section-subtitle--wide">
+            This is the mix we are building toward: national competition readiness now, with larger aerospace programs in sight.
+          </p>
           <div className="values-grid">
             {competitions.map((comp, index) => (
               <motion.div
@@ -154,19 +131,63 @@ const AchievementsPage = () => {
         </div>
       </section>
 
-      {/* Sponsors Section */}
+      <section id="archive" className="content-section archive-section">
+        <div className="container">
+          <h2 className="section-title">Past Works Archive</h2>
+          <p className="section-subtitle section-subtitle--wide">
+            Click any project to open the full folder, read the project summary, and inspect the photos and videos in detail.
+          </p>
+
+          <div className="archive-grid">
+            {projectArchives.map((project, index) => (
+              <motion.article
+                key={project.slug}
+                className="archive-card"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Link to={`/achievements/${project.slug}`} className="archive-card-button" aria-label={`Open ${project.title}`}>
+                  <div className="archive-media">
+                    {project.heroMedia.type === 'video' ? (
+                      <div className="archive-preview archive-preview--video">
+                        <img src={project.heroMedia.poster} alt={project.title} loading="lazy" decoding="async" />
+                      </div>
+                    ) : (
+                      <img src={project.heroMedia.src} alt={project.title} loading="lazy" decoding="async" />
+                    )}
+                  </div>
+                  <div className="archive-body">
+                    <div className="archive-meta">
+                      <span>{project.year}</span>
+                      <span>{project.category}</span>
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
+                    <div className="archive-footer">
+                      <span>{project.mediaSummary}</span>
+                      <span>Open case study</span>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="content-section sponsors-section">
         <div className="container">
           <h2 className="section-title">Our Sponsors & Partners</h2>
           <p className="section-subtitle">
-            We're grateful for the support of organizations that believe in student innovation
+            We are building this archive for organizations that want proof, not promises. If you want to back a team that ships work, this is the place to start.
           </p>
-          
+
           <div className="sponsor-cta">
             <h3>Become a Sponsor</h3>
             <p>
-              Support the next generation of aerospace engineers and innovators.
-              Partner with GARI to make an impact.
+              Support the next generation of aerospace engineers and innovators. Partner with GARI to make an impact.
             </p>
             <a href="/contact" className="btn btn-primary">
               <span>Partner With Us</span>
@@ -198,6 +219,7 @@ const AchievementsPage = () => {
           )}
         </div>
       </section>
+
     </div>
   );
 };

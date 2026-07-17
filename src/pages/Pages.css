@@ -4,21 +4,21 @@
 
 /* Page Hero */
 .page-hero {
-  padding: 6rem 2rem 2rem;
+  padding: 5rem 2rem 1.5rem;
   background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
   text-align: center;
 }
 
 .page-hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.2rem);
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   letter-spacing: -1px;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   color: #6b7280;
   max-width: 700px;
   margin: 0 auto;
@@ -29,12 +29,12 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 /* Content Section */
 .content-section {
-  padding: 2rem 2rem;
+  padding: 1.6rem 2rem;
 }
 
 /* About Text */
@@ -45,10 +45,10 @@
 }
 
 .about-text h2 {
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .about-text p {
@@ -67,7 +67,7 @@
 }
 
 .value-card {
-  padding: 1.35rem;
+  padding: 1.15rem;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -102,13 +102,13 @@
 
 .stat-card {
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.25rem;
   background: #f9fafb;
   border-radius: 8px;
 }
 
 .stat-card h3 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 0.35rem;
@@ -153,7 +153,7 @@
 }
 
 .team-info {
-  padding: 1.25rem;
+  padding: 1.05rem;
 }
 
 .team-info h3 {
@@ -202,7 +202,7 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.7rem 0.9rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 1rem;
@@ -223,7 +223,7 @@
 
 .submit-btn {
   width: 100%;
-  padding: 1rem;
+  padding: 0.9rem;
   background: #1a1a1a;
   color: #ffffff;
   border: none;
@@ -242,7 +242,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .page-hero {
-    padding: 5rem 1.25rem 1.5rem;
+    padding: 4.5rem 1rem 1.25rem;
   }
 
   .container {
@@ -250,17 +250,17 @@
   }
 
   .page-hero h1 {
-    font-size: 1.85rem;
+    font-size: 1.65rem;
     margin-bottom: 0.5rem;
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     line-height: 1.45;
   }
 
   .content-section {
-    padding: 1.5rem 0.75rem;
+    padding: 1.25rem 0.75rem;
   }
 
   .about-text {
@@ -268,13 +268,13 @@
   }
 
   .about-text h2 {
-    font-size: 1.35rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.65rem;
   }
 
   .about-text p {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .values-grid,

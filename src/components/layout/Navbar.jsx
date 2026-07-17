@@ -26,14 +26,14 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Mission', path: '/mission' },
-    { name: 'CanSat', path: '/cansat' },
-    { name: 'Team', path: '/team' },
-    { name: 'Achievements', path: '/achievements' },
-    { name: 'Sponsors', path: '/sponsors' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '/', ariaLabel: 'GARI home page' },
+    { name: 'About', path: '/about', ariaLabel: 'About GARI aerospace team' },
+    { name: 'Mission', path: '/mission', ariaLabel: 'GARI aerospace mission' },
+    { name: 'CanSat', path: '/cansat', ariaLabel: 'GARI CanSat IN-SPACe 2026 project' },
+    { name: 'Team', path: '/team', ariaLabel: 'Meet the GARI team' },
+    { name: 'Achievements', path: '/achievements', ariaLabel: 'GARI competition achievements' },
+    { name: 'Sponsors', path: '/sponsors', ariaLabel: 'Sponsor GARI aerospace' },
+    { name: 'Contact', path: '/contact', ariaLabel: 'Contact GARI' },
   ];
 
   return (
@@ -42,10 +42,14 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
+      role="navigation"
+      aria-label="GARI main navigation"
+      itemScope
+      itemType="https://schema.org/SiteLinksSearchBox"
     >
       <div className="nav-container">
-        {/* Logo */}
-        <Link to="/" className="logo-link">
+        {/* Logo — Descriptive link */}
+        <Link to="/" className="logo-link" aria-label="GARI — GITAM Aerospace Rocketry Initiative home page">
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 400 }}
@@ -54,19 +58,25 @@ const Navbar = () => {
           </motion.div>
         </Link>
 
-        {/* Hamburger Menu Button */}
-        <button 
+        {/* Hamburger */}
+        <button
           className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
           onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="nav-links"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        {/* Nav Links */}
-        <ul className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}>
+        {/* Nav Links — descriptive anchor text (Semrush technique #3) */}
+        <ul
+          id="nav-links"
+          className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}
+          role="list"
+        >
           {navLinks.map((link, index) => (
             <motion.li
               key={link.name}
@@ -78,6 +88,8 @@ const Navbar = () => {
                 to={link.path}
                 className={location.pathname === link.path ? 'active' : ''}
                 onClick={closeMobileMenu}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
+                aria-label={link.ariaLabel || link.name}
               >
                 {link.name}
               </Link>
@@ -87,7 +99,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
-          <div className="mobile-overlay" onClick={closeMobileMenu}></div>
+          <div className="mobile-overlay" onClick={closeMobileMenu} aria-hidden="true"></div>
         )}
       </div>
     </motion.nav>
