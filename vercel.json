@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "GARI/gari-react",
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "installCommand": "npm install",
