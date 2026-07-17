@@ -149,7 +149,7 @@ const Footer = () => {
             {/* Internal linking with descriptive anchor text (Semrush technique #3) */}
             <nav className="footer-column" aria-label="About GARI">
               <h4>About GARI</h4>
-              <ul role="list">
+              <ul>
                 <li><Link to="/">GARI Home</Link></li>
                 <li><Link to="/about">About GITAM Aerospace</Link></li>
                 <li><Link to="/mission">Our Aerospace Mission</Link></li>
@@ -158,8 +158,8 @@ const Footer = () => {
             </nav>
 
             <nav className="footer-column" aria-label="GARI Projects">
-              <h4>Projects & Team</h4>
-              <ul role="list">
+              <h4>Projects &amp; Team</h4>
+              <ul>
                 <li><Link to="/cansat">CanSat IN-SPACe 2026</Link></li>
                 <li><Link to="/team">Meet the 30+ Member Team</Link></li>
                 <li><Link to="/sponsors">Become a Sponsor</Link></li>

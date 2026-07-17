@@ -75,7 +75,6 @@ const Navbar = () => {
         <ul
           id="nav-links"
           className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}
-          role="list"
         >
           {navLinks.map((link, index) => (
             <motion.li
