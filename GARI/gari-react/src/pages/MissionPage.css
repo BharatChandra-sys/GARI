@@ -1,0 +1,290 @@
+@import './Pages.css';
+
+.mission-page {
+  min-height: 100vh;
+}
+
+.page-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #0f172a;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.mission-alt-bg {
+  background: #f8fafc;
+}
+
+/* Mission Statement */
+.mission-statement {
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.statement-quote {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.65;
+  font-style: italic;
+  border-left: 4px solid #1e40af;
+  padding: 1.25rem 1.75rem;
+  background: #ffffff;
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+  margin: 0 0 1.25rem;
+}
+
+.statement-context {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+
+/* Section header */
+.mission-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.mission-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 0.6rem;
+}
+
+.mission-section-header h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.5px;
+}
+
+.mission-section-header p {
+  color: #64748b;
+  font-size: 0.95rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Pillars */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.pillar-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.pillar-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  transform: translateY(-3px);
+}
+
+.pillar-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.pillar-card p {
+  font-size: 0.87rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Goals */
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.goal-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.goal-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  border-color: #cbd5e1;
+}
+
+.goal-term {
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1e40af;
+  background: rgba(30, 64, 175, 0.08);
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.goal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.goal-list li {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.5;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.goal-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #1e40af;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* CTA */
+.mission-cta {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  color: #0f172a;
+}
+
+.mission-cta h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+.mission-cta p {
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.mission-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mcta-btn-primary,
+.mcta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mcta-btn-primary {
+  background: #1e40af;
+  color: #ffffff;
+}
+
+.mcta-btn-primary:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+}
+
+.mcta-btn-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+.mcta-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .goals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .goals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .statement-quote {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .mission-cta {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .mission-cta h2 {
+    font-size: 1.35rem;
+  }
+
+  .mission-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mcta-btn-primary,
+  .mcta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

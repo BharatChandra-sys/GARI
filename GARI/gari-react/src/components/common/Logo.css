@@ -1,0 +1,58 @@
+/* =====================================
+   LOGO STYLES - PROFESSIONAL AEROSPACE
+   ===================================== */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-image {
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.02);
+}
+
+/* Navbar controls logo text color via class on parent */
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.logo-container:hover .logo-text {
+  color: #1e40af;
+}
+
+/* White variant — used by navbar over dark hero */
+.logo-container--white .logo-text {
+  color: #ffffff;
+}
+
+.logo-container--white:hover .logo-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile Logo Sizing */
+@media (max-width: 768px) {
+  .logo-container {
+    gap: 4px;
+  }
+
+  .logo-image {
+    height: 32px !important;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+

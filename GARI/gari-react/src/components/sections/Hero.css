@@ -1,0 +1,337 @@
+/* =====================================
+   HERO — FULL BLEED, DARK, BOLD
+   ===================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 1.5rem;
+}
+
+/* =====================
+   Background image
+   ===================== */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=2070');
+  background-size: cover;
+  background-position: center 40%;
+  /* subtle slow zoom */
+  animation: hero-zoom 24s ease-in-out infinite alternate;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+/* Dark overlay — lets the photo show while making white text readable */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 10, 25, 0.45) 0%,
+    rgba(5, 10, 25, 0.55) 50%,
+    rgba(5, 10, 25, 0.75) 100%
+  );
+}
+
+/* =====================
+   Content
+   ===================== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  width: 100%;
+  /* push content up slightly from dead-center */
+  margin-top: -4vh;
+}
+
+/* Eyebrow line above h1 */
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.25rem;
+}
+
+/* Main headline */
+.hero h1 {
+  font-size: clamp(2.4rem, 6.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+/* Accent word(s) in headline — GARI blue */
+.hero-h1-accent {
+  color: #60a5fa;
+}
+
+/* Sub-text beneath headline */
+.hero-sub {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 580px;
+  margin: 0 auto 2.25rem;
+  font-weight: 400;
+}
+
+/* =====================
+   CTA Buttons
+   ===================== */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Outline button — white border, transparent fill (MIT-style) */
+.hero-btn--outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero-btn--outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Solid button — GARI blue */
+.hero-btn--solid {
+  background: #1e40af;
+  color: #ffffff;
+  border: 1.5px solid #1e40af;
+}
+
+.hero-btn--solid:hover {
+  background: #1e3a8a;
+  border-color: #1e3a8a;
+  transform: translateY(-2px);
+}
+
+/* =====================
+   Scroll cue (bottom)
+   ===================== */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: hero-bob 2.5s ease-in-out infinite;
+}
+
+@keyframes hero-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-scroll-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding: 0 1.25rem;
+  }
+
+  /* Disable parallax zoom on mobile — prevents white edges */
+  .hero-bg {
+    background-attachment: scroll;
+    animation: none;
+    background-position: center 30%;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-scroll-cue {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    margin-top: -2vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 10vw, 2.4rem);
+  }
+}
+
+/* =====================
+   PDR strip — overlaid at hero bottom, fades on hover
+   ===================== */
+.hero-pdr-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 0.75rem 0;
+  background: rgba(5, 10, 25, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: opacity 0.3s ease;
+}
+
+/* Fade out when hovering anywhere on the hero */
+.hero:hover .hero-pdr-strip {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-pdr-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.hero-pdr-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.hero-pdr-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.hero-pdr-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+.hero-pdr-link {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #60a5fa;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.hero-pdr-link:hover {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hero-pdr-strip {
+    /* Always visible on mobile — no hover state on touch */
+    padding: 0.6rem 0;
+  }
+
+  .hero:hover .hero-pdr-strip {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hero-pdr-inner {
+    gap: 0.6rem;
+    padding: 0 1rem;
+  }
+
+  .hero-pdr-label {
+    display: none;
+  }
+
+  .hero-pdr-link {
+    margin-left: auto;
+    font-size: 0.72rem;
+  }
+}

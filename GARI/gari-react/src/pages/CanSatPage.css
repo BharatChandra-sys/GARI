@@ -1,0 +1,411 @@
+@import './Pages.css';
+
+.cansat-page {
+  min-height: 100vh;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #0f172a;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Section label */
+.cansat-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 0.65rem;
+}
+
+.cansat-alt-bg {
+  background: #f8fafc;
+}
+
+/* Section header */
+.cansat-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cansat-section-header h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.5px;
+}
+
+.cansat-section-desc {
+  color: #64748b;
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =====================
+   PDR Banner
+   ===================== */
+.pdr-banner {
+  background: #f0f9ff;
+  border-top: 1px solid #bae6fd;
+  border-bottom: 1px solid #bae6fd;
+  padding: 1.5rem 0;
+}
+
+.pdr-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pdr-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.pdr-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.pdr-badge--cleared {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.pdr-text {
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =====================
+   Mission Intro Split
+   ===================== */
+.cansat-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.cansat-intro-text h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.65rem 0 1.25rem;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+}
+
+.cansat-intro-text p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 0.97rem;
+  margin-bottom: 1rem;
+}
+
+/* Stats block */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+}
+
+.stat-card h3 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1e40af;
+  margin-bottom: 0.35rem;
+  line-height: 1;
+}
+
+.stat-card p {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* =====================
+   Mission Timeline
+   ===================== */
+.mission-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.mission-phase {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border-left: 4px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.phase--cleared {
+  border-left-color: #0f172a;
+}
+
+.phase--active {
+  border-left-color: #1e40af;
+}
+
+.phase--upcoming {
+  border-left-color: #cbd5e1;
+}
+
+.phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.phase-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.phase-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+}
+
+.status--cleared {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.status--in-progress {
+  background: rgba(30, 64, 175, 0.1);
+  color: #1e40af;
+}
+
+.status--upcoming {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.mission-phase h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.mission-phase p {
+  font-size: 0.87rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* =====================
+   Subsystems Grid
+   ===================== */
+.subsystems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.subsystem-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.subsystem-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
+}
+
+.subsystem-card h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.subsystem-lead {
+  font-size: 0.78rem;
+  color: #1e40af;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.subsystem-desc {
+  font-size: 0.87rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* =====================
+   CTA
+   ===================== */
+.cansat-cta {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  color: #0f172a;
+}
+
+.cansat-cta h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+.cansat-cta p {
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.cansat-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ccta-btn-primary,
+.ccta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ccta-btn-primary {
+  background: #1e40af;
+  color: #ffffff;
+}
+
+.ccta-btn-primary:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+}
+
+.ccta-btn-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+.ccta-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 1024px) {
+  .cansat-intro {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cansat-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mission-timeline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .subsystems-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pdr-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .cansat-cta {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .cansat-cta h2 {
+    font-size: 1.35rem;
+  }
+
+  .cansat-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ccta-btn-primary,
+  .ccta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

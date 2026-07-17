@@ -1,0 +1,10 @@
+{
+  "name": "gari-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm run start --prefix gari-react",
+    "build": "npm run build --prefix gari-react",
+    "start": "npm run start --prefix gari-react",
+    "test": "npm run test --prefix gari-react"
+  }
+}
