@@ -1,0 +1,462 @@
+/* =====================================
+   SPONSORS PAGE - PROFESSIONAL
+   ===================================== */
+
+.sponsors-page {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Hero Section */
+.sponsors-hero {
+  padding: 5.5rem 2rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #e0e7ff 100%);
+  text-align: center;
+}
+
+.sponsors-hero-content h1 {
+  font-size: clamp(1.85rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.85rem;
+  letter-spacing: -1.5px;
+}
+
+.sponsors-hero-content p {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Sponsor Tiers */
+.sponsor-tier {
+  padding: 2rem 2rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sponsor-tier:nth-child(even) {
+  background: #f8fafc;
+}
+
+.sponsor-tier h2 {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.75px;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.sponsor-tier h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  border-radius: 2px;
+}
+
+.sponsors-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Title Sponsor */
+.title-grid {
+  grid-template-columns: 1fr;
+  max-width: 650px;
+  justify-items: center;
+}
+
+.title-card {
+  padding: 1.75rem 1.75rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.title-card .sponsor-logo {
+  margin-bottom: 0.85rem;
+  min-height: 75px;
+}
+
+.title-card h3 {
+  font-size: 1.65rem;
+  margin: 0 0 0.65rem;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.title-card .sponsor-tier-badge {
+  font-size: 0.75rem;
+  padding: 0.55rem 1.15rem;
+  margin-bottom: 0.65rem;
+}
+
+.title-card .sponsor-description {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-top: 0.65rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Platinum Sponsors */
+.platinum-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.platinum-card {
+  padding: 1.85rem 1.75rem;
+}
+
+.platinum-card h3 {
+  font-size: 1.45rem;
+}
+
+/* Gold Sponsors */
+.gold-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.gold-card {
+  padding: 1.65rem 1.5rem;
+}
+
+.gold-card h3 {
+  font-size: 1.3rem;
+}
+
+/* Silver Sponsors */
+.silver-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.silver-card {
+  padding: 1.5rem 1.35rem;
+}
+
+.silver-card h3 {
+  font-size: 1.2rem;
+}
+
+/* Sponsor Cards */
+.sponsor-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.sponsor-card:hover {
+  border-color: #1e40af;
+  box-shadow: 0 12px 48px rgba(30, 64, 175, 0.12);
+  transform: translateY(-8px);
+}
+
+.sponsor-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  min-height: 90px;
+}
+
+.sponsor-logo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.sponsor-card:hover .sponsor-logo img {
+  transform: scale(1.05);
+}
+
+.sponsor-card h3 {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.sponsor-card:hover h3 {
+  color: #1e40af;
+}
+
+.sponsor-tier-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Tier-specific badges */
+.title-card .sponsor-tier-badge {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.platinum-card .sponsor-tier-badge {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+
+.platinum-card:hover .sponsor-tier-badge {
+  background: #1e40af;
+  color: #ffffff;
+}
+
+.gold-card .sponsor-tier-badge {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.gold-card:hover .sponsor-tier-badge {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.silver-card .sponsor-tier-badge {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.silver-card:hover .sponsor-tier-badge {
+  background: #64748b;
+  color: #ffffff;
+}
+
+/* CTA Section */
+.sponsor-cta {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.sponsor-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.75px;
+}
+
+.cta-content p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.65;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: #ffffff;
+  color: #1e40af;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sponsors-hero {
+    padding: 5.5rem 1.5rem 2.5rem;
+  }
+
+  .sponsors-hero-content h1 {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+
+  .sponsors-hero-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .sponsor-tier {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .sponsor-tier h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sponsor-tier h2::after {
+    width: 60px;
+    height: 3px;
+  }
+
+  .sponsors-grid {
+    gap: 1.25rem;
+  }
+
+  .platinum-grid,
+  .gold-grid,
+  .silver-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title-card {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .title-card .sponsor-logo {
+    margin-bottom: 1.5rem;
+    min-height: 80px;
+  }
+
+  .title-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title-card .sponsor-tier-badge {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .title-card .sponsor-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+
+  .platinum-card {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .platinum-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .gold-card {
+    padding: 1.75rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .gold-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .silver-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .silver-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .sponsor-logo {
+    min-height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .sponsor-tier-badge {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .sponsor-cta {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .sponsor-cta::before,
+  .sponsor-cta::after {
+    display: none;
+  }
+
+  .cta-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+  }
+}

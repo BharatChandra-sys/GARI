@@ -1,0 +1,487 @@
+/* =====================================
+   HERO SECTION - BEATS MIT
+   ===================================== */
+
+.hero {
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 3.5rem 2rem 2.25rem;
+  overflow: hidden;
+}
+
+/* Background with Multiple Rocket Images */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=2070');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: zoomIn 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(30, 64, 175, 0.06) 100%
+  );
+  backdrop-filter: blur(1.5px);
+}
+
+.hero-content {
+  max-width: 1000px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* =====================================
+   HERO TAG - PREMIUM
+   ===================================== */
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(30, 64, 175, 0.08);
+  border: 1px solid rgba(30, 64, 175, 0.2);
+  border-radius: 50px;
+  color: #1e40af;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.8s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.1);
+}
+
+/* =====================================
+   HERO TITLE - POWERFUL
+   ===================================== */
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1.1rem;
+  letter-spacing: -2px;
+  color: #0f172a;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+  background-size: 200% 200%;
+  position: relative;
+  display: inline-block;
+}
+
+.gradient-line {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  height: 20px;
+  transition: width 0.05s ease-out;
+  pointer-events: none;
+}
+
+/* Professional smoke trail effect */
+.gradient-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  background: 
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(30, 64, 175, 0.15) 20%,
+      rgba(30, 64, 175, 0.35) 50%,
+      rgba(30, 64, 175, 0.6) 80%,
+      rgba(30, 64, 175, 0.8) 100%
+    );
+  border-radius: 2px;
+}
+
+/* Minimal professional rocket icon using SVG */
+.gradient-line::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M12 2C12 2 4 6 4 12c0 2.5 1 4.5 2.5 6L9 20.5l1.5-3C12 17.5 14 17 15 16.5l3 3c1.5-1.5 2.5-3.5 2.5-6 0-6-8-10-8-10zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3));
+  animation: rocketMove 0.1s ease-out;
+}
+
+@keyframes rocketMove {
+  from {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   HERO DESCRIPTION - REFINED
+   ===================================== */
+
+.hero-description {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #475569;
+  margin-bottom: 1.5rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease 0.4s both;
+  font-weight: 400;
+}
+
+/* =====================================
+   HERO BUTTONS - PREMIUM
+   ===================================== */
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+}
+
+.btn svg {
+  transition: transform 0.25s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(4px);
+}
+
+.btn-primary {
+  background: #1e40af;
+  color: #ffffff;
+  border-color: #1e40af;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+}
+
+.btn-primary:hover {
+  background: #1e3a8a;
+  border-color: #1e3a8a;
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e40af;
+  border-color: rgba(30, 64, 175, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  border-color: #1e40af;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.15);
+  transform: translateY(-1px);
+}
+
+/* =====================================
+   HERO STATS - IMPRESSIVE
+   ===================================== */
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(30, 64, 175, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+  animation: fadeInUp 1s ease 0.8s both;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.stat-item h3 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-item p {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, transparent, rgba(30, 64, 175, 0.2), transparent);
+}
+
+/* =====================================
+   SCROLL INDICATOR - ELEGANT
+   ===================================== */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  animation: bounce 2s infinite;
+  z-index: 2;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+}
+
+.mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(30, 64, 175, 0.4);
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(30, 64, 175, 0.15);
+}
+
+.wheel {
+  width: 4px;
+  height: 10px;
+  background: #1e40af;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px);
+  }
+}
+
+.scroll-indicator p {
+  font-size: 0.8rem;
+  color: #1e40af;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4.5rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .hero-background::before {
+    background-attachment: scroll;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(255, 255, 255, 0.70) 50%,
+      rgba(224, 231, 255, 0.85) 100%
+    );
+    backdrop-filter: blur(0.5px);
+  }
+
+  .hero-content {
+    padding-top: 0.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+    line-height: 1.3;
+    padding: 0 0.5rem;
+  }
+
+  .gradient-text {
+    display: block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gradient-line {
+    display: none;
+  }
+
+  .hero-description {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
+    padding: 0 0.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+    padding: 0;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(30, 64, 175, 0.15);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    border: 2px solid #1e40af;
+    color: #1e40af;
+    font-weight: 600;
+  }
+
+  .hero-stats {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}

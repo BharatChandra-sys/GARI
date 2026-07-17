@@ -1,0 +1,47 @@
+@import './Pages.css';
+
+.cansat-page {
+  min-height: 100vh;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.systems-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.systems-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-tag {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .systems-section {
+    margin-top: 2rem;
+  }
+
+  .systems-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+}

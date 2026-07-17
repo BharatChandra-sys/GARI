@@ -1,0 +1,118 @@
+/* =====================================
+   ABOUT SECTION
+   ===================================== */
+
+.about {
+  padding: 8rem 2rem;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.5) 100%);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* =====================================
+   SECTION HEADER
+   ===================================== */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50px;
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =====================================
+   VALUES GRID
+   ===================================== */
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  position: relative;
+  padding: 2.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.value-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.value-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 1rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}

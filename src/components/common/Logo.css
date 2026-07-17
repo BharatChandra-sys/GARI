@@ -1,0 +1,49 @@
+/* =====================================
+   LOGO STYLES - PROFESSIONAL AEROSPACE
+   ===================================== */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-image {
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.02);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-text {
+  letter-spacing: 0.12em;
+  color: #1e40af;
+}
+
+/* Mobile Logo Sizing */
+@media (max-width: 768px) {
+  .logo-container {
+    gap: 4px;
+  }
+
+  .logo-image {
+    height: 32px !important;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+
