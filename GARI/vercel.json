@@ -1,5 +1,0 @@
-{
-  "installCommand": "npm install --prefix gari-react",
-  "buildCommand": "npm run build --prefix gari-react",
-  "outputDirectory": "gari-react/build"
-}
