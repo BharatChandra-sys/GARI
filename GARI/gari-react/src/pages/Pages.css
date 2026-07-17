@@ -208,12 +208,21 @@
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   transition: border-color 0.2s ease;
+  background: #ffffff;
+  color: #1a1a1a;
+  -webkit-appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1a1a1a;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.08);
 }
 
 .form-group textarea {
