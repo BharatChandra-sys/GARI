@@ -169,46 +169,14 @@ const ContactPage = () => {
       <section className="content-section">
         <div className="container">
           <div className="contact-content">
-            <div className="contact-info-grid">
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3> Email</h3>
-                <p>contact@gari.live</p>
-              </motion.div>
 
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                <h3> Instagram</h3>
-                <p>@gari.live</p>
-              </motion.div>
-
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <h3> Location</h3>
-                <p>GITAM University, Hyderabad</p>
-              </motion.div>
-            </div>
-
+            {/* 1. Form first */}
             <motion.div
               className="contact-form-wrapper"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.1 }}
             >
               <h2>Send us a message</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -290,6 +258,63 @@ const ContactPage = () => {
                 )}
               </form>
             </motion.div>
+
+            {/* 2. Contact info cards */}
+            <div className="contact-info-grid">
+              <motion.div
+                className="info-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3>Email</h3>
+                <p>contact@gari.live</p>
+              </motion.div>
+
+              <motion.div
+                className="info-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <h3>Instagram</h3>
+                <p>@gari.live</p>
+              </motion.div>
+
+              <motion.div
+                className="info-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3>Location</h3>
+                <p>GITAM University, Hyderabad</p>
+              </motion.div>
+            </div>
+
+            {/* 3. GITAM map */}
+            <motion.div
+              className="contact-map"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3>Find us</h3>
+              <iframe
+                title="GITAM University Hyderabad"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.5!2d78.1609!3d17.5510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc9f2e1b7b%3A0x8f5a6b2c3d4e5f6a!2sGITAM+University+Hyderabad!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
+                width="100%"
+                height="360"
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
+
           </div>
         </div>
       </section>

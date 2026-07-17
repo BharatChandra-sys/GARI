@@ -41,6 +41,22 @@
   padding: 2rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
+  margin-bottom: 2.5rem;
+}
+
+.contact-info-grid {
+  margin-bottom: 2.5rem;
+}
+
+.contact-map {
+  margin-bottom: 2rem;
+}
+
+.contact-map h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
 }
 
 .contact-form-wrapper h2 {
