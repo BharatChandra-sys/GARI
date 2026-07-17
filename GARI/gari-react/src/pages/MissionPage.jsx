@@ -70,10 +70,10 @@ const MissionPage = () => {
   return (
     <div className="mission-page">
       <SEO
-        title="Our Mission — Advancing Aerospace Engineering"
-        description="GARI's mission is to advance aerospace engineering through hands-on rocketry, CanSat competitions, and student-led research at GITAM University, Hyderabad, India."
+        title="Mission — GARI GITAM Aerospace Rocketry Initiative"
+        description="GARI's mission: advancing aerospace engineering through hands-on rocketry, CanSat competitions, and student-led research at GITAM University, Hyderabad, India."
         path="/mission"
-        keywords="GARI mission, aerospace innovation India, student rocketry mission, GITAM aerospace goals, rocketry research India"
+        keywords="GARI mission, GARI GITAM, GITAM Aerospace Rocketry Initiative mission, GARI aerospace goals, aerospace innovation GITAM India, student rocketry mission India, GARI rocketry research"
         breadcrumbs={[{ name: 'Mission', url: 'https://gari.live/mission' }]}
         schema={{
           '@context': 'https://schema.org',

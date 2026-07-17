@@ -11,9 +11,9 @@ const AchievementsPage = () => {
   return (
     <div className="achievements-page">
       <SEO
-        title="Achievements, Past Works & Media Archive"
-        description="GARI achievements and past works: national CanSat selection, rover systems, thrust control studies, rescue robotics, aerial systems, and fixed-wing prototypes with real photos and videos."
-        keywords="GARI achievements, past works, aerospace media archive, student rocketry India, IN-SPACe CanSat results, GITAM rocketry awards, CanSat competition 2026"
+        title="Achievements & Past Works — GARI GITAM Aerospace"
+        description="GARI achievements and past works: national CanSat selection, rover systems, thrust control studies, rescue robotics, aerial systems, and fixed-wing prototypes. GARI GITAM Aerospace Rocketry Initiative project archive."
+        keywords="GARI achievements, GARI GITAM past works, GARI aerospace projects, GITAM Aerospace Rocketry archive, GARI student projects India, IN-SPACe CanSat GARI, GARI competition 2026, GITAM rocketry achievements"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ItemList',

@@ -74,9 +74,9 @@ const AboutPage = () => {
     <div className="about-page">
       <SEO
         title="About GARI — GITAM Aerospace Rocketry Initiative"
-        description="Learn about GARI — GITAM University's student aerospace and rocketry team. Founded in 2024, we build rockets, CanSats, and aerospace systems with 30+ multidisciplinary engineers in Hyderabad, India."
+        description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024, we build rockets, CanSats, and aerospace systems with 30+ multidisciplinary engineers in Hyderabad, India."
         path="/about"
-        keywords="about GARI, GITAM aerospace team, student rocketry club India, GITAM aerospace research, aerospace students Hyderabad"
+        keywords="about GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative, GARI aerospace team, GITAM aerospace research, GARI student team, aerospace students GITAM Hyderabad, GARI team India"
         breadcrumbs={[{ name: 'About', url: 'https://gari.live/about' }]}
         schema={{
           '@context': 'https://schema.org',

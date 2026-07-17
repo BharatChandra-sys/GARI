@@ -64,10 +64,10 @@ const CanSatPage = () => {
   return (
     <div className="cansat-page">
       <SEO
-        title="CanSat Project — IN-SPACe CAN-7USAT 2026"
-        description="GARI's CanSat: 1000m altitude launch with NavIC GNSS integration, real-time telemetry, and dual recovery. PDR cleared. Competing in India's IN-SPACe CAN-7USAT 2026 national competition."
+        title="CanSat Project — GARI IN-SPACe CAN-7USAT 2026"
+        description="GARI's CanSat: 1000m altitude launch with NavIC GNSS, real-time telemetry, dual recovery. PDR cleared. GARI GITAM competing in India's IN-SPACe CAN-7USAT 2026."
         path="/cansat"
-        keywords="CanSat India 2026, IN-SPACe CAN-7USAT, NavIC GNSS, student CanSat competition India, GARI CanSat, CanSat telemetry avionics, PDR cleared CanSat"
+        keywords="GARI CanSat, GARI GITAM CanSat, GARI IN-SPACe 2026, GITAM Aerospace Rocketry CanSat, CanSat India 2026, IN-SPACe CAN-7USAT, NavIC GNSS CanSat, student CanSat India, GARI telemetry avionics, PDR cleared CanSat GARI"
         breadcrumbs={[{ name: 'CanSat Project', url: 'https://gari.live/cansat' }]}
         faq={[
           { q: 'What is a CanSat?', a: 'A CanSat is a small satellite the size of a soda can (330ml). It carries instruments and launches to ~1000m altitude, transmitting real-time data before descending on a parachute.' },

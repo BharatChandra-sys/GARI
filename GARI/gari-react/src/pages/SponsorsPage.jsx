@@ -79,10 +79,10 @@ const SponsorsPage = () => {
   return (
     <div className="sponsors-page">
       <SEO
-        title="Sponsors — Partner with GARI Aerospace"
-        description="Sponsor GARI — GITAM University's student aerospace and rocketry team. PDR cleared for CanSat and Rocket. Partner with India's next-generation aerospace engineers. Title, Platinum, Gold, and Silver tiers available."
+        title="Sponsors — Partner with GARI Aerospace GITAM"
+        description="Sponsor GARI — GITAM University's student aerospace and rocketry team. PDR cleared for CanSat and Rocket. Partner with India's next-generation aerospace engineers at GITAM. Title, Platinum, Gold, Silver tiers."
         path="/sponsors"
-        keywords="sponsor GARI aerospace India, GITAM aerospace sponsorship, student rocket team sponsor, aerospace education sponsor India, IN-SPACe CanSat sponsor"
+        keywords="sponsor GARI, GARI sponsorship, GARI GITAM sponsor, GITAM Aerospace Rocketry sponsor, GARI aerospace India sponsor, student rocket team sponsor India, IN-SPACe CanSat sponsor, aerospace education sponsor India"
         breadcrumbs={[{ name: 'Sponsors', url: 'https://gari.live/sponsors' }]}
         faq={[
           { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among top engineering students, association with India's national CanSat competition, and contribution to next-generation aerospace development." },

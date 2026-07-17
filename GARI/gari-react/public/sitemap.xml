@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://gari.live/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://gari.live/gari-logo.png</image:loc>
+      <image:title>GARI — GITAM Aerospace Rocketry Initiative</image:title>
+      <image:caption>GARI student aerospace team at GITAM University Hyderabad</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/rocket-image.png</image:loc>
+      <image:title>GARI Rocket — Student Built Aerospace Vehicle</image:title>
+      <image:caption>GARI GITAM aerospace rocketry initiative — IN-SPACe CAN-7USAT 2026</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://gari.live/about</loc>
@@ -18,17 +29,62 @@
   <url>
     <loc>https://gari.live/cansat</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://gari.live/achievements/02_2_axis_gimbal_rocket_thrust_control/gimbal_thrust_control_cad_01.jpeg</image:loc>
+      <image:title>GARI 2-Axis Gimbal Rocket Thrust Control System</image:title>
+      <image:caption>GARI aerospace rocket thrust vector control prototype — GITAM University</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://gari.live/team</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://gari.live/team/bodapati-bharat-chandra.jpg</image:loc>
+      <image:title>Bodapati Bharat Chandra — GARI Ground Station &amp; Software Lead</image:title>
+      <image:caption>Bodapati Bharat Chandra, Ground Station and Software Lead at GARI GITAM Aerospace Rocketry Initiative</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/team/harshith-venkata.jpg</image:loc>
+      <image:title>Harshith Venkata Naga Pavana Jangala — GARI Aerospace Engineer</image:title>
+      <image:caption>Harshith Venkata Naga Pavana Jangala, Aerospace Engineer at GARI GITAM University</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/team/shaik-aadil-iftikhar.jpg</image:loc>
+      <image:title>Shaik Aadil Iftikhar — GARI Rocket Team Lead</image:title>
+      <image:caption>Shaik Aadil Iftikhar, Rocket Team Lead at GARI GITAM Aerospace Rocketry Initiative</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/team/saketh-muppala.jpg</image:loc>
+      <image:title>Saketh Muppala — GARI Rocket Co-Lead</image:title>
+      <image:caption>Saketh Muppala, Rocket Co-Lead at GARI GITAM University</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/team/singam-sai-harshith.jpg</image:loc>
+      <image:title>Singam Sai Harshith — GARI Avionics Lead</image:title>
+      <image:caption>Singam Sai Harshith, Avionics and Flight Software Lead at GARI</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://gari.live/achievements</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://gari.live/achievements/01_rover_for_extraterrestrial_planets/rover_extraterrestrial_photo_01.jpeg</image:loc>
+      <image:title>GARI Rover Prototype — Extraterrestrial Planet Exploration</image:title>
+      <image:caption>GARI GITAM aerospace rover prototype for planetary exploration research</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/achievements/03_hexa_copter_making/hexa_copter_photo_01.jpeg</image:loc>
+      <image:title>GARI Hexacopter Build</image:title>
+      <image:caption>GARI GITAM multirotor hexacopter aerospace prototype</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/achievements/06_fixed_wing_aircraft_model/fixed_wing_aircraft_photo_11.jpeg</image:loc>
+      <image:title>GARI Fixed-Wing Aircraft Model</image:title>
+      <image:caption>GARI GITAM fixed-wing aircraft prototype for aerospace research</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://gari.live/sponsors</loc>

@@ -14,10 +14,10 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="GITAM Aerospace Rocketry Initiative"
-        description="GARI is GITAM University's student-led aerospace and rocketry team. We compete in IN-SPACe CAN-7USAT 2026, build sounding rockets, and push the boundaries of student aerospace engineering in India."
+        title="GARI — GITAM Aerospace Rocketry Initiative"
+        description="GARI (GITAM Aerospace Rocketry Initiative) is GITAM University's student-led aerospace and rocketry team in Hyderabad. Competing in IN-SPACe CAN-7USAT 2026, building sounding rockets, and advancing student aerospace engineering in India."
         path="/"
-        keywords="GARI GITAM, student rocketry India, aerospace club GITAM, CanSat team India, IN-SPACe 2026"
+        keywords="GARI, GARI GITAM, GARI aerospace, GARI rocket team, GITAM Aerospace Rocketry Initiative, GITAM aerospace rocketry, GITAM rocketry team, student rocketry India, aerospace club GITAM, CanSat team India, IN-SPACe 2026, GARI Hyderabad, GARI GITAM University"
         faq={[
           { q: 'What is GARI?', a: 'GARI (GITAM Aerospace Rocketry Initiative) is a student-led aerospace and rocketry team at GITAM University, Hyderabad, India, competing in IN-SPACe CAN-7USAT 2026.' },
           { q: 'How can I join GARI?', a: 'GARI recruits students from GITAM University. Contact us at gari@gitam.edu or visit gari.live/contact for membership information.' },
