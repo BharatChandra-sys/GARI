@@ -219,30 +219,36 @@
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 280px;
-    /* Solid bg so links are always readable */
-    background: #ffffff;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    /* Glassmorphism — dark tinted blur panel */
+    background: rgba(5, 10, 25, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     flex-direction: column;
-    padding: 5rem 1.5rem 2rem;
+    padding: 5rem 1.75rem 2rem;
     gap: 0;
-    box-shadow: -4px 0 24px rgba(15, 23, 42, 0.12);
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    /* Slide from top */
+    transform: translateY(-110%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     overflow-y: auto;
   }
 
   .nav-links.mobile-active {
-    right: 0;
+    transform: translateY(0);
   }
 
   .nav-links li {
     width: 100%;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     opacity: 0;
-    transform: translateX(20px);
-    animation: slideIn 0.3s ease forwards;
+    transform: translateY(-12px);
+    animation: slideDown 0.3s ease forwards;
   }
 
   .nav-links.mobile-active li:nth-child(1) { animation-delay: 0.05s; }
@@ -254,15 +260,15 @@
   .nav-links.mobile-active li:nth-child(7) { animation-delay: 0.35s; }
   .nav-links.mobile-active li:nth-child(8) { animation-delay: 0.4s; }
 
-  @keyframes slideIn {
-    to { opacity: 1; transform: translateX(0); }
+  @keyframes slideDown {
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Mobile links always dark — on white drawer bg */
+  /* Mobile links — white text on dark glass */
   .nav-links li a,
   .navbar .nav-links li a,
   .navbar.scrolled .nav-links li a {
-    color: #0f172a !important;
+    color: rgba(255, 255, 255, 0.9) !important;
     display: block;
     padding: 0.95rem 0;
     font-size: 1rem;
@@ -271,7 +277,7 @@
   }
 
   .nav-links li a:hover {
-    color: #1e40af !important;
+    color: #ffffff !important;
     padding-left: 0.4rem;
   }
 

@@ -1,11 +1,19 @@
 /* ================================================
-   HOME PAGE — MOBILE ONLY
-   All rules scoped to .home-page to avoid side effects
+   HOME PAGE — MOBILE ONLY  (max-width: 767px)
+   Mirrors MIT Rocket Team's approach:
+   - Full-viewport hero, content bottom-anchored
+   - Dark gradient behind text, no background box
+   - Horizontal scroll cards below
    ================================================ */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
-  /* ── Hero: full-screen, content anchored bottom-left ── */
+  /* ── 0. Background position — shift rocket into view ── */
+  .home-page .hero-bg {
+    background-position: 65% 40% !important;
+  }
+
+  /* ── 1. Hero container ── */
   .home-page .hero {
     display: flex !important;
     flex-direction: column !important;
@@ -16,118 +24,112 @@
     overflow: hidden !important;
   }
 
-  /* Spacer grows to fill empty space above content */
+  /* MIT pattern: a flex spacer fills the top, pushing content down */
   .home-page .hero-spacer {
     display: block !important;
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
+    flex: 1 !important;
   }
 
-  /* Content sits at the bottom */
+  /* ── 2. Content block at the bottom ── */
   .home-page .hero-content {
+    flex-shrink: 0 !important;
     position: relative !important;
     z-index: 2 !important;
-    flex-shrink: 0 !important;
-    text-align: left !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 1.25rem 1.5rem 4rem !important;
-    /* stronger gradient behind text */
+    /* MIT: gradient behind text, not a box */
+    padding: 5rem 1.5rem 3rem !important;
     background: linear-gradient(
       to top,
-      rgba(5, 10, 25, 0.88) 0%,
-      rgba(5, 10, 25, 0.60) 60%,
+      rgba(4, 8, 20, 0.95) 0%,
+      rgba(4, 8, 20, 0.75) 50%,
       transparent 100%
     ) !important;
   }
 
+  /* ── 3. Typography ── */
   .home-page .hero-eyebrow {
+    display: block !important;
     text-align: left !important;
-    font-size: 0.65rem !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 2px !important;
     margin-bottom: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.55) !important;
   }
 
   .home-page .hero h1 {
-    font-size: clamp(2rem, 9.5vw, 2.8rem) !important;
-    letter-spacing: -0.5px !important;
     text-align: left !important;
-    line-height: 1.1 !important;
-    margin-bottom: 0.9rem !important;
+    font-size: clamp(2rem, 9vw, 2.8rem) !important;
+    line-height: 1.06 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 0.85rem !important;
+    color: #ffffff !important;
   }
 
   .home-page .hero-sub {
-    font-size: 0.85rem !important;
-    line-height: 1.5 !important;
+    display: block !important;
     text-align: left !important;
-    margin: 0 0 1.4rem 0 !important;
+    font-size: 0.83rem !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    margin: 0 0 1.5rem !important;
     max-width: 100% !important;
-    color: rgba(255, 255, 255, 0.8) !important;
   }
 
+  /* ── 4. Buttons ── */
   .home-page .hero-actions {
     display: flex !important;
     flex-direction: row !important;
     justify-content: flex-start !important;
+    align-items: center !important;
     flex-wrap: wrap !important;
     gap: 0.65rem !important;
   }
 
   .home-page .hero-btn {
+    flex-shrink: 0 !important;
     width: auto !important;
-    padding: 0.75rem 1.25rem !important;
-    font-size: 0.85rem !important;
+    padding: 0.72rem 1.3rem !important;
+    font-size: 0.83rem !important;
   }
 
-  /* PDR strip pinned to very bottom */
+  /* ── 5. PDR strip — hide on mobile, too cluttered ── */
   .home-page .hero-pdr-strip {
-    bottom: 0 !important;
-    padding: 0.5rem 0 !important;
-  }
-
-  .home-page .hero-pdr-inner {
-    padding: 0 1.25rem !important;
-    gap: 0.75rem !important;
-  }
-
-  .home-page .hero-pdr-label {
     display: none !important;
   }
 
-  /* No scroll cue on mobile */
   .home-page .hero-scroll-cue {
     display: none !important;
   }
 
-  /* ── Cards: horizontal scroll row ── */
+  /* ── 6. Cards: vertical stack ── */
   .home-page .overview-section {
-    padding: 2rem 0 2.5rem !important;
+    padding: 2rem 1.25rem 2.5rem !important;
+    overflow: visible !important;
   }
 
   .home-page .overview-grid {
     display: flex !important;
-    flex-direction: row !important;
-    gap: 0.9rem !important;
-    padding: 0 1.25rem 0.5rem !important;
-    overflow-x: scroll !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
-    scrollbar-width: none !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    scrollbar-width: auto !important;
     margin: 0 !important;
     max-width: 100% !important;
   }
 
-  .home-page .overview-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-
   .home-page .overview-card {
-    flex: 0 0 80vw !important;
-    max-width: 80vw !important;
-    height: 280px !important;
-    scroll-snap-align: start !important;
-    border-radius: 14px !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 220px !important;
+    scroll-snap-align: none !important;
+    border-radius: 12px !important;
     transform: none !important;
+    transition: none !important;
   }
 
   .home-page .overview-card:hover {
@@ -138,35 +140,34 @@
   .home-page .card-image {
     position: absolute !important;
     inset: 0 !important;
+    width: 100% !important;
     height: 100% !important;
   }
 
   .home-page .overview-card h3 {
     font-size: 1.1rem !important;
-    bottom: 4rem !important;
-    left: 1.1rem !important;
-    right: 1.1rem !important;
+    bottom: 3.8rem !important;
+    left: 1.25rem !important;
+    right: 1.25rem !important;
+    line-height: 1.25 !important;
   }
 
   .home-page .overview-card p {
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
     bottom: 1.25rem !important;
-    left: 1.1rem !important;
-    right: 1.1rem !important;
+    left: 1.25rem !important;
+    right: 1.25rem !important;
+    line-height: 1.45 !important;
   }
 }
 
-@media (max-width: 420px) {
+/* Extra small phones */
+@media screen and (max-width: 390px) {
   .home-page .hero-content {
-    padding: 1rem 1.25rem 3.75rem !important;
+    padding: 3rem 1.25rem 4rem !important;
   }
 
   .home-page .hero h1 {
-    font-size: clamp(1.85rem, 10vw, 2.4rem) !important;
-  }
-
-  .home-page .overview-card {
-    flex: 0 0 88vw !important;
-    max-width: 88vw !important;
+    font-size: clamp(1.75rem, 9vw, 2.2rem) !important;
   }
 }

@@ -101,37 +101,33 @@
 
 @media (max-width: 768px) {
   .overview-section {
-    padding: 2rem 0 2.5rem;
+    padding: 2rem 1.25rem 2.5rem;
   }
 
-  /* Horizontal scroll row — peek at next card */
+  /* Vertical stack — show all cards */
   .overview-grid {
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    padding: 0.25rem 1.25rem 1rem;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+    overflow-x: visible;
+    scroll-snap-type: none;
     max-width: 100%;
     margin: 0;
-    /* prevent clip from parent */
-    position: relative;
   }
 
   .overview-grid::-webkit-scrollbar {
     display: none;
   }
 
-  /* Each card takes 82% width — peek shows next card */
+  /* Full-width cards, fixed height */
   .overview-card {
-    flex: 0 0 82vw;
-    max-width: 82vw;
-    height: 300px;
-    scroll-snap-align: start;
-    border-radius: 14px;
-    /* reset hover transform on mobile */
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    height: 220px;
+    scroll-snap-align: none;
+    border-radius: 12px;
     transform: none !important;
   }
 
@@ -148,8 +144,8 @@
   }
 
   .overview-card h3 {
-    font-size: 1.15rem;
-    bottom: 4.2rem;
+    font-size: 1.1rem;
+    bottom: 3.8rem;
     left: 1.25rem;
     right: 1.25rem;
     line-height: 1.25;
@@ -158,8 +154,8 @@
   }
 
   .overview-card p {
-    font-size: 0.83rem;
-    bottom: 1.5rem;
+    font-size: 0.82rem;
+    bottom: 1.25rem;
     left: 1.25rem;
     right: 1.25rem;
     line-height: 1.45;
