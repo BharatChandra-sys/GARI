@@ -8,11 +8,27 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
 User-agent: Slurp
+Allow: /
+
+# Allow social crawlers (OG/Twitter card preview)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
 Allow: /
 
 # Block bad/scraper bots
@@ -33,3 +49,4 @@ Sitemap: https://gari.live/sitemap.xml
 
 # Humans
 # https://gari.live/humans.txt
+# See: humanstxt.org
