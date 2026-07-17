@@ -1,0 +1,213 @@
+/* =====================================
+   LATEST UPDATES
+   Matches site design: white cards,
+   #e2e8f0 borders, minimal accent
+   ===================================== */
+
+.lu-section {
+  padding: 4.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lu-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.lu-header {
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+}
+
+.lu-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 0.65rem;
+}
+
+.lu-header h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.lu-accent { color: #1e40af; }
+
+.lu-sub {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.lu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Card ── */
+.lu-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.lu-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+  transform: translateY(-3px);
+  background: #ffffff;
+}
+
+/* ── Top row ── */
+.lu-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.lu-type-tag {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 50px;
+}
+
+/* Tags match the status pill style from CanSatPage */
+.tag--milestone   { background: #0f172a; color: #ffffff; }
+.tag--active      { background: rgba(30,64,175,0.1); color: #1e40af; border: 1px solid rgba(30,64,175,0.2); }
+.tag--competition { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+.tag--team        { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+.lu-date {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* ── Card body ── */
+.lu-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.2px;
+}
+
+.lu-card-body {
+  font-size: 0.83rem;
+  color: #64748b;
+  line-height: 1.65;
+  flex-grow: 1;
+  margin-bottom: 1.1rem;
+}
+
+/* ── Card link ── */
+.lu-card-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  margin-top: auto;
+  gap: 0.15rem;
+  transition: gap 0.18s ease, color 0.18s ease;
+}
+
+.lu-card-link:hover {
+  color: #1e3a8a;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.lu-card-arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+.lu-card-link:hover .lu-card-arrow {
+  transform: translateX(2px);
+}
+
+/* ── Footer ── */
+.lu-footer {
+  margin-top: 2.25rem;
+}
+
+.lu-all-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.lu-all-link:hover {
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 1200px) {
+  .lu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .lu-section { padding: 3.5rem 1.25rem; }
+
+  /* Horizontal scroll on mobile — peeks next card */
+  .lu-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .lu-grid::-webkit-scrollbar { display: none; }
+
+  .lu-card {
+    flex: 0 0 82vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  .lu-header { margin-bottom: 1.75rem; }
+  .lu-footer { margin-top: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .lu-card { flex: 0 0 88vw; }
+}

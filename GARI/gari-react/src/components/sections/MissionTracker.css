@@ -1,0 +1,302 @@
+/* =====================================
+   MISSION TRACKER
+   Matches site design language:
+   white / #f8fafc backgrounds,
+   #e2e8f0 borders, #0f172a text,
+   #1e40af blue accent — no glows
+   ===================================== */
+
+.mt-section {
+  padding: 4.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mt-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.mt-header {
+  max-width: 580px;
+  margin-bottom: 2.75rem;
+}
+
+.mt-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 0.65rem;
+}
+
+.mt-header h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+}
+
+.mt-accent {
+  color: #1e40af;
+}
+
+.mt-subheading {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Track line (desktop) ── */
+.mt-track-wrap {
+  margin-bottom: 1.5rem;
+  /* align with card inner padding */
+  padding: 0 calc(12.5% - 0.75rem);
+}
+
+.mt-track-line {
+  height: 1px;
+  background: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mt-track-fill {
+  height: 100%;
+  background: #0f172a;
+}
+
+/* ── Phase grid ── */
+.mt-phases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Phase card ── */
+.mt-phase {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: default;
+  outline: none;
+}
+
+.mt-phase:focus-visible {
+  outline: 2px solid #1e40af;
+  outline-offset: 3px;
+}
+
+.mt-phase:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
+}
+
+/* Cleared — dark left border */
+.mt-phase--cleared {
+  border-left: 3px solid #0f172a;
+}
+
+/* Active — blue left border */
+.mt-phase--active {
+  border-left: 3px solid #1e40af;
+  background: #ffffff;
+  border-top-color: #bfdbfe;
+  border-right-color: #bfdbfe;
+  border-bottom-color: #bfdbfe;
+}
+
+/* Upcoming — muted, regular border */
+.mt-phase--upcoming {
+  border-left: 3px solid #e2e8f0;
+  opacity: 0.8;
+}
+
+/* ── Top row ── */
+.mt-phase-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.mt-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot--cleared  { background: #0f172a; }
+.dot--active   { background: #1e40af; animation: mt-pulse 2s ease-in-out infinite; }
+.dot--upcoming { background: #cbd5e1; }
+
+@keyframes mt-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Status badge */
+.mt-status-badge {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 50px;
+}
+
+.mt-status-badge--cleared  { background: #0f172a; color: #ffffff; }
+.mt-status-badge--active   { background: rgba(30,64,175,0.1); color: #1e40af; border: 1px solid rgba(30,64,175,0.2); }
+.mt-status-badge--upcoming { background: #f1f5f9; color: #94a3b8; }
+
+/* ── Card content ── */
+.mt-phase-code {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 0.3rem;
+  line-height: 1;
+}
+
+.mt-phase-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+  margin-bottom: 0.25rem;
+  line-height: 1.25;
+}
+
+.mt-phase--upcoming .mt-phase-title {
+  color: #64748b;
+}
+
+.mt-phase-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.65rem;
+}
+
+.mt-phase-detail {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.1rem;
+}
+
+/* ── Footer ── */
+.mt-phase-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.mt-phase-date {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.mt-phase-programs {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.mt-prog-tag {
+  font-size: 0.63rem;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ── Bottom link ── */
+.mt-cta {
+  margin-top: 2rem;
+}
+
+.mt-cta-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  gap: 0.25rem;
+  transition: gap 0.18s ease, color 0.18s ease;
+}
+
+.mt-cta-link:hover {
+  color: #1e3a8a;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+
+.mt-cta-arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+.mt-cta-link:hover .mt-cta-arrow {
+  transform: translateX(2px);
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 1024px) {
+  .mt-phases {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mt-track-wrap { display: none; }
+}
+
+@media (max-width: 768px) {
+  .mt-section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .mt-phases {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .mt-track-wrap { display: none; }
+
+  /* On mobile, hide detail except on active card */
+  .mt-phase-detail { display: none; }
+  .mt-phase--active .mt-phase-detail { display: block; }
+
+  .mt-phase {
+    padding: 1.2rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mt-header h2 { font-size: 1.45rem; }
+}

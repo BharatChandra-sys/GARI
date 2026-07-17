@@ -2,6 +2,10 @@ import React from 'react';
 import Hero from '../components/sections/Hero';
 import AnimatedStats from '../components/sections/AnimatedStats';
 import Sponsors from '../components/sections/Sponsors';
+import MissionTracker from '../components/sections/MissionTracker';
+import CanSatFeature from '../components/sections/CanSatFeature';
+import LatestUpdates from '../components/sections/LatestUpdates';
+import JoinGARI from '../components/sections/JoinGARI';
 import SEO from '../components/common/SEO';
 import './HomePage.css';
 import './HomePageMobile.css';
@@ -40,7 +44,16 @@ const HomePage = () => {
       <div className="home-page">
         <Hero />
 
-        {/* Quick Overview Section */}
+        {/* Mission Status Tracker — biggest trust signal for sponsors and judges */}
+        <MissionTracker />
+
+        {/* CanSat Feature — deep dive without leaving the homepage */}
+        <CanSatFeature />
+
+        {/* Latest Updates / News feed */}
+        <LatestUpdates />
+
+        {/* Quick Overview — past prototype builds */}
         <section className="overview-section">
           <div className="container">
             <div className="overview-grid">
@@ -92,6 +105,9 @@ const HomePage = () => {
 
         {/* Animated Stats */}
         <AnimatedStats />
+
+        {/* Join GARI — student recruitment CTA */}
+        <JoinGARI />
 
         {/* Sponsors Section */}
         <Sponsors />
