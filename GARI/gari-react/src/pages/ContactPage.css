@@ -2,6 +2,42 @@
 
 .contact-page {
   min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Hero with background image */
+.contact-page .page-hero {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=2070');
+  background-size: cover;
+  background-position: center 40%;
+  padding: 9rem 2rem 4rem;
+}
+
+.contact-page .page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 10, 25, 0.65) 0%,
+    rgba(5, 10, 25, 0.55) 60%,
+    rgba(5, 10, 25, 0.75) 100%
+  );
+  z-index: 0;
+}
+
+.contact-page .page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-page .page-hero h1 {
+  color: #ffffff;
+}
+
+.contact-page .page-hero .hero-subtitle {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .contact-content {
