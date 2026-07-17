@@ -1,15 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# dependencies — all levels
+node_modules/
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage/
 
-# production
-/build
+# production builds
+build/
 
 # misc
 .DS_Store
@@ -25,3 +25,25 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Old root-level duplicate app folders (real app is in GARI/gari-react/)
+/src
+/public
+/api
+/api_new
+/package.json
+/package-lock.json
+/package_new.json
+/package-lock_new.json
+/test-email.js
+/test-email_new.js
+/vercel_new.json
+/.gitignore_new
+/README_new.md
+/BREVO_SETUP_new.md
+/DEPLOY_new.md
+/DEPLOYMENT_new.md
+
+# MIT downloaded files — not needed in repo
+GARI/003*/
+GARI/.sixth/
