@@ -38,7 +38,7 @@ const SEO = ({
   const fullImageAlt = imageAlt || 'GARI — GITAM Aerospace Rocketry Initiative';
 
   const defaultKeywords =
-    'GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative, Singam Sai Harshith GARI, Bodapati Bharat Chandra GARI, Harshith avionics GARI, Bharat Chandra ground station GARI, GARI aerospace, GARI rocketry, GARI rocket team, GITAM aerospace, GITAM rocketry, GITAM rocket team, GITAM University Hyderabad aerospace, rocketry India, CanSat India, IN-SPACe, IN-SPACe CAN-7USAT, GITAM University Hyderabad, aerospace engineering students India, student rocket team India, gari.live, GARI space team, GARI student team';
+    'GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI, Harshith GITAM aerospace engineer, Bharat Chandra ground station GARI, GARI aerospace, GARI rocketry, GARI rocket team, GITAM aerospace, GITAM rocketry, GITAM rocket team, GITAM University Hyderabad aerospace, rocketry India, CanSat India, IN-SPACe, IN-SPACe CAN-7USAT, GITAM University Hyderabad, aerospace engineering students India, student rocket team India, gari.live, GARI space team, GARI student team';
 
   const allKeywords = keywords
     ? `${keywords}, ${defaultKeywords}`

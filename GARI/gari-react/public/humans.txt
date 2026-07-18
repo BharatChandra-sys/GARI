@@ -4,11 +4,12 @@ Site: https://gari.live
 Location: GITAM University, Hyderabad, Telangana, India
 
 Key Members:
-  Singam Sai Harshith — Avionics & Flight Software Lead
+  Harshith Venkata Naga Pavana Jangala — Aerospace Engineer — https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306
   Bodapati Bharat Chandra — Ground Station & Software Lead — https://bharatchandra.me
   Harsha Vardan — CanSat Team Lead
   Shaik Aadil Iftikhar — Rocket Team Lead
   Saketh Muppala — Rocket Co-Lead
+  Singam Sai Harshith — Avionics & Flight Software Lead
   Nischal Aditya M — Communication Engineer
   Sreehitha Tadavarthy — Design Engineer
   Thrinadh Tirumalasetti — Propulsion Engineer
@@ -20,7 +21,6 @@ Key Members:
   Mokshagna Mopidevi — Computer Engineer
   Shreemann Narayana Karnakoti — Structural Engineer
   Achanta Sri Karthikeya — Electronics Engineer
-  Harshith Venkata Naga Pavana Jangala — Aerospace Engineer
 
 /* THANKS */
   GITAM University — https://www.gitam.edu

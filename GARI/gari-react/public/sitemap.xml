@@ -41,21 +41,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
+      <image:loc>https://gari.live/team/harshith-venkata.jpg</image:loc>
+      <image:title>Harshith Venkata Naga Pavana Jangala — GARI Aerospace Engineer</image:title>
+      <image:caption>Harshith Venkata Naga Pavana Jangala, Aerospace Engineer at GARI GITAM Aerospace Rocketry Initiative, GITAM University Hyderabad</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://gari.live/team/bodapati-bharat-chandra.jpg</image:loc>
       <image:title>Bodapati Bharat Chandra — GARI Ground Station &amp; Software Lead</image:title>
       <image:caption>Bodapati Bharat Chandra, Ground Station and Software Lead at GARI GITAM Aerospace Rocketry Initiative</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://gari.live/team/harshith-venkata.jpg</image:loc>
-      <image:title>Harshith Venkata Naga Pavana Jangala — GARI Aerospace Engineer</image:title>
-      <image:caption>Harshith Venkata Naga Pavana Jangala, Aerospace Engineer at GARI GITAM University</image:caption>
-    </image:image>
-    <image:image>
-    <image:image>
-      <image:loc>https://gari.live/team/singam-sai-harshith.jpg</image:loc>
-      <image:title>Singam Sai Harshith — GARI Avionics &amp; Flight Software Lead</image:title>
-      <image:caption>Singam Sai Harshith, Avionics and Flight Software Lead at GARI GITAM Aerospace Rocketry Initiative, GITAM University Hyderabad</image:caption>
-    </image:image>
       <image:loc>https://gari.live/team/shaik-aadil-iftikhar.jpg</image:loc>
       <image:title>Shaik Aadil Iftikhar — GARI Rocket Team Lead</image:title>
       <image:caption>Shaik Aadil Iftikhar, Rocket Team Lead at GARI GITAM Aerospace Rocketry Initiative</image:caption>
@@ -64,6 +59,11 @@
       <image:loc>https://gari.live/team/saketh-muppala.jpg</image:loc>
       <image:title>Saketh Muppala — GARI Rocket Co-Lead</image:title>
       <image:caption>Saketh Muppala, Rocket Co-Lead at GARI GITAM University</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gari.live/team/singam-sai-harshith.jpg</image:loc>
+      <image:title>Singam Sai Harshith — GARI Avionics &amp; Flight Software Lead</image:title>
+      <image:caption>Singam Sai Harshith, Avionics and Flight Software Lead at GARI GITAM University</image:caption>
     </image:image>
   </url>
   <url>

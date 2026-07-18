@@ -344,9 +344,9 @@ const TeamPage = () => {
     <div className="team-page">
       <SEO
         title="Our Team — 30+ Aerospace Engineers at GARI GITAM"
-        description="Meet GARI's 30+ member team at GITAM University Hyderabad — led by Singam Sai Harshith (Avionics Lead) and Bodapati Bharat Chandra (Ground Station & Software Lead), building rockets and CanSat for IN-SPACe CAN-7USAT 2026."
+        description="Meet GARI's 30+ member team at GITAM University Hyderabad — led by Harshith Venkata Naga Pavana Jangala (Aerospace Engineer) and Bodapati Bharat Chandra (Ground Station & Software Lead), building rockets and CanSat for IN-SPACe CAN-7USAT 2026."
         path="/team"
-        keywords="GARI team, Singam Sai Harshith GARI avionics, Bodapati Bharat Chandra GARI software, Harshith GITAM aerospace, Bharat Chandra ground station GARI, GARI GITAM team members, Harshith Venkata Naga Pavana Jangala GARI, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM"
+        keywords="GARI team, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI software, Harshith GITAM aerospace engineer, Bharat Chandra ground station GARI, GARI GITAM team members, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Singam Sai Harshith GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM"
         breadcrumbs={[{ name: 'Team', url: 'https://gari.live/team' }]}
         schema={[
           {
@@ -400,7 +400,7 @@ const TeamPage = () => {
             'url': 'https://gari.live/team',
             'numberOfItems': 28,
             'itemListElement': [
-              { '@type': 'ListItem', 'position': 1, 'item': { '@type': 'Person', '@id': 'https://gari.live/#person-harshith', 'name': 'Singam Sai Harshith', 'jobTitle': 'Avionics & Flight Software Lead — GARI', 'image': 'https://gari.live/team/singam-sai-harshith.jpg', 'url': 'https://gari.live/team', 'description': 'Avionics and Flight Software Lead at GARI GITAM. Leads onboard firmware, sensor fusion, and flight computer for IN-SPACe CAN-7USAT 2026.', 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
+              { '@type': 'ListItem', 'position': 1, 'item': { '@type': 'Person', '@id': 'https://gari.live/#person-harshith', 'name': 'Harshith Venkata Naga Pavana Jangala', 'jobTitle': 'Aerospace Engineer — GARI', 'image': 'https://gari.live/team/harshith-venkata.jpg', 'url': 'https://gari.live/team', 'description': 'Aerospace Engineer at GARI GITAM. Supports propulsion, structural design, and avionics for the rocket and CanSat programs including IN-SPACe CAN-7USAT 2026.', 'sameAs': ['https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306'], 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
               { '@type': 'ListItem', 'position': 2, 'item': { '@type': 'Person', '@id': 'https://gari.live/#person-bharat', 'name': 'Bodapati Bharat Chandra', 'jobTitle': 'Ground Station & Software Lead — GARI', 'image': 'https://gari.live/team/bodapati-bharat-chandra.jpg', 'url': 'https://gari.live/team', 'description': 'Ground Station and Software Lead at GARI GITAM. Built the custom ground control system for real-time telemetry. Portfolio at bharatchandra.me.', 'sameAs': ['https://bharatchandra.me', 'https://github.com/BharatChandra-sys'], 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
               { '@type': 'ListItem', 'position': 3, 'item': { '@type': 'Person', 'name': 'Harshith Venkata Naga Pavana Jangala', 'jobTitle': 'Aerospace Engineer — GARI', 'image': 'https://gari.live/team/harshith-venkata.jpg', 'url': 'https://gari.live/team', 'worksFor': { '@type': 'Organization', 'name': 'GARI GITAM Aerospace Rocketry Initiative', 'url': 'https://gari.live' } } },
               { '@type': 'ListItem', 'position': 4, 'item': { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead — GARI', 'url': 'https://gari.live/team', 'worksFor': { '@type': 'Organization', 'name': 'GARI', 'url': 'https://gari.live' } } },
@@ -435,12 +435,13 @@ const TeamPage = () => {
             '@context': 'https://schema.org',
             '@type': 'Person',
             '@id': 'https://gari.live/#person-harshith',
-            'name': 'Singam Sai Harshith',
-            'alternateName': ['Sai Harshith', 'Harshith GARI', 'Singam Harshith', 'Harshith avionics GARI'],
-            'jobTitle': 'Avionics & Flight Software Lead',
-            'description': 'Singam Sai Harshith is the Avionics and Flight Software Lead at GARI — GITAM Aerospace Rocketry Initiative, GITAM University Hyderabad. He leads onboard flight computer firmware, sensor fusion, state estimation, and timed deployment logic for the IN-SPACe CAN-7USAT 2026 CanSat mission.',
-            'image': 'https://gari.live/team/singam-sai-harshith.jpg',
+            'name': 'Harshith Venkata Naga Pavana Jangala',
+            'alternateName': ['Harshith Venkata', 'Harshith GARI', 'Harshith Jangala', 'Harshith GITAM aerospace'],
+            'jobTitle': 'Aerospace Engineer',
+            'description': 'Harshith Venkata Naga Pavana Jangala is an Aerospace Engineer and core member at GARI — GITAM Aerospace Rocketry Initiative, GITAM University Hyderabad. He supports propulsion, structural design, and avionics across the rocket and CanSat programs including IN-SPACe CAN-7USAT 2026.',
+            'image': 'https://gari.live/team/harshith-venkata.jpg',
             'url': 'https://gari.live/team',
+            'sameAs': ['https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306'],
             'worksFor': { '@id': 'https://gari.live/#organization' },
             'affiliation': {
               '@type': 'CollegeOrUniversity',
@@ -448,7 +449,7 @@ const TeamPage = () => {
               'url': 'https://www.gitam.edu',
               'sameAs': 'https://en.wikipedia.org/wiki/GITAM_University',
             },
-            'knowsAbout': ['Avionics', 'Flight Software', 'Embedded Systems', 'Sensor Fusion', 'Aerospace Engineering', 'CanSat', 'IN-SPACe', 'Firmware', 'C Programming', 'GITAM'],
+            'knowsAbout': ['Aerospace Engineering', 'Propulsion', 'Structural Design', 'Avionics', 'CanSat', 'Rocketry', 'IN-SPACe', 'GITAM'],
             'nationality': { '@type': 'Country', 'name': 'India' },
           },
           {
