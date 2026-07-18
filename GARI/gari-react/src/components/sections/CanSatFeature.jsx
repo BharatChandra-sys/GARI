@@ -1,6 +1,60 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, OrbitControls, Stage } from '@react-three/drei';
 import './CanSatFeature.css';
+
+// Preload so it's ready before scroll
+useGLTF.preload('/models/rocket.gltf');
+
+const RocketModel = () => {
+  const { scene } = useGLTF('/models/rocket.gltf');
+  const modelRef = useRef();
+
+  useFrame((state) => {
+    if (modelRef.current) {
+      modelRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.04;
+      modelRef.current.rotation.y = state.clock.elapsedTime * 0.25;
+    }
+  });
+
+  return (
+    <primitive
+      ref={modelRef}
+      object={scene}
+      scale={0.8}
+      position={[0, 0, 0]}
+    />
+  );
+};
+
+const RocketCanvas = () => (
+  <Canvas
+    camera={{ position: [0, 0.5, 3], fov: 45 }}
+    gl={{ antialias: true, alpha: true }}
+    style={{ background: 'transparent' }}
+  >
+    <Suspense fallback={null}>
+      <Stage
+        environment="city"
+        intensity={0.6}
+        adjustCamera={false}
+      >
+        <RocketModel />
+      </Stage>
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        autoRotate={false}
+        minPolarAngle={Math.PI / 3}
+        maxPolarAngle={Math.PI / 1.8}
+      />
+    </Suspense>
+    <ambientLight intensity={0.4} />
+    <directionalLight position={[5, 5, 5]} intensity={1.2} />
+    <directionalLight position={[-3, 2, -3]} intensity={0.4} color="#60a5fa" />
+  </Canvas>
+);
 
 const specs = [
   { value: '1000 m', label: 'Launch Altitude' },
@@ -107,20 +161,8 @@ const CanSatFeature = () => {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.55, delay: 0.1 }}
         >
-          <div className="csf-image-wrap">
-            <img
-              src="/rocket-image.png"
-              alt="GARI rocket — student-built aerospace vehicle for IN-SPACe CAN-7USAT 2026"
-              loading="lazy"
-              decoding="async"
-              width="600"
-              height="480"
-              onError={(e) => {
-                e.currentTarget.src =
-                  '/achievements/06_fixed_wing_aircraft_model/fixed_wing_aircraft_photo_11.jpeg';
-                e.currentTarget.alt = 'GARI fixed-wing aircraft engineering prototype';
-              }}
-            />
+          <div className="csf-image-wrap csf-image-wrap--3d">
+            <RocketCanvas />
 
             {/* Floating PDR badge */}
             <div className="csf-badge" aria-label="PDR Cleared milestone">

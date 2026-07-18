@@ -191,6 +191,18 @@
   background: transparent;
 }
 
+.csf-image-wrap--3d {
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+}
+
+.csf-image-wrap--3d canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .csf-image-wrap img {
   width: 100%;
   height: auto;
