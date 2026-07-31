@@ -242,23 +242,43 @@ const ApplicationPage = () => {
                 </p>
               </div>
 
-              {submitStatus === 'success' && (
-                <div className="status-message success-message">
-                  Application submitted successfully! We'll review and get back to you soon.
+              {submitStatus === 'success' ? (
+                <div className="apply-success-state">
+                  <div className="apply-success-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <h3>Application submitted.</h3>
+                  <p>We've received your application and will review it within 5–7 business days. A confirmation has been sent to your email.</p>
+                  <div className="apply-success-steps">
+                    <div className="apply-success-step">
+                      <span className="step-num">1</span>
+                      <span>Application review within 5–7 business days</span>
+                    </div>
+                    <div className="apply-success-step">
+                      <span className="step-num">2</span>
+                      <span>Shortlisted candidates contacted for interview</span>
+                    </div>
+                    <div className="apply-success-step">
+                      <span className="step-num">3</span>
+                      <span>Selected candidates receive offer to join GARI</span>
+                    </div>
+                  </div>
                 </div>
-              )}
+              ) : (
+                <>
+                  {errors.general && (
+                    <div className="status-message error-message">
+                      {errors.general}
+                    </div>
+                  )}
 
-              {errors.general && (
-                <div className="status-message error-message">
-                  {errors.general}
-                </div>
-              )}
-
-              {submitStatus === 'error' && !errors.general && (
-                <div className="status-message error-message">
-                  Failed to submit application. Please try again or email us at contact@gari.live
-                </div>
-              )}
+                  {submitStatus === 'error' && !errors.general && (
+                    <div className="status-message error-message">
+                      Failed to submit application. Please try again or email us at contact@gari.live
+                    </div>
+                  )}
 
               <form onSubmit={handleSubmit} className="apply-form">
                 <div className="form-section-group">
@@ -476,6 +496,8 @@ const ApplicationPage = () => {
                   {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 </button>
               </form>
+                </>
+              )}
             </div>
           </div>
         </section>

@@ -114,208 +114,110 @@ const EMAIL_STYLES = `
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
     line-height: 1.6; 
     color: #0f172a; 
-    background: #f1f5f9;
+    background: #f9fafb;
   }
-  .wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; }
   .header { 
-    background: #0f172a;
+    background: #1a1a1a;
     color: #ffffff; 
-    padding: 40px 32px 36px; 
+    padding: 48px 32px; 
     text-align: center; 
   }
-  .header-logo {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 16px;
-    display: block;
-  }
   .brand { 
-    font-size: 26px; 
-    font-weight: 800; 
-    letter-spacing: 3px;
+    font-size: 28px; 
+    font-weight: 700; 
+    letter-spacing: 2px;
+    margin-bottom: 8px;
     color: #ffffff;
-    margin-bottom: 6px;
   }
   .tagline { 
-    font-size: 11px; 
-    color: #94a3b8;
-    letter-spacing: 1.5px;
+    font-size: 13px; 
+    color: #cbd5e1;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-  .content { padding: 40px 32px; }
-  .badge {
-    display: inline-block;
-    background: #f0f9ff;
-    color: #1e40af;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 50px;
-    border: 1px solid #bfdbfe;
-    margin-bottom: 16px;
-  }
+  .content { padding: 48px 32px; }
   .title { 
-    font-size: 22px; 
+    font-size: 24px; 
     font-weight: 700; 
-    color: #0f172a; 
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .subtitle {
-    font-size: 15px;
-    color: #64748b;
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-  .divider {
-    height: 1px;
-    background: #e2e8f0;
-    margin: 28px 0;
+    color: #1a1a1a; 
+    margin-bottom: 24px;
+    text-align: center;
   }
   .text { 
-    color: #475569; 
-    margin-bottom: 20px; 
-    line-height: 1.75;
+    color: #4b5563; 
+    margin-bottom: 24px; 
+    line-height: 1.7;
     font-size: 15px;
   }
   .box { 
-    background: #f8fafc; 
+    background: #f9fafb; 
     padding: 24px; 
-    border-radius: 10px; 
-    border: 1px solid #e2e8f0;
-    margin: 24px 0; 
+    border-radius: 8px; 
+    border: 1px solid #e5e7eb;
+    margin: 32px 0; 
   }
   .box-title {
-    font-weight: 700;
-    color: #0f172a;
+    font-weight: 600;
+    color: #1a1a1a;
     margin-bottom: 16px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 16px;
   }
   .list-item { 
-    margin: 10px 0; 
-    padding-left: 20px; 
+    margin: 12px 0; 
+    padding-left: 24px; 
     position: relative;
-    color: #475569;
+    color: #4b5563;
     font-size: 14px;
-    line-height: 1.6;
   }
   .list-item:before { 
-    content: "–"; 
+    content: "→"; 
     position: absolute; 
     left: 0; 
-    color: #94a3b8;
+    color: #1a1a1a; 
+    font-weight: bold; 
   }
-  .highlight-box {
-    background: #0f172a;
-    color: #ffffff;
-    padding: 20px 24px;
-    border-radius: 10px;
-    margin: 24px 0;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .highlight-box strong {
-    color: #93c5fd;
-  }
-  .cta { text-align: center; margin: 32px 0 8px; }
+  .cta { text-align: center; margin: 32px 0; }
   .button { 
     display: inline-block; 
-    padding: 14px 36px; 
-    background: #1e40af; 
+    padding: 14px 32px; 
+    background: #1a1a1a; 
     color: #ffffff !important; 
     text-decoration: none; 
-    border-radius: 8px; 
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.3px;
+    border-radius: 6px; 
+    font-weight: 600;
+    font-size: 15px;
   }
   .footer { 
     text-align: center; 
-    padding: 28px 32px; 
-    color: #94a3b8; 
-    font-size: 12px; 
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    padding: 32px; 
+    color: #6b7280; 
+    font-size: 13px; 
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
   }
   .footer-brand {
-    font-weight: 700;
-    color: #475569;
-    margin-bottom: 6px;
-    font-size: 13px;
-    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
   }
-  .footer-links {
-    margin-top: 12px;
-  }
-  .footer-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    margin: 0 8px;
-    font-size: 12px;
-  }
-  .field { margin-bottom: 16px; }
-  .label { 
-    font-weight: 600; 
-    color: #64748b; 
-    margin-bottom: 4px; 
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+  .field { margin-bottom: 20px; }
+  .label { font-weight: 600; color: #1a1a1a; margin-bottom: 8px; font-size: 14px; }
   .value { 
-    background: #ffffff; 
-    padding: 10px 14px; 
+    background: white; 
+    padding: 12px; 
     border-radius: 6px; 
-    border: 1px solid #e2e8f0; 
+    border: 1px solid #e5e7eb; 
     word-wrap: break-word;
-    color: #0f172a;
-    font-size: 14px;
-    line-height: 1.6;
+    color: #4b5563;
   }
-  .value a { color: #1e40af; text-decoration: none; }
-  .applicant-header {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .applicant-avatar {
-    width: 48px;
-    height: 48px;
-    background: #1e40af;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    flex-shrink: 0;
-  }
-  .applicant-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 3px;
-  }
-  .applicant-meta {
-    font-size: 13px;
-    color: #64748b;
-  }
+  .value a { color: #1a1a1a; text-decoration: none; }
   .section-divider {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #94a3b8;
+    color: #9ca3af;
     margin: 24px 0 16px;
     padding-bottom: 8px;
     border-bottom: 1px solid #f1f5f9;
@@ -325,47 +227,45 @@ const EMAIL_STYLES = `
 function getNewsletterWelcomeEmail(email) {
   return `
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>${EMAIL_STYLES}</style>
     </head>
-    <body style="background:#f1f5f9; padding: 32px 16px;">
+    <body>
       <div class="wrapper">
         <div class="header">
-          <img class="header-logo" src="https://gari.live/gari-logo-new.png" alt="GARI" />
+          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>
         <div class="content">
-          <div class="badge">Newsletter</div>
-          <div class="title">You're on the list.</div>
-          <div class="subtitle">Thanks for subscribing — we'll keep you in the loop on everything happening at GARI.</div>
-          <div class="divider"></div>
+          <div class="title">Welcome Aboard!</div>
           <div class="text">
-            You'll hear from us when there's something worth saying — mission updates, competition results, and behind-the-scenes looks at how we build aerospace hardware from scratch.
+            Thank you for subscribing to the GARI newsletter. You're now part of our aerospace innovation community.
           </div>
           <div class="box">
-            <div class="box-title">What to expect</div>
-            <div class="list-item">CanSat mission updates and flight data</div>
+            <div class="box-title">What you'll receive:</div>
+            <div class="list-item">Latest updates on our CanSat mission</div>
+            <div class="list-item">Behind-the-scenes aerospace engineering insights</div>
             <div class="list-item">Competition results and achievements</div>
-            <div class="list-item">Engineering deep-dives and build logs</div>
-            <div class="list-item">Team news and upcoming events</div>
+            <div class="list-item">Exclusive team updates and project milestones</div>
+          </div>
+          <div class="text">
+            We're excited to share our journey of building advanced aerospace systems and pushing the boundaries of student innovation.
           </div>
           <div class="cta">
-            <a href="https://gari.live" class="button">Visit gari.live</a>
+            <a href="https://gari.live" class="button">Visit Our Website</a>
           </div>
         </div>
         <div class="footer">
-          <div class="footer-brand">GARI — GITAM Aerospace Rocketry Initiative</div>
-          <div>GITAM University, Hyderabad</div>
-          <div class="footer-links">
-            <a href="https://gari.live">Website</a>
-            <a href="mailto:contact@gari.live">contact@gari.live</a>
-          </div>
-          <div style="margin-top: 16px; color: #cbd5e1; font-size: 11px;">
-            To unsubscribe, reply with "Unsubscribe" in the subject line.
+          <div class="footer-brand">GARI - GITAM Aerospace Rocketry Initiative</div>
+          <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
+          <div style="margin: 8px 0;">Building the future of aerospace technology</div>
+          <div style="margin-top: 16px; font-size: 12px; color: #9ca3af;">
+            You're receiving this because you subscribed to our newsletter.<br>
+            To unsubscribe, reply with "Unsubscribe" in the subject.
           </div>
         </div>
       </div>
@@ -377,47 +277,41 @@ function getNewsletterWelcomeEmail(email) {
 function getContactConfirmationEmail(name, subject) {
   return `
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>${EMAIL_STYLES}</style>
     </head>
-    <body style="background:#f1f5f9; padding: 32px 16px;">
+    <body>
       <div class="wrapper">
         <div class="header">
-          <img class="header-logo" src="https://gari.live/gari-logo-new.png" alt="GARI" />
+          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>
         <div class="content">
-          <div class="badge">Message Received</div>
-          <div class="title">We got your message.</div>
-          <div class="subtitle">Hi ${sanitizeHtml(name)}, our team will review it and get back to you within 24–48 hours.</div>
-          <div class="divider"></div>
+          <div class="title">Thank You for Reaching Out!</div>
+          <div class="text">Hi ${sanitizeHtml(name)},</div>
+          <div class="text">
+            We've received your message and our team will review it shortly. We typically respond within 24-48 hours.
+          </div>
           <div class="box">
-            <div class="box-title">Your subject</div>
-            <div style="color: #475569; font-size: 15px; line-height: 1.6;">${sanitizeHtml(subject)}</div>
+            <div class="box-title">Your message:</div>
+            <div style="color: #4b5563; font-style: italic;">"${sanitizeHtml(subject)}"</div>
           </div>
           <div class="text">
-            While you wait, feel free to explore our work — from our active CanSat mission to past achievements.
+            In the meantime, feel free to explore our website to learn more about our aerospace projects and innovations.
           </div>
-          <div class="cta">
-            <a href="https://gari.live" class="button">Explore GARI</a>
-          </div>
-          <div class="divider"></div>
-          <div class="text" style="font-size: 14px; color: #94a3b8;">
-            The GARI Team<br>
-            GITAM Aerospace Rocketry Initiative
+          <div class="text">
+            <strong>Best regards,</strong><br>
+            The GARI Team
           </div>
         </div>
         <div class="footer">
-          <div class="footer-brand">GARI — GITAM Aerospace Rocketry Initiative</div>
-          <div>GITAM University, Hyderabad</div>
-          <div class="footer-links">
-            <a href="https://gari.live">Website</a>
-            <a href="mailto:contact@gari.live">contact@gari.live</a>
-          </div>
+          <div class="footer-brand">GARI - GITAM Aerospace Rocketry Initiative</div>
+          <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
+          <div style="margin: 8px 0;">contact@gari.live</div>
         </div>
       </div>
     </body>
@@ -426,53 +320,46 @@ function getContactConfirmationEmail(name, subject) {
 }
 
 function getApplicationConfirmationEmail(name, domain) {
-  const firstName = sanitizeHtml(name.split(' ')[0]);
   return `
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>${EMAIL_STYLES}</style>
     </head>
-    <body style="background:#f1f5f9; padding: 32px 16px;">
+    <body>
       <div class="wrapper">
         <div class="header">
-          <img class="header-logo" src="https://gari.live/gari-logo-new.png" alt="GARI" />
+          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>
         <div class="content">
-          <div class="badge">Application Received</div>
-          <div class="title">We've got your application, ${firstName}.</div>
-          <div class="subtitle">You applied for <strong>${sanitizeHtml(domain)}</strong>. Our recruitment team will review your application carefully.</div>
-          <div class="divider"></div>
+          <div class="title">Application Received!</div>
+          <div class="text">Hi ${sanitizeHtml(name)},</div>
+          <div class="text">
+            Thank you for applying to join GARI. We've received your application for the ${sanitizeHtml(domain)} domain and our team will review it carefully.
+          </div>
           <div class="box">
-            <div class="box-title">What happens next</div>
-            <div class="list-item">Application review within 5–7 business days</div>
-            <div class="list-item">Shortlisted candidates contacted for an interview</div>
+            <div class="box-title">What happens next:</div>
+            <div class="list-item">Application review within 5-7 business days</div>
+            <div class="list-item">Shortlisted candidates will be contacted for interviews</div>
             <div class="list-item">Selected candidates receive an offer to join GARI</div>
-            <div class="list-item">Onboarding and team orientation</div>
+            <div class="list-item">Onboarding and team orientation begins</div>
           </div>
-          <div class="highlight-box">
-            We build real aerospace hardware — not slides. If selected, you'll work on our active <strong>CanSat mission for IN-SPACe CAN-7USAT 2026</strong> alongside engineers who care deeply about getting it right.
+          <div class="text">
+            We're building real aerospace hardware, not slides. If you're selected, you'll work on exciting projects including our CanSat mission for IN-SPACe CAN-7USAT 2026.
           </div>
-          <div class="cta">
-            <a href="https://gari.live/cansat" class="button">See Our Current Mission</a>
-          </div>
-          <div class="divider"></div>
-          <div class="text" style="font-size: 14px; color: #94a3b8;">
-            GARI Recruitment Team<br>
-            GITAM Aerospace Rocketry Initiative
+          <div class="text">
+            <strong>Best regards,</strong><br>
+            The GARI Recruitment Team
           </div>
         </div>
         <div class="footer">
-          <div class="footer-brand">GARI — GITAM Aerospace Rocketry Initiative</div>
-          <div>GITAM University, Hyderabad</div>
-          <div class="footer-links">
-            <a href="https://gari.live">Website</a>
-            <a href="mailto:contact@gari.live">contact@gari.live</a>
-          </div>
+          <div class="footer-brand">GARI - GITAM Aerospace Rocketry Initiative</div>
+          <div style="margin: 8px 0;">GITAM University, Hyderabad</div>
+          <div style="margin: 8px 0;">contact@gari.live</div>
         </div>
       </div>
     </body>
@@ -484,102 +371,88 @@ function getLeadNotificationEmail(type, data) {
   if (type === 'newsletter') {
     return `
       <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <style>${EMAIL_STYLES}</style>
-      </head>
-      <body style="background:#f1f5f9; padding: 32px 16px;">
-        <div class="wrapper">
-          <div class="header">
-            <div class="brand">GARI</div>
-            <div class="tagline">Newsletter Subscription</div>
+      <html>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; color: #0f172a;">
+        <div style="max-width: 600px; margin: 0 auto;">
+          <h3 style="color: #1a1a1a; margin-bottom: 20px;">New Newsletter Subscription</h3>
+          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+            <p style="margin: 8px 0;"><strong>Email:</strong> ${sanitizeHtml(data.email)}</p>
+            <p style="margin: 8px 0;"><strong>Subscribed:</strong> ${new Date().toLocaleString()}</p>
           </div>
-          <div class="content">
-            <div class="badge">New Subscriber</div>
-            <div class="title">Newsletter signup</div>
-            <div class="divider"></div>
-            <div class="field">
-              <div class="label">Email</div>
-              <div class="value"><a href="mailto:${sanitizeHtml(data.email)}">${sanitizeHtml(data.email)}</a></div>
-            </div>
-            <div class="field">
-              <div class="label">Subscribed at</div>
-              <div class="value">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</div>
-            </div>
-          </div>
-          <div class="footer">
-            <div class="footer-brand">GARI Website Notification</div>
-          </div>
+          <p style="color: #6b7280; font-size: 14px; margin-top: 20px;">
+            Subscriber has been added to the newsletter list.
+          </p>
         </div>
       </body>
       </html>
     `;
   } else if (type === 'application') {
-    const initials = data.fullName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
     return `
       <!DOCTYPE html>
-      <html lang="en">
+      <html>
       <head>
-        <meta charset="UTF-8">
         <style>${EMAIL_STYLES}</style>
       </head>
-      <body style="background:#f1f5f9; padding: 32px 16px;">
+      <body>
         <div class="wrapper">
           <div class="header">
-            <div class="brand">GARI</div>
-            <div class="tagline">New Recruitment Application</div>
+            <div class="brand">New GARI Application</div>
+            <div class="tagline">Recruitment Application Submitted</div>
           </div>
           <div class="content">
-            <div class="badge">Application</div>
-            <div class="title">${sanitizeHtml(data.fullName)}</div>
-            <div class="subtitle">Applied for <strong>${sanitizeHtml(data.domain)}</strong> &nbsp;·&nbsp; ${sanitizeHtml(data.year)}${data.year === '1' ? 'st' : data.year === '2' ? 'nd' : data.year === '3' ? 'rd' : 'th'} Year &nbsp;·&nbsp; ${sanitizeHtml(data.branch)}</div>
-            <div class="divider"></div>
-
-            <div class="section-divider">Contact</div>
+            <div class="section-divider">Applicant Details</div>
             <div class="field">
-              <div class="label">Email</div>
+              <div class="label">Full Name:</div>
+              <div class="value">${sanitizeHtml(data.fullName)}</div>
+            </div>
+            <div class="field">
+              <div class="label">Email:</div>
               <div class="value"><a href="mailto:${sanitizeHtml(data.email)}">${sanitizeHtml(data.email)}</a></div>
             </div>
             <div class="field">
-              <div class="label">Phone</div>
+              <div class="label">Phone:</div>
               <div class="value">${sanitizeHtml(data.phone)}</div>
             </div>
             <div class="field">
-              <div class="label">Student ID</div>
+              <div class="label">Student ID:</div>
               <div class="value">${sanitizeHtml(data.studentId)}</div>
             </div>
-
-            <div class="section-divider">Skills</div>
             <div class="field">
-              <div class="label">Technical Skills</div>
+              <div class="label">Branch:</div>
+              <div class="value">${sanitizeHtml(data.branch)}</div>
+            </div>
+            <div class="field">
+              <div class="label">Current Year:</div>
+              <div class="value">${sanitizeHtml(data.year)}</div>
+            </div>
+            <div class="section-divider">Domain & Skills</div>
+            <div class="field">
+              <div class="label">Preferred Domain:</div>
+              <div class="value">${sanitizeHtml(data.domain)}</div>
+            </div>
+            <div class="field">
+              <div class="label">Technical Skills:</div>
               <div class="value" style="white-space: pre-wrap;">${sanitizeHtml(data.skills)}</div>
             </div>
             ${data.experience ? `
             <div class="field">
-              <div class="label">Previous Experience</div>
+              <div class="label">Previous Experience:</div>
               <div class="value" style="white-space: pre-wrap;">${sanitizeHtml(data.experience)}</div>
             </div>
             ` : ''}
-
             <div class="section-divider">Motivation</div>
             <div class="field">
               <div class="label">Why join GARI?</div>
               <div class="value" style="white-space: pre-wrap;">${sanitizeHtml(data.motivation)}</div>
             </div>
             <div class="field">
-              <div class="label">Time Commitment</div>
+              <div class="label">Time Commitment:</div>
               <div class="value">${sanitizeHtml(data.availability)}</div>
-            </div>
-
-            <div class="divider"></div>
-            <div class="cta">
-              <a href="mailto:${sanitizeHtml(data.email)}" class="button">Reply to Applicant</a>
             </div>
           </div>
           <div class="footer">
-            <div class="footer-brand">GARI Website Notification</div>
-            <div>Submitted ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</div>
+            <p style="margin-bottom: 6px;">Submitted via gari.live application form</p>
+            <p>Reply to this email to contact ${sanitizeHtml(data.fullName)} directly.</p>
           </div>
         </div>
       </body>
@@ -588,46 +461,37 @@ function getLeadNotificationEmail(type, data) {
   } else {
     return `
       <!DOCTYPE html>
-      <html lang="en">
+      <html>
       <head>
-        <meta charset="UTF-8">
         <style>${EMAIL_STYLES}</style>
       </head>
-      <body style="background:#f1f5f9; padding: 32px 16px;">
+      <body>
         <div class="wrapper">
           <div class="header">
-            <div class="brand">GARI</div>
-            <div class="tagline">New Contact Form Submission</div>
+            <div class="brand">New Contact Form Submission</div>
+            <div class="tagline">GARI Aerospace Rocketry Initiative</div>
           </div>
           <div class="content">
-            <div class="badge">Contact Form</div>
-            <div class="title">${sanitizeHtml(data.subject)}</div>
-            <div class="subtitle">From ${sanitizeHtml(data.name)}</div>
-            <div class="divider"></div>
             <div class="field">
-              <div class="label">Name</div>
+              <div class="label">From:</div>
               <div class="value">${sanitizeHtml(data.name)}</div>
             </div>
             <div class="field">
-              <div class="label">Email</div>
+              <div class="label">Email:</div>
               <div class="value"><a href="mailto:${sanitizeHtml(data.email)}">${sanitizeHtml(data.email)}</a></div>
             </div>
             <div class="field">
-              <div class="label">Subject</div>
+              <div class="label">Subject:</div>
               <div class="value">${sanitizeHtml(data.subject)}</div>
             </div>
             <div class="field">
-              <div class="label">Message</div>
+              <div class="label">Message:</div>
               <div class="value" style="white-space: pre-wrap;">${sanitizeHtml(data.message)}</div>
-            </div>
-            <div class="divider"></div>
-            <div class="cta">
-              <a href="mailto:${sanitizeHtml(data.email)}" class="button">Reply to ${sanitizeHtml(data.name)}</a>
             </div>
           </div>
           <div class="footer">
-            <div class="footer-brand">GARI Website Notification</div>
-            <div>Submitted ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</div>
+            <p style="margin-bottom: 6px;">Sent from the GARI website contact form.</p>
+            <p>Reply directly to respond to ${sanitizeHtml(data.name)}.</p>
           </div>
         </div>
       </body>

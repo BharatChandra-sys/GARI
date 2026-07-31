@@ -311,23 +311,23 @@
 .newsletter-success,
 .newsletter-error {
   margin-top: 0.75rem;
-  padding: 0.65rem;
+  padding: 0.65rem 0.9rem;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   font-weight: 500;
   animation: slideIn 0.3s ease;
 }
 
 .newsletter-success {
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7;
+  background: rgba(255, 255, 255, 0.07);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .newsletter-error {
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1px solid #fca5a5;
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 @keyframes slideIn {
