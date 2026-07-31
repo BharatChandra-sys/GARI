@@ -28,12 +28,16 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   overflow: hidden;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
 
 .overview-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
   border-color: #cbd5e1;
+  text-decoration: none;
 }
 
 .card-image {

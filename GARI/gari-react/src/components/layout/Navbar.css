@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
   /* Transparent over hero */
   background: transparent;
@@ -17,7 +17,7 @@
 
 /* Scrolled state — solid white, dark text */
 .navbar.scrolled {
-  padding: 0.7rem 0;
+  padding: 0.35rem 0;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
@@ -95,6 +95,19 @@
   width: 100%;
 }
 
+/* Dark text on non-homepage pages (transparent navbar but visible text) */
+.navbar.dark-text .nav-links li a {
+  color: #0f172a;
+}
+
+.navbar.dark-text .nav-links li a::after {
+  background: #1e40af;
+}
+
+.navbar.dark-text .nav-links li a:hover {
+  color: #1e40af;
+}
+
 /* Scrolled state — dark text */
 .navbar.scrolled .nav-links li a {
   color: #0f172a;
@@ -125,6 +138,18 @@
 .nav-links li:last-child a:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
+}
+
+/* Dark-text contact button (non-homepage) */
+.navbar.dark-text .nav-links li:last-child a {
+  background: #1e40af;
+  border-color: #1e40af;
+  color: #ffffff !important;
+}
+
+.navbar.dark-text .nav-links li:last-child a:hover {
+  background: #1e3a8a;
+  border-color: #1e3a8a;
 }
 
 /* Scrolled contact button */
@@ -165,9 +190,22 @@
   transition: all 0.3s ease;
 }
 
-/* Dark hamburger when scrolled */
-.navbar.scrolled .hamburger span {
+/* Dark hamburger when scrolled OR on non-homepage */
+.navbar.scrolled .hamburger span,
+.navbar.dark-text .hamburger span {
   background: #0f172a;
+}
+
+/* Ensure hamburger is always visible on mobile by default showing dark */
+@media (max-width: 768px) {
+  .hamburger span {
+    background: #0f172a;
+  }
+  
+  /* White only on homepage hero */
+  .home-page .navbar:not(.scrolled):not(.dark-text) .hamburger span {
+    background: #ffffff;
+  }
 }
 
 .hamburger.active span:nth-child(1) {
@@ -279,6 +317,15 @@
   .nav-links li a:hover {
     color: #ffffff !important;
     padding-left: 0.4rem;
+  }
+
+  /* Active page indicator in mobile - minimal left border */
+  .nav-links li a.active,
+  .navbar .nav-links li a.active,
+  .navbar.scrolled .nav-links li a.active {
+    color: #60a5fa !important;
+    border-left: 3px solid #60a5fa;
+    padding-left: 0.5rem;
   }
 
   .nav-links li a::after {

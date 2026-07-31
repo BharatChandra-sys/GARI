@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import AnimatedStats from '../components/sections/AnimatedStats';
 import Sponsors from '../components/sections/Sponsors';
@@ -57,7 +58,7 @@ const HomePage = () => {
         <section className="overview-section">
           <div className="container">
             <div className="overview-grid">
-              <div className="overview-card">
+              <Link to="/achievements/rover-for-extraterrestrial-planets" className="overview-card">
                 <div className="card-image">
                   <img 
                     src="/achievements/01_rover_for_extraterrestrial_planets/rover_extraterrestrial_photo_01.jpeg" 
@@ -70,8 +71,8 @@ const HomePage = () => {
                 </div>
                 <h3>Rover for Extraterrestrial Planets</h3>
                 <p>Planetary rover prototype with chassis, wiring, and motion-testing documentation</p>
-              </div>
-              <div className="overview-card">
+              </Link>
+              <Link to="/achievements/hexa-copter-making" className="overview-card">
                 <div className="card-image">
                   <img 
                     src="/achievements/03_hexa_copter_making/hexa_copter_photo_01.jpeg" 
@@ -84,8 +85,8 @@ const HomePage = () => {
                 </div>
                 <h3>Hexa Copter Making</h3>
                 <p>Multirotor build covering frame assembly, propulsion, and electronics integration</p>
-              </div>
-              <div className="overview-card">
+              </Link>
+              <Link to="/achievements/fixed-wing-aircraft-model" className="overview-card">
                 <div className="card-image">
                   <img 
                     src="/achievements/06_fixed_wing_aircraft_model/fixed_wing_aircraft_photo_11.jpeg" 
@@ -98,7 +99,7 @@ const HomePage = () => {
                 </div>
                 <h3>Fixed-Wing Aircraft Model</h3>
                 <p>Full fixed-wing prototype with structure, electronics placement, and test setup</p>
-              </div>
+              </Link>
             </div>
           </div>
         </section>

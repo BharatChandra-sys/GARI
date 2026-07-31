@@ -52,7 +52,7 @@ const RocketCanvas = () => {
           <RocketModel />
         </Stage>
         <OrbitControls
-          enableZoom={false}
+          enableZoom={true}
           enablePan={false}
           autoRotate={false}
           minPolarAngle={Math.PI / 3}
@@ -60,6 +60,9 @@ const RocketCanvas = () => {
           enableDamping={true}
           dampingFactor={0.05}
           rotateSpeed={isMobile ? 0.5 : 1}
+          zoomSpeed={0.8}
+          minDistance={2}
+          maxDistance={6}
         />
       </Suspense>
       <ambientLight intensity={0.4} />

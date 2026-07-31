@@ -1,0 +1,364 @@
+@import './Pages.css';
+
+.application-page {
+  min-height: 100vh;
+}
+
+/* Page tag - matches AboutPage exactly */
+.page-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #0f172a;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+/* Section label - matches existing pages exactly */
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 0.65rem;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header-center h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.5px;
+}
+
+.section-desc {
+  color: #64748b;
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Alt background */
+.apply-alt-bg {
+  background: #f8fafc;
+}
+
+/* Benefits grid - matches values grid from AboutPage */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.benefit-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  border-color: #cbd5e1;
+}
+
+.benefit-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+}
+
+.benefit-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Form wrapper */
+.apply-form-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-header-section h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.5px;
+}
+
+/* Form sections */
+.form-section-group {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-section-group:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.form-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Form elements - matches ContactPage exactly */
+.apply-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.apply-form label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.apply-form input,
+.apply-form select,
+.apply-form textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.93rem;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  appearance: none;
+}
+
+.apply-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230f172a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.apply-form input:focus,
+.apply-form select:focus,
+.apply-form textarea:focus {
+  outline: none;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.08);
+}
+
+.apply-form input.error,
+.apply-form select.error,
+.apply-form textarea.error {
+  border-color: #ef4444;
+}
+
+.apply-form input::placeholder,
+.apply-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.apply-form textarea {
+  resize: vertical;
+  line-height: 1.7;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.error-text {
+  display: block;
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Submit button - matches ContactPage exactly */
+.apply-form .submit-btn {
+  width: 100%;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #1e40af;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 2rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.apply-form .submit-btn:hover:not(:disabled) {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+}
+
+.apply-form .submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.apply-form .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status message - matches ContactPage exactly */
+.status-message {
+  padding: 1.1rem 1.4rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.success-message {
+  background: #d1fae5;
+  border: 1.5px solid #6ee7b7;
+  color: #065f46;
+}
+
+.error-message {
+  background: #fee2e2;
+  border: 1.5px solid #fca5a5;
+  color: #991b1b;
+}
+
+/* Process timeline - matches AboutPage timeline exactly */
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1e40af;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.step-content h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.step-content p {
+  font-size: 0.87rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .process-step {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .step-number {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .form-section-group {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .form-section-title {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .apply-form .submit-btn {
+    padding: 0.95rem 2rem;
+    font-size: 0.95rem;
+  }
+}

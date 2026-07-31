@@ -10,6 +10,7 @@ import AchievementsPage from './pages/AchievementsPage';
 import AchievementProjectPage from './pages/AchievementProjectPage';
 import ContactPage from './pages/ContactPage';
 import SponsorsPage from './pages/SponsorsPage';
+import ApplicationPage from './pages/ApplicationPage';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import './App.css';
@@ -35,6 +36,7 @@ function App() {
               <Route path="/team" element={<TeamPage />} />
               <Route path="/achievements/:slug" element={<AchievementProjectPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />
+              <Route path="/apply" element={<ApplicationPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/sponsors" element={<SponsorsPage />} />
             </Routes>

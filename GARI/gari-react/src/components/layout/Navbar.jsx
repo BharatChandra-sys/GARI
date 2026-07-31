@@ -9,6 +9,8 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -38,7 +40,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`navbar ${scrolled ? 'scrolled' : ''}`}
+      className={`navbar ${scrolled ? 'scrolled' : ''} ${!isHomePage ? 'dark-text' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}

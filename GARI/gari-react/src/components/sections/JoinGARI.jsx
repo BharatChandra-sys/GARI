@@ -64,7 +64,7 @@ const JoinGARI = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.38, delay: 0.62 }}
           >
-            <a href="/contact" className="jg-btn-primary">
+            <a href="/apply" className="jg-btn-primary">
               Apply to join GARI
             </a>
             <a href="/team" className="jg-btn-secondary">
