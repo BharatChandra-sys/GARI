@@ -12,8 +12,8 @@
   display: block;
   object-fit: contain;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  /* Bigger logo */
-  height: 65px;
+  /* Reasonable logo size */
+  height: 45px;
   width: auto;
 }
 
@@ -30,6 +30,6 @@
 /* Mobile sizing */
 @media (max-width: 768px) {
   .logo-image {
-    height: 48px !important;
+    height: 38px !important;
   }
 }
