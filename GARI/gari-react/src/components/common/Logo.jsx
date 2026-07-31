@@ -1,28 +1,22 @@
 import React from 'react';
 import './Logo.css';
 
-// variant: 'default' (dark text) | 'white' (white text, for dark backgrounds)
+// variant: 'default' (dark bg) | 'white' (white text, for dark backgrounds)
 const Logo = ({ size = 'medium', variant = 'default' }) => {
-  const sizes = {
-    small: { height: 36 },
-    medium: { height: 44 },
-    large: { height: 56 },
-  };
-
-  const currentSize = sizes[size];
   const containerClass = `logo-container${variant === 'white' ? ' logo-container--white' : ''}`;
 
   return (
     <div className={containerClass}>
       <img
-        src="/gari-logo.png"
-        alt="GARI Logo"
-        style={{ height: `${currentSize.height}px`, width: 'auto' }}
+        src="/gari-logo-new.png"
+        alt="GARI — GITAM Aerospace Rocketry Initiative logo"
         className="logo-image"
+        loading="eager"
+        decoding="async"
       />
-      <span className="logo-text">GARI</span>
     </div>
   );
 };
+
 
 export default Logo;

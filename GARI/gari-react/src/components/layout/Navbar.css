@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
   /* Transparent over hero */
   background: transparent;
@@ -17,7 +17,7 @@
 
 /* Scrolled state — solid white, dark text */
 .navbar.scrolled {
-  padding: 0.7rem 0;
+  padding: 0.5rem 0;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
@@ -31,6 +31,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1.75rem;
+  min-height: 50px; /* Minimum height instead of fixed */
 }
 
 /* =====================================
@@ -47,6 +48,18 @@
 .logo-link:hover {
   opacity: 0.85;
   text-decoration: none;
+}
+
+/* Logo container - allows logo to be bigger */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 
 /* =====================================

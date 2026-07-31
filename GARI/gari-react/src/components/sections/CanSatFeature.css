@@ -196,11 +196,13 @@
   border-radius: 12px;
   overflow: hidden;
   background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+  position: relative;
 }
 
 .csf-image-wrap--3d canvas {
   width: 100% !important;
   height: 100% !important;
+  display: block;
 }
 
 .csf-image-wrap img {
@@ -300,7 +302,16 @@
 
   .csf-visual { order: -1; }
 
-  .csf-image-wrap { aspect-ratio: 16 / 9; }
+  /* Adjust 3D canvas for mobile */
+  .csf-image-wrap--3d {
+    height: 300px;
+  }
+
+  .csf-image-wrap--3d canvas {
+    width: 100% !important;
+    height: 100% !important;
+    touch-action: pan-y pinch-zoom;
+  }
 
   .csf-specs { grid-template-columns: repeat(2, 1fr); }
 
@@ -320,4 +331,9 @@
   .csf-status-strip { padding: 0.7rem 0.85rem; }
 
   .csf-status-divider { width: 10px; }
+
+  /* Further optimize 3D canvas on small phones */
+  .csf-image-wrap--3d {
+    height: 250px;
+  }
 }
