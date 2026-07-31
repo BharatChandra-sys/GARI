@@ -73,21 +73,35 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <SEO
-        title="About GARI — GITAM Aerospace Rocketry Initiative"
-        description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024, we build rockets, CanSats, and aerospace systems with 30+ multidisciplinary engineers in Hyderabad, India."
+        title="About GARI — GITAM Aerospace Rocketry Initiative | Student Aerospace Team"
+        description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024 with 30+ multidisciplinary engineers across Aerospace, ECE, CSE and Mechanical. Building rockets, CanSats, and aerospace systems in Hyderabad, India. PDR cleared for IN-SPACe CAN-7USAT 2026."
         path="/about"
-        keywords="about GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative, GARI aerospace team, GITAM aerospace research, GARI student team, aerospace students GITAM Hyderabad, GARI team India"
+        keywords="about GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative about, GARI aerospace team, GITAM aerospace research, GARI student team, aerospace students GITAM Hyderabad, GARI team India, GARI founded 2024, GARI 30 engineers, GARI aerospace club history, GITAM aerospace club members, who is GARI, what is GITAM aerospace team"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'About', url: 'https://gari.live/about' }]}
+        faq={[
+          { q: 'When was GARI founded?', a: 'GARI (GITAM Aerospace Rocketry Initiative) was founded in 2024 at GITAM University, Hyderabad, India.' },
+          { q: 'How many members does GARI have?', a: 'GARI has 30+ active student members across Aerospace, ECE, CSE, and Mechanical Engineering at GITAM University, Hyderabad.' },
+          { q: 'What divisions does GARI have?', a: 'GARI has six technical divisions: Aerospace & Structures, Avionics & Electronics, Software & Ground Station, Propulsion, Recovery Systems, and Media & Outreach.' },
+          { q: 'What has GARI built so far?', a: 'GARI has built six prototype hardware systems including planetary rovers, hexacopters, fixed-wing aircraft, gimbal systems, rescue robots, and a CanSat satellite for IN-SPACe CAN-7USAT 2026.' },
+          { q: 'Is GARI open to all GITAM branches?', a: 'Yes. GARI welcomes students from all engineering branches at GITAM University — Aerospace, ECE, CSE, Mechanical, Electrical and more.' },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'AboutPage',
           '@id': 'https://gari.live/about#webpage',
           url: 'https://gari.live/about',
           name: 'About GARI — GITAM Aerospace Rocketry Initiative',
-          description:
-            "GARI is GITAM University's student aerospace and rocketry team built on innovation, collaboration, and research.",
+          description: 'GARI is GITAM University\'s student aerospace and rocketry team built on innovation, collaboration, and research. 30+ engineers, 6 prototype builds, competing nationally.',
           isPartOf: { '@id': 'https://gari.live/#website' },
           about: { '@id': 'https://gari.live/#organization' },
+          mentions: [
+            { '@type': 'Person', 'name': 'Harshith Venkata Naga Pavana Jangala', 'jobTitle': 'Aerospace Engineer', 'worksFor': { '@id': 'https://gari.live/#organization' } },
+            { '@type': 'Person', 'name': 'Bodapati Bharat Chandra', 'jobTitle': 'Ground Station & Software Lead', 'worksFor': { '@id': 'https://gari.live/#organization' } },
+            { '@type': 'Person', 'name': 'Shaik Aadil Iftikhar', 'jobTitle': 'Rocket Team Lead', 'worksFor': { '@id': 'https://gari.live/#organization' } },
+            { '@type': 'Person', 'name': 'Harsha Vardan', 'jobTitle': 'CanSat Team Lead', 'worksFor': { '@id': 'https://gari.live/#organization' } },
+          ],
         }}
       />
 

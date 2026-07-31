@@ -124,11 +124,20 @@ const ContactPage = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact GARI — Sponsorship & Collaboration"
-        description="Contact GARI for sponsorship, collaboration, media, or membership. Reach GITAM Aerospace Rocketry Initiative at GITAM University, Hyderabad. Email: gari@gitam.edu"
+        title="Contact GARI — Sponsorship, Collaboration & Membership"
+        description="Contact GARI — GITAM Aerospace Rocketry Initiative for sponsorship, collaboration, media inquiries, or student membership. Based at GITAM University Hyderabad. Email: contact@gari.live. Reply within 48 hours."
         path="/contact"
-        keywords="contact GARI, GARI sponsorship enquiry, GITAM aerospace contact, aerospace collaboration India, gari@gitam.edu"
+        keywords="contact GARI, GARI sponsorship enquiry, GITAM aerospace contact, aerospace collaboration India, contact GARI GITAM, GARI email, GARI contact form, contact aerospace team India, GITAM rocketry contact, GARI partnership inquiry, GARI media contact, gari.live contact"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Contact', url: 'https://gari.live/contact' }]}
+        faq={[
+          { q: 'How can I contact GARI?', a: 'Email GARI at contact@gari.live or fill the contact form at gari.live/contact. The team replies within 48 hours.' },
+          { q: 'Where is GARI located?', a: 'GARI is based at GITAM University, Hyderabad campus, Rudraram, Patancheru, Telangana 502329, India.' },
+          { q: 'How can I sponsor GARI?', a: 'Fill the contact form at gari.live/contact or email contact@gari.live with your company name and sponsorship interest. GARI will send a full brochure within 48 hours.' },
+          { q: 'How can I collaborate with GARI?', a: 'GARI is open to industry partnerships, research collaborations, mentorship, and component/equipment sponsorships. Contact us at contact@gari.live.' },
+          { q: 'How can a student join GARI?', a: 'GITAM University students can apply at gari.live/apply. Applications are reviewed on a rolling basis.' },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ContactPage',

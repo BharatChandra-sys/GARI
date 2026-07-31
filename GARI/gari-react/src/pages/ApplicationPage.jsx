@@ -154,10 +154,36 @@ const ApplicationPage = () => {
   return (
     <>
       <SEO
-        title="Apply to Join GARI — GITAM Aerospace Rocketry Initiative"
-        description="Join GARI, GITAM University's aerospace team. Apply now to work on CanSat projects, rockets, and compete in national competitions."
+        title="Apply to Join GARI — GITAM Aerospace Rocketry Initiative | Student Recruitment 2026"
+        description="Apply to join GARI — GITAM University's student aerospace and rocketry team. Work on real CanSat and rocket hardware, compete in IN-SPACe CAN-7USAT 2026, and gain hands-on aerospace engineering experience. Open to all GITAM University students."
         path="/apply"
-        keywords="join GARI, GARI recruitment, GITAM aerospace team, student rocketry, aerospace opportunities"
+        keywords="join GARI, GARI recruitment, GITAM aerospace team, student rocketry, aerospace opportunities, GARI application 2026, apply GARI GITAM, join aerospace club GITAM, GARI open recruitment, aerospace internship GITAM, GITAM student aerospace club join, GARI student membership, how to join GARI, GARI application form, aerospace team GITAM Hyderabad recruitment"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
+        breadcrumbs={[{ name: 'Apply', url: 'https://gari.live/apply' }]}
+        faq={[
+          { q: 'How do I join GARI?', a: 'Fill the application form at gari.live/apply. Applications are reviewed within 5-7 business days, shortlisted candidates are called for an interview, and selected members receive an offer to join.' },
+          { q: 'Who can apply to GARI?', a: 'Any student enrolled at GITAM University Hyderabad can apply to GARI, regardless of branch. GARI welcomes Aerospace, ECE, CSE, Mechanical, and Electrical Engineering students.' },
+          { q: 'What do GARI members work on?', a: 'GARI members work on real aerospace hardware: CanSat satellites, sounding rockets, ground station software, avionics systems, structural design, propulsion, and recovery mechanisms.' },
+          { q: 'Is GARI open to first-year students?', a: 'Yes. GARI is open to students from all years including first year. Enthusiasm and commitment matter more than prior experience.' },
+          { q: 'What skills do I need to join GARI?', a: 'GARI welcomes students with skills in CAD, programming (Python/C++/MATLAB), electronics, mechanical design, software development, or even documentation and media. All skill levels are considered.' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': 'https://gari.live/apply#webpage',
+          'url': 'https://gari.live/apply',
+          'name': 'Apply to Join GARI — GITAM Aerospace Rocketry Initiative',
+          'description': 'Application page to join GARI — GITAM University student aerospace and rocketry team.',
+          'isPartOf': { '@id': 'https://gari.live/#website' },
+          'about': { '@id': 'https://gari.live/#organization' },
+          'potentialAction': {
+            '@type': 'ApplyAction',
+            'target': 'https://gari.live/apply',
+            'name': 'Apply to Join GARI',
+            'object': { '@id': 'https://gari.live/#organization' },
+          },
+        }}
       />
       
       <div className="application-page">

@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /*.json$
 Crawl-delay: 1
 
 # Allow major search bots explicitly
@@ -11,12 +12,25 @@ Crawl-delay: 0
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Googlebot-Video
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
 
 # Allow social crawlers (OG/Twitter card preview)
 User-agent: facebookexternalhit
@@ -31,6 +45,12 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
+User-agent: Slackbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
 # Block bad/scraper bots
 User-agent: AhrefsBot
 Disallow: /
@@ -42,6 +62,21 @@ User-agent: DotBot
 Disallow: /
 
 User-agent: MJ12bot
+Disallow: /
+
+User-agent: Mediatoolkitbot
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: DataForSeoBot
 Disallow: /
 
 # Sitemap

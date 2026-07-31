@@ -70,11 +70,19 @@ const MissionPage = () => {
   return (
     <div className="mission-page">
       <SEO
-        title="Mission — GARI GITAM Aerospace Rocketry Initiative"
-        description="GARI's mission: advancing aerospace engineering through hands-on rocketry, CanSat competitions, and student-led research at GITAM University, Hyderabad, India."
+        title="Mission — GARI GITAM Aerospace Rocketry Initiative | Student Aerospace Goals"
+        description="GARI's mission: advancing aerospace engineering through hands-on rocketry, CanSat competitions, and student-led research at GITAM University Hyderabad. Building India's next generation of aerospace engineers through real hardware, national competitions, and multidisciplinary teamwork."
         path="/mission"
-        keywords="GARI mission, GARI GITAM, GITAM Aerospace Rocketry Initiative mission, GARI aerospace goals, aerospace innovation GITAM India, student rocketry mission India, GARI rocketry research"
+        keywords="GARI mission, GARI GITAM, GITAM Aerospace Rocketry Initiative mission, GARI aerospace goals, aerospace innovation GITAM India, student rocketry mission India, GARI rocketry research, GARI vision, GARI roadmap, GARI aerospace India, GITAM aerospace mission 2026, why GARI, GARI innovation pillars, aerospace education India"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Mission', url: 'https://gari.live/mission' }]}
+        faq={[
+          { q: 'What is GARI\'s mission?', a: 'GARI\'s mission is to create a platform where GITAM students design, build, and fly aerospace systems — competing at the national level and building real skills for India\'s next generation of aerospace engineers.' },
+          { q: 'What are GARI\'s goals for 2026?', a: 'GARI\'s 2026 goals include competing in IN-SPACe CAN-7USAT 2026, completing CanSat with NavIC GNSS and dual parachute recovery, deploying real-time ground station software, and building a public technical portfolio.' },
+          { q: 'What is GARI\'s long-term vision?', a: 'GARI aims to become one of India\'s most competitive student aerospace teams, contribute open-source aerospace tooling, and enable GITAM graduates to enter ISRO, IN-SPACe, and aerospace startups with hands-on engineering experience.' },
+          { q: 'Why does GARI participate in competitions?', a: 'External competitions like IN-SPACe CAN-7USAT give GARI hard deadlines and technical requirements, pushing the team to build systems that actually work under pressure — the best way to develop real engineering judgment.' },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'WebPage',

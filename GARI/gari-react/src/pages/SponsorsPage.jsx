@@ -79,15 +79,19 @@ const SponsorsPage = () => {
   return (
     <div className="sponsors-page">
       <SEO
-        title="Sponsors — Partner with GARI Aerospace GITAM"
-        description="Sponsor GARI — GITAM University's student aerospace and rocketry team. PDR cleared for CanSat and Rocket. Partner with India's next-generation aerospace engineers at GITAM. Title, Platinum, Gold, Silver tiers."
+        title="Sponsors — Partner with GARI Aerospace GITAM | Sponsor India's Next Rocket Engineers"
+        description="Sponsor GARI — GITAM University's student aerospace and rocketry team competing nationally in IN-SPACe CAN-7USAT 2026. PDR cleared for both CanSat and Rocket. Your brand alongside India's next-generation aerospace engineers. Title, Platinum, Gold, Silver sponsorship tiers available."
         path="/sponsors"
-        keywords="sponsor GARI, GARI sponsorship, GARI GITAM sponsor, GITAM Aerospace Rocketry sponsor, GARI aerospace India sponsor, student rocket team sponsor India, IN-SPACe CanSat sponsor, aerospace education sponsor India"
+        keywords="sponsor GARI, GARI sponsorship, GARI GITAM sponsor, GITAM Aerospace Rocketry sponsor, GARI aerospace India sponsor, student rocket team sponsor India, IN-SPACe CanSat sponsor, aerospace education sponsor India, GARI title sponsor, GARI platinum sponsor, GARI partner India, sponsor student rocketry India, aerospace sponsorship India, GITAM student team sponsor, GARI 2026 sponsor"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Sponsors', url: 'https://gari.live/sponsors' }]}
         faq={[
-          { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among top engineering students, association with India's national CanSat competition, and contribution to next-generation aerospace development." },
-          { q: 'What sponsorship tiers does GARI offer?', a: 'GARI offers Title, Platinum, Gold, and Silver sponsorship tiers with different benefits including logo placement, social media features, and team acknowledgment.' },
-          { q: 'How do I become a GARI sponsor?', a: 'Contact GARI at contact@gari.live or visit gari.live/contact. Our team will respond within 48 hours with a detailed sponsorship brochure.' },
+          { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among 30+ top engineering students at GITAM University, direct association with India's national CanSat competition (IN-SPACe CAN-7USAT 2026), and contribution to next-generation aerospace engineering development in India." },
+          { q: 'What sponsorship tiers does GARI offer?', a: 'GARI offers Title, Platinum, Gold, and Silver sponsorship tiers. Benefits include logo placement on hardware and uniforms, website features, social media coverage, and acknowledgment at competition events.' },
+          { q: 'How do I become a GARI sponsor?', a: 'Contact GARI at contact@gari.live or fill the form at gari.live/contact. Our team will reply within 48 hours with a full sponsorship brochure and proposal.' },
+          { q: 'What is the reach of GARI sponsorship?', a: 'GARI sponsorship reaches GITAM University\'s 30,000+ student network, national aerospace competition audiences, and growing social media following across Instagram and LinkedIn.' },
+          { q: 'Is GARI a serious aerospace team?', a: 'Yes. GARI has cleared PDR for both CanSat and Rocket programs, built 6 hardware prototypes, and is nationally selected for IN-SPACe CAN-7USAT 2026 — a formal government-run aerospace competition.' },
         ]}
         schema={{
           '@context': 'https://schema.org',

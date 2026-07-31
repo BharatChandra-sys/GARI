@@ -64,15 +64,21 @@ const CanSatPage = () => {
   return (
     <div className="cansat-page">
       <SEO
-        title="CanSat Project — GARI IN-SPACe CAN-7USAT 2026"
-        description="GARI's CanSat: 1000m altitude launch with NavIC GNSS, real-time telemetry, dual recovery. PDR cleared. GARI GITAM competing in India's IN-SPACe CAN-7USAT 2026."
+        title="CanSat Project — GARI IN-SPACe CAN-7USAT 2026 | NavIC Student Satellite"
+        description="GARI's CanSat: 330ml student satellite with NavIC GNSS, 1000m launch altitude, real-time RF telemetry, dual parachute recovery, and 8 subsystems. PDR cleared. Competing in IN-SPACe CAN-7USAT 2026 — India's national student CanSat competition. Built at GITAM University Hyderabad."
         path="/cansat"
-        keywords="GARI CanSat, GARI GITAM CanSat, GARI IN-SPACe 2026, GITAM Aerospace Rocketry CanSat, CanSat India 2026, IN-SPACe CAN-7USAT, NavIC GNSS CanSat, student CanSat India, GARI telemetry avionics, PDR cleared CanSat GARI"
+        keywords="GARI CanSat, GARI GITAM CanSat, GARI IN-SPACe 2026, GITAM Aerospace Rocketry CanSat, CanSat India 2026, IN-SPACe CAN-7USAT, NavIC GNSS CanSat, student CanSat India, GARI telemetry avionics, PDR cleared CanSat GARI, CanSat NavIC India, student satellite India, IN-SPACe CAN-7USAT 2026 GARI, GITAM CanSat project, CanSat competition India 2026, NavIC student project India, student CanSat telemetry, GARI 8 subsystems CanSat, dual parachute CanSat India, GARI ground station software"
+        datePublished="2025-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'CanSat Project', url: 'https://gari.live/cansat' }]}
         faq={[
-          { q: 'What is a CanSat?', a: 'A CanSat is a small satellite the size of a soda can (330ml). It carries instruments and launches to ~1000m altitude, transmitting real-time data before descending on a parachute.' },
-          { q: 'What is IN-SPACe CAN-7USAT?', a: "IN-SPACe CAN-7USAT is India's national student CanSat competition by the Indian National Space Promotion and Authorization Center. GARI is competing in 2026." },
-          { q: "What makes GARI's CanSat unique?", a: "GARI's CanSat features NavIC (India's own GNSS) integration, real-time telemetry, dual parachute recovery, a custom ground station software system, and has cleared PDR." },
+          { q: 'What is a CanSat?', a: 'A CanSat is a small satellite the size of a soda can (330ml). It carries sensors and instruments, launches to ~1000m altitude, transmits real-time data, and descends on a parachute.' },
+          { q: 'What is IN-SPACe CAN-7USAT?', a: "IN-SPACe CAN-7USAT is India's national student CanSat competition organized by the Indian National Space Promotion and Authorization Center (IN-SPACe). GARI from GITAM University is competing in 2026." },
+          { q: "What makes GARI's CanSat unique?", a: "GARI's CanSat integrates NavIC (India's own satellite navigation system), real-time RF telemetry, dual parachute recovery, a custom ground control station (GCS), and has 8 specialized subsystems — PDR cleared." },
+          { q: 'Has GARI cleared PDR for its CanSat?', a: 'Yes. GARI has successfully cleared the Preliminary Design Review (PDR) for the CanSat program — a formal technical milestone confirming mission-ready architecture approved to proceed to detailed development.' },
+          { q: 'What is NavIC and why does GARI use it?', a: "NavIC (Navigation with Indian Constellation) is India's own GPS-equivalent satellite navigation system. GARI integrates NavIC in its CanSat instead of GPS, making it one of the few student CanSats in India using NavIC for positional tracking." },
+          { q: 'Who leads the GARI CanSat subsystems?', a: 'GARI CanSat has 8 subsystems: Telemetry (Nischal Aditya M), Avionics & Flight Software (Singam Sai Harshith), Ground Station (Bodapati Bharat Chandra), NavIC GNSS (Avionics team), Recovery (Hanzel Vergis Thomas), Power (Satya Rishi Chodesetty), Structures (Tanmaay Sharma), Sensors (Rohan Jason Bellapu).' },
+          { q: 'What altitude does GARI\'s CanSat launch to?', a: "GARI's CanSat is designed for 1000m launch altitude as specified by the IN-SPACe CAN-7USAT 2026 competition requirements." },
         ]}
         schema={{
           '@context': 'https://schema.org',

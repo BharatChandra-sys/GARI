@@ -343,11 +343,21 @@ const TeamPage = () => {
   return (
     <div className="team-page">
       <SEO
-        title="Our Team — 30+ Aerospace Engineers at GARI GITAM"
-        description="Meet GARI's 30+ member team at GITAM University Hyderabad — led by Harshith Venkata Naga Pavana Jangala (Aerospace Engineer) and Bodapati Bharat Chandra (Ground Station & Software Lead), building rockets and CanSat for IN-SPACe CAN-7USAT 2026."
+        title="Our Team — 30+ Aerospace Engineers at GARI GITAM | Meet the Team"
+        description="Meet GARI's 30+ member team at GITAM University Hyderabad — Rocket Team led by Shaik Aadil Iftikhar, CanSat Team led by Harsha Vardan, with specialists including Harshith Venkata Naga Pavana Jangala (Aerospace), Bodapati Bharat Chandra (Ground Station & Software), Singam Sai Harshith (Avionics) and more. Competing in IN-SPACe CAN-7USAT 2026."
         path="/team"
-        keywords="GARI team, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI software, Harshith GITAM aerospace engineer, Bharat Chandra ground station GARI, GARI GITAM team members, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Singam Sai Harshith GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM"
+        keywords="GARI team, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI software, Harshith GITAM aerospace engineer, Bharat Chandra ground station GARI, GARI GITAM team members, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Singam Sai Harshith GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM, GITAM aerospace team members, GARI 30 engineers, aerospace team GITAM Hyderabad"
+        datePublished="2024-01-01"
+        dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Team', url: 'https://gari.live/team' }]}
+        faq={[
+          { q: 'Who is on the GARI team?', a: 'GARI has 30+ members at GITAM University Hyderabad. Rocket Team is led by Shaik Aadil Iftikhar. CanSat Team is led by Harsha Vardan. Key members include Harshith Venkata Naga Pavana Jangala (Aerospace Engineer) and Bodapati Bharat Chandra (Ground Station & Software Lead, portfolio: bharatchandra.me).' },
+          { q: 'Who is Harshith Venkata Naga Pavana Jangala?', a: 'Harshith Venkata Naga Pavana Jangala is an Aerospace Engineer and core member at GARI — GITAM Aerospace Rocketry Initiative, GITAM University Hyderabad. He supports propulsion, structural design, and avionics for the team\'s rocket and CanSat programs.' },
+          { q: 'Who is Bodapati Bharat Chandra?', a: 'Bodapati Bharat Chandra is the Ground Station & Software Lead at GARI (GITAM Aerospace Rocketry Initiative), GITAM University Hyderabad. He built the custom ground control system for real-time telemetry. Portfolio: bharatchandra.me.' },
+          { q: 'Who leads the GARI Rocket Team?', a: 'The GARI Rocket Team is led by Shaik Aadil Iftikhar (Team Lead & Analysis Engineer) and Saketh Muppala (Co-Lead & Supportive Engineer).' },
+          { q: 'Who leads the GARI CanSat Team?', a: 'The GARI CanSat Team is led by Harsha Vardan (Team Lead & Electronics Engineer) and Tanmaay Sharma (Co-Lead & Structures/Mechanical).' },
+          { q: 'What branches are represented in GARI?', a: 'GARI has members from Aerospace Engineering, Electronics & Communication Engineering (ECE), Computer Science Engineering (CSE), Mechanical Engineering, and Electrical & Electronics Engineering at GITAM University Hyderabad.' },
+        ]}
         schema={[
           {
             '@context': 'https://schema.org',
