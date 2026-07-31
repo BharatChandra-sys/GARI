@@ -60,9 +60,9 @@ const RocketCanvas = () => {
           enableDamping={true}
           dampingFactor={0.05}
           rotateSpeed={isMobile ? 0.5 : 1}
-          zoomSpeed={0.8}
-          minDistance={2}
-          maxDistance={6}
+          zoomSpeed={1.2}
+          minDistance={1}
+          maxDistance={12}
         />
       </Suspense>
       <ambientLight intensity={0.4} />
@@ -179,12 +179,6 @@ const CanSatFeature = () => {
         >
           <div className="csf-image-wrap csf-image-wrap--3d">
             <RocketCanvas />
-
-            {/* Floating PDR badge */}
-            <div className="csf-badge" aria-label="PDR Cleared milestone">
-              <span className="csf-badge-dot" aria-hidden="true" />
-              <span>PDR Cleared</span>
-            </div>
           </div>
 
           {/* Phase status strip below image */}

@@ -102,28 +102,6 @@ const CanSatPage = () => {
         </div>
       </section>
 
-      {/* PDR Milestone Banner */}
-      <section className="pdr-banner">
-        <div className="container">
-          <motion.div
-            className="pdr-banner-inner"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <div className="pdr-badges">
-              <span className="pdr-badge pdr-badge--cleared">PDR Cleared — CanSat</span>
-              <span className="pdr-badge pdr-badge--cleared">PDR Cleared — Rocket</span>
-            </div>
-            <p className="pdr-text">
-              GARI has successfully cleared the Preliminary Design Review for both the
-              CanSat and Rocket programs — a formal technical milestone confirming our
-              designs are mission-ready and approved to proceed to detailed development.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Mission overview */}
       <section className="content-section">
         <div className="container">
