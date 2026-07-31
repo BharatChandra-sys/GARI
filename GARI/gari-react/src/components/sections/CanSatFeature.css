@@ -218,6 +218,80 @@
   display: block;
 }
 
+/* Blur canvas when not interactive */
+.csf-image-wrap--3d:not(.csf-3d--active) canvas {
+  filter: none;
+}
+
+.csf-image-wrap--3d.csf-3d--active canvas {
+  filter: none;
+}
+
+/* Overlay — sits at bottom, doesn't block the model visually */
+.csf-3d-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* "Interact with model" button */
+.csf-3d-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.1rem;
+  background: rgba(71, 85, 105, 0.72);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  pointer-events: all;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.csf-3d-btn:hover {
+  background: rgba(51, 65, 85, 0.85);
+  transform: translateY(-1px);
+}
+
+.csf-3d-btn:active {
+  transform: translateY(0);
+}
+
+/* Dismiss hint */
+.csf-3d-hint {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(71, 85, 105, 0.72);
+  padding: 0.5rem 1.1rem;
+  border-radius: 50px;
+  letter-spacing: 0.2px;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
 .csf-image-wrap img {
   width: 100%;
   height: auto;

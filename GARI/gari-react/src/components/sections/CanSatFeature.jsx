@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, Suspense } from 'react';
+import { useRef, Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Stage } from '@react-three/drei';
 import './CanSatFeature.css';
@@ -22,25 +22,25 @@ const RocketModel = () => {
     <primitive
       ref={modelRef}
       object={scene}
-      scale={0.8}
+      scale={0.95}
       position={[0, 0, 0]}
     />
   );
 };
 
-const RocketCanvas = () => {
+const RocketCanvas = ({ interactive }) => {
   // Check if mobile for performance optimization
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
   
   return (
     <Canvas
-      camera={{ position: [0, 0.5, 3], fov: 45 }}
+      camera={{ position: [0, 0.5, 1.3], fov: 45 }}
       gl={{ 
-        antialias: !isMobile, // Disable antialiasing on mobile for better performance
+        antialias: !isMobile,
         alpha: true,
         powerPreference: 'high-performance'
       }}
-      dpr={isMobile ? [1, 1] : [1, 2]} // Lower pixel ratio on mobile
+      dpr={isMobile ? [1, 1] : [1, 2]}
       style={{ background: 'transparent' }}
     >
       <Suspense fallback={null}>
@@ -52,16 +52,19 @@ const RocketCanvas = () => {
           <RocketModel />
         </Stage>
         <OrbitControls
-          enableZoom={true}
+          enabled={interactive}
+          enableZoom={interactive}
           enablePan={false}
-          autoRotate={false}
+          enableRotate={interactive}
+          autoRotate={!interactive}
+          autoRotateSpeed={1.2}
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 1.8}
           enableDamping={true}
           dampingFactor={0.05}
           rotateSpeed={isMobile ? 0.5 : 1}
           zoomSpeed={1.2}
-          minDistance={1}
+          minDistance={0.5}
           maxDistance={12}
         />
       </Suspense>
@@ -100,7 +103,21 @@ const highlights = [
 
 const CanSatFeature = () => {
   const ref = useRef(null);
+  const wrapRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [interactive, setInteractive] = useState(false);
+
+  // Click outside the 3D wrap → exit interactive mode
+  useEffect(() => {
+    if (!interactive) return;
+    const handleClick = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) {
+        setInteractive(false);
+      }
+    };
+    document.addEventListener('pointerdown', handleClick);
+    return () => document.removeEventListener('pointerdown', handleClick);
+  }, [interactive]);
 
   return (
     <section className="csf-section" ref={ref} aria-label="CanSat Mission Feature">
@@ -177,8 +194,31 @@ const CanSatFeature = () => {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.55, delay: 0.1 }}
         >
-          <div className="csf-image-wrap csf-image-wrap--3d">
-            <RocketCanvas />
+          <div
+            ref={wrapRef}
+            className={`csf-image-wrap csf-image-wrap--3d ${interactive ? 'csf-3d--active' : ''}`}
+          >
+            <RocketCanvas interactive={interactive} />
+
+            {/* Interact overlay — shown when not interactive */}
+            {!interactive && (
+              <div className="csf-3d-overlay">
+                <button
+                  className="csf-3d-btn"
+                  onClick={() => setInteractive(true)}
+                  aria-label="Enable 3D model interaction"
+                >
+                  Tap to interact
+                </button>
+              </div>
+            )}
+
+            {/* Dismiss hint — shown when interactive */}
+            {interactive && (
+              <div className="csf-3d-hint" aria-live="polite">
+                Tap outside to exit
+              </div>
+            )}
           </div>
 
           {/* Phase status strip below image */}
