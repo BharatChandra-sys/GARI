@@ -12,9 +12,6 @@
   display: block;
   object-fit: contain;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  /* Reasonable logo size */
-  height: 45px;
-  width: auto;
 }
 
 .logo-image:hover {
@@ -30,6 +27,6 @@
 /* Mobile sizing */
 @media (max-width: 768px) {
   .logo-image {
-    height: 38px !important;
+    height: 34px !important;
   }
 }
