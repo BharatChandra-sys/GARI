@@ -87,8 +87,9 @@ const Footer = () => {
             </p>
             <p className="footer-description" itemProp="description">
               Student-driven aerospace and rocketry team at GITAM University,
-              Hyderabad. Competing in IN-SPACe CAN-7USAT 2026 and building
-              next-generation rockets.
+              Hyderabad. Competing in IN-SPACe CAN-7USAT 2026 and IN-SPACe
+              Model Rocketry India Student Competition 2026. PDR cleared for
+              both programs.
             </p>
 
             {/* E-E-A-T: location signals */}

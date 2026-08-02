@@ -20,7 +20,7 @@ const phases = [
     label: 'Critical Design Review',
     detail: 'Detailed engineering drawings, manufacturing specifications, and test plans currently under active development.',
     status: 'active',
-    date: '2026',
+    date: 'Aug 9, 2026',
     programs: ['CanSat', 'Rocket'],
   },
   {
@@ -37,11 +37,11 @@ const phases = [
     id: 4,
     code: 'Phase 04',
     title: 'Launch',
-    label: 'IN-SPACe CAN-7USAT 2026',
-    detail: 'Competition launch at 1000m altitude with live NavIC telemetry, dual recovery, and full ground station monitoring.',
+    label: 'IN-SPACe 2026 National Finale',
+    detail: 'Competition finale at Kushinagar, Uttar Pradesh. CanSat launch at 1000m with live NavIC telemetry. Rocket program full flight.',
     status: 'upcoming',
-    date: '2026',
-    programs: ['CanSat'],
+    date: 'Oct–Nov 2026',
+    programs: ['CanSat', 'Rocket'],
   },
 ];
 
@@ -71,7 +71,7 @@ const MissionTracker = () => {
             Where we are in the <span className="mt-accent">program</span>
           </h2>
           <p className="mt-subheading">
-            PDR cleared for both programs. CDR in active development. Launch target — IN-SPACe CAN-7USAT 2026.
+            PDR cleared for both programs. CDR deadline Aug 9, 2026. National finale — Kushinagar, Oct–Nov 2026.
           </p>
         </motion.div>
 

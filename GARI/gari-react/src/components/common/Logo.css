@@ -27,6 +27,6 @@
 /* Mobile sizing */
 @media (max-width: 768px) {
   .logo-image {
-    height: 34px !important;
+    height: 42px !important;
   }
 }

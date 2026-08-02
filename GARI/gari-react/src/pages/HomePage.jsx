@@ -5,6 +5,7 @@ import AnimatedStats from '../components/sections/AnimatedStats';
 import Sponsors from '../components/sections/Sponsors';
 import MissionTracker from '../components/sections/MissionTracker';
 import CanSatFeature from '../components/sections/CanSatFeature';
+import CountdownBanner from '../components/sections/CountdownBanner';
 import LatestUpdates from '../components/sections/LatestUpdates';
 import JoinGARI from '../components/sections/JoinGARI';
 import SEO from '../components/common/SEO';
@@ -73,6 +74,9 @@ const HomePage = () => {
 
         {/* Mission Status Tracker — biggest trust signal for sponsors and judges */}
         <MissionTracker />
+
+        {/* Countdown to CDR and national finale */}
+        <CountdownBanner />
 
         {/* CanSat Feature — deep dive without leaving the homepage */}
         <CanSatFeature />

@@ -7,10 +7,10 @@ const AnimatedStats = () => {
   const isInView = useInView(ref, { once: true, amount: 0 });
 
   const stats = [
-    { value: 30, suffix: '+', label: 'Team Members', duration: 2 },
-    { value: 6, suffix: '+', label: 'Divisions', duration: 1.5 },
-    { value: 2, suffix: ' / 2', label: 'PDR Reviews Cleared', duration: 1.2 },
-    { value: 2026, suffix: '', label: 'Launch Year', duration: 2 },
+    { value: 30, suffix: '+', label: 'Engineers on the team', duration: 2 },
+    { value: 8, suffix: '', label: 'CanSat subsystems', duration: 1.5 },
+    { value: 2, suffix: '', label: 'National competitions', duration: 1.2 },
+    { value: 1000, suffix: 'm', label: 'CanSat launch altitude', duration: 2 },
   ];
 
   return (
@@ -23,7 +23,7 @@ const AnimatedStats = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>By The Numbers</h2>
-          <p>Our journey in aerospace innovation</p>
+          <p>Two IN-SPACe national competitions. One team.</p>
         </motion.div>
 
         <div className="animated-stats-grid">
