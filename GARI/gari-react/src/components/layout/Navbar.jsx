@@ -31,7 +31,7 @@ const Navbar = () => {
     { name: 'Home', path: '/', ariaLabel: 'GARI home page' },
     { name: 'About', path: '/about', ariaLabel: 'About GARI aerospace team' },
     { name: 'Mission', path: '/mission', ariaLabel: 'GARI aerospace mission' },
-    { name: 'CanSat', path: '/cansat', ariaLabel: 'GARI CanSat IN-SPACe 2026 project' },
+    { name: 'Competitions', path: '/competitions', ariaLabel: 'GARI CanSat and Rocket IN-SPACe 2026 competitions' },
     { name: 'Team', path: '/team', ariaLabel: 'Meet the GARI team' },
     { name: 'Achievements', path: '/achievements', ariaLabel: 'GARI competition achievements' },
     { name: 'Sponsors', path: '/sponsors', ariaLabel: 'Sponsor GARI aerospace' },

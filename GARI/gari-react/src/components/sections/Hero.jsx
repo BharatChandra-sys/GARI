@@ -56,9 +56,9 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <a
-            href="/cansat"
+            href="/competitions"
             className="hero-btn hero-btn--outline"
-            aria-label="Explore GARI's CanSat mission for IN-SPACe CAN-7USAT 2026"
+            aria-label="Explore GARI's CanSat and Rocket missions for IN-SPACe 2026"
           >
             Explore the Mission
           </a>
@@ -82,7 +82,7 @@ const Hero = () => {
               <span className="hero-pdr-badge">PDR Cleared — Rocket</span>
             </div>
           </div>
-          <a href="/cansat" className="hero-pdr-link">View mission →</a>
+          <a href="/competitions" className="hero-pdr-link">View missions →</a>
         </div>
       </div>
 

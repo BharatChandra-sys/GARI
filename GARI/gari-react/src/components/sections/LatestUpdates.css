@@ -179,7 +179,7 @@
 }
 
 @media (max-width: 768px) {
-  .lu-section { padding: 3.5rem 1.25rem; }
+  .lu-section { padding: 3.5rem 2rem; }
 
   /* Horizontal scroll on mobile — peeks next card */
   .lu-grid {
@@ -189,19 +189,19 @@
     -webkit-overflow-scrolling: touch;
     gap: 1rem;
     /* Break out of section padding, then add it back as scroll inset */
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 0.75rem;
     /* Trailing space after last card so it doesn't sit flush to edge */
-    scroll-padding-left: 1.25rem;
+    scroll-padding-left: 2rem;
   }
 
   /* Pseudo last-item spacer via outline trick — use a gap spacer instead */
   .lu-grid::after {
     content: '';
-    flex: 0 0 0.25rem; /* trailing breathing room */
+    flex: 0 0 1rem; /* trailing breathing room */
     display: block;
   }
 
@@ -219,14 +219,14 @@
 }
 
 @media (max-width: 480px) {
-  .lu-section { padding: 3rem 1.1rem; }
+  .lu-section { padding: 3rem 1.5rem; }
 
   .lu-grid {
-    margin-left: -1.1rem;
-    margin-right: -1.1rem;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
-    scroll-padding-left: 1.1rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
   }
 
   .lu-card { flex: 0 0 85vw; }

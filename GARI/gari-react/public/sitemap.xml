@@ -46,20 +46,31 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gari.live/mission" />
   </url>
 
-  <!-- CanSat -->
+  <!-- Competitions (CanSat + Rocket) -->
   <url>
-    <loc>https://gari.live/cansat</loc>
+    <loc>https://gari.live/competitions</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://gari.live/competitions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gari.live/competitions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gari.live/competitions" />
+    <image:image>
+      <image:loc>https://gari.live/achievements/02_2_axis_gimbal_rocket_thrust_control/gimbal_thrust_control_cad_01.jpeg</image:loc>
+      <image:title>GARI CanSat and Rocket Programs — IN-SPACe 2026 Competition Missions</image:title>
+      <image:caption>GARI aerospace CanSat and Model Rocketry competition programs — GITAM University Hyderabad IN-SPACe 2026</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Legacy CanSat redirect (kept for backlink equity) -->
+  <url>
+    <loc>https://gari.live/cansat</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://gari.live/cansat" />
     <xhtml:link rel="alternate" hreflang="en" href="https://gari.live/cansat" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gari.live/cansat" />
-    <image:image>
-      <image:loc>https://gari.live/achievements/02_2_axis_gimbal_rocket_thrust_control/gimbal_thrust_control_cad_01.jpeg</image:loc>
-      <image:title>GARI 2-Axis Gimbal Rocket Thrust Control System — CanSat Mission</image:title>
-      <image:caption>GARI aerospace rocket thrust vector control prototype — GITAM University Hyderabad IN-SPACe 2026</image:caption>
-    </image:image>
   </url>
 
   <!-- Team -->

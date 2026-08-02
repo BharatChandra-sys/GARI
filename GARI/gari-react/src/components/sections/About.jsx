@@ -91,8 +91,8 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           style={{ textAlign: 'center', marginTop: '3rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
         >
-          <a href="/cansat" aria-label="Learn about GARI's CanSat mission for IN-SPACe CAN-7USAT 2026" style={{ color: '#1e40af', fontWeight: 600, textDecoration: 'underline' }}>
-            Explore our CanSat IN-SPACe 2026 project →
+          <a href="/competitions" aria-label="Learn about GARI's competition programs for IN-SPACe 2026" style={{ color: '#1e40af', fontWeight: 600, textDecoration: 'underline' }}>
+            Explore our IN-SPACe 2026 competition programs →
           </a>
           <a href="/team" aria-label="Meet all 30+ GARI aerospace team members" style={{ color: '#1e40af', fontWeight: 600, textDecoration: 'underline' }}>
             Meet the 30+ member team →

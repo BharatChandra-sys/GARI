@@ -365,7 +365,7 @@ const TeamPage = () => {
             '@id': 'https://gari.live/#organization',
             'name': 'GARI — GITAM Aerospace Rocketry Initiative',
             'url': 'https://gari.live',
-            'logo': 'https://gari.live/gari-logo.png',
+            'logo': 'https://gari.live/gari-logo-new.png',
             'parentOrganization': {
               '@type': 'CollegeOrUniversity',
               'name': 'GITAM University Hyderabad',

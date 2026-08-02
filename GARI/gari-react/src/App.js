@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import MissionPage from './pages/MissionPage';
-import CanSatPage from './pages/CanSatPage';
+import CompetitionsPage from './pages/CompetitionsPage';
 import TeamPage from './pages/TeamPage';
 import AchievementsPage from './pages/AchievementsPage';
 import AchievementProjectPage from './pages/AchievementProjectPage';
@@ -32,7 +32,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/mission" element={<MissionPage />} />
-              <Route path="/cansat" element={<CanSatPage />} />
+              <Route path="/competitions" element={<CompetitionsPage />} />
+              <Route path="/cansat" element={<CompetitionsPage />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="/achievements/:slug" element={<AchievementProjectPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />

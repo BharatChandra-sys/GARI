@@ -160,8 +160,9 @@ const Footer = () => {
             <nav className="footer-column" aria-label="GARI Projects">
               <h4>Projects &amp; Team</h4>
               <ul>
-                <li><Link to="/cansat">CanSat IN-SPACe 2026</Link></li>
+                <li><Link to="/competitions">Competition Programs</Link></li>
                 <li><Link to="/team">Meet the 30+ Member Team</Link></li>
+                <li><Link to="/apply">Apply to Join GARI</Link></li>
                 <li><Link to="/sponsors">Become a Sponsor</Link></li>
                 <li><Link to="/contact">Contact GARI</Link></li>
               </ul>

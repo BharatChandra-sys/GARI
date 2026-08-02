@@ -23,7 +23,7 @@ const MissionPage = () => {
     {
       title: 'Competition',
       description:
-        'External evaluation keeps us honest. IN-SPACe CAN-7USAT 2026 gives us hard deadlines and technical requirements that push the team to build things that actually work under pressure.',
+        'External evaluation keeps us honest. IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India 2026 give us hard deadlines and technical requirements that push the team to build things that actually work under pressure.',
     },
     {
       title: 'Impact',
@@ -41,7 +41,8 @@ const MissionPage = () => {
     {
       term: 'Short-term — 2026',
       items: [
-        'Compete and perform in IN-SPACe CAN-7USAT 2026',
+        'Compete and perform in IN-SPACe CAN-7USAT 2026 (CanSat)',
+        'Compete and perform in IN-SPACe Model Rocketry India Student Competition 2026',
         'Complete CanSat satellite with NavIC GNSS and dual parachute recovery',
         'Deploy real-time ground station software for mission monitoring',
         'Document all subsystems and build a public technical portfolio',
@@ -79,9 +80,9 @@ const MissionPage = () => {
         breadcrumbs={[{ name: 'Mission', url: 'https://gari.live/mission' }]}
         faq={[
           { q: 'What is GARI\'s mission?', a: 'GARI\'s mission is to create a platform where GITAM students design, build, and fly aerospace systems — competing at the national level and building real skills for India\'s next generation of aerospace engineers.' },
-          { q: 'What are GARI\'s goals for 2026?', a: 'GARI\'s 2026 goals include competing in IN-SPACe CAN-7USAT 2026, completing CanSat with NavIC GNSS and dual parachute recovery, deploying real-time ground station software, and building a public technical portfolio.' },
-          { q: 'What is GARI\'s long-term vision?', a: 'GARI aims to become one of India\'s most competitive student aerospace teams, contribute open-source aerospace tooling, and enable GITAM graduates to enter ISRO, IN-SPACe, and aerospace startups with hands-on engineering experience.' },
-          { q: 'Why does GARI participate in competitions?', a: 'External competitions like IN-SPACe CAN-7USAT give GARI hard deadlines and technical requirements, pushing the team to build systems that actually work under pressure — the best way to develop real engineering judgment.' },
+          { q: "What are GARI's goals for 2026?", a: "GARI's 2026 goals include competing in both IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026, completing CanSat with NavIC GNSS, launching a model rocket to 3km apogee, and deploying real-time ground station software." },
+          { q: "What is GARI's long-term vision?", a: "GARI aims to become one of India's most competitive student aerospace teams, contribute open-source aerospace tooling, and enable GITAM graduates to enter ISRO, IN-SPACe, and aerospace startups with hands-on engineering experience." },
+          { q: 'Why does GARI participate in competitions?', a: 'External competitions like IN-SPACe CAN-7USAT and Model Rocketry India give GARI hard deadlines and technical requirements, pushing the team to build systems that actually work under pressure — the best way to develop real engineering judgment.' },
         ]}
         schema={{
           '@context': 'https://schema.org',
@@ -210,7 +211,7 @@ const MissionPage = () => {
             </p>
             <div className="mission-cta-buttons">
               <a href="/contact" className="mcta-btn-primary">Get in touch</a>
-              <a href="/cansat" className="mcta-btn-secondary">See our CanSat project</a>
+              <a href="/competitions" className="mcta-btn-secondary">See our competition programs</a>
             </div>
           </motion.div>
         </div>

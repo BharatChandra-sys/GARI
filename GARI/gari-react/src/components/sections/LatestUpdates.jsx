@@ -11,8 +11,8 @@ const updates = [
     title: 'PDR Cleared — Both Programs',
     body:
       'GARI successfully cleared Preliminary Design Review for both the CanSat and Rocket programs — a formal technical milestone confirming mission-ready architecture and subsystem definitions.',
-    link: '/cansat',
-    linkLabel: 'View CanSat mission',
+    link: '/competitions',
+    linkLabel: 'View competition programs',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const updates = [
     title: 'CDR In Progress',
     body:
       'Critical Design Review is now underway. Detailed engineering drawings, PCB schematics, and manufacturing specifications are being developed across all eight CanSat subsystems.',
-    link: '/cansat',
+    link: '/competitions',
     linkLabel: 'Explore subsystems',
   },
   {

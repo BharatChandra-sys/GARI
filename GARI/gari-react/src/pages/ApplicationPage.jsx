@@ -229,7 +229,7 @@ const ApplicationPage = () => {
                 transition={{ delay: 0.1 }}
               >
                 <h3>National Competitions</h3>
-                <p>Compete in IN-SPACe CAN-7USAT 2026 and future rocket competitions</p>
+                <p>Compete in both IN-SPACe CAN-7USAT 2026 (CanSat) and IN-SPACe Model Rocketry India Student Competition 2026</p>
               </motion.div>
 
               <motion.div

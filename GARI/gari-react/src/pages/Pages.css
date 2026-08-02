@@ -251,11 +251,11 @@
 /* Responsive */
 @media (max-width: 768px) {
   .page-hero {
-    padding: 6.5rem 1rem 2rem;
+    padding: 6.5rem 1.25rem 2rem;
   }
 
   .container {
-    padding: 0 0.75rem;
+    padding: 0 1.25rem;
   }
 
   .page-hero h1 {
@@ -269,7 +269,7 @@
   }
 
   .content-section {
-    padding: 1.25rem 0.75rem;
+    padding: 1.5rem 1.25rem;
   }
 
   .about-text {
@@ -331,5 +331,19 @@
 
   .stat-card h3 {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .page-hero {
+    padding: 6rem 1rem 1.75rem;
+  }
+
+  .content-section {
+    padding: 1.25rem 1rem;
   }
 }

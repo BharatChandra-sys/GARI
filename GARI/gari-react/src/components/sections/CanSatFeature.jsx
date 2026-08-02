@@ -182,8 +182,8 @@ const CanSatFeature = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.38, delay: 0.72 }}
           >
-            <a href="/cansat" className="csf-btn-primary">Full mission details</a>
-            <a href="/team" className="csf-btn-secondary">Meet the CanSat team</a>
+            <a href="/competitions" className="csf-btn-primary">Full mission details</a>
+            <a href="/team" className="csf-btn-secondary">Meet the teams</a>
           </motion.div>
         </motion.div>
 

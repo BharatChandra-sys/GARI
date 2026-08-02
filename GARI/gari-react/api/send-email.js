@@ -236,7 +236,7 @@ function getNewsletterWelcomeEmail(email) {
     <body>
       <div class="wrapper">
         <div class="header">
-          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
+          <img src="https://gari.live/gari-logo-new.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>
@@ -286,7 +286,7 @@ function getContactConfirmationEmail(name, subject) {
     <body>
       <div class="wrapper">
         <div class="header">
-          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
+          <img src="https://gari.live/gari-logo-new.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>
@@ -331,7 +331,7 @@ function getApplicationConfirmationEmail(name, domain) {
     <body>
       <div class="wrapper">
         <div class="header">
-          <img src="https://gari.live/gari-logo.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
+          <img src="https://gari.live/gari-logo-new.png" alt="GARI Logo" style="width: 80px; height: 80px; margin-bottom: 16px;" />
           <div class="brand">GARI</div>
           <div class="tagline">GITAM Aerospace Rocketry Initiative</div>
         </div>

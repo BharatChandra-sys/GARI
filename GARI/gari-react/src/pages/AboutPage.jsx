@@ -37,9 +37,9 @@ const AboutPage = () => {
     },
     {
       year: '2026',
-      event: 'IN-SPACe CAN-7USAT',
+      event: 'IN-SPACe National Competitions',
       detail:
-        "Nationally selected to compete in India's premier student CanSat competition with a NavIC-integrated satellite.",
+        'Nationally selected to compete in two IN-SPACe 2026 programs: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry India Student Competition targeting 3km apogee.',
     },
   ];
 
@@ -74,7 +74,7 @@ const AboutPage = () => {
     <div className="about-page">
       <SEO
         title="About GARI — GITAM Aerospace Rocketry Initiative | Student Aerospace Team"
-        description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024 with 30+ multidisciplinary engineers across Aerospace, ECE, CSE and Mechanical. Building rockets, CanSats, and aerospace systems in Hyderabad, India. PDR cleared for IN-SPACe CAN-7USAT 2026."
+        description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024 with 30+ multidisciplinary engineers across Aerospace, ECE, CSE and Mechanical. Competing in two IN-SPACe 2026 national competitions: CanSat CAN-7USAT and Model Rocketry India. Building rockets, CanSats, and aerospace systems in Hyderabad, India. PDR cleared for both programs."
         path="/about"
         keywords="about GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative about, GARI aerospace team, GITAM aerospace research, GARI student team, aerospace students GITAM Hyderabad, GARI team India, GARI founded 2024, GARI 30 engineers, GARI aerospace club history, GITAM aerospace club members, who is GARI, what is GITAM aerospace team"
         datePublished="2024-01-01"
@@ -84,7 +84,7 @@ const AboutPage = () => {
           { q: 'When was GARI founded?', a: 'GARI (GITAM Aerospace Rocketry Initiative) was founded in 2024 at GITAM University, Hyderabad, India.' },
           { q: 'How many members does GARI have?', a: 'GARI has 30+ active student members across Aerospace, ECE, CSE, and Mechanical Engineering at GITAM University, Hyderabad.' },
           { q: 'What divisions does GARI have?', a: 'GARI has six technical divisions: Aerospace & Structures, Avionics & Electronics, Software & Ground Station, Propulsion, Recovery Systems, and Media & Outreach.' },
-          { q: 'What has GARI built so far?', a: 'GARI has built six prototype hardware systems including planetary rovers, hexacopters, fixed-wing aircraft, gimbal systems, rescue robots, and a CanSat satellite for IN-SPACe CAN-7USAT 2026.' },
+          { q: 'What has GARI built so far?', a: 'GARI has built six prototype hardware systems including planetary rovers, hexacopters, fixed-wing aircraft, gimbal systems, rescue robots, and is currently developing a CanSat satellite and a model rocket for two IN-SPACe 2026 national competitions.' },
           { q: 'Is GARI open to all GITAM branches?', a: 'Yes. GARI welcomes students from all engineering branches at GITAM University — Aerospace, ECE, CSE, Mechanical, Electrical and more.' },
         ]}
         schema={{
@@ -93,7 +93,7 @@ const AboutPage = () => {
           '@id': 'https://gari.live/about#webpage',
           url: 'https://gari.live/about',
           name: 'About GARI — GITAM Aerospace Rocketry Initiative',
-          description: 'GARI is GITAM University\'s student aerospace and rocketry team built on innovation, collaboration, and research. 30+ engineers, 6 prototype builds, competing nationally.',
+          description: "GARI is GITAM University's student aerospace and rocketry team built on innovation, collaboration, and research. 30+ engineers, 6 prototype builds, competing in two IN-SPACe 2026 national competitions.",
           isPartOf: { '@id': 'https://gari.live/#website' },
           about: { '@id': 'https://gari.live/#organization' },
           mentions: [
@@ -143,9 +143,10 @@ const AboutPage = () => {
                 actual telemetry.
               </p>
               <p>
-                We compete at the national level in IN-SPACe CAN-7USAT 2026 with a
-                CanSat satellite featuring NavIC GNSS integration and real-time
-                telemetry. Alongside the competition mission, we have built rovers,
+                We compete at the national level in two IN-SPACe 2026 competitions: the
+                CAN-7USAT CanSat program with NavIC GNSS integration and real-time
+                telemetry, and the Model Rocketry India Student Competition targeting a
+                3km apogee. Alongside the competition missions, we have built rovers,
                 multi-rotor platforms, fixed-wing aircraft, gimbal systems, and
                 autonomous bots — all documented in our project archive.
               </p>
@@ -182,7 +183,7 @@ const AboutPage = () => {
                 </div>
                 <div className="big-stat">
                   <strong>2026</strong>
-                  <span>CanSat mission</span>
+                  <span>2 national competitions</span>
                 </div>
               </div>
             </motion.div>

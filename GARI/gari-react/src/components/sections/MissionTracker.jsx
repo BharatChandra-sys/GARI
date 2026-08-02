@@ -136,7 +136,7 @@ const MissionTracker = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45, delay: 0.65 }}
         >
-          <a href="/cansat" className="mt-cta-link">
+          <a href="/competitions" className="mt-cta-link">
             Full mission technical breakdown
             <span className="mt-cta-arrow" aria-hidden="true"> →</span>
           </a>
