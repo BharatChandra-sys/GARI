@@ -45,8 +45,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.45 }}
           itemProp="description"
         >
-          India's next-generation student aerospace team — competing in IN-SPACe
-          CAN-7USAT 2026, PDR cleared for both Rocket and CanSat programs.
+          India's next-generation student aerospace team — competing in IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026, PDR cleared for both Rocket and CanSat programs.
         </motion.p>
 
         <motion.div
@@ -101,7 +100,7 @@ const Hero = () => {
       {/* Hidden SEO answer box */}
       <div style={{ display: 'none' }} aria-hidden="true" itemProp="description">
         GARI (GITAM Aerospace Rocketry Initiative) is GITAM University's student
-        aerospace and rocketry team, competing in India's IN-SPACe CAN-7USAT 2026
+        aerospace and rocketry team, competing in IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026.
         national CanSat competition with a 1000m altitude satellite featuring NavIC
         GNSS integration and real-time telemetry. PDR cleared for both Rocket and
         CanSat programs.

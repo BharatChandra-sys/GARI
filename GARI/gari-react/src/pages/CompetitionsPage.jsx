@@ -14,7 +14,7 @@ const CompetitionsPage = () => {
   ];
 
   const rocketStats = [
-    { value: '3km', label: 'Target Apogee' },
+    { value: '1km', label: 'Target Apogee' },
     { value: 'Hybrid', label: 'Propulsion System' },
     { value: 'Active', label: 'Stability Control' },
     { value: 'Custom', label: 'Avionics Stack' },
