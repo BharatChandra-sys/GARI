@@ -103,7 +103,7 @@ const Rocket3D = () => {
         distance={5}
       />
 
-      {/* Rocket Glow */}
+      {/* Rocket Glow*/}
       <pointLight
         position={[0, 0, 0]}
         color="#3b82f6"
