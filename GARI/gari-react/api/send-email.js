@@ -247,7 +247,7 @@ function getNewsletterWelcomeEmail(email) {
           </div>
           <div class="box">
             <div class="box-title">What you'll receive:</div>
-            <div class="list-item">Latest updates on our CanSat mission</div>
+            <div class="list-item">Latest updates on both CanSat and Rocket missions</div>
             <div class="list-item">Behind-the-scenes aerospace engineering insights</div>
             <div class="list-item">Competition results and achievements</div>
             <div class="list-item">Exclusive team updates and project milestones</div>
@@ -349,7 +349,7 @@ function getApplicationConfirmationEmail(name, domain) {
             <div class="list-item">Onboarding and team orientation begins</div>
           </div>
           <div class="text">
-            We're building real aerospace hardware, not slides. If you're selected, you'll work on exciting projects including our CanSat mission for IN-SPACe CAN-7USAT 2026.
+            We're building real aerospace hardware, not slides. If you're selected, you'll work on exciting projects for our two IN-SPACe 2026 competitions: CAN-7USAT (CanSat) and Model Rocketry India (1km altitude rocket).
           </div>
           <div class="text">
             <strong>Best regards,</strong><br>

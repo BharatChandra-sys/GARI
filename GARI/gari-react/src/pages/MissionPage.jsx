@@ -80,7 +80,7 @@ const MissionPage = () => {
         breadcrumbs={[{ name: 'Mission', url: 'https://gari.live/mission' }]}
         faq={[
           { q: 'What is GARI\'s mission?', a: 'GARI\'s mission is to create a platform where GITAM students design, build, and fly aerospace systems — competing at the national level and building real skills for India\'s next generation of aerospace engineers.' },
-          { q: "What are GARI's goals for 2026?", a: "GARI's 2026 goals include competing in both IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026, completing CanSat with NavIC GNSS, launching a model rocket to 3km apogee, and deploying real-time ground station software." },
+          { q: "What are GARI's goals for 2026?", a: "GARI's 2026 goals include competing in both IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026, completing CanSat with NavIC GNSS, launching a model rocket to 1km apogee, and deploying real-time ground station software." },
           { q: "What is GARI's long-term vision?", a: "GARI aims to become one of India's most competitive student aerospace teams, contribute open-source aerospace tooling, and enable GITAM graduates to enter ISRO, IN-SPACe, and aerospace startups with hands-on engineering experience." },
           { q: 'Why does GARI participate in competitions?', a: 'External competitions like IN-SPACe CAN-7USAT and Model Rocketry India give GARI hard deadlines and technical requirements, pushing the team to build systems that actually work under pressure — the best way to develop real engineering judgment.' },
         ]}

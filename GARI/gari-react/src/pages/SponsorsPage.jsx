@@ -9,10 +9,10 @@ const SponsorsPage = () => {
       name: 'Title Sponsor',
       price: 'Primary Partner',
       benefits: [
-        'Logo on all competition hardware and launch vehicle',
+        'Logo on all competition hardware (CanSat and Rocket)',
         'Featured placement on website homepage',
         'Named in all press releases and media coverage',
-        'Team acknowledgment at IN-SPACe CAN-7USAT 2026 launch',
+        'Team acknowledgment at both IN-SPACe competition events',
         'Dedicated sponsor spotlight on social media',
         'Access to full technical documentation and reports',
       ],
@@ -21,7 +21,7 @@ const SponsorsPage = () => {
       name: 'Platinum Sponsor',
       price: 'Major Partner',
       benefits: [
-        'Logo on CanSat chassis and team uniforms',
+        'Logo on CanSat chassis, Rocket airframe, and team uniforms',
         'Prominent placement on website sponsors page',
         'Social media feature post',
         'Acknowledgment at competition events',
@@ -51,8 +51,8 @@ const SponsorsPage = () => {
 
   const whyGARI = [
     {
-      title: 'National competition',
-      desc: 'GARI competes in IN-SPACe CAN-7USAT 2026 — India\'s national student CanSat competition organized by the Indian National Space Promotion and Authorization Center.',
+      title: 'Two National Competitions',
+      desc: 'GARI competes in two IN-SPACe 2026 competitions: CAN-7USAT (CanSat with NavIC GNSS) and Model Rocketry India Student Competition (1km altitude rocket) — organized by the Indian National Space Promotion and Authorization Center.',
     },
     {
       title: 'PDR cleared — both programs',
@@ -80,18 +80,18 @@ const SponsorsPage = () => {
     <div className="sponsors-page">
       <SEO
         title="Sponsors — Partner with GARI Aerospace GITAM | Sponsor India's Next Rocket Engineers"
-        description="Sponsor GARI — GITAM University's student aerospace and rocketry team competing nationally in IN-SPACe CAN-7USAT 2026. PDR cleared for both CanSat and Rocket. Your brand alongside India's next-generation aerospace engineers. Title, Platinum, Gold, Silver sponsorship tiers available."
+        description="Sponsor GARI — GITAM University's student aerospace and rocketry team competing in two IN-SPACe 2026 national competitions. PDR cleared for both CanSat and Rocket. Your brand alongside India's next-generation aerospace engineers. Title, Platinum, Gold, Silver sponsorship tiers available."
         path="/sponsors"
         keywords="sponsor GARI, GARI sponsorship, GARI GITAM sponsor, GITAM Aerospace Rocketry sponsor, GARI aerospace India sponsor, student rocket team sponsor India, IN-SPACe CanSat sponsor, aerospace education sponsor India, GARI title sponsor, GARI platinum sponsor, GARI partner India, sponsor student rocketry India, aerospace sponsorship India, GITAM student team sponsor, GARI 2026 sponsor"
         datePublished="2024-01-01"
         dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Sponsors', url: 'https://gari.live/sponsors' }]}
         faq={[
-          { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among 30+ top engineering students at GITAM University, direct association with India's national CanSat competition (IN-SPACe CAN-7USAT 2026), and contribution to next-generation aerospace engineering development in India." },
+          { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among 30+ top engineering students at GITAM University, direct association with two IN-SPACe 2026 national competitions (CanSat and Rocket), and contribution to next-generation aerospace engineering development in India." },
           { q: 'What sponsorship tiers does GARI offer?', a: 'GARI offers Title, Platinum, Gold, and Silver sponsorship tiers. Benefits include logo placement on hardware and uniforms, website features, social media coverage, and acknowledgment at competition events.' },
           { q: 'How do I become a GARI sponsor?', a: 'Contact GARI at contact@gari.live or fill the form at gari.live/contact. Our team will reply within 48 hours with a full sponsorship brochure and proposal.' },
           { q: 'What is the reach of GARI sponsorship?', a: 'GARI sponsorship reaches GITAM University\'s 30,000+ student network, national aerospace competition audiences, and growing social media following across Instagram and LinkedIn.' },
-          { q: 'Is GARI a serious aerospace team?', a: 'Yes. GARI has cleared PDR for both CanSat and Rocket programs, built 6 hardware prototypes, and is nationally selected for IN-SPACe CAN-7USAT 2026 — a formal government-run aerospace competition.' },
+          { q: 'Is GARI a serious aerospace team?', a: 'Yes. GARI has cleared PDR for both CanSat and Rocket programs, built 6 hardware prototypes, and is nationally selected for two IN-SPACe 2026 competitions — formal government-run aerospace competitions.' },
         ]}
         schema={{
           '@context': 'https://schema.org',

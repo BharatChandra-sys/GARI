@@ -17,12 +17,12 @@ const About = () => {
     {
       title: 'Engineering Innovation',
       description:
-        'Developing practical CanSat and rocketry solutions through hands-on experimentation, design iteration, and collaborative engineering at GITAM University.',
+        'Developing practical CanSat and Rocket solutions through hands-on experimentation, design iteration, and collaborative engineering. Competing in both IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India 2026.',
     },
     {
       title: 'Technical Collaboration',
       description:
-        'Bringing together 30+ multidisciplinary students — from aerospace to CSE — to work on impactful aerospace projects like the IN-SPACe CAN-7USAT competition.',
+        'Bringing together 30+ multidisciplinary students — from aerospace to CSE — to work on impactful aerospace projects for two IN-SPACe 2026 national competitions: CanSat and Model Rocketry.',
     },
   ];
 
@@ -53,11 +53,11 @@ const About = () => {
           <p className="section-description" itemProp="description">
             GARI (GITAM Aerospace Rocketry Initiative) is GITAM University&apos;s
             student-driven aerospace and rocketry team based in Hyderabad, India.
-            The team competes in IN-SPACe CAN-7USAT 2026, India&apos;s national
-            CanSat competition, and develops sounding rockets through hands-on
-            engineering. With 30+ members spanning aerospace, electronics, computer
-            science, and mechanical engineering, GARI builds telemetry systems,
-            avionics, NavIC GNSS integrations, and ground station software.
+            The team competes in two IN-SPACe 2026 national competitions: CAN-7USAT 
+            (CanSat) and Model Rocketry India Student Competition (1km altitude rocket). 
+            With 30+ members spanning aerospace, electronics, computer science, and 
+            mechanical engineering, GARI builds telemetry systems, avionics, NavIC 
+            GNSS integrations, and ground station software for both CanSat and Rocket programs.
           </p>
         </motion.div>
 

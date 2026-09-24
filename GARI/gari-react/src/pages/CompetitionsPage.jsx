@@ -15,7 +15,7 @@ const CompetitionsPage = () => {
 
   const rocketStats = [
     { value: '1km', label: 'Target Apogee' },
-    { value: 'Hybrid', label: 'Propulsion System' },
+    { value: 'Solid', label: 'Propulsion System' },
     { value: 'Active', label: 'Stability Control' },
     { value: 'Custom', label: 'Avionics Stack' },
   ];
@@ -67,7 +67,7 @@ const CompetitionsPage = () => {
     {
       name: 'Propulsion Systems',
       lead: 'Propulsion Team',
-      desc: 'Hybrid rocket motor design with nitrous oxide oxidizer and HTPB fuel grain. Thrust profiling, combustion chamber design, and nozzle optimization for stable ascent.',
+      desc: 'The TIVRA K-560 solid rocket motor is engineered for precision-controlled propulsion in experimental and educational aerospace applications. Producing a maximum thrust of 1030 N and a total impulse of 1960 Newton-seconds, the motor features a 3.5-second burn duration, enabling smoother acceleration and sustained thrust delivery. With a 94 mm diameter, 313 mm motor length, and a total mass of 3.71 kg including 1.8 kg of propellant, the TIVRA K-560 offers an excellent balance between compact form factor and performance. The motor is well-suited for sounding rockets, subscale launch vehicle demonstrations, and propulsion system testing.',
     },
     {
       name: 'Airframe & Structures',
@@ -105,34 +105,34 @@ const CompetitionsPage = () => {
 
   const rocketTimeline = [
     { phase: 'Phase 1', title: 'Conceptual Design', status: 'Cleared', desc: 'Mission requirements, preliminary design parameters, and propulsion system selection completed.' },
-    { phase: 'Phase 2', title: 'Detailed Design', status: 'In Progress', desc: 'CAD modeling, structural analysis, motor sizing, and avionics architecture development underway.' },
-    { phase: 'Phase 3', title: 'Manufacturing & Testing', status: 'Upcoming', desc: 'Airframe fabrication, motor testing, avionics integration, and ground systems validation.' },
-    { phase: 'Phase 4', title: 'Launch — IN-SPACe Model Rocketry 2026', status: 'Upcoming', desc: 'Competition flight demonstrating 3km apogee capability with full telemetry and recovery.' },
+    { phase: 'Phase 2', title: 'CDR — Critical Design Review', status: 'Cleared', desc: 'Detailed design, manufacturing approach, and system integration plan reviewed and approved by IN-SPACe on Sept 20, 2026.' },
+    { phase: 'Phase 3', title: 'Manufacturing & Integration', status: 'In Progress', desc: 'Hardware integration, motor procurement, and full system trials underway for FRR.' },
+    { phase: 'Phase 4', title: 'FRR & Launch — Nov 17-20, 2026', status: 'Upcoming', desc: 'Flight Readiness Review on Oct 21, followed by competition launch at Kushinagar, UP demonstrating 1km apogee.' },
   ];
 
   return (
     <div className="competitions-page">
       <SEO
         title="Competitions — GARI CanSat & Rocket Programs | IN-SPACe 2026"
-        description="GARI is competing in two IN-SPACe 2026 competitions: CanSat with NavIC GNSS at 1000m altitude, and Model Rocketry targeting 3km apogee. PDR cleared. National-level student aerospace programs built at GITAM University Hyderabad."
+        description="GARI is competing in two IN-SPACe 2026 competitions: CanSat with NavIC GNSS at 1000m altitude, and Model Rocketry targeting 1km apogee (Nov 17-20, Kushinagar, UP). CDR cleared for Rocket, PDR cleared for CanSat. National-level student aerospace programs built at GITAM University Hyderabad."
         path="/competitions"
         keywords="GARI competitions, GARI IN-SPACe 2026, GARI CanSat rocket, IN-SPACe CAN-7USAT 2026, IN-SPACe Model Rocketry India, GITAM aerospace competitions, student CanSat India, student rocketry India, NavIC CanSat competition, hybrid rocket competition India, GARI GITAM competitions, aerospace student competitions 2026, IN-SPACe student programs, CanSat rocket India 2026"
         datePublished="2025-01-01"
         dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Competitions', url: 'https://gari.live/competitions' }]}
         faq={[
-          { q: 'What competitions is GARI participating in?', a: 'GARI is competing in two IN-SPACe 2026 national competitions: IN-SPACe CAN-7USAT 2026 (CanSat competition) and IN-SPACe Model Rocketry India Student Competition (3km altitude rocket).' },
+          { q: 'What competitions is GARI participating in?', a: 'GARI is competing in two IN-SPACe 2026 national competitions: IN-SPACe CAN-7USAT 2026 (CanSat competition) and IN-SPACe Model Rocketry India Student Competition (1km altitude rocket).' },
           { q: 'What is IN-SPACe?', a: 'IN-SPACe is the Indian National Space Promotion and Authorization Center, the national regulatory body that organizes premier student aerospace competitions in India.' },
           { q: 'What makes GARI\'s CanSat unique?', a: 'GARI\'s CanSat integrates NavIC (India\'s satellite navigation system), real-time RF telemetry, dual parachute recovery, custom ground station software, and has 8 specialized subsystems with PDR cleared.' },
-          { q: 'What is GARI\'s rocket program?', a: 'GARI is developing a hybrid propulsion model rocket targeting 3km apogee for IN-SPACe Model Rocketry India Student Competition 2026, featuring custom avionics, active stability control, and dual-event recovery.' },
-          { q: 'Has GARI cleared PDR?', a: 'Yes. GARI has successfully cleared Preliminary Design Review (PDR) for the CanSat program. The rocket program is currently in detailed design phase.' },
+          { q: 'What is GARI\'s rocket program?', a: 'GARI is developing a solid propulsion model rocket targeting 1km apogee for IN-SPACe Model Rocketry India Student Competition 2026, featuring custom avionics, active stability control, and dual-event recovery. CDR cleared Sept 2026.' },
+          { q: 'Has GARI cleared PDR?', a: 'Yes. GARI has successfully cleared Preliminary Design Review (PDR) for the CanSat program and Critical Design Review (CDR) for the Rocket program — formal technical milestones confirming mission-ready designs.' },
           { q: 'What is NavIC?', a: 'NavIC (Navigation with Indian Constellation) is India\'s own GPS-equivalent satellite navigation system. GARI uses NavIC in its CanSat for positional tracking, making it one of few student teams in India using NavIC instead of GPS.' },
         ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ResearchProject',
           name: 'GARI Competitions — CanSat & Rocket Programs',
-          description: 'GARI competing in IN-SPACe CAN-7USAT 2026 and Model Rocketry India 2026. CanSat with NavIC GNSS at 1000m, hybrid rocket targeting 3km.',
+          description: 'GARI competing in IN-SPACe CAN-7USAT 2026 and Model Rocketry India 2026 (Nov 17-20, Kushinagar). CanSat with NavIC GNSS at 1000m, solid rocket targeting 1km. CDR cleared for Rocket.',
           url: 'https://gari.live/competitions',
           member: { '@id': 'https://gari.live/#organization' },
           keywords: ['CanSat', 'Model Rocketry', 'NavIC', 'IN-SPACe', 'India', 'GITAM', 'competitions', '2026'],
@@ -300,17 +300,16 @@ const CompetitionsPage = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <span className="comp-label">MODEL ROCKETRY MISSION</span>
-                  <h2>Engineering a 3km altitude rocket from the ground up.</h2>
+                  <h2>Engineering a 1000m altitude rocket from the ground up.</h2>
                   <p>
-                    GARI's Model Rocketry program is designing, building, and launching a hybrid
-                    propulsion rocket targeting 3km apogee for the IN-SPACe Model Rocketry India
+                    GARI's Model Rocketry program is designing, building, and launching a solid
+                    propulsion rocket targeting 1km apogee for the IN-SPACe Model Rocketry India
                     Student Competition 2026. The mission involves full-stack aerospace engineering:
                     propulsion systems, composite airframes, active stability control, custom avionics,
                     and dual-event recovery mechanisms.
                   </p>
                   <p>
-                    The rocket features a hybrid motor with nitrous oxide oxidizer and HTPB fuel grain,
-                    providing controllable thrust and enhanced safety compared to solid motors. A custom
+                    The rocket features a The TIVRA K-560 solid rocket motor is engineered for precision-controlled propulsion in experimental and educational aerospace applications. Producing a maximum thrust of 1030 N and a total impulse of 1960 Newton-seconds, the motor features a 3.5-second burn duration, enabling smoother acceleration and sustained thrust delivery. With a 94 mm diameter, 313 mm motor length, and a total mass of 3.71 kg including 1.8 kg of propellant, the TIVRA K-560 offers an excellent balance between compact form factor and performance. The motor is well-suited for sounding rockets, subscale launch vehicle demonstrations, and propulsion system testing.. A custom
                     flight computer manages data acquisition, apogee detection, and parachute deployment
                     sequencing. Real-time telemetry downlink enables ground station tracking throughout
                     the entire flight envelope from ignition to touchdown.

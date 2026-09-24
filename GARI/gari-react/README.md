@@ -6,7 +6,7 @@ Official website for GARI, the student aerospace and rocketry team at GITAM Univ
 
 ## Overview
 
-GARI competes in IN-SPACe CAN-7USAT 2026, India's national student CanSat competition. The site covers the team's mission, CanSat project, team roster, achievements archive, and sponsorship program.
+GARI competes in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and Model Rocketry India Student Competition (1km altitude rocket). The site covers the team's mission, both competition programs, team roster, achievements archive, and sponsorship program.
 
 ---
 
@@ -122,7 +122,8 @@ Set this in the Vercel dashboard under Project Settings > Environment Variables,
 | `/` | Home — Hero, project overview, stats, sponsor CTA |
 | `/about` | About — Team story, values, timeline, divisions |
 | `/mission` | Mission — Pillars, roadmap, goals |
-| `/cansat` | CanSat Project — IN-SPACe 2026 mission, subsystems, timeline |
+| `/competitions` | Competition Programs — CanSat & Rocket missions for IN-SPACe 2026 |
+| `/cansat` | CanSat Project — IN-SPACe CAN-7USAT 2026 mission (redirects to /competitions) |
 | `/team` | Team — CanSat team, Rocket team, core members |
 | `/achievements` | Achievements — Competition record, prototype archive |
 | `/sponsors` | Sponsors — Tiers, why GARI, partner CTA |

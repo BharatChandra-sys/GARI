@@ -39,7 +39,7 @@ const AboutPage = () => {
       year: '2026',
       event: 'IN-SPACe National Competitions',
       detail:
-        'Nationally selected to compete in two IN-SPACe 2026 programs: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry India Student Competition targeting 3km apogee.',
+        'Nationally selected to compete in two IN-SPACe 2026 programs: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry India Student Competition targeting 1km apogee.',
     },
   ];
 
@@ -146,7 +146,7 @@ const AboutPage = () => {
                 We compete at the national level in two IN-SPACe 2026 competitions: the
                 CAN-7USAT CanSat program with NavIC GNSS integration and real-time
                 telemetry, and the Model Rocketry India Student Competition targeting a
-                3km apogee. Alongside the competition missions, we have built rovers,
+                1km apogee. Alongside the competition missions, we have built rovers,
                 multi-rotor platforms, fixed-wing aircraft, gimbal systems, and
                 autonomous bots — all documented in our project archive.
               </p>

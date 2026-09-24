@@ -45,7 +45,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.45 }}
           itemProp="description"
         >
-          India's next-generation student aerospace team — competing in IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026, PDR cleared for both Rocket and CanSat programs.
+          India's next-generation student aerospace team — competing in IN-SPACe CAN-7USAT 2026 and IN-SPACe Model Rocketry India Student Competition 2026 (Nov 17-20, Kushinagar). CDR cleared for Rocket, PDR cleared for CanSat.
         </motion.p>
 
         <motion.div
@@ -78,7 +78,7 @@ const Hero = () => {
             <span className="hero-pdr-label">Latest milestone</span>
             <div className="hero-pdr-badges">
               <span className="hero-pdr-badge">PDR Cleared — CanSat</span>
-              <span className="hero-pdr-badge">PDR Cleared — Rocket</span>
+              <span className="hero-pdr-badge">CDR Cleared — Rocket</span>
             </div>
           </div>
           <a href="/competitions" className="hero-pdr-link">View missions →</a>

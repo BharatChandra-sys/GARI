@@ -20,7 +20,7 @@ const AchievementsPage = () => {
         faq={[
           { q: 'What has GARI achieved?', a: 'GARI has been nationally selected for IN-SPACe CAN-7USAT 2026, cleared PDR for both CanSat and Rocket programs, and built 6+ hardware prototypes including rovers, hexacopter, fixed-wing aircraft, gimbal systems, and rescue robots.' },
           { q: 'Has GARI cleared PDR?', a: 'Yes. GARI has successfully cleared the Preliminary Design Review (PDR) for both the CanSat and Rocket programs — a formal technical milestone confirming mission-ready designs.' },
-          { q: 'What competitions has GARI participated in?', a: 'GARI is competing in IN-SPACe CAN-7USAT 2026 (India\'s national student CanSat competition) and targets Spaceport America Cup for future high-powered rocketry competitions.' },
+          { q: 'What competitions has GARI participated in?', a: 'GARI is competing in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and Model Rocketry India Student Competition (1km altitude rocket).' },
           { q: 'How many projects has GARI completed?', a: 'GARI has completed 6 major prototype builds: Rover for Extraterrestrial Planets, 2-Axis Gimbal Rocket Thrust Control, Hexacopter, Rescue Robot, Autonomous Line-Following Bot, and Fixed-Wing Aircraft Model.' },
           { q: 'Where can I see GARI\'s past work?', a: 'All GARI past works are documented with photos, videos, and technical summaries at gari.live/achievements — the complete project archive for sponsors and recruiters.' },
         ]}
