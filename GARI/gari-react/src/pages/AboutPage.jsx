@@ -37,9 +37,9 @@ const AboutPage = () => {
     },
     {
       year: '2026',
-      event: 'IN-SPACe National Competitions',
+      event: 'CDR Cleared — Rocket Program',
       detail:
-        'Nationally selected to compete in two IN-SPACe 2026 programs: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry India Student Competition targeting 1km apogee.',
+        'CDR cleared for Model Rocketry India program (Sept 20, 2026). Competing in two IN-SPACe 2026 competitions: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry targeting 1km apogee. Finals Nov 17-20 at Kushinagar.',
     },
   ];
 

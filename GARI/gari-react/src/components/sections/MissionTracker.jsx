@@ -6,9 +6,9 @@ const phases = [
   {
     id: 1,
     code: 'Phase 01',
-    title: 'PDR Cleared',
+    title: 'PDR — Rocket ✓ / CanSat In Progress',
     label: 'Preliminary Design Review',
-    detail: 'System architecture, subsystem definitions, and mission design reviewed and approved for both CanSat and Rocket programs.',
+    detail: 'Rocket program: PDR cleared. CanSat program: PDR in progress. System architecture and subsystem definitions under review.',
     status: 'cleared',
     date: 'Nov 2025',
     programs: ['CanSat', 'Rocket'],
@@ -16,21 +16,21 @@ const phases = [
   {
     id: 2,
     code: 'Phase 02',
-    title: 'CDR In Progress',
+    title: 'CDR — Rocket Cleared ✓',
     label: 'Critical Design Review',
-    detail: 'Detailed engineering drawings, manufacturing specifications, and test plans currently under active development.',
+    detail: 'Rocket program: CDR cleared Sept 20, 2026. Detailed engineering drawings and manufacturing specifications approved. CanSat: awaiting PDR completion.',
     status: 'active',
-    date: 'Aug 9, 2026',
-    programs: ['CanSat', 'Rocket'],
+    date: 'Sept 20, 2026',
+    programs: ['Rocket'],
   },
   {
     id: 3,
     code: 'Phase 03',
     title: 'Build & Integration',
     label: 'Hardware Fabrication',
-    detail: 'PCB assembly, firmware integration, chassis fabrication, and full system-level testing across all subsystems.',
-    status: 'upcoming',
-    date: '2026',
+    detail: 'Rocket: Hardware integration and full system trials for FRR (Oct 21, 2026). CanSat: PCB assembly and firmware integration following design reviews.',
+    status: 'active',
+    date: 'Sept–Oct 2026',
     programs: ['CanSat', 'Rocket'],
   },
   {
@@ -38,9 +38,9 @@ const phases = [
     code: 'Phase 04',
     title: 'Launch',
     label: 'IN-SPACe 2026 National Finale',
-    detail: 'Competition finale at Kushinagar, Uttar Pradesh. CanSat launch at 1000m with live NavIC telemetry. Rocket program full flight.',
+    detail: 'Competition finale Nov 17-20, 2026 at Narayani River Bank, Kushinagar, Uttar Pradesh. CanSat launch at 1000m with NavIC telemetry. Rocket flight to 1km apogee.',
     status: 'upcoming',
-    date: 'Oct–Nov 2026',
+    date: 'Nov 17–20, 2026',
     programs: ['CanSat', 'Rocket'],
   },
 ];
@@ -71,7 +71,7 @@ const MissionTracker = () => {
             Where we are in the <span className="mt-accent">program</span>
           </h2>
           <p className="mt-subheading">
-            PDR cleared for both programs. CDR deadline Aug 9, 2026. National finale — Kushinagar, Oct–Nov 2026.
+            Rocket: CDR cleared Sept 20, 2026. CanSat: PDR in progress. National finale Nov 17–20, 2026 at Kushinagar, Uttar Pradesh.
           </p>
         </motion.div>
 

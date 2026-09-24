@@ -232,15 +232,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
-  flex-wrap: nowrap;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .hero-pdr-left {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  flex-shrink: 0;
+  gap: 1.5rem;
+  flex-shrink: 1;
+  flex-wrap: wrap;
 }
 
 .hero-pdr-label {
@@ -279,7 +280,6 @@
   white-space: nowrap;
   flex-shrink: 0;
   transition: color 0.2s ease;
-  margin-top: 10px;
 }
 
 .hero-pdr-link:hover {
