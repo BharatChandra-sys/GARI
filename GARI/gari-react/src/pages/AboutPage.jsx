@@ -37,9 +37,9 @@ const AboutPage = () => {
     },
     {
       year: '2026',
-      event: 'CDR Cleared — Rocket Program',
+      event: 'PDR Cleared for Both, CDR Cleared for Rocket',
       detail:
-        'CDR cleared for Model Rocketry India program (Sept 20, 2026). Competing in two IN-SPACe 2026 competitions: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry targeting 1km apogee. Finals Nov 17-20 at Kushinagar.',
+        'PDR cleared for both CanSat and Rocket programs. CDR cleared for Model Rocketry India program (Sept 20, 2026). Competing in two IN-SPACe 2026 competitions: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry targeting 1km apogee. Finals Nov 17-20 at Kushinagar.',
     },
   ];
 

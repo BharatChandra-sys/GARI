@@ -18,8 +18,8 @@ const AchievementsPage = () => {
         dateModified="2026-07-01"
         breadcrumbs={[{ name: 'Achievements', url: 'https://gari.live/achievements' }]}
         faq={[
-          { q: 'What has GARI achieved?', a: 'GARI has been nationally selected for two IN-SPACe 2026 competitions, cleared CDR for Rocket program (Sept 20, 2026), and built 6+ hardware prototypes including rovers, hexacopter, fixed-wing aircraft, gimbal systems, and rescue robots.' },
-          { q: 'Has GARI cleared CDR?', a: 'Yes. GARI has successfully cleared the Critical Design Review (CDR) for the Rocket program on Sept 20, 2026 — a formal technical milestone confirming detailed design approval. CanSat PDR is in progress.' },
+          { q: 'What has GARI achieved?', a: 'GARI has been nationally selected for two IN-SPACe 2026 competitions, cleared PDR for both CanSat and Rocket programs, cleared CDR for Rocket program (Sept 20, 2026), and built 6+ hardware prototypes including rovers, hexacopter, fixed-wing aircraft, gimbal systems, and rescue robots.' },
+          { q: 'Has GARI cleared PDR and CDR?', a: 'Yes. GARI has successfully cleared PDR (Preliminary Design Review) for both CanSat and Rocket programs, and CDR (Critical Design Review) for the Rocket program on Sept 20, 2026 — formal technical milestones confirming approved designs.' },
           { q: 'What competitions has GARI participated in?', a: 'GARI is competing in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and Model Rocketry India Student Competition (1km altitude rocket).' },
           { q: 'How many projects has GARI completed?', a: 'GARI has completed 6 major prototype builds: Rover for Extraterrestrial Planets, 2-Axis Gimbal Rocket Thrust Control, Hexacopter, Rescue Robot, Autonomous Line-Following Bot, and Fixed-Wing Aircraft Model.' },
           { q: 'Where can I see GARI\'s past work?', a: 'All GARI past works are documented with photos, videos, and technical summaries at gari.live/achievements — the complete project archive for sponsors and recruiters.' },

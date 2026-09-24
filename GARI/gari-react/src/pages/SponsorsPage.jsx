@@ -55,8 +55,8 @@ const SponsorsPage = () => {
       desc: 'GARI competes in two IN-SPACe 2026 competitions: CAN-7USAT (CanSat with NavIC GNSS) and Model Rocketry India Student Competition (1km altitude rocket) — organized by the Indian National Space Promotion and Authorization Center.',
     },
     {
-      title: 'CDR cleared — Rocket program',
-      desc: 'GARI has cleared Critical Design Review for the Rocket program (Sept 20, 2026). This is a formal technical milestone confirming detailed design approval. CanSat PDR in progress.',
+      title: 'PDR cleared for both, CDR cleared for Rocket',
+      desc: 'GARI has cleared PDR for both CanSat and Rocket programs, and CDR for Rocket program (Sept 20, 2026). These are formal technical milestones confirming approved designs.',
     },
     {
       title: '30+ engineering students',

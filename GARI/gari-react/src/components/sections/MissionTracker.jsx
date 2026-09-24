@@ -6,9 +6,9 @@ const phases = [
   {
     id: 1,
     code: 'Phase 01',
-    title: 'PDR — Rocket ✓ / CanSat In Progress',
+    title: 'PDR Cleared — Both Programs ✓',
     label: 'Preliminary Design Review',
-    detail: 'Rocket program: PDR cleared. CanSat program: PDR in progress. System architecture and subsystem definitions under review.',
+    detail: 'Rocket program: PDR cleared. CanSat program: PDR cleared. System architecture and subsystem definitions reviewed and approved for both programs.',
     status: 'cleared',
     date: 'Nov 2025',
     programs: ['CanSat', 'Rocket'],
@@ -18,7 +18,7 @@ const phases = [
     code: 'Phase 02',
     title: 'CDR — Rocket Cleared ✓',
     label: 'Critical Design Review',
-    detail: 'Rocket program: CDR cleared Sept 20, 2026. Detailed engineering drawings and manufacturing specifications approved. CanSat: awaiting PDR completion.',
+    detail: 'Rocket program: CDR cleared Sept 20, 2026. Detailed engineering drawings and manufacturing specifications approved. CanSat: CDR in progress.',
     status: 'active',
     date: 'Sept 20, 2026',
     programs: ['Rocket'],
@@ -28,7 +28,7 @@ const phases = [
     code: 'Phase 03',
     title: 'Build & Integration',
     label: 'Hardware Fabrication',
-    detail: 'Rocket: Hardware integration and full system trials for FRR (Oct 21, 2026). CanSat: PCB assembly and firmware integration following design reviews.',
+    detail: 'Rocket: Hardware integration and full system trials for FRR (Oct 21, 2026). CanSat: PCB assembly and firmware integration following CDR completion.',
     status: 'active',
     date: 'Sept–Oct 2026',
     programs: ['CanSat', 'Rocket'],
@@ -71,7 +71,7 @@ const MissionTracker = () => {
             Where we are in the <span className="mt-accent">program</span>
           </h2>
           <p className="mt-subheading">
-            Rocket: CDR cleared Sept 20, 2026. CanSat: PDR in progress. National finale Nov 17–20, 2026 at Kushinagar, Uttar Pradesh.
+            PDR cleared for both programs. Rocket: CDR cleared Sept 20, 2026. National finale Nov 17–20, 2026 at Kushinagar, Uttar Pradesh.
           </p>
         </motion.div>
 

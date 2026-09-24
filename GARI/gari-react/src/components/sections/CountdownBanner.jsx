@@ -4,18 +4,18 @@ import './CountdownBanner.css';
 
 const MILESTONES = [
   {
-    id: 'cdr',
-    label: 'CDR Deadline',
-    sublabel: 'Critical Design Review — both programs',
-    date: new Date('2026-08-09T00:00:00'),
-    tag: 'Next deadline',
+    id: 'frr',
+    label: 'FRR — Flight Readiness Review',
+    sublabel: 'Virtual review for Rocket program',
+    date: new Date('2026-10-21T00:00:00'),
+    tag: 'Next milestone',
     tagClass: 'cb-tag--active',
   },
   {
     id: 'finale',
     label: 'National Finale',
-    sublabel: 'Kushinagar, Uttar Pradesh — IN-SPACe 2026',
-    date: new Date('2026-10-27T00:00:00'),
+    sublabel: 'Kushinagar, Uttar Pradesh — Nov 17-20, 2026',
+    date: new Date('2026-11-17T00:00:00'),
     tag: 'Competition',
     tagClass: 'cb-tag--competition',
   },
@@ -100,7 +100,7 @@ const CountdownBanner = () => (
         <span className="cb-section-tag">Program Timeline</span>
         <h2>Critical milestones ahead</h2>
         <p className="cb-heading-sub">
-          CDR submission Aug 9 · National finale Oct–Nov 2026 · Kushinagar, UP
+          FRR Oct 21 · National finale Nov 17–20, 2026 · Kushinagar, UP
         </p>
       </motion.div>
 
