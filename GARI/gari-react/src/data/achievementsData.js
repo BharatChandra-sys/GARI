@@ -153,30 +153,44 @@ export const projectArchives = [
 ];
 
 export const projectStats = [
-  { value: '6', label: 'project programs documented' },
-  { value: '40+', label: 'photos and videos organized' },
-  { value: '2 / 2', label: 'PDR reviews cleared' },
-  { value: '2026', label: 'national CanSat selection' },
+  { value: '6', label: 'prototypes documented' },
+  { value: '40', label: 'photos and test videos' },
+  { value: '3', label: 'design reviews cleared' },
+  { value: '2', label: 'national finals programs' },
 ];
 
 export const competitions = [
   {
-    name: 'IN-SPACe CAN-7USAT Competition',
+    name: 'Rocket — Critical Design Review cleared',
     year: '2026',
-    category: 'CAN-7USAT',
-    description: 'National level student satellite competition. GARI cleared PDR for the CanSat program.',
+    date: 'Sept 20',
+    category: 'Model Rocketry India',
+    result: 'Cleared',
+    description: 'Detailed design, manufacturing approach and integration plan approved by IN-SPACe. Next: Flight Readiness Review, Oct 21.',
   },
   {
-    name: 'Rocket Program — PDR Cleared',
+    name: 'Selected for the IN-SPACe National Finals',
     year: '2026',
-    category: 'Rocketry',
-    description: 'GARI\'s rocket team cleared Preliminary Design Review, confirming the rocket design is approved to advance to detailed development.',
+    date: 'Nov 17–20',
+    category: 'CAN-7USAT · Model Rocketry',
+    result: 'Selected',
+    description: 'Both programs compete at Kushinagar, Uttar Pradesh.',
+  },
+  {
+    name: 'Preliminary Design Review cleared — both programs',
+    year: '2025',
+    date: 'Nov',
+    category: 'CanSat · Rocket',
+    result: 'Cleared',
+    description: 'System architecture and subsystem definitions approved for the CanSat and the rocket.',
   },
   {
     name: 'Spaceport America Cup',
     year: 'Future',
-    category: 'Target',
-    description: "World's largest intercollegiate rocket competition — a future program target.",
+    date: '',
+    category: 'Intercollegiate rocketry',
+    result: 'Target',
+    description: "The world's largest intercollegiate rocket competition — a future program target.",
   },
 ];
 

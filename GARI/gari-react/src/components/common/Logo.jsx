@@ -1,33 +1,25 @@
 import React from 'react';
 import './Logo.css';
 
-// variant: 'default' (dark bg) | 'white' (white text, for dark backgrounds)
-const Logo = ({ size = 'medium', variant = 'default' }) => {
-  const sizes = {
-    small:  { height: 50 },
-    medium: { height: 68 },
-    large:  { height: 86 },
-  };
-
-  const h = sizes[size]?.height ?? 42;
-  const containerClass = `logo-container${variant === 'white' ? ' logo-container--white' : ''}`;
+// variant: 'white' (for dark surfaces) | 'default' (ink, for light surfaces)
+const Logo = ({ size = 'medium', variant = 'white', wordmark = true }) => {
+  const heights = { small: 26, medium: 30, large: 40 };
+  const h = heights[size] ?? 30;
 
   return (
-    <div className={containerClass}>
+    <span className={`logo logo--${variant}`}>
       <img
         src="/gari-logo-new.png"
-        alt="GARI — GITAM Aerospace Rocketry Initiative logo"
-        style={{
-          height: `${h}px`,
-          width: 'auto',
-          objectFit: 'contain',
-          display: 'block',
-        }}
-        className="logo-image"
+        alt=""
+        width={h}
+        height={h}
+        style={{ height: h, width: h }}
+        className="logo-mark"
         loading="eager"
         decoding="async"
       />
-    </div>
+      {wordmark && <span className="logo-word">GARI</span>}
+    </span>
   );
 };
 

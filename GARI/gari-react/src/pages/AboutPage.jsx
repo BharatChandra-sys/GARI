@@ -1,84 +1,60 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Counter, Reveal, RevealGroup, RevealItem, ParallaxImage } from '../components/motion';
+import { ClosingCTA, Head, PageHero, SmartLink } from '../components/ui';
 import SEO from '../components/common/SEO';
 import './AboutPage.css';
 
-const AboutPage = () => {
-  const values = [
-    {
-      title: 'Aerospace Research',
-      description:
-        'We explore advanced aerospace systems — from orbital mechanics to avionics — through rigorous student-led experimentation and design iteration at GITAM University.',
-    },
-    {
-      title: 'Engineering Innovation',
-      description:
-        'Every subsystem we build — telemetry, recovery, structures — is designed from scratch. We prototype fast, test hard, and iterate until it works at altitude.',
-    },
-    {
-      title: 'Multidisciplinary Team',
-      description:
-        'GARI brings together 30+ students across Aerospace, ECE, CSE, and Mechanical Engineering. Different disciplines, one mission.',
-    },
-  ];
+const principles = [
+  {
+    title: 'Engineer from first principles',
+    body: 'Every subsystem — telemetry, recovery, structures — is designed from scratch. We prototype fast, test hard and iterate until it works at altitude.',
+  },
+  {
+    title: 'Test what you fly',
+    body: 'Nothing goes on the rail without a bench test behind it. Failures are documented, root-caused and fixed before the next build.',
+  },
+  {
+    title: 'Systems, not silos',
+    body: 'Aerospace is a systems discipline. Aerospace, ECE, CSE and mechanical engineers work the same problem, in the same room.',
+  },
+];
 
-  const milestones = [
-    {
-      year: '2024',
-      event: 'GARI Founded',
-      detail:
-        'Team established at GITAM University, Hyderabad with a core group of aerospace engineering students.',
-    },
-    {
-      year: '2025',
-      event: 'First Prototypes',
-      detail:
-        'Completed six prototype builds including rovers, hexacopter, and fixed-wing aircraft models.',
-    },
-    {
-      year: '2026',
-      event: 'PDR Cleared for Both, CDR Cleared for Rocket',
-      detail:
-        'PDR cleared for both CanSat and Rocket programs. CDR cleared for Model Rocketry India program (Sept 20, 2026). Competing in two IN-SPACe 2026 competitions: CAN-7USAT CanSat with NavIC GNSS, and Model Rocketry targeting 1km apogee. Finals Nov 17-20 at Kushinagar.',
-    },
-  ];
+const story = [
+  {
+    year: '2024',
+    title: 'Founded',
+    body: 'A core group of aerospace students at GITAM University, Hyderabad, starts GARI to do the work textbooks only describe.',
+  },
+  {
+    year: '2025',
+    title: 'First builds',
+    body: 'Six prototypes in a year: planetary and rescue rovers, a hexacopter, a fixed-wing aircraft, a line-following bot and a thrust-vectoring gimbal.',
+  },
+  {
+    year: '2026',
+    title: 'National stage',
+    body: 'Selected for two IN-SPACe competitions. PDR cleared for both programs; rocket CDR cleared on Sept 20. Finals in Kushinagar, Nov 17–20.',
+  },
+];
 
-  const divisions = [
-    {
-      name: 'Aerospace & Structures',
-      desc: 'Aerodynamic design, CAD modeling, and structural analysis',
-    },
-    {
-      name: 'Avionics & Electronics',
-      desc: 'Flight computers, sensor integration, and PCB design',
-    },
-    {
-      name: 'Software & Ground Station',
-      desc: 'Real-time telemetry software, data pipelines, and GCS',
-    },
-    {
-      name: 'Propulsion',
-      desc: 'Motor selection, thrust studies, and gimbal control systems',
-    },
-    {
-      name: 'Recovery Systems',
-      desc: 'Dual-parachute deployment and safe descent mechanisms',
-    },
-    {
-      name: 'Media & Outreach',
-      desc: 'Documentation, social presence, and sponsorship outreach',
-    },
-  ];
+const divisions = [
+  { name: 'Aerospace & Structures', desc: 'Aerodynamic design, CAD modelling and structural analysis.' },
+  { name: 'Avionics & Electronics', desc: 'Flight computers, sensor integration and PCB design.' },
+  { name: 'Software & Ground Station', desc: 'Real-time telemetry software, data pipelines and the GCS.' },
+  { name: 'Propulsion', desc: 'Motor selection, thrust studies and gimbal control systems.' },
+  { name: 'Recovery Systems', desc: 'Dual-parachute deployment and safe descent mechanisms.' },
+  { name: 'Media & Outreach', desc: 'Documentation, social presence and sponsor relations.' },
+];
 
-  return (
-    <div className="about-page">
+const AboutPage = () => (
+  <div className="about">
       <SEO
         title="About GARI — GITAM Aerospace Rocketry Initiative | Student Aerospace Team"
         description="About GARI — GITAM University's student aerospace and rocketry team. Founded in 2024 with 30+ multidisciplinary engineers across Aerospace, ECE, CSE and Mechanical. Competing in two IN-SPACe 2026 national competitions: CanSat CAN-7USAT and Model Rocketry India. Building rockets, CanSats, and aerospace systems in Hyderabad, India. PDR cleared for both programs."
         path="/about"
         keywords="about GARI, GARI GITAM, GITAM Aerospace Rocketry Initiative about, GARI aerospace team, GITAM aerospace research, GARI student team, aerospace students GITAM Hyderabad, GARI team India, GARI founded 2024, GARI 30 engineers, GARI aerospace club history, GITAM aerospace club members, who is GARI, what is GITAM aerospace team"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'About', url: 'https://gari.live/about' }]}
         faq={[
           { q: 'When was GARI founded?', a: 'GARI (GITAM Aerospace Rocketry Initiative) was founded in 2024 at GITAM University, Hyderabad, India.' },
@@ -105,196 +81,126 @@ const AboutPage = () => {
         }}
       />
 
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="page-tag">EST. 2024 · GITAM UNIVERSITY</span>
-            <h1>About GARI</h1>
-            <p className="hero-subtitle">
-              Advancing Aerospace Innovation Through Hands-On Engineering
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <PageHero
+      eyebrow="Est. 2024 · GITAM University"
+      lines={['A student team', 'that ships hardware.']}
+      lead="GARI — the GITAM Aerospace Rocketry Initiative — gives engineering students a serious place to design, build and fly aerospace systems."
+    />
 
-      {/* Who We Are */}
-      <section className="content-section">
-        <div className="container">
-          <div className="about-split">
-            <motion.div
-              className="about-text-block"
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-            >
-              <span className="section-label">WHO WE ARE</span>
-              <h2>A student-run aerospace team that ships real hardware</h2>
-              <p>
-                GARI — the GITAM Aerospace Rocketry Initiative — is the aerospace and
-                rocketry team at GITAM University, Hyderabad. Founded in 2024, we exist
-                to give engineering students a serious venue for hands-on aerospace work:
-                not simulations, not textbooks — actual prototypes, actual launches,
-                actual telemetry.
-              </p>
-              <p>
-                We compete at the national level in two IN-SPACe 2026 competitions: the
-                CAN-7USAT CanSat program with NavIC GNSS integration and real-time
-                telemetry, and the Model Rocketry India Student Competition targeting a
-                1km apogee. Alongside the competition missions, we have built rovers,
-                multi-rotor platforms, fixed-wing aircraft, gimbal systems, and
-                autonomous bots — all documented in our project archive.
-              </p>
-              <p>
-                Our team spans aerospace, electronics, computer science, and mechanical
-                engineering. That breadth is intentional — aerospace is a systems
-                discipline, and we build like it is.
-              </p>
-              <div className="about-cta-links">
-                <a href="/team">Meet the team →</a>
-                <a href="/achievements">See our past work →</a>
-              </div>
-            </motion.div>
+    <section className="theme-dark about-visual">
+      <div className="container">
+        <ParallaxImage
+          className="about-visual-img"
+          src="/achievements/03_hexa_copter_making/hexa_copter_photo_02.jpeg"
+          alt="GARI members assembling the hexacopter on the GITAM field"
+        />
+      </div>
+    </section>
 
-            <motion.div
-              className="about-stat-block"
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.1 }}
-            >
-              <div className="big-stat-grid">
-                <div className="big-stat">
-                  <strong>30+</strong>
-                  <span>Active engineers</span>
-                </div>
-                <div className="big-stat">
-                  <strong>6+</strong>
-                  <span>Technical divisions</span>
-                </div>
-                <div className="big-stat">
-                  <strong>6</strong>
-                  <span>Prototype builds</span>
-                </div>
-                <div className="big-stat">
-                  <strong>2026</strong>
-                  <span>2 national competitions</span>
-                </div>
-              </div>
-            </motion.div>
+    {/* Story */}
+    <section className="section theme-dark">
+      <div className="container about-intro">
+        <Reveal>
+          <span className="eyebrow">Who we are</span>
+        </Reveal>
+        <Reveal className="about-intro-copy">
+          <p className="t-h2">
+            Not simulations. Not textbooks. Actual prototypes, actual launches, actual telemetry.
+          </p>
+          <p className="t-body">
+            We compete at the national level in two IN-SPACe 2026 competitions: the CAN-7USAT CanSat
+            program, with NavIC GNSS and real-time telemetry, and the Model Rocketry India Student
+            Competition, targeting a 1 km apogee. Alongside them we have built rovers, multirotors,
+            a fixed-wing aircraft and a thrust-vectoring gimbal — all documented in our archive.
+          </p>
+          <div className="actions">
+            <SmartLink to="/team" className="link">Meet the team</SmartLink>
+            <SmartLink to="/achievements" className="link">See our past work</SmartLink>
           </div>
-        </div>
-      </section>
+        </Reveal>
+      </div>
 
-      {/* Core Values */}
-      <section className="content-section values-bg">
-        <div className="container">
-          <div className="section-header-center">
-            <span className="section-label">WHAT DRIVES US</span>
-            <h2>Built on three principles</h2>
-          </div>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                className="value-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
-              >
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="container">
+        <RevealGroup className="stats about-stats">
+          <RevealItem className="stat">
+            <span className="stat-value"><Counter to={30} /><small>+</small></span>
+            <span className="stat-label">Active engineers</span>
+          </RevealItem>
+          <RevealItem className="stat">
+            <span className="stat-value"><Counter to={6} /></span>
+            <span className="stat-label">Technical divisions</span>
+          </RevealItem>
+          <RevealItem className="stat">
+            <span className="stat-value"><Counter to={6} /></span>
+            <span className="stat-label">Prototypes built</span>
+          </RevealItem>
+          <RevealItem className="stat">
+            <span className="stat-value"><Counter to={2} /></span>
+            <span className="stat-label">National competitions in 2026</span>
+          </RevealItem>
+        </RevealGroup>
+      </div>
+    </section>
 
-      {/* Timeline */}
-      <section className="content-section">
-        <div className="container">
-          <div className="section-header-center">
-            <span className="section-label">OUR STORY</span>
-            <h2>From zero to national competition in under two years</h2>
-          </div>
-          <div className="about-timeline">
-            {milestones.map((m, i) => (
-              <motion.div
-                key={i}
-                className="timeline-item"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-              >
-                <div className="timeline-year-badge">{m.year}</div>
-                <div className="timeline-body">
-                  <h3>{m.event}</h3>
-                  <p>{m.detail}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Principles */}
+    <section className="section theme-light">
+      <div className="container">
+        <Head eyebrow="What drives us" title="Three principles." />
+        <RevealGroup className="rows">
+          {principles.map((p, i) => (
+            <RevealItem key={p.title} className="row">
+              <span className="row-index">0{i + 1}</span>
+              <h3 className="row-title">{p.title}</h3>
+              <p className="row-body">{p.body}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      {/* Divisions */}
-      <section className="content-section values-bg">
-        <div className="container">
-          <div className="section-header-center">
-            <span className="section-label">TECHNICAL DIVISIONS</span>
-            <h2>Six specialized teams, one mission</h2>
-            <p className="section-desc">
-              Every subsystem has an owner. Here is how GARI is structured internally.
-            </p>
-          </div>
-          <div className="divisions-grid">
-            {divisions.map((div, i) => (
-              <motion.div
-                key={i}
-                className="division-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <h3>{div.name}</h3>
-                <p>{div.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Timeline */}
+    <section className="section theme-paper">
+      <div className="container">
+        <Head eyebrow="Our story" title="Zero to national finals in under two years." />
+        <RevealGroup className="story">
+          {story.map((s) => (
+            <RevealItem key={s.year} className="story-item">
+              <span className="story-year">{s.year}</span>
+              <h3 className="t-h3">{s.title}</h3>
+              <p className="t-body">{s.body}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      {/* CTA */}
-      <section className="content-section">
-        <div className="container">
-          <motion.div
-            className="about-cta-card"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Want to back us?</h2>
-            <p>
-              We are looking for sponsors, industry partners, and collaborators who want
-              to invest in the next generation of Indian aerospace engineers.
-            </p>
-            <div className="cta-buttons">
-              <a href="/contact" className="cta-btn-primary">Get in touch</a>
-              <a href="/sponsors" className="cta-btn-secondary">Sponsorship tiers</a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
-};
+    {/* Divisions */}
+    <section className="section theme-light">
+      <div className="container">
+        <Head
+          eyebrow="Structure"
+          title="Six divisions. One mission."
+          lead="Every subsystem has an owner. This is how GARI is organised."
+        />
+        <RevealGroup className="grid-list">
+          {divisions.map((d) => (
+            <RevealItem key={d.name}>
+              <h3>{d.name}</h3>
+              <p>{d.desc}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+
+    <ClosingCTA
+      eyebrow="Partner with us"
+      title="Invest in India's next aerospace engineers."
+      lead="We're looking for sponsors, industry partners and mentors who want to see students fly real hardware."
+      primary={{ to: '/sponsors', label: 'Sponsorship tiers' }}
+      secondary={{ to: '/contact', label: 'Get in touch' }}
+    />
+  </div>
+);
 
 export default AboutPage;

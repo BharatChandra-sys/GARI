@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { RevealGroup, RevealItem } from '../components/motion';
+import { ClosingCTA, Head, PageHero } from '../components/ui';
+import { competitions, projectArchives, projectStats } from '../data/achievementsData';
 import SEO from '../components/common/SEO';
 import './AchievementsPage.css';
-import { competitions, featuredProject, projectArchives, projectStats } from '../data/achievementsData';
 
-const AchievementsPage = () => {
-  const sponsors = [];
+const thumb = (p) => (p.heroMedia.type === 'video' ? p.heroMedia.poster : p.heroMedia.src);
 
-  return (
-    <div className="achievements-page">
+const AchievementsPage = () => (
+  <div className="achievements">
       <SEO
         title="Achievements & Past Works — GARI GITAM Aerospace | Student Rocket Projects Archive"
         description="GARI achievements and past works: national CanSat selection (IN-SPACe 2026), PDR cleared, rover systems, thrust vector control, rescue robotics, aerial systems, fixed-wing prototypes. Complete technical documentation and media archive from GITAM Aerospace Rocketry Initiative student projects."
         keywords="GARI achievements, GARI GITAM past works, GARI aerospace projects, GITAM Aerospace Rocketry archive, GARI student projects India, IN-SPACe CanSat GARI, GARI competition 2026, GITAM rocketry achievements, GARI PDR cleared, GARI rover project, GARI hexacopter, GARI gimbal system, GARI fixed wing aircraft, GARI thrust control, GARI rescue robot, student aerospace projects India, GITAM aerospace portfolio"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Achievements', url: 'https://gari.live/achievements' }]}
         faq={[
           { q: 'What has GARI achieved?', a: 'GARI has been nationally selected for two IN-SPACe 2026 competitions, cleared PDR for both CanSat and Rocket programs, cleared CDR for Rocket program (Sept 20, 2026), and built 6+ hardware prototypes including rovers, hexacopter, fixed-wing aircraft, gimbal systems, and rescue robots.' },
@@ -46,195 +46,87 @@ const AchievementsPage = () => {
         }}
       />
 
-      <section className="page-hero">
-        <div className="container">
-          <div className="hero-layout">
-            <motion.div
-              className="hero-copy"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1>Engineering proof that stands up in a boardroom.</h1>
-              <p className="hero-subtitle">
-                A curated archive of GARI&apos;s competition milestones, prototype builds, and media assets designed to show serious technical depth to sponsors, partners, and recruiters.
-              </p>
-              <div className="hero-actions">
-                <a href="/contact" className="btn btn-primary">
-                  <span>Talk to GARI</span>
-                </a>
-                <a href="#archive" className="btn btn-secondary">
-                  <span>View project archive</span>
-                </a>
-              </div>
-            </motion.div>
+    <PageHero
+      eyebrow="Achievements"
+      lines={['Proof,', 'not promises.']}
+      lead="Design reviews cleared, a national finals berth and six documented prototypes — the record behind the team."
+    >
+      <a href="#archive" className="btn btn--primary">View the archive</a>
+      <Link to="/contact" className="link">Talk to GARI</Link>
+    </PageHero>
 
-            <motion.div
-              className="hero-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-            >
-              <div className="hero-card-image">
-                {featuredProject.heroMedia.type === 'video' ? (
-                  <video
-                    src={featuredProject.heroMedia.src}
-                    poster={featuredProject.heroMedia.poster}
-                    controls
-                    preload="metadata"
-                  />
-                ) : (
-                  <img src={featuredProject.heroMedia.src} alt={featuredProject.title} loading="lazy" decoding="async" />
-                )}
-              </div>
-              <div className="hero-card-body">
-                <h2>{featuredProject.title}</h2>
-                <p>{featuredProject.about}</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+    <section className="section--tight theme-dark">
+      <div className="container">
+        <RevealGroup className="stats ach-stats">
+          {projectStats.map((m) => (
+            <RevealItem key={m.label} className="stat">
+              <span className="stat-value">{m.value}</span>
+              <span className="stat-label">{m.label}</span>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      <section className="content-section metrics-section">
-        <div className="container">
-          <div className="metrics-grid">
-            {projectStats.map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                className="metric-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="section theme-light">
+      <div className="container">
+        <Head eyebrow="Competition record" title="The record so far." />
+        <RevealGroup as="ol" className="record">
+          {competitions.map((c) => (
+            <RevealItem as="li" key={c.name} className="record-row">
+              <span className="record-year">
+                {c.year}
+                {c.date && <span className="dim"> · {c.date}</span>}
+              </span>
+              <div className="record-main">
+                <h3>{c.name}</h3>
+                <p>{c.description}</p>
+              </div>
+              <span className="record-cat">{c.category}</span>
+              <span className={`chip record-chip record-chip--${c.result.toLowerCase()}`}>
+                <span className={`dot${c.result === 'Target' ? '' : ' dot--ok'}`} />{c.result}
+              </span>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      <section className="content-section competitions-section">
-        <div className="container">
-          <h2 className="section-title">Competitions and target programs</h2>
-          <p className="section-subtitle section-subtitle--wide">
-            This is the mix we are building toward: national competition readiness now, with larger aerospace programs in sight.
-          </p>
-          <div className="values-grid">
-            {competitions.map((comp, index) => (
-              <motion.div
-                key={index}
-                className="competition-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="comp-header">
-                  <span className="comp-year">{comp.year}</span>
-                  <span className="comp-category">{comp.category}</span>
+    <section id="archive" className="section theme-paper">
+      <div className="container">
+        <Head
+          eyebrow="Past works"
+          title="Six builds. All documented."
+          lead="Open any project for its full case study — every photo and test video from the build."
+        />
+        <RevealGroup className="archive">
+          {projectArchives.map((p, i) => (
+            <RevealItem key={p.slug} className={i === 0 ? 'archive-item archive-item--wide' : 'archive-item'}>
+              <Link to={`/achievements/${p.slug}`} className="archive-card" aria-label={`Open ${p.title}`}>
+                <div className="media archive-media">
+                  <img src={thumb(p)} alt={p.title} loading="lazy" decoding="async" />
                 </div>
-                <h3>{comp.name}</h3>
-                <p>{comp.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <div className="archive-body">
+                  <span className="eyebrow">{p.category} · {p.mediaSummary}</span>
+                  <h3 className="t-h3">{p.title}</h3>
+                  <p className="t-small">{p.summary}</p>
+                  <span className="link">Open case study</span>
+                </div>
+              </Link>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      <section id="archive" className="content-section archive-section">
-        <div className="container">
-          <h2 className="section-title">Past Works Archive</h2>
-          <p className="section-subtitle section-subtitle--wide">
-            Click any project to open the full folder, read the project summary, and inspect the photos and videos in detail.
-          </p>
-
-          <div className="archive-grid">
-            {projectArchives.map((project, index) => (
-              <motion.article
-                key={project.slug}
-                className="archive-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <Link to={`/achievements/${project.slug}`} className="archive-card-button" aria-label={`Open ${project.title}`}>
-                  <div className="archive-media">
-                    {project.heroMedia.type === 'video' ? (
-                      <div className="archive-preview archive-preview--video">
-                        <img src={project.heroMedia.poster} alt={project.title} loading="lazy" decoding="async" />
-                      </div>
-                    ) : (
-                      <img src={project.heroMedia.src} alt={project.title} loading="lazy" decoding="async" />
-                    )}
-                  </div>
-                  <div className="archive-body">
-                    <div className="archive-meta">
-                      <span>{project.year}</span>
-                      <span>{project.category}</span>
-                    </div>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <div className="archive-footer">
-                      <span>{project.mediaSummary}</span>
-                      <span>Open case study</span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="content-section sponsors-section">
-        <div className="container">
-          <h2 className="section-title">Our Sponsors & Partners</h2>
-          <p className="section-subtitle">
-            We are building this archive for organizations that want proof, not promises. If you want to back a team that ships work, this is the place to start.
-          </p>
-
-          <div className="sponsor-cta">
-            <h3>Become a Sponsor</h3>
-            <p>
-              Support the next generation of aerospace engineers and innovators. Partner with GARI to make an impact.
-            </p>
-            <a href="/contact" className="btn btn-primary">
-              <span>Partner With Us</span>
-            </a>
-          </div>
-
-          {sponsors.length > 0 && (
-            <div className="sponsors-grid">
-              {sponsors.map((sponsor, index) => (
-                <motion.div
-                  key={index}
-                  className="sponsor-card"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="sponsor-logo">
-                    {sponsor.logo ? (
-                      <img src={sponsor.logo} alt={sponsor.name} />
-                    ) : (
-                      <span>{sponsor.name}</span>
-                    )}
-                  </div>
-                  <span className="sponsor-tier">{sponsor.tier}</span>
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-    </div>
-  );
-};
+    <ClosingCTA
+      eyebrow="Sponsors & partners"
+      title="Back a team that ships."
+      lead="We built this archive for organisations that want proof, not promises. Founding sponsorships are open."
+      primary={{ to: '/sponsors', label: 'Become a sponsor' }}
+      secondary={{ to: '/contact', label: 'Get in touch' }}
+    />
+  </div>
+);
 
 export default AchievementsPage;

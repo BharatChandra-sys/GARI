@@ -1,124 +1,244 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Reveal, RevealGroup, RevealItem, ease } from '../components/motion';
+import { ClosingCTA, Head, MilestoneTrack, PageHero } from '../components/ui';
 import SEO from '../components/common/SEO';
 import './CompetitionsPage.css';
 
+const RocketScene = lazy(() => import('../components/3d/RocketScene'));
+
+const Viewer = () => {
+  const [ok, setOk] = useState(false);
+  useEffect(() => {
+    try {
+      const c = document.createElement('canvas');
+      setOk(!!(c.getContext('webgl2') || c.getContext('webgl')));
+    } catch {
+      setOk(false);
+    }
+  }, []);
+  return (
+    <div className="viewer theme-dark">
+      {ok ? (
+        <Suspense fallback={null}>
+          <RocketScene mode="inspect" />
+        </Suspense>
+      ) : (
+        <img src="/rocket-cdr.webp" alt="GARI model rocket CDR render" />
+      )}
+      <span className="viewer-hint t-mono">{ok ? 'DRAG TO ROTATE // CDR GEOMETRY' : 'CDR GEOMETRY'}</span>
+    </div>
+  );
+};
+
+const programs = {
+  cansat: {
+    key: 'cansat',
+    tab: 'CanSat',
+    competition: 'IN-SPACe CAN-7USAT 2026',
+    status: 'PDR cleared · CDR in progress',
+    title: 'A satellite the size of a soda can.',
+    intro: [
+      "A CanSat is a 330 ml satellite — the diameter of a soda can — that carries a full instrument suite, is released at around 1,000 m and transmits live data as it descends under parachute. Every subsystem has to survive launch loads, work in flight and return usable data to the ground.",
+      "Ours tracks its position with NavIC, India's own satellite navigation constellation — one of the few student CanSats in the country to use it instead of GPS. A ground station we wrote ourselves handles live telemetry, mission logging and post-flight analysis.",
+    ],
+    stats: [
+      { value: '330', unit: 'ml', label: 'Form factor' },
+      { value: '1,000', unit: 'm', label: 'Release altitude' },
+      { value: '8', unit: '', label: 'Subsystems' },
+      { value: '2', unit: '', label: 'Parachutes' },
+    ],
+    profileTitle: 'Mission profile.',
+    profile: [
+      { t: 'Launch', d: 'Carried aloft inside the launch vehicle.' },
+      { t: 'Release', d: 'Deployed at roughly 1,000 m.' },
+      { t: 'Drogue', d: 'Stabilises the descent right after release.' },
+      { t: 'Main', d: 'Opens at a barometric trigger for a controlled descent.' },
+      { t: 'Telemetry', d: 'Live sensor and NavIC packets stream to the ground station.' },
+      { t: 'Recovery', d: 'Touchdown, retrieval and post-flight data export.' },
+    ],
+    timeline: [
+      { id: 'c1', code: 'PDR', title: 'Preliminary Design Review', dateLabel: 'Nov 2025', status: 'done', detail: 'Architecture, subsystem definitions and design approach approved.' },
+      { id: 'c2', code: 'CDR', title: 'Critical Design Review', dateLabel: '2026', status: 'active', detail: 'Detailed design, manufacturing drawings and test plans in development.' },
+      { id: 'c3', code: 'Build', title: 'Build & integration', dateLabel: 'Oct–Nov 2026', status: 'upcoming', detail: 'PCB assembly, firmware integration and system-level testing.' },
+      { id: 'c4', code: 'Launch', title: 'National Finals', dateLabel: 'Nov 17–20, 2026', status: 'upcoming', detail: 'Release at 1,000 m and full mission with live telemetry, Kushinagar.' },
+    ],
+    subsystemsTitle: 'Eight subsystems. Every one has an owner.',
+    subsystems: [
+      { name: 'Telemetry & Communication', lead: 'Nischal Aditya M · Varshith Pappuri', desc: 'Real-time RF link between CanSat and ground station, sending sensor packets at fixed intervals from launch to landing.' },
+      { name: 'Avionics & Flight Software', lead: 'Singam Sai Harshith', desc: 'Flight computer for sensor fusion, state estimation and timed deployment logic. Interrupt-driven firmware written in C.' },
+      { name: 'Ground Station Software', lead: 'Bodapati Bharat Chandra', desc: 'Custom GCS for live telemetry visualisation, packet parsing, mission logging and post-flight data export.' },
+      { name: 'NavIC GNSS Integration', lead: 'Avionics team', desc: "Positional tracking during descent using India's NavIC constellation instead of GPS." },
+      { name: 'Descent & Recovery', lead: 'Hanzel Vergis Thomas', desc: 'Drogue chute for stabilisation, main chute for the final descent, triggered by barometric altitude.' },
+      { name: 'Power & Electrical', lead: 'Satya Rishi Chodesetty', desc: 'Battery selection, power budgeting, voltage regulation and harness routing for the full mission envelope.' },
+      { name: 'Structures & Mechanical', lead: 'Tanmaay Sharma', desc: '330 ml chassis designed for launch loads and parachute shock — CAD-modelled and stress-tested before fabrication.' },
+      { name: 'Sensor & Payload', lead: 'Rohan Jason Bellapu', desc: 'Pressure, temperature, humidity, IMU and altitude sensors, calibrated for accuracy across the mission profile.' },
+    ],
+  },
+  rocket: {
+    key: 'rocket',
+    tab: 'Rocket',
+    competition: 'IN-SPACe Model Rocketry India 2026',
+    status: 'CDR cleared · Sept 20, 2026',
+    title: 'Built to reach one kilometre.',
+    intro: [
+      'Our model rocket is designed, built and flown by students to reach a 1 km apogee for the IN-SPACe Model Rocketry India Student Competition 2026. It is full-stack aerospace engineering: propulsion, a composite airframe, stability, custom avionics and dual-event recovery.',
+      'A custom flight computer handles data acquisition, apogee detection and parachute sequencing, while a real-time telemetry downlink lets the ground station track the flight from ignition to touchdown.',
+    ],
+    stats: [
+      { value: '1', unit: 'km', label: 'Target apogee' },
+      { value: '1,030', unit: 'N', label: 'Peak thrust' },
+      { value: '3.5', unit: 's', label: 'Burn time' },
+      { value: '2', unit: '', label: 'Recovery events' },
+    ],
+    motor: [
+      ['Motor', 'TIVRA K-560 solid'],
+      ['Peak thrust', '1,030 N'],
+      ['Total impulse', '1,960 N·s'],
+      ['Burn time', '3.5 s'],
+      ['Diameter', '94 mm'],
+      ['Length', '313 mm'],
+      ['Total mass', '3.71 kg'],
+      ['Propellant mass', '1.8 kg'],
+    ],
+    profileTitle: 'Flight profile.',
+    profile: [
+      { t: 'Ignition', d: 'TIVRA K-560 lights on the pad.' },
+      { t: 'Boost', d: '3.5 s burn at up to 1,030 N.' },
+      { t: 'Coast', d: 'Unpowered climb toward apogee.' },
+      { t: 'Apogee', d: 'Detected on board at ~1 km.' },
+      { t: 'Drogue', d: 'First recovery event at apogee.' },
+      { t: 'Main', d: 'Second event for a slow, safe landing.' },
+    ],
+    timeline: [
+      { id: 'r1', code: 'Design', title: 'Conceptual design', dateLabel: '2025', status: 'done', detail: 'Mission requirements, design parameters and motor selection completed.' },
+      { id: 'r2', code: 'CDR', title: 'Critical Design Review', dateLabel: 'Sept 20, 2026', status: 'done', detail: 'Detailed design, manufacturing approach and integration plan approved by IN-SPACe.' },
+      { id: 'r3', code: 'FRR', title: 'Flight Readiness Review', dateLabel: 'Oct 21, 2026', status: 'active', detail: 'Hardware integration, motor procurement and full-system trials. Virtual review.' },
+      { id: 'r4', code: 'Launch', title: 'National Finals', dateLabel: 'Nov 17–20, 2026', status: 'upcoming', detail: 'Competition flight to 1 km apogee at Kushinagar, Uttar Pradesh.' },
+    ],
+    subsystemsTitle: 'Full-stack rocket engineering.',
+    subsystems: [
+      { name: 'Propulsion', lead: 'Propulsion team', desc: 'Integration of the TIVRA K-560 solid motor — thrust curve analysis, motor mount and retention.' },
+      { name: 'Airframe & Structures', lead: 'Structures team', desc: 'Composite airframe in fibreglass and carbon fibre, optimised for drag, strength and the mass budget.' },
+      { name: 'Recovery', lead: 'Recovery team', desc: 'Dual-event drogue and main parachutes, separation mechanisms and descent-rate calculations.' },
+      { name: 'Avionics & Flight Computer', lead: 'Avionics team', desc: 'Custom flight computer for data acquisition, apogee detection, deployment logic and state estimation.' },
+      { name: 'Telemetry & Ground', lead: 'Telemetry team', desc: 'RF downlink for live flight data, with ground software for tracking and visualisation.' },
+      { name: 'Payload', lead: 'Payload team', desc: 'Sensors for atmospheric data, on-board video and experimental instrumentation.' },
+    ],
+  },
+};
+
+const ProgramPanel = ({ p }) => (
+  <>
+    <section className="section theme-dark comp-intro">
+      <div className="container comp-intro-grid">
+        <Reveal className="comp-intro-copy">
+          <span className="eyebrow">{p.competition}</span>
+          <h2 className="t-display">{p.title}</h2>
+          <span className="chip"><span className={`dot ${p.key === 'rocket' ? 'dot--ok' : 'dot--live'}`} />{p.status}</span>
+          {p.intro.map((para) => <p key={para.slice(0, 24)} className="t-body">{para}</p>)}
+        </Reveal>
+        <RevealGroup className="comp-stats">
+          {p.stats.map((s) => (
+            <RevealItem key={s.label} className="comp-stat">
+              <span className="stat-value">{s.value}<small>{s.unit}</small></span>
+              <span className="stat-label">{s.label}</span>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+
+    {p.key === 'rocket' && (
+      <section className="section theme-paper">
+        <div className="container comp-motor">
+          <Reveal className="comp-viewer-wrap">
+            <Viewer />
+          </Reveal>
+          <Reveal className="comp-render">
+            <img src="/rocket-cdr.webp" alt="GARI model rocket — CDR design render showing nose cone, payload bay and fin can" width="1630" height="449" loading="lazy" decoding="async" />
+          </Reveal>
+          <div className="comp-motor-grid">
+            <Head eyebrow="Propulsion" title="TIVRA K-560." lead="A compact solid motor with smooth, sustained thrust — the right balance of size and performance for a 1 km flight." />
+            <Reveal>
+              <table className="spec-table">
+                <tbody>
+                  {p.motor.map(([k, v]) => (
+                    <tr key={k}><th scope="row">{k}</th><td>{v}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section className="section theme-light">
+      <div className="container">
+        <Head eyebrow="Sequence" title={p.profileTitle} />
+        <RevealGroup as="ol" className="profile">
+          {p.profile.map((s, i) => (
+            <RevealItem as="li" key={s.t} className="profile-step">
+              <span className="t-mono dim">T{i === 0 ? '0' : `+${i}`}</span>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+
+    <section className="section theme-paper">
+      <div className="container">
+        <Head eyebrow="Mission status" title="Where we are in the program." />
+        <MilestoneTrack items={p.timeline} />
+      </div>
+    </section>
+
+    <section className="section theme-light">
+      <div className="container">
+        <Head eyebrow="Subsystems" title={p.subsystemsTitle} />
+        <RevealGroup className="rows">
+          {p.subsystems.map((s, i) => (
+            <RevealItem key={s.name} className="row">
+              <span className="row-index">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 className="row-title">{s.name}</h3>
+                <p className="t-small comp-lead">{s.lead}</p>
+              </div>
+              <p className="row-body">{s.desc}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  </>
+);
+
 const CompetitionsPage = () => {
-  const [activeTab, setActiveTab] = useState('cansat');
+  const location = useLocation();
+  const [active, setActive] = useState(location.hash === '#rocket' ? 'rocket' : 'cansat');
 
-  const cansatStats = [
-    { value: '1000m', label: 'Launch Altitude' },
-    { value: 'NavIC', label: 'GNSS Integration' },
-    { value: 'Real-Time', label: 'Telemetry System' },
-    { value: 'Dual', label: 'Recovery Mechanism' },
-  ];
+  useEffect(() => {
+    if (location.hash === '#rocket' || location.hash === '#cansat') setActive(location.hash.slice(1));
+  }, [location.hash]);
 
-  const rocketStats = [
-    { value: '1km', label: 'Target Apogee' },
-    { value: 'Solid', label: 'Propulsion System' },
-    { value: 'Active', label: 'Stability Control' },
-    { value: 'Custom', label: 'Avionics Stack' },
-  ];
-
-  const cansatSubsystems = [
-    {
-      name: 'Telemetry & Communication',
-      lead: 'Nischal Aditya M · Varshith Pappuri',
-      desc: 'Real-time RF data link between the CanSat and ground station. Transmits sensor packets at defined intervals during the entire flight envelope from launch to landing.',
-    },
-    {
-      name: 'Avionics & Flight Software',
-      lead: 'Singam Sai Harshith',
-      desc: 'Onboard flight computer handling sensor fusion, state estimation, and timed deployment logic. Firmware written in C with custom interrupt-driven data acquisition.',
-    },
-    {
-      name: 'Ground Station Software',
-      lead: 'Bodapati Bharat Chandra',
-      desc: 'Custom GCS application for live telemetry visualization, packet parsing, mission logging, and post-flight data export. Built with a real-time dashboard.',
-    },
-    {
-      name: 'NavIC GNSS Integration',
-      lead: 'Avionics team',
-      desc: "Integration of India's NavIC satellite navigation system for positional tracking during descent. One of the few student CanSats in India using NavIC over GPS.",
-    },
-    {
-      name: 'Descent & Recovery',
-      lead: 'Hanzel Vergis Thomas',
-      desc: 'Dual parachute deployment system: drogue chute for stabilization at apogee, main chute for controlled final descent. Recovery altitude triggered by barometric pressure.',
-    },
-    {
-      name: 'Power & Electrical Systems',
-      lead: 'Satya Rishi Chodesetty',
-      desc: 'Battery selection, power budgeting, voltage regulation, and harness routing for the full avionics stack. Designed for the full mission power envelope.',
-    },
-    {
-      name: 'Structures & Mechanical',
-      lead: 'Tanmaay Sharma',
-      desc: '330ml form-factor chassis designed to survive 1000m launch loads and parachute deployment shock. CAD-modeled and stress-tested before fabrication.',
-    },
-    {
-      name: 'Sensor & Payload Systems',
-      lead: 'Rohan Jason Bellapu',
-      desc: 'Payload sensor suite including pressure, temperature, humidity, IMU, and altitude sensors. Calibrated for in-flight accuracy across the mission profile.',
-    },
-  ];
-
-  const rocketSubsystems = [
-    {
-      name: 'Propulsion Systems',
-      lead: 'Propulsion Team',
-      desc: 'The TIVRA K-560 solid rocket motor is engineered for precision-controlled propulsion in experimental and educational aerospace applications. Producing a maximum thrust of 1030 N and a total impulse of 1960 Newton-seconds, the motor features a 3.5-second burn duration, enabling smoother acceleration and sustained thrust delivery. With a 94 mm diameter, 313 mm motor length, and a total mass of 3.71 kg including 1.8 kg of propellant, the TIVRA K-560 offers an excellent balance between compact form factor and performance. The motor is well-suited for sounding rockets, subscale launch vehicle demonstrations, and propulsion system testing.',
-    },
-    {
-      name: 'Airframe & Structures',
-      lead: 'Structures Team',
-      desc: 'Composite airframe construction using fiberglass and carbon fiber. Optimized for aerodynamic efficiency, structural integrity, and mass budget constraints.',
-    },
-    {
-      name: 'Recovery Systems',
-      lead: 'Recovery Team',
-      desc: 'Dual-event parachute deployment system with drogue and main chutes. Pyrotechnic separation mechanisms and descent rate calculations for safe ground recovery.',
-    },
-    {
-      name: 'Avionics & Flight Computer',
-      lead: 'Avionics Team',
-      desc: 'Custom flight computer for data acquisition, apogee detection, and parachute deployment logic. Real-time sensor fusion and flight state estimation.',
-    },
-    {
-      name: 'Telemetry & Ground Systems',
-      lead: 'Telemetry Team',
-      desc: 'RF telemetry downlink for live flight data transmission. Ground station software for tracking, data visualization, and mission command control.',
-    },
-    {
-      name: 'Payload Integration',
-      lead: 'Payload Team',
-      desc: 'Scientific payload integration including sensors for atmospheric data collection, video recording, and experimental instrumentation.',
-    },
-  ];
-
-  const cansatTimeline = [
-    { phase: 'Phase 1', title: 'PDR — Preliminary Design Review', status: 'Cleared', desc: 'System architecture, subsystem definitions, and design approach reviewed and approved.' },
-    { phase: 'Phase 2', title: 'CDR — Critical Design Review', status: 'In Progress', desc: 'Detailed design, manufacturing drawings, and test plans under development.' },
-    { phase: 'Phase 3', title: 'Build & Integration', status: 'Upcoming', desc: 'Hardware fabrication, PCB assembly, firmware integration, and system-level testing.' },
-    { phase: 'Phase 4', title: 'Launch — IN-SPACe CAN-7USAT 2026', status: 'Upcoming', desc: 'Competition launch at 1000m altitude. Full mission execution with live telemetry.' },
-  ];
-
-  const rocketTimeline = [
-    { phase: 'Phase 1', title: 'Conceptual Design', status: 'Cleared', desc: 'Mission requirements, preliminary design parameters, and propulsion system selection completed.' },
-    { phase: 'Phase 2', title: 'CDR — Critical Design Review', status: 'Cleared', desc: 'Detailed design, manufacturing approach, and system integration plan reviewed and approved by IN-SPACe on Sept 20, 2026.' },
-    { phase: 'Phase 3', title: 'Manufacturing & Integration', status: 'In Progress', desc: 'Hardware integration, motor procurement, and full system trials underway for FRR.' },
-    { phase: 'Phase 4', title: 'FRR & Launch — Nov 17-20, 2026', status: 'Upcoming', desc: 'Flight Readiness Review on Oct 21, followed by competition launch at Kushinagar, UP demonstrating 1km apogee.' },
-  ];
+  const choose = (key) => {
+    setActive(key);
+    window.history.replaceState(null, '', `#${key}`);
+  };
 
   return (
-    <div className="competitions-page">
+    <div className="competitions">
       <SEO
         title="Competitions — GARI CanSat & Rocket Programs | IN-SPACe 2026"
         description="GARI is competing in two IN-SPACe 2026 competitions: CanSat with NavIC GNSS at 1000m altitude, and Model Rocketry targeting 1km apogee (Nov 17-20, Kushinagar, UP). CDR cleared for Rocket, PDR cleared for CanSat. National-level student aerospace programs built at GITAM University Hyderabad."
         path="/competitions"
         keywords="GARI competitions, GARI IN-SPACe 2026, GARI CanSat rocket, IN-SPACe CAN-7USAT 2026, IN-SPACe Model Rocketry India, GITAM aerospace competitions, student CanSat India, student rocketry India, NavIC CanSat competition, hybrid rocket competition India, GARI GITAM competitions, aerospace student competitions 2026, IN-SPACe student programs, CanSat rocket India 2026"
         datePublished="2025-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Competitions', url: 'https://gari.live/competitions' }]}
         faq={[
           { q: 'What competitions is GARI participating in?', a: 'GARI is competing in two IN-SPACe 2026 national competitions: IN-SPACe CAN-7USAT 2026 (CanSat competition) and IN-SPACe Model Rocketry India Student Competition (1km altitude rocket).' },
@@ -139,281 +259,53 @@ const CompetitionsPage = () => {
         }}
       />
 
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="hero-tag">IN-SPACe 2026 NATIONAL COMPETITIONS</span>
-            <h1>Competition Programs</h1>
-            <p className="hero-subtitle">
-              Two national-level aerospace missions competing in 2026
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="IN-SPACe 2026 National Competitions"
+        lines={['Two missions.', 'One launch window.']}
+        lead="A CanSat and a model rocket, engineered side by side for the National Finals in Kushinagar, November 17–20, 2026."
+      />
 
-      {/* Competition Tabs */}
-      <section className="content-section">
+      <div className="comp-switch theme-dark">
         <div className="container">
-          <div className="comp-tabs">
-            <button
-              className={`comp-tab ${activeTab === 'cansat' ? 'comp-tab--active' : ''}`}
-              onClick={() => setActiveTab('cansat')}
-            >
-              <span className="comp-tab-label">CanSat Program</span>
-              <span className="comp-tab-subtitle">IN-SPACe CAN-7USAT 2026</span>
-            </button>
-            <button
-              className={`comp-tab ${activeTab === 'rocket' ? 'comp-tab--active' : ''}`}
-              onClick={() => setActiveTab('rocket')}
-            >
-              <span className="comp-tab-label">Rocket Program</span>
-              <span className="comp-tab-subtitle">IN-SPACe Model Rocketry India 2026</span>
-            </button>
+          <div className="segmented" role="tablist" aria-label="Choose a program">
+            {Object.values(programs).map((p) => (
+              <button
+                key={p.key}
+                role="tab"
+                aria-selected={active === p.key}
+                className={active === p.key ? 'is-active' : undefined}
+                onClick={() => choose(p.key)}
+              >
+                {active === p.key && (
+                  <motion.span layoutId="seg-pill" className="segmented-pill" transition={{ duration: 0.4, ease: ease.out }} />
+                )}
+                <span className="segmented-label">{p.tab}</span>
+              </button>
+            ))}
           </div>
-
-          {/* CanSat Content */}
-          {activeTab === 'cansat' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="comp-intro">
-                <motion.div
-                  className="comp-intro-text"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <span className="comp-label">CANSAT MISSION</span>
-                  <h2>A satellite in a can. A real aerospace mission.</h2>
-                  <p>
-                    A CanSat is a 330ml form-factor satellite — the same diameter as a soda
-                    can — that carries a full instrument suite, launches to 1000m altitude,
-                    and transmits data in real time before descending on a parachute. Every
-                    subsystem has to survive launch loads, operate reliably in flight, and
-                    return usable data to the ground station.
-                  </p>
-                  <p>
-                    GARI's CanSat for IN-SPACe CAN-7USAT 2026 integrates NavIC — India's
-                    own GNSS constellation — for positional tracking, making it one of the
-                    few student CanSats in the country using NavIC instead of GPS. A custom
-                    ground station application handles live telemetry, mission logging, and
-                    post-flight data analysis.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="comp-stats-block"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <div className="stats-grid">
-                    {cansatStats.map((stat, index) => (
-                      <div key={index} className="stat-card">
-                        <h3>{stat.value}</h3>
-                        <p>{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Mission Timeline */}
-              <div className="comp-section-divider"></div>
-              <div className="comp-section-header">
-                <span className="comp-label">MISSION STATUS</span>
-                <h2>Where we are in the program</h2>
-              </div>
-              <div className="mission-timeline">
-                {cansatTimeline.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className={`mission-phase ${item.status === 'Cleared' ? 'phase--cleared' : item.status === 'In Progress' ? 'phase--active' : 'phase--upcoming'}`}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <div className="phase-header">
-                      <span className="phase-number">{item.phase}</span>
-                      <span className={`phase-status status--${item.status.toLowerCase().replace(' ', '-')}`}>
-                        {item.status}
-                      </span>
-                    </div>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Subsystems */}
-              <div className="comp-section-divider"></div>
-              <div className="comp-section-header">
-                <span className="comp-label">EIGHT SUBSYSTEMS</span>
-                <h2>Every subsystem has an owner</h2>
-                <p className="comp-section-desc">
-                  Each discipline is led by a specialist from the CanSat team. No subsystem is
-                  an afterthought.
-                </p>
-              </div>
-              <div className="subsystems-grid">
-                {cansatSubsystems.map((system, index) => (
-                  <motion.div
-                    key={index}
-                    className="subsystem-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.06 }}
-                  >
-                    <h3>{system.name}</h3>
-                    <p className="subsystem-lead">Lead: {system.lead}</p>
-                    <p className="subsystem-desc">{system.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Rocket Content */}
-          {activeTab === 'rocket' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="comp-intro">
-                <motion.div
-                  className="comp-intro-text"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <span className="comp-label">MODEL ROCKETRY MISSION</span>
-                  <h2>Engineering a 1000m altitude rocket from the ground up.</h2>
-                  <p>
-                    GARI's Model Rocketry program is designing, building, and launching a solid
-                    propulsion rocket targeting 1km apogee for the IN-SPACe Model Rocketry India
-                    Student Competition 2026. The mission involves full-stack aerospace engineering:
-                    propulsion systems, composite airframes, active stability control, custom avionics,
-                    and dual-event recovery mechanisms.
-                  </p>
-                  <p>
-                    The rocket features a The TIVRA K-560 solid rocket motor is engineered for precision-controlled propulsion in experimental and educational aerospace applications. Producing a maximum thrust of 1030 N and a total impulse of 1960 Newton-seconds, the motor features a 3.5-second burn duration, enabling smoother acceleration and sustained thrust delivery. With a 94 mm diameter, 313 mm motor length, and a total mass of 3.71 kg including 1.8 kg of propellant, the TIVRA K-560 offers an excellent balance between compact form factor and performance. The motor is well-suited for sounding rockets, subscale launch vehicle demonstrations, and propulsion system testing.. A custom
-                    flight computer manages data acquisition, apogee detection, and parachute deployment
-                    sequencing. Real-time telemetry downlink enables ground station tracking throughout
-                    the entire flight envelope from ignition to touchdown.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="comp-stats-block"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <div className="stats-grid">
-                    {rocketStats.map((stat, index) => (
-                      <div key={index} className="stat-card">
-                        <h3>{stat.value}</h3>
-                        <p>{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Mission Timeline */}
-              <div className="comp-section-divider"></div>
-              <div className="comp-section-header">
-                <span className="comp-label">MISSION STATUS</span>
-                <h2>Where we are in the program</h2>
-              </div>
-              <div className="mission-timeline">
-                {rocketTimeline.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className={`mission-phase ${item.status === 'Cleared' ? 'phase--cleared' : item.status === 'In Progress' ? 'phase--active' : 'phase--upcoming'}`}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <div className="phase-header">
-                      <span className="phase-number">{item.phase}</span>
-                      <span className={`phase-status status--${item.status.toLowerCase().replace(' ', '-')}`}>
-                        {item.status}
-                      </span>
-                    </div>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Subsystems */}
-              <div className="comp-section-divider"></div>
-              <div className="comp-section-header">
-                <span className="comp-label">SIX SUBSYSTEMS</span>
-                <h2>Full-stack rocket engineering</h2>
-                <p className="comp-section-desc">
-                  From propulsion to payload, every system is engineered in-house by specialized teams.
-                </p>
-              </div>
-              <div className="subsystems-grid">
-                {rocketSubsystems.map((system, index) => (
-                  <motion.div
-                    key={index}
-                    className="subsystem-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.06 }}
-                  >
-                    <h3>{system.name}</h3>
-                    <p className="subsystem-lead">Lead: {system.lead}</p>
-                    <p className="subsystem-desc">{system.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
         </div>
-      </section>
+      </div>
 
-      {/* CTA */}
-      <section className="content-section comp-alt-bg">
-        <div className="container">
-          <motion.div
-            className="comp-cta"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Want to support our competition programs?</h2>
-            <p>
-              Sponsoring GARI puts your brand alongside nationally competing student
-              aerospace teams building real rockets and satellites. Get in touch to discuss
-              partnership opportunities.
-            </p>
-            <div className="comp-cta-buttons">
-              <a href="/contact" className="ccta-btn-primary">Partner with GARI</a>
-              <a href="/team" className="ccta-btn-secondary">Meet the teams</a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          role="tabpanel"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: ease.inOut }}
+        >
+          <ProgramPanel p={programs[active]} />
+        </motion.div>
+      </AnimatePresence>
+
+      <ClosingCTA
+        eyebrow="Partner with GARI"
+        title="Put your name on the flight."
+        lead="Sponsors appear on the rocket airframe, the CanSat and the team at the National Finals."
+        primary={{ to: '/sponsors', label: 'Sponsorship tiers' }}
+        secondary={{ to: '/team', label: 'Meet the teams' }}
+      />
     </div>
   );
 };

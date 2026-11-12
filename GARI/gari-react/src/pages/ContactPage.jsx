@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { Reveal, RevealGroup, RevealItem } from '../components/motion';
+import { PageHero } from '../components/ui';
 import SEO from '../components/common/SEO';
 import './ContactPage.css';
+
+const channels = [
+  { label: 'Sponsorship & partnerships', value: 'contact@gari.live', href: 'mailto:contact@gari.live?subject=Sponsorship' },
+  { label: 'Students who want to join', value: 'Apply online', href: '/apply' },
+  { label: 'Instagram', value: '@gari.gitam', href: 'https://instagram.com/gari.gitam' },
+  { label: 'LinkedIn', value: 'GARI GITAM', href: 'https://linkedin.com/company/gari-gitam' },
+];
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -122,14 +130,14 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact">
       <SEO
         title="Contact GARI — Sponsorship, Collaboration & Membership"
         description="Contact GARI — GITAM Aerospace Rocketry Initiative for sponsorship, collaboration, media inquiries, or student membership. Based at GITAM University Hyderabad. Email: contact@gari.live. Reply within 48 hours."
         path="/contact"
         keywords="contact GARI, GARI sponsorship enquiry, GITAM aerospace contact, aerospace collaboration India, contact GARI GITAM, GARI email, GARI contact form, contact aerospace team India, GITAM rocketry contact, GARI partnership inquiry, GARI media contact, gari.live contact"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Contact', url: 'https://gari.live/contact' }]}
         faq={[
           { q: 'How can I contact GARI?', a: 'Email GARI at contact@gari.live or fill the contact form at gari.live/contact. The team replies within 48 hours.' },
@@ -160,171 +168,95 @@ const ContactPage = () => {
           },
         }}
       />
-      <section className="page-hero">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1>Contact Us</h1>
-            <p className="hero-subtitle">
-              Let's Build The Future Together
-            </p>
-          </motion.div>
+
+      <PageHero
+        eyebrow="Contact"
+        lines={["Let's talk."]}
+        size="hero"
+        lead="Sponsorship, collaboration, media or membership — we reply within 48 hours."
+      />
+
+      <section className="section theme-paper">
+        <div className="container contact-grid">
+          <div className="contact-side">
+            <RevealGroup as="ul" className="channels">
+              {channels.map((c) => (
+                <RevealItem as="li" key={c.label}>
+                  <span className="t-small">{c.label}</span>
+                  <a
+                    href={c.href}
+                    className="channel-link"
+                    target={c.href.startsWith('http') ? '_blank' : undefined}
+                    rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    {c.value}
+                  </a>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+            <Reveal className="contact-address">
+              <span className="eyebrow">Find us</span>
+              <address>
+                GITAM University, Hyderabad campus<br />
+                Rudraram, Patancheru<br />
+                Telangana 502329, India
+              </address>
+            </Reveal>
+          </div>
+
+          <Reveal className="contact-card theme-light">
+            <h2 className="t-h2">Send a message.</h2>
+            <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <div className="form-row">
+                <div className="field">
+                  <label htmlFor="name">Name</label>
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={errors.name ? 'error' : undefined} autoComplete="name" required />
+                  {errors.name && <span className="field-error">{errors.name}</span>}
+                </div>
+                <div className="field">
+                  <label htmlFor="email">Email</label>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={errors.email ? 'error' : undefined} autoComplete="email" required />
+                  {errors.email && <span className="field-error">{errors.email}</span>}
+                </div>
+              </div>
+              <div className="field">
+                <label htmlFor="subject">Subject</label>
+                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className={errors.subject ? 'error' : undefined} placeholder="Sponsorship, collaboration, media…" required />
+                {errors.subject && <span className="field-error">{errors.subject}</span>}
+              </div>
+              <div className="field">
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} className={errors.message ? 'error' : undefined} required />
+                {errors.message && <span className="field-error">{errors.message}</span>}
+              </div>
+              <button type="submit" className="btn btn--primary contact-submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending…' : 'Send message'}
+              </button>
+              {errors.general && <div className="notice notice--err">{errors.general}</div>}
+              {submitStatus === 'success' && (
+                <div className="notice notice--ok" role="status">Thanks — your message is on its way. We'll get back to you soon.</div>
+              )}
+              {submitStatus === 'error' && !errors.general && (
+                <div className="notice notice--err">Failed to send. Try again or email contact@gari.live directly.</div>
+              )}
+            </form>
+          </Reveal>
         </div>
       </section>
 
-      <section className="content-section">
+      <section className="theme-paper contact-map-section">
         <div className="container">
-          <div className="contact-content">
-
-            {/* 1. Form first */}
-            <motion.div
-              className="contact-form-wrapper"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h2>Send us a message</h2>
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={errors.name ? 'error' : ''}
-                    required
-                  />
-                  {errors.name && <span className="error-text">{errors.name}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={errors.email ? 'error' : ''}
-                    required
-                  />
-                  {errors.email && <span className="error-text">{errors.email}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className={errors.subject ? 'error' : ''}
-                    required
-                  />
-                  {errors.subject && <span className="error-text">{errors.subject}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className={errors.message ? 'error' : ''}
-                    required
-                  ></textarea>
-                  {errors.message && <span className="error-text">{errors.message}</span>}
-                </div>
-
-                <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-
-                {errors.general && (
-                  <div className="status-message error-message">
-                    {errors.general}
-                  </div>
-                )}
-
-                {submitStatus === 'success' && (
-                  <div className="status-message success-message">
-                    ✓ Thank you for your message! We will get back to you soon.
-                  </div>
-                )}
-
-                {submitStatus === 'error' && !errors.general && (
-                  <div className="status-message error-message">
-                    ✗ Failed to send message. Please try again or email us directly at contact@gari.live
-                  </div>
-                )}
-              </form>
-            </motion.div>
-
-            {/* 2. Contact info cards */}
-            <div className="contact-info-grid">
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3>Email</h3>
-                <p>contact@gari.live</p>
-              </motion.div>
-
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                <h3>Instagram</h3>
-                <p>@gari.live</p>
-              </motion.div>
-
-              <motion.div
-                className="info-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <h3>Location</h3>
-                <p>GITAM University, Hyderabad</p>
-              </motion.div>
-            </div>
-
-            {/* 3. GITAM map */}
-            <motion.div
-              className="contact-map"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3>Find us</h3>
-              <iframe
-                title="GITAM University Hyderabad"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.5!2d78.1609!3d17.5510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc9f2e1b7b%3A0x8f5a6b2c3d4e5f6a!2sGITAM+University+Hyderabad!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
-                width="100%"
-                height="360"
-                style={{ border: 0, borderRadius: '8px' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </motion.div>
-
-          </div>
+          <Reveal className="contact-map">
+            <iframe
+              title="GITAM University Hyderabad on Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.5!2d78.1609!3d17.5510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc9f2e1b7b%3A0x8f5a6b2c3d4e5f6a!2sGITAM+University+Hyderabad!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
+              width="100%"
+              height="420"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </Reveal>
         </div>
       </section>
     </div>

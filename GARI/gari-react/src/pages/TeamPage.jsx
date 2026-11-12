@@ -1,354 +1,117 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Reveal, RevealGroup, RevealItem, ease } from '../components/motion';
+import { ClosingCTA, Head, PageHero } from '../components/ui';
+import { cansatTeam, coreTeamMembers, rocketTeam } from '../data/team';
 import SEO from '../components/common/SEO';
 import './TeamPage.css';
 
-const TeamPage = () => {
-  // Rocket Team - Specialized Leads (from Image 1)
-  const rocketTeam = [
-    {
-      name: 'Shaik Aadil Iftikhar',
-      role: 'Team Lead & Analysis Engineer',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Aerospace engineering undergraduate and team lead, driven by research, precision, and innovation.',
-      image: '/team/shaik-aadil-iftikhar.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Saketh Muppala',
-      role: 'Co-Lead & Supportive Engineer',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Co-Lead and Technical Coordinator, contributing to project planning, technical coordination, and operational support.',
-      image: '/team/saketh-muppala.jpg',
-      linkedin: 'https://www.linkedin.com/in/sakethmuppala/',
-    },
-    {
-      name: 'Nischal Aditya M',
-      role: 'Communication Engineer',
-      branch: 'Electronics and Communication Engineering',
-      year: '3rd Year',
-      description: 'Leading communication systems, payload operations, and mission coordination for the rocket team.',
-      image: '/team/nischal-aditya.jpg',
-      linkedin: 'https://www.linkedin.com/in/nischaladityam',
-    },
-    {
-      name: 'Sreehitha Tadavarthy',
-      role: 'Design Engineer',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading rocket flight simulations, stability studies and structural performance evaluation.',
-      image: '/team/sreehitha-tadavarthy.jpg',
-      linkedin: 'https://www.linkedin.com/in/sreehitha-tadavarthy-9a986a270/',
-    },
-    {
-      name: 'Thrinadh Tirumalasetti',
-      role: 'Propulsion Engineer',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading propulsion systems design and development for the rocket team.',
-      image: '/team/thrinadh-tirumalasetti.jpg',
-      linkedin: 'https://www.linkedin.com/in/thrinadh1876',
-    },
-    {
-      name: 'Achanta Sri Karthikeya',
-      role: 'Electronics Engineer',
-      branch: 'Electrical and Electronics Engineering',
-      year: '1st Year',
-      description: 'Leading electronics and avionics systems for the rocket team.',
-      image: '/team/achanta-sri-karthikeya.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Mokshagna Mopidevi',
-      role: 'Computer Engineer',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading aerodynamics analysis and computational modeling for the rocket team.',
-      image: '/team/mokshagna-mopidevi.jpg',
-      linkedin: 'https://www.linkedin.com/in/mokshagna-mopidevi-49148b303/',
-    },
-    {
-      name: 'Shreemann Narayana Karnakoti',
-      role: 'Structural Engineer',
-      branch: 'Aerospace Engineering',
-      year: '2nd Year',
-      description: 'Leading structural design and analysis for the rocket team.',
-      image: '/team/shreemann-narayana.jpg',
-      linkedin: 'https://www.linkedin.com/in/shreemann-narayana',
-    },
-  ];
+const tag = (list, team) => list.map((m) => ({ ...m, team }));
+const everyone = [...tag(rocketTeam, 'Rocket'), ...tag(cansatTeam, 'CanSat'), ...tag(coreTeamMembers, 'Core')];
+const leads = [rocketTeam[0], rocketTeam[1], cansatTeam[0], cansatTeam[1]].map((m, i) => ({
+  ...m,
+  team: i < 2 ? 'Rocket' : 'CanSat',
+}));
 
-  // CanSat Team - Specialized Leads (from Image 2)
-  const cansatTeam = [
-    {
-      name: 'Harsha Vardan',
-      role: 'Team Lead & Electronics Engineer',
-      branch: 'Electronics and Communication Engineering',
-      year: '2nd Year',
-      description: 'Team Leader leading electronics and communication systems for the CanSat team.',
-      image: null,
-      linkedin: null,
-    },
-    {
-      name: 'Tanmaay Sharma',
-      role: 'Co-Lead & Structures/Mechanical',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Co-Lead focusing on structures and mechanical systems for the CanSat project.',
-      image: '/team/tanmaay-sharma.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Bodapati Bharat Chandra',
-      role: 'Ground Station & Software',
-      branch: 'Computer Science and Engineering',
-      year: '3rd Year',
-      description: 'Leading ground station software and mission control systems development.',
-      image: '/team/bodapati-bharat-chandra.jpg',
-      linkedin: null,
-      portfolio: 'https://bharatchandra.me',
-    },
-    {
-      name: 'Singam Sai Harshith',
-      role: 'Avionics & Flight Software',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading avionics and flight software development for the CanSat mission.',
-      image: '/team/singam-sai-harshith.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Varshith Pappuri',
-      role: 'Communication & RF Systems',
-      branch: 'Electronics and Communication Engineering',
-      year: '1st Year',
-      description: 'Leading communication and RF systems for the CanSat project.',
-      image: '/team/varshith-pappuri.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Rohan Jason Bellapu',
-      role: 'Sensor & Payload Systems',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading sensor and payload systems design and integration.',
-      image: '/team/rohan-jason-bellapu.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Satya Rishi Chodesetty',
-      role: 'Power & Electrical Systems',
-      branch: 'Aerospace Engineering',
-      year: '2nd Year',
-      description: 'Leading power systems and electrical integration for the CanSat project.',
-      image: '/team/satya-rishi-chodesetty.jpg',
-      linkedin: 'https://www.linkedin.com/in/satya-rishi-chodesetty/',
-    },
-    {
-      name: 'Hanzel Vergis Thomas',
-      role: 'Descent & Recovery Systems',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Leading descent and recovery systems design for safe CanSat landing.',
-      image: '/team/hanzel-vergis-thomas.jpg',
-      linkedin: null,
-    },
-  ];
+const filters = [
+  { key: 'All', label: 'Everyone' },
+  { key: 'Rocket', label: 'Rocket' },
+  { key: 'CanSat', label: 'CanSat' },
+  { key: 'Core', label: 'Core' },
+];
 
-  // Core Team Members (everyone else from spreadsheet)
-  const coreTeamMembers = [
-    {
-      name: 'Krishna Nishita',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '1st Year',
-      description: 'Enthusiastic volunteer passionate about space, technology, and gaining new experiences.',
-      image: '/team/krishna-nishita.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Shaik Farhat Raheem',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '1st Year',
-      description: 'Aerospace engineering student passionate about aviation, robotics, and innovative technology.',
-      image: '/team/shaik-farhat-raheem.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Krrish Mathur',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '1st Year',
-      description: 'Focused on mission-critical flight parameters, orbital mechanics and structural validation.',
-      image: '/team/krrish-mathur.jpg',
-      linkedin: 'https://www.linkedin.com/in/krrish-mathur-286794392',
-    },
-    {
-      name: 'E Krishna Chaitanya',
-      role: 'Core Team Member',
-      branch: 'Mechanical Engineering',
-      year: '3rd Year',
-      description: 'Contributing to structural design, payload systems, and ground operations.',
-      image: '',
-      linkedin: null,
-    },
-    {
-      name: 'Prajwal KM',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '4th Year',
-      description: 'Working with teams on creative and technical projects.',
-      image: '/team/prajwal-km.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Harshith Venkata Naga Pavana Jangala',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Supporting across multiple areas including propulsion, structural design, and avionics.',
-      image: '/team/harshith-venkata.jpg',
-      linkedin: 'https://www.linkedin.com/in/harshith-venkata-naga-pavana-jangala-203852306',
-    },
-    {
-      name: 'Naga Manikanta Uppala',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '3rd Year',
-      description: 'Interested in analysis and aerospace systems.',
-      image: '/team/naga-manikanta-uppala.jpg',
-      linkedin: 'https://www.linkedin.com/in/naga-manikanta-uppala-003877302',
-    },
-    {
-      name: 'Gill Mandeep Kaur',
-      role: 'Core Team Member',
-      branch: 'Aerospace Engineering',
-      year: '1st Year',
-      description: 'Supporting the team with enthusiasm and dedication.',
-      image: '/team/gill-mandeep-kaur.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Vutukuru Sai Pranav',
-      role: 'Core Team Member',
-      branch: 'Electronics and Communication Engineering',
-      year: '4th Year',
-      description: 'Supporting avionics, software development, and systems engineering.',
-      image: '/team/vutukuru-sai-pranav.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Pulidindi Abhinav',
-      role: 'Core Team Member',
-      branch: 'Computer Science and Engineering',
-      year: '4th Year',
-      description: 'Contributing to avionics and software development.',
-      image: '/team/pulidindi-abhinav.jpg',
-      linkedin: 'https://github.com/ABhinav1234569979',
-    },
-    {
-      name: 'Toka Priyanka',
-      role: 'Core Team Member',
-      branch: 'Computer Science and Engineering',
-      year: '3rd Year',
-      description: 'Supporting data analysis and modeling.',
-      image: '/team/toka-priyanka.jpg',
-      linkedin: null,
-    },
-    {
-      name: 'Bhimineni Yoga Nandini',
-      role: 'Core Team Member',
-      branch: 'Computer Science and Engineering',
-      year: '3rd Year',
-      description: 'Computer Science student passionate about web development and full-stack development.',
-      image: '/team/bhimineni-yoga-nandini.jpg',
-      linkedin: null,
-    },
-  ];
+const initials = (name) => name.split(' ').filter(Boolean).slice(0, 2).map((n) => n[0]).join('');
 
-  const [activeCard, setActiveCard] = React.useState(null);
+const Portrait = ({ member, className = '' }) => {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className={`portrait ${className}`}>
+      {member.image && !failed ? (
+        <img
+          src={member.image}
+          alt={`${member.name} — ${member.role}, GARI`}
+          loading="lazy"
+          decoding="async"
+          width="300"
+          height="375"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span className="portrait-initials" aria-hidden="true">{initials(member.name)}</span>
+      )}
+    </div>
+  );
+};
 
-  const renderTeamMember = (member, index, teamPrefix = '') => {
-    const memberKey = `${teamPrefix}-${index}`;
-    
-    return (
+const MemberSheet = ({ member, onClose }) => {
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose();
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="sheet-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={onClose}
+    >
       <motion.div
-        key={memberKey}
-        className={`team-card ${activeCard === memberKey ? 'active' : ''}`}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ delay: index * 0.02, duration: 0.3 }}
-        onClick={() => setActiveCard(activeCard === memberKey ? null : memberKey)}
+        className="sheet theme-light"
+        role="dialog"
+        aria-modal="true"
+        aria-label={member.name}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 0.45, ease: ease.out }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="team-image-container">
-          <div className="team-image">
-            {member.image ? (
-              <img 
-                src={member.image} 
-                alt={`${member.name} — ${member.role} at GARI GITAM Aerospace Rocketry Initiative`}
-                loading="lazy"
-                decoding="async"
-                width="300"
-                height="300"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = `<div class="image-placeholder"><span>${member.name.split(' ').map(n => n[0]).join('')}</span></div>`;
-                }}
-              />
-            ) : (
-              <div className="image-placeholder">
-                <span>{member.name.split(' ').map(n => n[0]).join('')}</span>
-              </div>
-            )}
-          </div>
-          <div className="team-overlay">
-            <p className="overlay-description">{member.description}</p>
+        <button className="sheet-close" onClick={onClose} aria-label="Close">×</button>
+        <Portrait member={member} className="sheet-portrait" />
+        <div className="sheet-body">
+          <span className="eyebrow eyebrow--accent">{member.team} team</span>
+          <h2 className="t-h2">{member.name}</h2>
+          <p className="sheet-role">{member.role}</p>
+          <p className="t-small">{member.branch} · {member.year}</p>
+          <p className="t-body sheet-desc">{member.description}</p>
+          <div className="actions">
             {member.linkedin && (
-              <a 
-                href={member.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="overlay-linkedin"
-                onClick={(e) => e.stopPropagation()}
-              >
-                LinkedIn →
+              <a className="link" href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                {member.linkedin.includes('github') ? 'GitHub' : 'LinkedIn'}
               </a>
             )}
             {member.portfolio && (
-              <a
-                href={member.portfolio}
-                target="_blank"
-                rel="me noopener noreferrer"
-                className="overlay-linkedin"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Portfolio →
-              </a>
+              <a className="link" href={member.portfolio} target="_blank" rel="me noopener noreferrer">Portfolio</a>
             )}
           </div>
         </div>
-        <div className="team-info">
-          <h3>{member.name}</h3>
-          <p className="team-role">{member.role}</p>
-          <p className="team-branch">{member.branch} • {member.year}</p>
-        </div>
       </motion.div>
-    );
-  };
+    </motion.div>
+  );
+};
+
+const TeamPage = () => {
+  const [filter, setFilter] = useState('All');
+  const [open, setOpen] = useState(null);
+  const shown = useMemo(() => (filter === 'All' ? everyone : everyone.filter((m) => m.team === filter)), [filter]);
 
   return (
-    <div className="team-page">
+    <div className="team">
       <SEO
         title="Our Team — 30+ Aerospace Engineers at GARI GITAM | Meet the Team"
         description="Meet GARI's 30+ member team at GITAM University Hyderabad — Rocket Team led by Shaik Aadil Iftikhar, CanSat Team led by Harsha Vardan, with specialists including Harshith Venkata Naga Pavana Jangala (Aerospace), Bodapati Bharat Chandra (Ground Station & Software), Singam Sai Harshith (Avionics) and more. Competing in two IN-SPACe 2026 national competitions."
         path="/team"
         keywords="GARI team, Harshith Venkata Naga Pavana Jangala GARI, Bodapati Bharat Chandra GARI software, Harshith GITAM aerospace engineer, Bharat Chandra ground station GARI, GARI GITAM team members, Shaik Aadil Iftikhar GARI, Saketh Muppala GARI, Nischal Aditya GARI, Singam Sai Harshith GARI, Tanmaay Sharma GARI, Harsha Vardan GARI, Rohan Jason Bellapu GARI, Satya Rishi Chodesetty GARI, Hanzel Vergis Thomas GARI, Varshith Pappuri GARI, Sreehitha Tadavarthy GARI, Thrinadh Tirumalasetti GARI, Mokshagna Mopidevi GARI, Shreemann Narayana GARI, Achanta Sri Karthikeya GARI, rocket team India, CanSat team GITAM, GITAM aerospace team members, GARI 30 engineers, aerospace team GITAM Hyderabad"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Team', url: 'https://gari.live/team' }]}
         faq={[
           { q: 'Who is on the GARI team?', a: 'GARI has 30+ members at GITAM University Hyderabad. Rocket Team is led by Shaik Aadil Iftikhar. CanSat Team is led by Harsha Vardan. Key members include Harshith Venkata Naga Pavana Jangala (Aerospace Engineer) and Bodapati Bharat Chandra (Ground Station & Software Lead, portfolio: bharatchandra.me).' },
@@ -485,88 +248,88 @@ const TeamPage = () => {
           },
         ]}
       />
-      {/* Raw script tag for dangerouslySetInnerHTML removed — schema passed via SEO component */}
-      <section className="page-hero">
+
+      <PageHero
+        eyebrow="The team"
+        lines={['Every flight starts', 'with people.']}
+        lead="30+ students across aerospace, electronics, computer science and mechanical engineering, organised into two flight programs."
+      />
+
+      <section className="section theme-dark team-leads-section">
         <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1>Our Team</h1>
-            <p className="hero-subtitle">
-              30+ Students Building Aerospace Innovation Together
-            </p>
-          </motion.div>
+          <Head eyebrow="Leadership" title="Program leads." />
+          <RevealGroup className="team-leads">
+            {leads.map((m) => (
+              <RevealItem key={m.name}>
+                <button className="member member--lead" onClick={() => setOpen(m)}>
+                  <Portrait member={m} />
+                  <span className="eyebrow">{m.team}</span>
+                  <span className="member-name">{m.name}</span>
+                  <span className="member-role">{m.role}</span>
+                </button>
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
       </section>
 
-      <section className="content-section">
+      <section className="section theme-light">
         <div className="container">
-          <div className="about-text">
-            <p>
-              GARI is powered by a multidisciplinary team of 30+ passionate students
-              working across two major projects: Rocket Development and CanSat missions.
-              Our team brings together expertise in aerospace engineering, avionics, 
-              software systems, and mission-oriented engineering.
-            </p>
+          <div className="team-toolbar">
+            <Head eyebrow="Members" title="The whole crew." />
+            <Reveal className="segmented segmented--light" role="tablist" aria-label="Filter team">
+              {filters.map((f) => (
+                <button
+                  key={f.key}
+                  role="tab"
+                  aria-selected={filter === f.key}
+                  className={filter === f.key ? 'is-active' : undefined}
+                  onClick={() => setFilter(f.key)}
+                >
+                  {filter === f.key && (
+                    <motion.span layoutId="team-pill" className="segmented-pill" transition={{ duration: 0.4, ease: ease.out }} />
+                  )}
+                  <span className="segmented-label">{f.label}</span>
+                </button>
+              ))}
+            </Reveal>
           </div>
 
-          {/* CanSat Team Section */}
-          <div className="team-section">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="team-division-title">CanSat Team</h2>
-              <p className="team-division-subtitle">
-                Building satellite systems in a can for space missions
-              </p>
-            </motion.div>
-
-            <div className="team-grid">
-              {cansatTeam.map((member, index) => renderTeamMember(member, index, 'cansat'))}
-            </div>
-          </div>
-
-          {/* Rocket Team Section */}
-          <div className="team-section">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="team-division-title">Rocket Team</h2>
-              <p className="team-division-subtitle">
-                Developing advanced rocket systems for IN-SPACe competition
-              </p>
-            </motion.div>
-
-            <div className="team-grid">
-              {rocketTeam.map((member, index) => renderTeamMember(member, index, 'rocket'))}
-            </div>
-          </div>
-
-          {/* Core Team Members Section */}
-          <div className="team-section">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="team-division-title">Core Team Members</h2>
-              <p className="team-division-subtitle">
-                Supporting both projects with dedication and expertise
-              </p>
-            </motion.div>
-
-            <div className="team-grid">
-              {coreTeamMembers.map((member, index) => renderTeamMember(member, index, 'core'))}
-            </div>
-          </div>
+          <motion.ul layout className="team-grid">
+            <AnimatePresence mode="popLayout" initial={false}>
+              {shown.map((m) => (
+                <motion.li
+                  layout
+                  key={`${m.team}-${m.name}`}
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.4, ease: ease.out }}
+                >
+                  <button className="member" onClick={() => setOpen(m)} aria-label={`${m.name}, ${m.role}. View profile`}>
+                    <Portrait member={m} />
+                    <span className="member-name">{m.name}</span>
+                    <span className="member-role">{m.role}</span>
+                    <span className="member-meta">{m.branch.replace(' Engineering', '').replace('and ', '& ')} · {m.year}</span>
+                  </button>
+                </motion.li>
+              ))}
+            </AnimatePresence>
+          </motion.ul>
         </div>
       </section>
+
+      <ClosingCTA
+        eyebrow="Recruiting"
+        title="Your name could be on this page."
+        lead="GARI is open to every branch at GITAM University. Enthusiasm and commitment matter more than experience."
+        primary={{ to: '/apply', label: 'Apply to join' }}
+        secondary={{ to: '/about', label: 'How GARI is organised' }}
+      />
+
+      <AnimatePresence>
+        {open && <MemberSheet member={open} onClose={() => setOpen(null)} />}
+      </AnimatePresence>
     </div>
   );
 };

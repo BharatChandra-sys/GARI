@@ -1,188 +1,32 @@
-@import './Pages.css';
-
-.contact-page {
-  min-height: 100vh;
-  background: #f8fafc;
-}
-
-/* Hero with background image */
-.contact-page .page-hero {
-  position: relative;
-  background-image: url('https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=2070');
-  background-size: cover;
-  background-position: center 40%;
-  padding: 9rem 2rem 4rem;
-}
-
-.contact-page .page-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(5, 10, 25, 0.65) 0%,
-    rgba(5, 10, 25, 0.55) 60%,
-    rgba(5, 10, 25, 0.75) 100%
-  );
-  z-index: 0;
-}
-
-.contact-page .page-hero .container {
-  position: relative;
-  z-index: 1;
-}
-
-.contact-page .page-hero h1 {
-  color: #ffffff;
-}
-
-.contact-page .page-hero .hero-subtitle {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.contact-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.contact-info-grid {
+.contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
 }
-
-.info-card {
-  padding: 1.5rem;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.info-card h3 {
-  font-size: 1.05rem;
+.contact-side { display: grid; gap: 48px; }
+.channels { list-style: none; border-top: 1px solid var(--line); }
+.channels li { display: grid; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.channel-link {
+  font-size: var(--fs-h3);
   font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 0.4rem;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  transition: color 0.2s;
+  overflow-wrap: anywhere;
 }
+.channel-link:hover { color: var(--accent-ink); }
+.contact-address { display: grid; gap: 10px; }
+.contact-address address { font-style: normal; color: var(--fg-2); line-height: 1.6; }
 
-.info-card p {
-  color: #6b7280;
-  font-size: 0.95rem;
-}
+.contact-card { border-radius: var(--r-lg); padding: clamp(24px, 4vw, 48px); display: grid; gap: 28px; }
+.contact-form { display: grid; gap: 18px; }
+.contact-submit { width: 100%; min-height: 52px; margin-top: 6px; }
 
-.contact-form-wrapper {
-  background: #f9fafb;
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  margin-bottom: 2.5rem;
-}
+.contact-map-section { padding-bottom: var(--section-y); }
+.contact-map { border-radius: var(--r-lg); overflow: hidden; background: var(--paper); }
+.contact-map iframe { display: block; border: 0; filter: grayscale(1) contrast(1.05); }
 
-.contact-info-grid {
-  margin-bottom: 2.5rem;
-}
-
-.contact-map {
-  margin-bottom: 2rem;
-}
-
-.contact-map h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-}
-
-.contact-form-wrapper h2 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* Status Messages */
-.status-message {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-align: center;
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.success-message {
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7;
-}
-
-.error-message {
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1px solid #fca5a5;
-}
-
-.submit-btn:disabled {
-  background: #9ca3af;
-  cursor: not-allowed;
-  transform: none;
-  opacity: 0.7;
-}
-
-@media (max-width: 768px) {
-  .contact-info-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-  }
-
-  .info-card {
-    padding: 1.25rem;
-  }
-
-  .info-card h3 {
-    font-size: 1rem;
-  }
-
-  .info-card p {
-    font-size: 0.9rem;
-  }
-
-  .contact-form-wrapper {
-    padding: 1.75rem 1.25rem;
-  }
-
-  .contact-form-wrapper h2 {
-    font-size: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-}
-
-/* Form Error States */
-.form-group input.error,
-.form-group textarea.error {
-  border-color: #ef4444;
-}
-
-.error-text {
-  display: block;
-  color: #ef4444;
-  font-size: 0.85rem;
-  margin-top: 0.35rem;
-  font-weight: 500;
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
 }

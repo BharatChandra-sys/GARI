@@ -1,32 +1,14 @@
-/* =====================================
-   LOGO STYLES
-   ===================================== */
-
-.logo-container {
-  display: flex;
+.logo {
+  display: inline-flex;
   align-items: center;
-  line-height: 0;
+  gap: 8px;
+  color: var(--ink);
 }
-
-.logo-image {
-  display: block;
-  object-fit: contain;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.logo-image:hover {
-  transform: scale(1.04);
-  opacity: 0.9;
-}
-
-/* White variant — faint brightness boost on dark backgrounds */
-.logo-container--white .logo-image {
-  filter: brightness(1.05);
-}
-
-/* Mobile sizing */
-@media (max-width: 768px) {
-  .logo-image {
-    height: 42px !important;
-  }
+.logo-mark { object-fit: contain; transform: scale(1.35); }
+.logo--white { color: var(--white); }
+.logo--white .logo-mark { filter: invert(1); }
+.logo-word {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }

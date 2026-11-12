@@ -1,109 +1,124 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Logo from '../common/Logo';
+import { ease } from '../motion';
 import './Navbar.css';
 
+const navLinks = [
+  { name: 'About', path: '/about' },
+  { name: 'Mission', path: '/mission' },
+  { name: 'Competitions', path: '/competitions' },
+  { name: 'Team', path: '/team' },
+  { name: 'Achievements', path: '/achievements' },
+  { name: 'Sponsors', path: '/sponsors' },
+  { name: 'Contact', path: '/contact' },
+];
+
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [atTop, setAtTop] = useState(true);
   const location = useLocation();
+  const { scrollY } = useScroll();
 
-  const isHomePage = location.pathname === '/';
+  // Hide on scroll down, reveal on scroll up.
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setHidden(y > 120 && y > prev);
+    setAtTop(y < 24);
+  });
 
+  // Expose state so sticky sub-navs can follow the bar.
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    document.documentElement.dataset.nav = hidden && !open ? 'hidden' : 'shown';
+  }, [hidden, open]);
+
+  // Close menu on navigation.
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+
+  // Lock scroll and listen for Esc while the sheet is open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === 'Escape' && setOpen(false);
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
-
-  const navLinks = [
-    { name: 'Home', path: '/', ariaLabel: 'GARI home page' },
-    { name: 'About', path: '/about', ariaLabel: 'About GARI aerospace team' },
-    { name: 'Mission', path: '/mission', ariaLabel: 'GARI aerospace mission' },
-    { name: 'Competitions', path: '/competitions', ariaLabel: 'GARI CanSat and Rocket IN-SPACe 2026 competitions' },
-    { name: 'Team', path: '/team', ariaLabel: 'Meet the GARI team' },
-    { name: 'Achievements', path: '/achievements', ariaLabel: 'GARI competition achievements' },
-    { name: 'Sponsors', path: '/sponsors', ariaLabel: 'Sponsor GARI aerospace' },
-    { name: 'Contact', path: '/contact', ariaLabel: 'Contact GARI' },
-  ];
+  }, [open]);
 
   return (
-    <motion.nav
-      className={`navbar ${scrolled ? 'scrolled' : ''} ${!isHomePage ? 'dark-text' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      role="navigation"
-      aria-label="GARI main navigation"
-      itemScope
-      itemType="https://schema.org/SiteLinksSearchBox"
-    >
-      <div className="nav-container">
-        {/* Logo — Descriptive link */}
-        <Link to="/" className="logo-link" aria-label="GARI — GITAM Aerospace Rocketry Initiative home page">
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 400 }}
-          >
-            <Logo variant="default" size="medium" />
-          </motion.div>
-        </Link>
+    <>
+      <motion.header
+        className={`nav${atTop && !open ? ' nav--top' : ''}`}
+        animate={{ y: hidden && !open ? '-100%' : 0 }}
+        transition={{ duration: 0.3, ease: ease.apple }}
+      >
+        <nav className="nav-inner" aria-label="GARI main navigation">
+          <Link to="/" className="nav-logo" aria-label="GARI — GITAM Aerospace Rocketry Initiative, home">
+            <Logo size="small" variant="white" />
+            <span className="nav-sub">GITAM · HYDERABAD</span>
+          </Link>
 
-        {/* Hamburger */}
-        <button
-          className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
-          onClick={toggleMobileMenu}
-          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="nav-links"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <ul className="nav-links">
+            {navLinks.map((l) => (
+              <li key={l.path}>
+                <NavLink to={l.path} className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
+                  {l.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
 
-        {/* Nav Links — descriptive anchor text (Semrush technique #3) */}
-        <ul
-          id="nav-links"
-          className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}
-        >
-          {navLinks.map((link, index) => (
-            <motion.li
-              key={link.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05, duration: 0.3 }}
+          <div className="nav-end">
+            <Link to="/apply" className="nav-cta">Join</Link>
+            <button
+              className={`nav-toggle${open ? ' is-open' : ''}`}
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="nav-sheet"
             >
-              <Link
-                to={link.path}
-                className={location.pathname === link.path ? 'active' : ''}
-                onClick={closeMobileMenu}
-                aria-current={location.pathname === link.path ? 'page' : undefined}
-                aria-label={link.ariaLabel || link.name}
-              >
-                {link.name}
-              </Link>
-            </motion.li>
-          ))}
-        </ul>
+              <span className="nav-toggle-label">{open ? 'Close' : 'Menu'}</span>
+              <span className="nav-toggle-line" aria-hidden="true" />
+            </button>
+          </div>
+        </nav>
+      </motion.header>
 
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div className="mobile-overlay" onClick={closeMobileMenu} aria-hidden="true"></div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="nav-sheet"
+            className="nav-sheet"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: ease.apple }}
+          >
+            <motion.ul
+              initial="hidden"
+              animate="show"
+              variants={{ show: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } } }}
+            >
+              {[{ name: 'Home', path: '/' }, ...navLinks].map((l) => (
+                <motion.li
+                  key={l.path}
+                  variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: ease.out } } }}
+                >
+                  <NavLink to={l.path} end className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
+                    {l.name}
+                  </NavLink>
+                </motion.li>
+              ))}
+            </motion.ul>
+            <Link to="/apply" className="btn btn--primary nav-sheet-cta">Apply to join GARI</Link>
+          </motion.div>
         )}
-      </div>
-    </motion.nav>
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -1,16 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Hero from '../components/sections/Hero';
-import AnimatedStats from '../components/sections/AnimatedStats';
-import Sponsors from '../components/sections/Sponsors';
-import MissionTracker from '../components/sections/MissionTracker';
-import CanSatFeature from '../components/sections/CanSatFeature';
-import CountdownBanner from '../components/sections/CountdownBanner';
-import LatestUpdates from '../components/sections/LatestUpdates';
-import JoinGARI from '../components/sections/JoinGARI';
+import Hero from '../components/home/Hero';
+import StatusStrip from '../components/home/StatusStrip';
+import Propulsion from '../components/home/Propulsion';
+import Process from '../components/home/Process';
+import { ParallaxImage, Reveal, RevealGroup, RevealItem, ScrollText } from '../components/motion';
+import { projectArchives } from '../data/achievementsData';
 import SEO from '../components/common/SEO';
 import './HomePage.css';
-import './HomePageMobile.css';
+
+// Figures match the Competitions page, which is the reviewed source.
+const vehicles = [
+  {
+    name: 'Model rocket',
+    status: 'CDR cleared · Sept 20, 2026',
+    lead: 'A solid-motor rocket with a composite airframe, built to reach a one-kilometre apogee and come home on two parachutes.',
+    specs: [
+      ['Target apogee', '1 km'],
+      ['Airframe', 'Fibreglass + carbon fibre'],
+      ['Recovery', 'Drogue at apogee, then main'],
+      ['Competition', 'IN-SPACe Model Rocketry India'],
+    ],
+    to: '/competitions#rocket',
+    cta: 'Rocket breakdown',
+  },
+  {
+    name: 'CanSat',
+    status: 'PDR cleared · CDR in progress',
+    lead: "A satellite the size of a soft-drink can, released at altitude and tracked on the way down by NavIC, India's own navigation constellation.",
+    specs: [
+      ['Form factor', '330 ml'],
+      ['Release altitude', '1,000 m'],
+      ['Navigation', 'NavIC GNSS'],
+      ['Subsystems', '8'],
+      ['Competition', 'IN-SPACe CAN-7USAT'],
+    ],
+    to: '/competitions',
+    cta: 'CanSat breakdown',
+  },
+];
 
 const HomePage = () => {
   return (
@@ -21,7 +49,7 @@ const HomePage = () => {
         path="/"
         keywords="GARI, GARI GITAM, GARI aerospace, GARI rocket team, GITAM Aerospace Rocketry Initiative, GITAM aerospace rocketry, GITAM rocketry team, student rocketry India, aerospace club GITAM, CanSat team India, IN-SPACe 2026, GARI Hyderabad, GARI GITAM University, student satellite India, aerospace engineering GITAM Hyderabad, IN-SPACe CAN-7USAT 2026, IN-SPACe Model Rocketry India, NavIC CanSat team, GARI student team 2026, best aerospace team GITAM, GITAM aerospace club 2026, student rocket team India 2026, model rocketry GITAM"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         faq={[
           { q: 'What is GARI?', a: 'GARI (GITAM Aerospace Rocketry Initiative) is a student-led aerospace and rocketry team at GITAM University, Hyderabad, India, competing in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and Model Rocketry India Student Competition.' },
           { q: 'How can I join GARI?', a: 'GARI recruits students from GITAM University. Apply at gari.live/apply or contact us at contact@gari.live for membership information.' },
@@ -69,79 +97,115 @@ const HomePage = () => {
           ],
         }}
       />
-      <div className="home-page">
+      <div className="home">
         <Hero />
+        <StatusStrip />
 
-        {/* Mission Status Tracker — biggest trust signal for sponsors and judges */}
-        <MissionTracker />
-
-        {/* Countdown to CDR and national finale */}
-        <CountdownBanner />
-
-        {/* CanSat Feature — deep dive without leaving the homepage */}
-        <CanSatFeature />
-
-        {/* Latest Updates / News feed */}
-        <LatestUpdates />
-
-        {/* Quick Overview — past prototype builds */}
-        <section className="overview-section">
+        {/* Statement */}
+        <section className="section theme-light statement-sec">
           <div className="container">
-            <div className="overview-grid">
-              <Link to="/achievements/rover-for-extraterrestrial-planets" className="overview-card">
-                <div className="card-image">
-                  <img 
-                    src="/achievements/01_rover_for_extraterrestrial_planets/rover_extraterrestrial_photo_01.jpeg" 
-                    alt="GARI rover prototype for extraterrestrial planet exploration"
-                    loading="lazy"
-                    decoding="async"
-                    width="800"
-                    height="450"
-                  />
-                </div>
-                <h3>Rover for Extraterrestrial Planets</h3>
-                <p>Planetary rover prototype with chassis, wiring, and motion-testing documentation</p>
-              </Link>
-              <Link to="/achievements/hexa-copter-making" className="overview-card">
-                <div className="card-image">
-                  <img 
-                    src="/achievements/03_hexa_copter_making/hexa_copter_photo_01.jpeg" 
-                    alt="GARI hexa copter build — frame, motors and electronics assembly"
-                    loading="lazy"
-                    decoding="async"
-                    width="800"
-                    height="450"
-                  />
-                </div>
-                <h3>Hexa Copter Making</h3>
-                <p>Multirotor build covering frame assembly, propulsion, and electronics integration</p>
-              </Link>
-              <Link to="/achievements/fixed-wing-aircraft-model" className="overview-card">
-                <div className="card-image">
-                  <img 
-                    src="/achievements/06_fixed_wing_aircraft_model/fixed_wing_aircraft_photo_11.jpeg" 
-                    alt="GARI fixed-wing aircraft model — structure and flight prototype"
-                    loading="lazy"
-                    decoding="async"
-                    width="800"
-                    height="450"
-                  />
-                </div>
-                <h3>Fixed-Wing Aircraft Model</h3>
-                <p>Full fixed-wing prototype with structure, electronics placement, and test setup</p>
-              </Link>
+            <span className="eyebrow">Who we are</span>
+            <ScrollText
+              as="p"
+              className="t-display statement"
+              text="Thirty students at GITAM University, building a rocket and a satellite from the first sketch to the recovery chute, and flying them at India's national finals."
+            />
+          </div>
+        </section>
+
+        <Propulsion />
+
+        {/* Vehicles */}
+        <section className="section theme-light vehicles" aria-labelledby="vehicles-title">
+          <div className="container vehicles-grid">
+            <div className="vehicles-aside">
+              <ParallaxImage
+                src="/media/launch-day.webp"
+                alt="A sounding rocket climbing on a column of smoke into a deep blue sky"
+                className="vehicles-photo"
+              />
+              <p className="credit">Reference photo: student-payload sounding rocket, NASA Wallops Flight Facility</p>
+            </div>
+            <div className="vehicles-main">
+              <Reveal className="head">
+                <span className="eyebrow">Two vehicles, one launch window</span>
+                <h2 id="vehicles-title" className="t-display">A rocket, and the <em>satellite</em> beside it.</h2>
+              </Reveal>
+              {vehicles.map((v, i) => (
+                <Reveal key={v.name} className="vehicle">
+                  <div className="vehicle-head">
+                    <span className="vehicle-n">{i + 1}</span>
+                    <div>
+                      <h3 className="t-h1">{v.name}</h3>
+                      <p className="vehicle-status"><i className="dot dot--ok" aria-hidden="true" />{v.status}</p>
+                    </div>
+                  </div>
+                  <p className="t-lead">{v.lead}</p>
+                  <table className="spec-table">
+                    <tbody>
+                      {v.specs.map(([k, val]) => (
+                        <tr key={k}><th scope="row">{k}</th><td>{val}</td></tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <Link to={v.to} className="link">{v.cta}</Link>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Animated Stats */}
-        <AnimatedStats />
+        <Process />
 
-        {/* Join GARI — student recruitment CTA */}
-        <JoinGARI />
+        {/* Archive: an index, not a gallery */}
+        <section className="section theme-dark archive" aria-labelledby="archive-title">
+          <div className="container">
+            <Reveal className="head">
+              <span className="eyebrow">Before the big one</span>
+              <h2 id="archive-title" className="t-display">Six builds that <em>taught us how.</em></h2>
+            </Reveal>
+            <RevealGroup as="ol" className="index" stagger={0.05}>
+              {projectArchives.map((p, i) => (
+                <RevealItem as="li" key={p.slug}>
+                  <Link to={`/achievements/${p.slug}`} className="index-row">
+                    <span className="index-n">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="index-title">{p.title}</span>
+                    <span className="index-cat">{p.category}</span>
+                    <span className="index-year">{p.year}</span>
+                    <span className="index-go" aria-hidden="true">→</span>
+                  </Link>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+            <Link to="/achievements" className="link archive-all">Open the full archive</Link>
+          </div>
+        </section>
 
-        {/* Sponsors Section */}
-        <Sponsors />
+        {/* Closing */}
+        <section className="closing theme-dark" aria-label="Join or sponsor GARI">
+          <ParallaxImage src="/media/launch-night.webp" alt="" className="closing-bg" />
+          <div className="closing-shade" aria-hidden="true" />
+          <div className="container closing-inner">
+            <Reveal>
+              <h2 className="t-hero">The next one<br />needs <em>you.</em></h2>
+            </Reveal>
+            <div className="closing-doors">
+              <Link to="/apply" className="door">
+                <span className="door-kicker">Students</span>
+                <span className="door-title">Join the build</span>
+                <span className="door-body">Open to every branch at GITAM University, Hyderabad. First-years welcome.</span>
+                <span className="door-go" aria-hidden="true">→</span>
+              </Link>
+              <Link to="/sponsors" className="door">
+                <span className="door-kicker">Companies</span>
+                <span className="door-title">Sponsor the launch</span>
+                <span className="door-body">Founding partnerships are open for the 2026 season: on the rocket, the CanSat and the team.</span>
+                <span className="door-go" aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <p className="credit">Reference photo: sounding rocket night launch, NASA Wallops Flight Facility</p>
+          </div>
+        </section>
       </div>
     </>
   );

@@ -1,0 +1,55 @@
+/* ── Milestone track ── */
+.track { position: relative; }
+.track-line {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+}
+.track-fill {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left center;
+}
+.track-items {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+}
+.track-item { position: relative; padding-top: 36px; display: grid; gap: 8px; align-content: start; }
+.track-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--fg-3);
+}
+.track-dot--done { background: var(--accent); border-color: var(--accent); }
+.track-dot--active,
+.track-dot--next { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(43, 91, 255, 0.18); }
+.track-meta { display: flex; justify-content: space-between; gap: 12px; color: var(--fg-2); }
+.track-status { font-size: 0.75rem; font-weight: 500; color: var(--fg-3); }
+.track-status--done { color: var(--fg); }
+.track-status--active,
+.track-status--next { color: var(--accent); }
+.theme-light .track-status--next, .theme-paper .track-status--next,
+.theme-light .track-status--active, .theme-paper .track-status--active { color: var(--accent-ink); }
+.track-code { font-family: var(--display); font-weight: 600; font-stretch: 112%; letter-spacing: -0.03em; font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem); line-height: 1; margin-top: 12px; }
+.track-title { font-weight: 500; }
+.track-detail { font-size: 0.9375rem; color: var(--fg-2); }
+.track-item--upcoming .track-code { color: var(--fg-3); }
+
+@media (max-width: 767px) {
+  .track-line { top: 0; bottom: 0; left: 5px; right: auto; width: 1px; height: auto; }
+  .track-fill { display: none; }
+  .track-items { grid-template-columns: 1fr; gap: 36px; }
+  .track-item { padding-top: 0; padding-left: 36px; }
+  .track-dot { top: 2px; }
+  .track-code { margin-top: 4px; }
+}

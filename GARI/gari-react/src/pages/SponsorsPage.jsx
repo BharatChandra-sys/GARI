@@ -1,90 +1,74 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Reveal, RevealGroup, RevealItem } from '../components/motion';
+import { Head, PageHero } from '../components/ui';
 import SEO from '../components/common/SEO';
 import './SponsorsPage.css';
 
-const SponsorsPage = () => {
-  const tiers = [
-    {
-      name: 'Title Sponsor',
-      price: 'Primary Partner',
-      benefits: [
-        'Logo on all competition hardware (CanSat and Rocket)',
-        'Featured placement on website homepage',
-        'Named in all press releases and media coverage',
-        'Team acknowledgment at both IN-SPACe competition events',
-        'Dedicated sponsor spotlight on social media',
-        'Access to full technical documentation and reports',
-      ],
-    },
-    {
-      name: 'Platinum Sponsor',
-      price: 'Major Partner',
-      benefits: [
-        'Logo on CanSat chassis, Rocket airframe, and team uniforms',
-        'Prominent placement on website sponsors page',
-        'Social media feature post',
-        'Acknowledgment at competition events',
-        'Access to mission summary report',
-      ],
-    },
-    {
-      name: 'Gold Sponsor',
-      price: 'Supporting Partner',
-      benefits: [
-        'Logo on team uniforms',
-        'Listed on website sponsors page',
-        'Social media mention',
-        'Acknowledgment in team communications',
-      ],
-    },
-    {
-      name: 'Silver Sponsor',
-      price: 'Community Partner',
-      benefits: [
-        'Listed on website sponsors page',
-        'Acknowledged in team newsletter',
-        'Social media recognition post',
-      ],
-    },
-  ];
+const tiers = [
+  {
+    name: 'Title',
+    role: 'Primary partner',
+    benefits: [
+      'Logo on all competition hardware — CanSat and rocket',
+      'Featured placement on the website homepage',
+      'Named in all press releases and media coverage',
+      'Acknowledged at both IN-SPACe competition events',
+      'Dedicated sponsor spotlight on social media',
+      'Access to full technical documentation and reports',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Platinum',
+    role: 'Major partner',
+    benefits: [
+      'Logo on the CanSat chassis, rocket airframe and team uniforms',
+      'Prominent placement on the sponsors page',
+      'Social media feature post',
+      'Acknowledged at competition events',
+      'Access to the mission summary report',
+    ],
+  },
+  {
+    name: 'Gold',
+    role: 'Supporting partner',
+    benefits: [
+      'Logo on team uniforms',
+      'Listed on the sponsors page',
+      'Social media mention',
+      'Acknowledged in team communications',
+    ],
+  },
+  {
+    name: 'Silver',
+    role: 'Community partner',
+    benefits: [
+      'Listed on the sponsors page',
+      'Acknowledged in the team newsletter',
+      'Social media recognition post',
+    ],
+  },
+];
 
-  const whyGARI = [
-    {
-      title: 'Two National Competitions',
-      desc: 'GARI competes in two IN-SPACe 2026 competitions: CAN-7USAT (CanSat with NavIC GNSS) and Model Rocketry India Student Competition (1km altitude rocket) — organized by the Indian National Space Promotion and Authorization Center.',
-    },
-    {
-      title: 'PDR cleared for both, CDR cleared for Rocket',
-      desc: 'GARI has cleared PDR for both CanSat and Rocket programs, and CDR for Rocket program (Sept 20, 2026). These are formal technical milestones confirming approved designs.',
-    },
-    {
-      title: '30+ engineering students',
-      desc: 'Your brand gets visibility with 30+ active engineers across aerospace, ECE, CSE, and mechanical disciplines — future hires for the aerospace and tech industry.',
-    },
-    {
-      title: 'Documented portfolio',
-      desc: 'Six prototype builds on record: rovers, hexacopter, fixed-wing aircraft, gimbal systems. GARI ships hardware, not slide decks.',
-    },
-    {
-      title: 'GITAM University platform',
-      desc: 'Reach extends across GITAM University, Hyderabad — one of India\'s leading engineering institutions with a large student and alumni network.',
-    },
-    {
-      title: 'Early partnership opportunity',
-      desc: 'GARI is growing fast. Getting in early means prominent placement and a long-term association with a team that will be competing nationally for years.',
-    },
-  ];
+const reasons = [
+  { title: 'Two national competitions', body: 'IN-SPACe CAN-7USAT (CanSat with NavIC GNSS) and Model Rocketry India (1 km rocket) — both run by the Indian National Space Promotion and Authorization Center.' },
+  { title: 'Reviewed and approved', body: 'PDR cleared for both programs and CDR cleared for the rocket on Sept 20, 2026. Formal milestones, not marketing.' },
+  { title: '30+ future hires', body: 'Your brand in front of engineers across aerospace, ECE, CSE and mechanical — the people the aerospace and tech industry will hire next.' },
+  { title: 'A documented portfolio', body: 'Six prototype builds on record: rovers, a hexacopter, a fixed-wing aircraft and a gimbal system. We ship hardware.' },
+  { title: 'The GITAM platform', body: "Reach across GITAM University, Hyderabad — one of India's leading engineering institutions, with a large student and alumni network." },
+  { title: 'Get in early', body: 'Founding partners get the most prominent placement and a long-term association with a team that will compete nationally for years.' },
+];
 
-  return (
-    <div className="sponsors-page">
+const SponsorsPage = () => (
+  <div className="sponsors">
       <SEO
         title="Sponsors — Partner with GARI Aerospace GITAM | Sponsor India's Next Rocket Engineers"
         description="Sponsor GARI — GITAM University's student aerospace and rocketry team competing in two IN-SPACe 2026 national competitions. PDR cleared for both CanSat and Rocket. Your brand alongside India's next-generation aerospace engineers. Title, Platinum, Gold, Silver sponsorship tiers available."
         path="/sponsors"
         keywords="sponsor GARI, GARI sponsorship, GARI GITAM sponsor, GITAM Aerospace Rocketry sponsor, GARI aerospace India sponsor, student rocket team sponsor India, IN-SPACe CanSat sponsor, aerospace education sponsor India, GARI title sponsor, GARI platinum sponsor, GARI partner India, sponsor student rocketry India, aerospace sponsorship India, GITAM student team sponsor, GARI 2026 sponsor"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Sponsors', url: 'https://gari.live/sponsors' }]}
         faq={[
           { q: 'Why sponsor GARI?', a: "Sponsoring GARI gives your brand visibility among 30+ top engineering students at GITAM University, direct association with two IN-SPACe 2026 national competitions (CanSat and Rocket), and contribution to next-generation aerospace engineering development in India." },
@@ -105,139 +89,78 @@ const SponsorsPage = () => {
         }}
       />
 
-      {/* Hero */}
-      <section className="page-hero sponsors-hero">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="sponsors-tag">SPONSORSHIP</span>
-            <h1>Partner With GARI</h1>
-            <p className="hero-subtitle">
-              Back the next generation of Indian aerospace engineers
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <PageHero
+      eyebrow="Sponsorship"
+      lines={['Your logo.', 'On the pad.']}
+      lead="Back the next generation of Indian aerospace engineers — and fly with them at the IN-SPACe National Finals, Nov 17–20, 2026."
+    >
+      <Link to="/contact" className="btn btn--primary">Become a sponsor</Link>
+      <a href="#tiers" className="link">See the tiers</a>
+    </PageHero>
 
-      {/* Why GARI */}
-      <section className="content-section">
-        <div className="container">
-          <div className="sponsors-section-header">
-            <span className="sponsors-label">WHY GARI</span>
-            <h2>What you are backing</h2>
-            <p className="sponsors-section-desc">
-              We are a technically serious team with a competition record, real hardware,
-              and a growing national profile.
-            </p>
-          </div>
-          <div className="why-grid">
-            {whyGARI.map((item, i) => (
-              <motion.div
-                key={i}
-                className="why-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="section theme-light">
+      <div className="container">
+        <Head eyebrow="Why GARI" title="What you're backing." lead="A technically serious team with a competition record, real hardware and a growing national profile." />
+        <RevealGroup className="grid-list">
+          {reasons.map((r, i) => (
+            <RevealItem key={r.title}>
+              <span className="row-index">0{i + 1}</span>
+              <h3>{r.title}</h3>
+              <p>{r.body}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      {/* Sponsorship Tiers */}
-      <section className="content-section sponsors-alt-bg">
-        <div className="container">
-          <div className="sponsors-section-header">
-            <span className="sponsors-label">TIERS</span>
-            <h2>Sponsorship packages</h2>
-            <p className="sponsors-section-desc">
-              All tiers include logo rights and attribution. Contact us for a full
-              sponsorship brochure with exact specifications.
-            </p>
-          </div>
-          <div className="tiers-grid">
-            {tiers.map((tier, i) => (
-              <motion.div
-                key={i}
-                className={`tier-card tier-card--${tier.name.toLowerCase().split(' ')[0]}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="tier-header">
-                  <span className="tier-name">{tier.name}</span>
-                  <span className="tier-price">{tier.price}</span>
-                </div>
-                <ul className="tier-benefits">
-                  {tier.benefits.map((b, j) => (
-                    <li key={j}>{b}</li>
-                  ))}
-                </ul>
-                <a href="/contact" className="tier-cta">Get in touch</a>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section id="tiers" className="section theme-paper">
+      <div className="container">
+        <Head eyebrow="Tiers" title="Sponsorship packages." lead="Every tier includes logo rights and attribution. Ask for the full brochure with exact specifications." />
+        <RevealGroup className="tiers">
+          {tiers.map((t) => (
+            <RevealItem key={t.name} className={`tier${t.featured ? ' tier--featured theme-dark' : ''}`}>
+              <span className="eyebrow">{t.role}</span>
+              <h3 className="t-h2">{t.name}</h3>
+              <ul>
+                {t.benefits.map((b) => <li key={b}>{b}</li>)}
+              </ul>
+              <Link to="/contact" className={`btn ${t.featured ? 'btn--primary' : 'btn--solid'} tier-cta`}>Get in touch</Link>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
 
-      {/* Current Sponsors */}
-      <section className="content-section">
-        <div className="container">
-          <div className="sponsors-section-header">
-            <span className="sponsors-label">CURRENT SPONSORS</span>
-            <h2>Our sponsors and partners</h2>
+    <section className="section theme-light">
+      <div className="container">
+        <Reveal className="tile founding">
+          <span className="eyebrow eyebrow--accent">Current sponsors</span>
+          <h2 className="t-h1">This space is reserved for our first partner.</h2>
+          <p className="t-lead">
+            We're seeking founding sponsors for the 2026 competition season. Be the first organisation
+            to partner with GARI and take the most prominent placement available.
+          </p>
+          <div className="actions">
+            <Link to="/contact" className="btn btn--solid">Become a founding sponsor</Link>
           </div>
-          <motion.div
-            className="no-sponsors-state"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              We are actively seeking our founding sponsors for the 2026 competition
-              season. Be the first organization to partner with GARI and get the most
-              prominent placement available.
-            </p>
-            <a href="/contact" className="sponsors-contact-btn">Become a founding sponsor</a>
-          </motion.div>
-        </div>
-      </section>
+        </Reveal>
+      </div>
+    </section>
 
-      {/* CTA */}
-      <section className="content-section sponsors-alt-bg">
-        <div className="container">
-          <motion.div
-            className="sponsors-cta-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Ready to partner?</h2>
-            <p>
-              Send us a message and we will reply within 48 hours with a full
-              sponsorship brochure, team overview, and proposal tailored to your
-              organisation.
-            </p>
-            <div className="sponsors-cta-buttons">
-              <a href="/contact" className="scta-btn-primary">Contact GARI</a>
-              <a href="/achievements" className="scta-btn-secondary">See our work</a>
-            </div>
-            <p className="sponsors-email">
-              Or email directly: <a href="mailto:contact@gari.live">contact@gari.live</a>
-            </p>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
-};
+    <section className="section theme-dark">
+      <div className="container cta">
+        <Reveal>
+          <span className="eyebrow eyebrow--accent">Ready to partner?</span>
+          <h2 className="t-display">Help us reach apogee.</h2>
+          <p className="t-lead">Send us a message. We'll reply within 48 hours with the brochure, a team overview and a proposal for your organisation.</p>
+          <div className="actions">
+            <Link to="/contact" className="btn btn--primary">Contact GARI</Link>
+            <a href="mailto:contact@gari.live" className="link">contact@gari.live</a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  </div>
+);
 
 export default SponsorsPage;

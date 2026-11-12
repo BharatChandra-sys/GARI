@@ -1,0 +1,30 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.cursor span {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: block;
+  transition: transform 0.35s var(--ease-out), background-color 0.35s var(--ease-out);
+}
+.cursor span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+.cursor.is-hover span { transform: scale(1.7); background: #fff; }
+.cursor.is-down span { transform: scale(0.8); }

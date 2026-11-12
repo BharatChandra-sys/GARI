@@ -1,7 +1,32 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { Reveal, RevealGroup, RevealItem } from '../components/motion';
+import { Head, PageHero } from '../components/ui';
 import SEO from '../components/common/SEO';
 import './ApplicationPage.css';
+
+const gains = [
+  { title: 'Flight hardware', body: 'Work on a CanSat and a 1 km rocket — real parts, real tests, real launches.' },
+  { title: 'National competition', body: 'Compete at the IN-SPACe 2026 National Finals in CAN-7USAT and Model Rocketry India.' },
+  { title: 'Mentorship', body: 'Learn directly from senior engineers on the team who have already cleared design reviews.' },
+  { title: 'Every discipline', body: 'Aerospace, ECE, CSE, mechanical and more — on the same subsystem, in the same room.' },
+];
+
+const steps = [
+  { title: 'Review', body: 'Applications are reviewed within 5–7 business days.' },
+  { title: 'Interview', body: 'Shortlisted candidates meet the team leads.' },
+  { title: 'Offer', body: 'Selected candidates receive an offer to join GARI.' },
+  { title: 'Onboarding', body: 'Team orientation, then straight onto a subsystem.' },
+];
+
+const Field = ({ id, label, error, hint, children }) => (
+  <div className="field">
+    <label htmlFor={id}>{label}</label>
+    {children}
+    {hint && !error && <span className="t-small field-hint">{hint}</span>}
+    {error && <span className="field-error">{error}</span>}
+  </div>
+);
+
 
 const ApplicationPage = () => {
   const [formData, setFormData] = useState({
@@ -151,6 +176,8 @@ const ApplicationPage = () => {
     }
   };
 
+  const cls = (name) => (errors[name] ? 'error' : undefined);
+
   return (
     <>
       <SEO
@@ -159,7 +186,7 @@ const ApplicationPage = () => {
         path="/apply"
         keywords="join GARI, GARI recruitment, GITAM aerospace team, student rocketry, aerospace opportunities, GARI application 2026, apply GARI GITAM, join aerospace club GITAM, GARI open recruitment, aerospace internship GITAM, GITAM student aerospace club join, GARI student membership, how to join GARI, GARI application form, aerospace team GITAM Hyderabad recruitment"
         datePublished="2024-01-01"
-        dateModified="2026-07-01"
+        dateModified="2026-10-20"
         breadcrumbs={[{ name: 'Apply', url: 'https://gari.live/apply' }]}
         faq={[
           { q: 'How do I join GARI?', a: 'Fill the application form at gari.live/apply. Applications are reviewed within 5-7 business days, shortlisted candidates are called for an interview, and selected members receive an offer to join.' },
@@ -185,389 +212,157 @@ const ApplicationPage = () => {
           },
         }}
       />
-      
-      <div className="application-page">
-        <section className="page-hero">
+      <div className="apply">
+        <PageHero
+          eyebrow="Recruiting · Open to all GITAM branches"
+          lines={['Build flight hardware,', 'not slides.']}
+          lead="Join the team designing, building and flying GARI's rocket and CanSat. First-years welcome — commitment matters more than experience."
+        >
+          <a href="#apply-form" className="btn btn--primary">Start your application</a>
+        </PageHero>
+
+        <section className="section theme-light">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="page-tag">JOIN THE TEAM</span>
-              <h1>Apply to GARI</h1>
-              <p className="hero-subtitle">
-                Build real aerospace hardware, not slides
-              </p>
-            </motion.div>
+            <Head eyebrow="Why join" title="What you'll get." />
+            <RevealGroup className="grid-list grid-list--4">
+              {gains.map((g, i) => (
+                <RevealItem key={g.title}>
+                  <span className="row-index">0{i + 1}</span>
+                  <h3>{g.title}</h3>
+                  <p>{g.body}</p>
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
         </section>
 
-        <section className="content-section">
-          <div className="container">
-            <div className="section-header-center">
-              <span className="section-label">WHY JOIN</span>
-              <h2>What You'll Gain</h2>
-            </div>
+        <section id="apply-form" className="section theme-paper">
+          <div className="container apply-grid">
+            <Reveal className="apply-side">
+              <span className="eyebrow">Application</span>
+              <h2 className="t-h1">Tell us what you want to build.</h2>
+              <p className="t-body">Fields marked * are required. It takes about ten minutes.</p>
+              <ol className="apply-steps">
+                {steps.map((s, i) => (
+                  <li key={s.title}>
+                    <span className="t-mono">0{i + 1}</span>
+                    <div>
+                      <strong>{s.title}</strong>
+                      <p className="t-small">{s.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
 
-            <div className="benefits-grid">
-              <motion.div
-                className="benefit-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3>Hands-On Experience</h3>
-                <p>Work on real aerospace projects from CanSats to sounding rockets</p>
-              </motion.div>
-
-              <motion.div
-                className="benefit-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                <h3>National Competitions</h3>
-                <p>Compete in both IN-SPACe CAN-7USAT 2026 (CanSat) and IN-SPACe Model Rocketry India Student Competition 2026</p>
-              </motion.div>
-
-              <motion.div
-                className="benefit-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <h3>Expert Mentorship</h3>
-                <p>Learn from senior engineers and aerospace professionals</p>
-              </motion.div>
-
-              <motion.div
-                className="benefit-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <h3>Team Collaboration</h3>
-                <p>Work with passionate students across engineering domains</p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        <section className="content-section apply-alt-bg">
-          <div className="container">
-            <div className="apply-form-wrapper">
-              <div className="form-header-section">
-                <span className="section-label">APPLICATION</span>
-                <h2>Submit Your Application</h2>
-                <p className="section-desc">
-                  Fill out the form below. All fields marked with * are required.
-                </p>
-              </div>
-
+            <Reveal className="apply-card theme-light">
               {submitStatus === 'success' ? (
-                <div className="apply-success-state">
-                  <div className="apply-success-icon" aria-hidden="true">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <h3>Application submitted.</h3>
-                  <p>We've received your application and will review it within 5–7 business days. A confirmation has been sent to your email.</p>
-                  <div className="apply-success-steps">
-                    <div className="apply-success-step">
-                      <span className="step-num">1</span>
-                      <span>Application review within 5–7 business days</span>
-                    </div>
-                    <div className="apply-success-step">
-                      <span className="step-num">2</span>
-                      <span>Shortlisted candidates contacted for interview</span>
-                    </div>
-                    <div className="apply-success-step">
-                      <span className="step-num">3</span>
-                      <span>Selected candidates receive offer to join GARI</span>
-                    </div>
-                  </div>
+                <div className="apply-success" role="status">
+                  <span className="apply-success-icon" aria-hidden="true">✓</span>
+                  <h3 className="t-h2">Application submitted.</h3>
+                  <p className="t-body">
+                    We've received your application and will review it within 5–7 business days.
+                    A confirmation has been sent to your email.
+                  </p>
                 </div>
               ) : (
-                <>
-                  {errors.general && (
-                    <div className="status-message error-message">
-                      {errors.general}
-                    </div>
-                  )}
-
+                <form onSubmit={handleSubmit} className="apply-form" noValidate>
+                  {errors.general && <div className="notice notice--err">{errors.general}</div>}
                   {submitStatus === 'error' && !errors.general && (
-                    <div className="status-message error-message">
-                      Failed to submit application. Please try again or email us at contact@gari.live
+                    <div className="notice notice--err">
+                      Failed to submit application. Please try again or email contact@gari.live
                     </div>
                   )}
 
-              <form onSubmit={handleSubmit} className="apply-form">
-                <div className="form-section-group">
-                  <h3 className="form-section-title">Personal Information</h3>
-                  
-                  <div className="form-group">
-                    <label htmlFor="fullName">Full Name *</label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className={errors.fullName ? 'error' : ''}
-                      required
-                      placeholder="Enter your full name"
-                    />
-                    {errors.fullName && <span className="error-text">{errors.fullName}</span>}
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="email">Email Address *</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={errors.email ? 'error' : ''}
-                        required
-                        placeholder="your.email@gitam.in"
-                      />
-                      {errors.email && <span className="error-text">{errors.email}</span>}
+                  <fieldset>
+                    <legend>About you</legend>
+                    <Field id="fullName" label="Full name *" error={errors.fullName}>
+                      <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleChange} className={cls('fullName')} placeholder="Your full name" autoComplete="name" required />
+                    </Field>
+                    <div className="form-row">
+                      <Field id="email" label="Email *" error={errors.email}>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={cls('email')} placeholder="your.email@gitam.in" autoComplete="email" required />
+                      </Field>
+                      <Field id="phone" label="Phone *" error={errors.phone}>
+                        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className={cls('phone')} placeholder="+91 XXXXX XXXXX" autoComplete="tel" required />
+                      </Field>
                     </div>
+                  </fieldset>
 
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone Number *</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={errors.phone ? 'error' : ''}
-                        required
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                      {errors.phone && <span className="error-text">{errors.phone}</span>}
+                  <fieldset>
+                    <legend>Academics</legend>
+                    <div className="form-row">
+                      <Field id="studentId" label="Student ID *" error={errors.studentId}>
+                        <input type="text" id="studentId" name="studentId" value={formData.studentId} onChange={handleChange} className={cls('studentId')} placeholder="GITAM student ID" required />
+                      </Field>
+                      <Field id="year" label="Current year *" error={errors.year}>
+                        <select id="year" name="year" value={formData.year} onChange={handleChange} className={cls('year')} required>
+                          <option value="">Select year</option>
+                          <option value="1">1st Year</option>
+                          <option value="2">2nd Year</option>
+                          <option value="3">3rd Year</option>
+                          <option value="4">4th Year</option>
+                        </select>
+                      </Field>
                     </div>
-                  </div>
-                </div>
-
-                <div className="form-section-group">
-                  <h3 className="form-section-title">Academic Information</h3>
-                  
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="studentId">Student ID *</label>
-                      <input
-                        type="text"
-                        id="studentId"
-                        name="studentId"
-                        value={formData.studentId}
-                        onChange={handleChange}
-                        className={errors.studentId ? 'error' : ''}
-                        required
-                        placeholder="GITAM student ID"
-                      />
-                      {errors.studentId && <span className="error-text">{errors.studentId}</span>}
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="year">Current Year *</label>
-                      <select
-                        id="year"
-                        name="year"
-                        value={formData.year}
-                        onChange={handleChange}
-                        className={errors.year ? 'error' : ''}
-                        required
-                      >
-                        <option value="">Select year</option>
-                        <option value="1">1st Year</option>
-                        <option value="2">2nd Year</option>
-                        <option value="3">3rd Year</option>
-                        <option value="4">4th Year</option>
+                    <Field id="branch" label="Branch / department *" error={errors.branch}>
+                      <select id="branch" name="branch" value={formData.branch} onChange={handleChange} className={cls('branch')} required>
+                        <option value="">Select branch</option>
+                        <option value="aerospace">Aerospace Engineering</option>
+                        <option value="mechanical">Mechanical Engineering</option>
+                        <option value="electrical">Electrical Engineering</option>
+                        <option value="electronics">Electronics & Communication</option>
+                        <option value="computer-science">Computer Science</option>
+                        <option value="other">Other</option>
                       </select>
-                      {errors.year && <span className="error-text">{errors.year}</span>}
-                    </div>
-                  </div>
+                    </Field>
+                  </fieldset>
 
-                  <div className="form-group">
-                    <label htmlFor="branch">Branch / Department *</label>
-                    <select
-                      id="branch"
-                      name="branch"
-                      value={formData.branch}
-                      onChange={handleChange}
-                      className={errors.branch ? 'error' : ''}
-                      required
-                    >
-                      <option value="">Select branch</option>
-                      <option value="aerospace">Aerospace Engineering</option>
-                      <option value="mechanical">Mechanical Engineering</option>
-                      <option value="electrical">Electrical Engineering</option>
-                      <option value="electronics">Electronics & Communication</option>
-                      <option value="computer-science">Computer Science</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.branch && <span className="error-text">{errors.branch}</span>}
-                  </div>
-                </div>
+                  <fieldset>
+                    <legend>Domain & skills</legend>
+                    <Field id="domain" label="Preferred domain *" error={errors.domain}>
+                      <select id="domain" name="domain" value={formData.domain} onChange={handleChange} className={cls('domain')} required>
+                        <option value="">Select domain</option>
+                        <option value="Structures & Design">Structures & Design</option>
+                        <option value="Propulsion">Propulsion</option>
+                        <option value="Avionics & Electronics">Avionics & Electronics</option>
+                        <option value="Software & Programming">Software & Programming</option>
+                        <option value="Recovery Systems">Recovery Systems</option>
+                        <option value="Ground Station">Ground Station</option>
+                        <option value="Management & Operations">Management & Operations</option>
+                        <option value="Media & Outreach">Media & Outreach</option>
+                      </select>
+                    </Field>
+                    <Field id="skills" label="Technical skills *" error={errors.skills} hint="Software, tools and technologies you're comfortable with.">
+                      <textarea id="skills" name="skills" rows="4" value={formData.skills} onChange={handleChange} className={cls('skills')} placeholder="e.g. SolidWorks, Python, C++, Arduino, PCB design" required />
+                    </Field>
+                    <Field id="experience" label="Previous experience" hint="Optional — academic projects, internships or personal builds.">
+                      <textarea id="experience" name="experience" rows="4" value={formData.experience} onChange={handleChange} placeholder="Aerospace, robotics or engineering projects you've worked on" />
+                    </Field>
+                  </fieldset>
 
-                <div className="form-section-group">
-                  <h3 className="form-section-title">Domain & Skills</h3>
-                  
-                  <div className="form-group">
-                    <label htmlFor="domain">Preferred Domain *</label>
-                    <select
-                      id="domain"
-                      name="domain"
-                      value={formData.domain}
-                      onChange={handleChange}
-                      className={errors.domain ? 'error' : ''}
-                      required
-                    >
-                      <option value="">Select domain</option>
-                      <option value="Structures & Design">Structures & Design</option>
-                      <option value="Propulsion">Propulsion</option>
-                      <option value="Avionics & Electronics">Avionics & Electronics</option>
-                      <option value="Software & Programming">Software & Programming</option>
-                      <option value="Recovery Systems">Recovery Systems</option>
-                      <option value="Ground Station">Ground Station</option>
-                      <option value="Management & Operations">Management & Operations</option>
-                      <option value="Media & Outreach">Media & Outreach</option>
-                    </select>
-                    {errors.domain && <span className="error-text">{errors.domain}</span>}
-                  </div>
+                  <fieldset>
+                    <legend>Motivation</legend>
+                    <Field id="motivation" label="Why GARI? *" error={errors.motivation} hint="At least 50 characters.">
+                      <textarea id="motivation" name="motivation" rows="5" value={formData.motivation} onChange={handleChange} className={cls('motivation')} placeholder="What you want to learn and how you'll contribute" required />
+                    </Field>
+                    <Field id="availability" label="Time commitment *" error={errors.availability}>
+                      <select id="availability" name="availability" value={formData.availability} onChange={handleChange} className={cls('availability')} required>
+                        <option value="">Select availability</option>
+                        <option value="5-10 hours per week">5–10 hours per week</option>
+                        <option value="10-15 hours per week">10–15 hours per week</option>
+                        <option value="15-20 hours per week">15–20 hours per week</option>
+                        <option value="20+ hours per week">20+ hours per week</option>
+                      </select>
+                    </Field>
+                  </fieldset>
 
-                  <div className="form-group">
-                    <label htmlFor="skills">Technical Skills *</label>
-                    <textarea
-                      id="skills"
-                      name="skills"
-                      value={formData.skills}
-                      onChange={handleChange}
-                      className={errors.skills ? 'error' : ''}
-                      required
-                      rows="4"
-                      placeholder="e.g., CAD (SolidWorks, CATIA), Programming (Python, C++), Electronics (Arduino, PCB design), etc."
-                    ></textarea>
-                    {errors.skills && <span className="error-text">{errors.skills}</span>}
-                    <span className="field-hint">List software, tools, and technologies you're proficient in</span>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="experience">Previous Experience</label>
-                    <textarea
-                      id="experience"
-                      name="experience"
-                      value={formData.experience}
-                      onChange={handleChange}
-                      rows="4"
-                      placeholder="Describe any relevant aerospace, robotics, or engineering projects..."
-                    ></textarea>
-                    <span className="field-hint">Optional - Include academic projects, internships, or personal builds</span>
-                  </div>
-                </div>
-
-                <div className="form-section-group">
-                  <h3 className="form-section-title">Motivation</h3>
-                  
-                  <div className="form-group">
-                    <label htmlFor="motivation">Why join GARI? *</label>
-                    <textarea
-                      id="motivation"
-                      name="motivation"
-                      value={formData.motivation}
-                      onChange={handleChange}
-                      className={errors.motivation ? 'error' : ''}
-                      required
-                      rows="5"
-                      placeholder="Share your passion for aerospace, what you hope to learn, and how you'll contribute to the team..."
-                    ></textarea>
-                    {errors.motivation && <span className="error-text">{errors.motivation}</span>}
-                    <span className="field-hint">Min. 50 characters - Tell us your aerospace journey and goals</span>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="availability">Time Commitment *</label>
-                    <select
-                      id="availability"
-                      name="availability"
-                      value={formData.availability}
-                      onChange={handleChange}
-                      className={errors.availability ? 'error' : ''}
-                      required
-                    >
-                      <option value="">Select availability</option>
-                      <option value="5-10 hours per week">5-10 hours per week</option>
-                      <option value="10-15 hours per week">10-15 hours per week</option>
-                      <option value="15-20 hours per week">15-20 hours per week</option>
-                      <option value="20+ hours per week">20+ hours per week</option>
-                    </select>
-                    {errors.availability && <span className="error-text">{errors.availability}</span>}
-                  </div>
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="submit-btn"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
-                </button>
-              </form>
-                </>
+                  <button type="submit" className="btn btn--primary apply-submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting…' : 'Submit application'}
+                  </button>
+                </form>
               )}
-            </div>
-          </div>
-        </section>
-
-        <section className="content-section">
-          <div className="container">
-            <div className="section-header-center">
-              <span className="section-label">SELECTION PROCESS</span>
-              <h2>What Happens Next?</h2>
-            </div>
-
-            <div className="process-timeline">
-              <div className="process-step">
-                <div className="step-number">1</div>
-                <div className="step-content">
-                  <h3>Application Review</h3>
-                  <p>Team reviews your application within 5-7 business days</p>
-                </div>
-              </div>
-
-              <div className="process-step">
-                <div className="step-number">2</div>
-                <div className="step-content">
-                  <h3>Interview</h3>
-                  <p>Shortlisted candidates meet with team leads</p>
-                </div>
-              </div>
-
-              <div className="process-step">
-                <div className="step-number">3</div>
-                <div className="step-content">
-                  <h3>Selection</h3>
-                  <p>Selected candidates receive an offer to join GARI</p>
-                </div>
-              </div>
-
-              <div className="process-step">
-                <div className="step-number">4</div>
-                <div className="step-content">
-                  <h3>Onboarding</h3>
-                  <p>Welcome to GARI! Begin with team orientation</p>
-                </div>
-              </div>
-            </div>
+            </Reveal>
           </div>
         </section>
       </div>

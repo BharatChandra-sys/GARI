@@ -1,0 +1,62 @@
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: var(--black) var(--horizon);
+  color: var(--white);
+}
+.boot-inner { width: min(360px, 100%); display: grid; gap: 20px; }
+.boot-word {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 125%;
+  font-size: 3.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.boot-list { list-style: none; display: grid; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em; }
+.boot-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid rgba(163, 174, 208, 0.18);
+  color: var(--gray-2);
+  transition: color 0.3s;
+}
+.boot-list li.is-done { color: var(--white); }
+.boot-list li.is-done span:last-child { color: var(--accent-hi); }
+.boot-bar { height: 1px; background: rgba(163, 174, 208, 0.18); }
+.boot-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent-hi);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+.boot-skip { font-family: var(--mono); font-size: 0.6875rem; color: var(--gray-2); }
+@media (pointer: coarse) { .boot-skip { display: none; } }
+
+/* ── Route wipe ── */
+.wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--gutter);
+  background: var(--accent);
+  color: #fff;
+  pointer-events: none;
+  will-change: transform;
+}
+.wipe span {
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 118%;
+  font-size: var(--fs-hero);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
