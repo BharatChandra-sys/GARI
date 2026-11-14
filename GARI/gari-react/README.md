@@ -1,62 +1,80 @@
 # GARI — GITAM Aerospace Rocketry Initiative
 
-Official website for GARI, the student aerospace and rocketry team at GITAM University, Hyderabad. Built with React 18, deployed on Vercel, and served at [gari.live](https://gari.live).
+Official website for GARI, the student aerospace and rocketry team at GITAM University, Hyderabad. Live at [gari.live](https://gari.live).
 
 ---
 
-## Overview
+## What the site covers
 
-GARI competes in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and Model Rocketry India Student Competition (1km altitude rocket). The site covers the team's mission, both competition programs, team roster, achievements archive, and sponsorship program.
+GARI competes in two IN-SPACe 2026 national competitions: CAN-7USAT (CanSat) and the Model Rocketry India Student Competition (1 km altitude). The site presents the team mission, both competition programs, team roster, achievements archive, sponsorship program, and a membership application form.
 
 ---
 
-## Tech Stack
+## Tech stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | React 18, React Router v6 |
-| Animations | Framer Motion |
-| 3D Graphics | Three.js |
-| Email | Brevo API (transactional + newsletter) |
-| Hosting | Vercel |
-| Deployment API | Vercel Serverless Functions |
+| UI framework | React 19, React Router v7 |
+| Animation | Framer Motion 12 |
+| 3D rendering | Three.js 0.184, React Three Fiber 9, Drei 10 |
+| Email | Brevo transactional API |
+| Hosting | Vercel (Serverless Functions for email) |
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 gari-react/
 ├── api/
-│   └── send-email.js          # Serverless email handler via Brevo
+│   └── send-email.js          # Vercel serverless function — Brevo email handler
 ├── public/
-│   ├── achievements/          # Project media (photos, videos)
+│   ├── achievements/          # Project photos and media
+│   ├── models/                # rocket.glb / rocket.gltf (Three.js scene)
 │   ├── team/                  # Team member photos
 │   ├── sitemap.xml
 │   └── robots.txt
 ├── src/
 │   ├── components/
-│   │   ├── common/            # SEO, Logo, SplashScreen
+│   │   ├── common/            # Boot splash, SEO/JSON-LD, Logo
 │   │   ├── layout/            # Navbar, Footer
-│   │   ├── sections/          # Hero, About, AnimatedStats, Sponsors, etc.
-│   │   └── 3d/                # StarField, Rocket3D (Three.js)
+│   │   ├── home/              # Hero, StatusStrip, Process sections
+│   │   ├── sections/          # Shared page sections
+│   │   └── 3d/                # RocketScene (Three.js)
+│   ├── data/                  # milestones.js and other static content
 │   ├── pages/                 # Route-level page components
-│   ├── data/                  # Achievements data, static content
-│   └── App.js                 # Router configuration
-├── vercel.json                # Vercel routing and function config
-├── DEPLOY.md                  # Full deployment reference
-└── DEPLOYMENT.md              # Environment and configuration reference
+│   ├── App.js                 # Router, animated page wipe transitions
+│   └── index.css              # Global styles
+├── vercel.json                # Vercel build config, headers, rewrites, redirects
+├── DEPLOY.md                  # Step-by-step deployment reference
+└── DEPLOYMENT.md              # Environment variable and config reference
 ```
 
 ---
 
-## Local Development
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Home — hero, project overview, stats, sponsor CTA |
+| `/about` | About — team story, values, timeline, divisions |
+| `/mission` | Mission — pillars, roadmap, goals |
+| `/competitions` | Competition programs — CanSat and Rocket for IN-SPACe 2026 |
+| `/team` | Team — CanSat team, Rocket team, core members |
+| `/achievements` | Achievements — competition record and prototype archive |
+| `/achievements/:slug` | Individual project detail page |
+| `/apply` | Membership application form |
+| `/sponsors` | Sponsorship tiers, value proposition, partner CTA |
+| `/contact` | Contact form and social links |
+
+`/cansat` permanently redirects to `/competitions`.
+
+---
+
+## Local development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm start
 ```
 
@@ -66,7 +84,7 @@ The dev server runs on `http://localhost:3000`.
 
 ## Deployment
 
-The site deploys to Vercel. A full guide is in `DEPLOY.md`.
+The site deploys to Vercel. See `DEPLOY.md` for the full reference.
 
 **Quick deploy:**
 
@@ -75,13 +93,13 @@ npm run build
 npx vercel --prod
 ```
 
-**Add the Brevo API key after deploying:**
+**Add the Brevo API key after the first deploy:**
 
 ```bash
 npx vercel env add BREVO_API_KEY production
 ```
 
-Paste the API key from [app.brevo.com/settings/keys/api](https://app.brevo.com/settings/keys/api) when prompted, then redeploy:
+Paste the key from [app.brevo.com/settings/keys/api](https://app.brevo.com/settings/keys/api), then redeploy:
 
 ```bash
 npx vercel --prod
@@ -89,61 +107,57 @@ npx vercel --prod
 
 ---
 
-## Email System
-
-The contact form and newsletter subscription both route through Brevo.
-
-| Function | Behavior |
-|---|---|
-| Newsletter signup | Sends a welcome email to the subscriber; notifies the team inbox |
-| Contact form submission | Sends a confirmation to the sender; delivers the full message to the team inbox |
-
-**Brevo list configuration:**
-
-- List ID 2 — Newsletter subscribers
-- List ID 3 — Contact form submissions
-
----
-
-## Environment Variables
+## Environment variables
 
 | Variable | Required | Description |
 |---|---|---|
 | `BREVO_API_KEY` | Yes | Brevo transactional email API key |
 
-Set this in the Vercel dashboard under Project Settings > Environment Variables, or via `vercel env add BREVO_API_KEY production`.
+Set this in the Vercel dashboard under Project Settings > Environment Variables, or with `vercel env add`.
 
 ---
 
-## Pages
+## Email system
 
-| Route | Page |
+Contact form submissions and newsletter signups both route through the `/api/send-email` serverless function using Brevo.
+
+| Trigger | Behavior |
 |---|---|
-| `/` | Home — Hero, project overview, stats, sponsor CTA |
-| `/about` | About — Team story, values, timeline, divisions |
-| `/mission` | Mission — Pillars, roadmap, goals |
-| `/competitions` | Competition Programs — CanSat & Rocket missions for IN-SPACe 2026 |
-| `/cansat` | CanSat Project — IN-SPACe CAN-7USAT 2026 mission (redirects to /competitions) |
-| `/team` | Team — CanSat team, Rocket team, core members |
-| `/achievements` | Achievements — Competition record, prototype archive |
-| `/sponsors` | Sponsors — Tiers, why GARI, partner CTA |
-| `/contact` | Contact — Contact form, social links |
+| Newsletter signup | Sends a welcome email to the subscriber; notifies the team inbox |
+| Contact form submission | Sends a confirmation to the sender; delivers the full message to the team inbox |
+
+Brevo list IDs:
+- List 2 — newsletter subscribers
+- List 3 — contact form submissions
 
 ---
 
 ## SEO
 
-Structured data (JSON-LD) is implemented on every page via the `SEO` component. Schema types in use: `Organization`, `WebPage`, `AboutPage`, `ResearchProject`, `ItemList`. A sitemap is maintained at `/sitemap.xml`.
+Every page uses the `SEO` component to inject structured data (JSON-LD). Schema types in use: `Organization`, `WebPage`, `AboutPage`, `ResearchProject`, `ItemList`. A sitemap is at `/sitemap.xml` and crawl rules are in `/robots.txt`.
+
+---
+
+## Security headers
+
+All responses include the following headers, configured in `vercel.json`:
+
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Strict-Transport-Security` with two-year max-age and preload
+- `Permissions-Policy` blocking camera, microphone, and geolocation
+
+Static assets under `/static/` are served with a one-year immutable cache header.
 
 ---
 
 ## Contributing
 
-This is a closed team repository. All contributions are made by GARI members. For access or collaboration enquiries, contact the team at [contact@gari.live](mailto:contact@gari.live).
+This is a closed team repository. Contributions are made by GARI members only. For access or collaboration enquiries, contact [contact@gari.live](mailto:contact@gari.live).
 
 ---
-
-## Team
 
 **Organization:** GITAM Aerospace Rocketry Initiative  
 **University:** GITAM University, Hyderabad, India  
