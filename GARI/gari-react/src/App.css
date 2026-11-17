@@ -5,3 +5,25 @@
 }
 
 main { position: relative; display: block; }
+
+/* ── Route wipe ── */
+.wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--gutter);
+  background: var(--accent);
+  color: #fff;
+  pointer-events: none;
+  will-change: transform;
+}
+.wipe span {
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 118%;
+  font-size: var(--fs-hero);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}

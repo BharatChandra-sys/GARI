@@ -1,76 +1,117 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, animate, motion, useReducedMotion } from 'framer-motion';
 import { ease } from '../motion';
 import './Boot.css';
 
-const MIN_MS = 900;
-const MAX_MS = 2400;
+const MIN_MS = 1100;
+const MAX_MS = 4000;
 
 const seen = () => {
   try { return sessionStorage.getItem('gari-boot') === '1'; } catch { return true; }
 };
+const remember = () => {
+  try { sessionStorage.setItem('gari-boot', '1'); } catch { /* private mode */ }
+};
 
-/* First-visit loader. Lists what is actually loading; any click or key skips it. */
+/* Stream the rocket model so progress reflects real bytes, and leave it warm in the HTTP cache. */
+const loadModel = async (onProgress) => {
+  const res = await fetch('/models/rocket.glb');
+  const total = Number(res.headers.get('content-length')) || 0;
+  if (!res.body || !total) {
+    await res.arrayBuffer();
+    onProgress(1);
+    return;
+  }
+  const reader = res.body.getReader();
+  let got = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    got += value.length;
+    onProgress(Math.min(1, got / total));
+  }
+  onProgress(1);
+};
+
+/* First visit in a session only. */
 const Boot = () => {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(() => !seen());
-  const [done, setDone] = useState({ type: false, model: false });
-  const started = useRef(Date.now());
+  const pctRef = useRef(null);
+  const barRef = useRef(null);
 
   useEffect(() => {
     if (!show) return undefined;
     let alive = true;
-    const mark = (k) => alive && setDone((d) => ({ ...d, [k]: true }));
-    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => mark('type'));
-    fetch('/models/rocket.glb').then((r) => r.blob()).catch(() => null).then(() => mark('model'));
+    const parts = { model: 0, type: 0 };
+    let shown = 0;
+    let anim;
+    const started = Date.now();
 
-    const close = () => {
-      try { sessionStorage.setItem('gari-boot', '1'); } catch { /* private mode */ }
-      setShow(false);
+    const render = (v) => {
+      if (pctRef.current) pctRef.current.textContent = String(Math.round(v * 100)).padStart(3, '0');
+      if (barRef.current) barRef.current.style.transform = `scaleX(${v})`;
     };
-    const cap = setTimeout(close, MAX_MS);
-    window.addEventListener('pointerdown', close);
-    window.addEventListener('keydown', close);
+    const update = () => {
+      const target = parts.model * 0.7 + parts.type * 0.3;
+      if (anim) anim.stop();
+      anim = animate(shown, target, { duration: 0.5, ease: ease.out, onUpdate: (v) => { shown = v; render(v); } });
+    };
+    const finish = () => {
+      if (!alive) return;
+      alive = false;
+      remember();
+      if (anim) anim.stop();
+      render(1);
+      setTimeout(() => setShow(false), 280);
+    };
+
+    const fonts = (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { parts.type = 1; update(); });
+    const model = loadModel((v) => { parts.model = v; update(); }).catch(() => { parts.model = 1; update(); });
+
+    Promise.all([fonts, model]).then(() => {
+      setTimeout(finish, Math.max(0, MIN_MS - (Date.now() - started)));
+    });
+    const cap = setTimeout(finish, MAX_MS);
+    window.addEventListener('pointerdown', finish);
+
     return () => {
       alive = false;
       clearTimeout(cap);
-      window.removeEventListener('pointerdown', close);
-      window.removeEventListener('keydown', close);
+      if (anim) anim.stop();
+      window.removeEventListener('pointerdown', finish);
     };
   }, [show]);
 
-  useEffect(() => {
-    if (!show || !done.type || !done.model) return undefined;
-    const wait = Math.max(0, MIN_MS - (Date.now() - started.current));
-    const t = setTimeout(() => {
-      try { sessionStorage.setItem('gari-boot', '1'); } catch { /* private mode */ }
-      setShow(false);
-    }, wait);
-    return () => clearTimeout(t);
-  }, [show, done]);
-
   if (reduce) return null;
-  const count = Number(done.type) + Number(done.model);
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
           className="boot"
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.7, ease: ease.inOut }}
           role="status"
           aria-label="Loading GARI"
+          initial={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+          exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+          transition={{ duration: 0.9, ease: ease.inOut }}
         >
-          <div className="boot-inner">
-            <p className="boot-word">GARI</p>
-            <ul className="boot-list">
-              <li className={done.type ? 'is-done' : ''}><span>Typefaces</span><span>{done.type ? 'Ready' : 'Loading'}</span></li>
-              <li className={done.model ? 'is-done' : ''}><span>Flight model</span><span>{done.model ? 'Ready' : 'Loading'}</span></li>
-            </ul>
-            <div className="boot-bar"><span style={{ transform: `scaleX(${0.12 + count * 0.44})` }} /></div>
-            <p className="boot-skip">Press any key to skip</p>
+          <motion.div
+            className="boot-brand"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.8, ease: ease.out }}
+          >
+            <span className="boot-word">GARI</span>
+            <span className="boot-name">GITAM Aerospace Rocketry Initiative</span>
+          </motion.div>
+
+          <div className="boot-foot">
+            <span className="boot-meta">Hyderabad, India</span>
+            <span className="boot-pct" ref={pctRef}>000</span>
           </div>
+          <div className="boot-bar"><span ref={barRef} /></div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -2,79 +2,35 @@ import React, { Suspense, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Center, ContactShadows, Environment, Lightformer, OrbitControls, PerformanceMonitor, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
+import { makeLiveryTexture, paintGeometry } from './livery';
+import { Flame, Smoke } from './exhaust';
 
 const MODEL = '/models/rocket.glb';
 const LENGTH = 1.75; // nose-to-tail length of the CDR model, in scene units
 useGLTF.preload(MODEL);
 
-/* Exhaust plume: additive, soft-edged cone whose length follows scroll progress. */
-const plumeVertex = /* glsl */ `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-const plumeFragment = /* glsl */ `
-  uniform float uTime;
-  uniform float uPower;
-  varying vec2 vUv;
-  void main() {
-    float along = vUv.y;                         // 1 at the nozzle, 0 at the tip
-    float edge = 1.0 - abs(vUv.x - 0.5) * 2.0;   // soft rim around the cone
-    float flicker = 0.85 + 0.15 * sin(uTime * 40.0 + along * 18.0);
-    float a = pow(along, 1.6) * pow(max(edge, 0.0), 1.5) * flicker * uPower;
-    vec3 core = vec3(1.0, 0.95, 0.85);
-    vec3 outer = vec3(1.0, 0.35, 0.12);
-    gl_FragColor = vec4(mix(outer, core, pow(along, 3.0)), a);
-  }
-`;
-
-const Plume = ({ progress }) => {
-  const mesh = useRef();
-  const uniforms = useMemo(() => ({ uTime: { value: 0 }, uPower: { value: 0 } }), []);
-
-  useFrame((state, delta) => {
-    const p = progress ? progress.get() : 0;
-    // Burn, then coast: the motor lights after the rocket stands up and cuts out before apogee.
-    const power = THREE.MathUtils.smoothstep(p, 0.36, 0.42) * (1 - THREE.MathUtils.smoothstep(p, 0.6, 0.68));
-    uniforms.uTime.value = state.clock.elapsedTime;
-    uniforms.uPower.value = THREE.MathUtils.damp(uniforms.uPower.value, power, 8, delta);
-    if (mesh.current) {
-      const len = 0.2 + uniforms.uPower.value * 1.4;
-      mesh.current.scale.set(1, len, 1);
-      mesh.current.position.y = -LENGTH / 2 - len / 2;
-      mesh.current.visible = uniforms.uPower.value > 0.01;
-    }
-  });
-
-  return (
-    <mesh ref={mesh} rotation={[Math.PI, 0, 0]}>
-      <coneGeometry args={[0.075, 1, 32, 1, true]} />
-      <shaderMaterial
-        vertexShader={plumeVertex}
-        fragmentShader={plumeFragment}
-        uniforms={uniforms}
-        transparent
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-};
-
-/* The GARI rocket (CDR geometry), re-skinned in satin ceramic white. */
+/* The GARI rocket (CDR geometry) in the GARI livery. */
 const Rocket = ({ progress, pointer, idle = true, fit }) => {
   const { scene } = useGLTF(MODEL);
   const group = useRef();
   const spin = useRef();
+  const nozzle = useRef();
+  const engine = useRef({ power: 0, flow: 0 });
 
   const model = useMemo(() => {
     const clone = scene.clone(true);
-    const body = new THREE.MeshStandardMaterial({ color: '#f2f2f4', roughness: 0.42, metalness: 0.05, side: THREE.DoubleSide });
+    const paint = new THREE.MeshPhysicalMaterial({
+      map: makeLiveryTexture(),
+      roughness: 0.34,
+      metalness: 0,
+      clearcoat: 0.7,
+      clearcoatRoughness: 0.2,
+      side: THREE.DoubleSide,
+    });
     clone.traverse((o) => {
-      if (o.isMesh) o.material = body;
+      if (!o.isMesh) return;
+      o.geometry = paintGeometry(o.geometry);
+      o.material = paint;
     });
     return clone;
   }, [scene]);
@@ -87,19 +43,24 @@ const Rocket = ({ progress, pointer, idle = true, fit }) => {
     }
     /*
       Scroll choreography (p = hero progress):
-      0.00–0.20  lying on the drawing, nose left, sized to match the blueprint
-      0.20–0.36  stands up
-      0.36–0.68  burn (shake + plume), then coast
+      0.00–0.18  lying on the drawing, nose left, sized to match the blueprint
+      0.18–0.32  stands up on the pad
+      0.32–0.78  ignition and boost (flame, smoke, shake), then coast
       0.86–1.00  apogee: noses over and moves aside for the copy
     */
     const { smoothstep, damp, lerp } = THREE.MathUtils;
     const p = progress.get();
     const { width: vw, height: vh } = state.viewport;
     const narrow = vw < vh * 0.8;
-    const stand = smoothstep(p, 0.2, 0.36);
-    const burn = smoothstep(p, 0.36, 0.42) * (1 - smoothstep(p, 0.6, 0.68));
-    const climb = smoothstep(p, 0.4, 0.86);
+    const stand = smoothstep(p, 0.18, 0.32);
+    const burn = smoothstep(p, 0.32, 0.36) * (1 - smoothstep(p, 0.72, 0.78));
+    const climb = smoothstep(p, 0.36, 0.86);
     const apogee = smoothstep(p, 0.86, 0.98);
+
+    engine.current.power = damp(engine.current.power, burn, 10, delta);
+    // Air speed past the camera: rises through boost, falls off toward apogee.
+    const speed = smoothstep(p, 0.34, 0.5) * (1 - smoothstep(p, 0.8, 0.95));
+    engine.current.flow = damp(engine.current.flow, speed * 2.6 * g.scale.x, 4, delta);
 
     const flat = ((fit ? fit.current : 0.6) * vw) / LENGTH;
     const upright = Math.min(1, (vh * 0.5) / LENGTH);
@@ -119,14 +80,18 @@ const Rocket = ({ progress, pointer, idle = true, fit }) => {
   });
 
   return (
-    <group ref={group} rotation={progress ? [0, 0, Math.PI / 2] : undefined}>
-      <group ref={spin}>
-        <Center>
-          <primitive object={model} rotation={[-Math.PI / 2, 0, 0]} />
-        </Center>
-        {progress && <Plume progress={progress} />}
+    <>
+      <group ref={group} rotation={progress ? [0, 0, Math.PI / 2] : undefined}>
+        <group ref={spin}>
+          <Center>
+            <primitive object={model} rotation={[-Math.PI / 2, 0, 0]} />
+          </Center>
+          <object3D ref={nozzle} position={[0, -LENGTH / 2, 0]} />
+          {progress && <Flame engine={engine} y={-LENGTH / 2} />}
+        </group>
       </group>
-    </group>
+      {progress && <Smoke engine={engine} nozzle={nozzle} />}
+    </>
   );
 };
 

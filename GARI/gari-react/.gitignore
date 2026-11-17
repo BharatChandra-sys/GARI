@@ -23,3 +23,7 @@ Thumbs.db
 *.pem
 .vscode/
 .idea/
+
+# Playwright MCP logs
+../.playwright-mcp/
+.playwright-mcp/

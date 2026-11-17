@@ -9,13 +9,13 @@ const RocketScene = lazy(() => import('../3d/RocketScene'));
 const APOGEE_M = 1000;
 // Fraction of apogee reached at hero progress p: fast off the pad, slowing into the coast.
 const climb = (p) => {
-  const t = Math.min(1, Math.max(0, (p - 0.4) / 0.46));
+  const t = Math.min(1, Math.max(0, (p - 0.36) / 0.5));
   return 1 - (1 - t) * (1 - t);
 };
 const PHASES = [
-  [0.36, 'On the pad'],
-  [0.42, 'Ignition'],
-  [0.64, 'Boost'],
+  [0.32, 'On the pad'],
+  [0.37, 'Ignition'],
+  [0.76, 'Boost'],
   [0.86, 'Coast'],
   [2, 'Apogee'],
 ];

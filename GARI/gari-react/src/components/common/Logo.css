@@ -1,14 +1,14 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: 0.04em;
+  line-height: 1;
   color: var(--ink);
 }
-.logo-mark { object-fit: contain; transform: scale(1.35); }
 .logo--white { color: var(--white); }
-.logo--white .logo-mark { filter: invert(1); }
-.logo-word {
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-}
+.logo--small { font-size: 1.375rem; }
+.logo--medium { font-size: 1.75rem; }
+.logo--large { font-size: 2.5rem; }
