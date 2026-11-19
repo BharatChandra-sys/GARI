@@ -1,30 +1,29 @@
 /* =====================================================================
    GARI DESIGN SYSTEM — "Flight document"
-   Blueprint navy, one accent (cobalt), drawn hairlines, real data.
+   Midnight ink and paper, one accent (cobalt), drawn hairlines, real data.
    ===================================================================== */
 
 :root {
-  /* Palette — night (primary ground) */
-  --black: #050814;
-  --black-2: #0a1024;
-  --graphite: #101a3a;
-  --white: #eef2ff;
-  --gray-1: #a3aed0;
-  --gray-2: #6b779e;
+  /* Palette — night: midnight ink, desaturated so it reads as sky, not screen */
+  --black: #0b1020;
+  --black-2: #0f1628;
+  --graphite: #182239;
+  --white: #f3f5f9;
+  --gray-1: #a9b0bf;
+  --gray-2: #6f788a;
   /* Palette — day */
-  --paper: #f4f6fb;
-  --paper-2: #e8ecf7;
-  --ink: #0a1024;
-  --ink-2: #4a557a;
-  --line-light: #cbd2e6;
+  --paper: #f7f7f5;
+  --paper-2: #ededea;
+  --ink: #0b0b0c;
+  --ink-2: #55555a;
+  --line-light: #d8d8d4;
   /* The only accent: cobalt */
   --accent: #2b5bff;
-  --accent-hi: #7f9dff;
+  --accent-hi: #6b91ff;
   --accent-ink: #1e44d8;
   --ok: #3ddc97;
-  /* Altitude gradient (ground haze to space) and the horizon glow */
-  --sky: linear-gradient(to top, #0a1024 0%, #12307e 26%, #0b1b52 52%, #050814 78%, #02030a 100%);
-  --horizon: radial-gradient(120% 90% at 50% 125%, rgba(43, 91, 255, 0.34) 0%, rgba(43, 91, 255, 0.08) 42%, transparent 64%);
+  /* Real dusk: hazy slate at the horizon, deepening to near-black overhead. */
+  --sky: linear-gradient(to top, #26324d 0%, #18223a 28%, #0e1527 58%, #070a12 100%);
 
   /* Type */
   --font: 'Archivo', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', sans-serif;
@@ -68,7 +67,7 @@
   --fg: var(--white);
   --fg-2: var(--gray-1);
   --fg-3: var(--gray-2);
-  --line: rgba(163, 174, 208, 0.18);
+  --line: rgba(255, 255, 255, 0.13);
   --tile: var(--graphite);
   --link: var(--accent-hi);
   --btn-bg: var(--white);
@@ -81,7 +80,7 @@
   --bg: var(--paper);
   --fg: var(--ink);
   --fg-2: var(--ink-2);
-  --fg-3: #7682a6;
+  --fg-3: #86868b;
   --line: var(--line-light);
   --tile: var(--paper-2);
   --link: var(--accent-ink);
@@ -93,7 +92,7 @@
   --bg: var(--paper-2);
   --fg: var(--ink);
   --fg-2: var(--ink-2);
-  --fg-3: #7682a6;
+  --fg-3: #86868b;
   --line: var(--line-light);
   --tile: var(--paper);
   --link: var(--accent-ink);
@@ -373,8 +372,6 @@ a:hover .media img, .media:hover img { transform: scale(1.03); }
 .spec-table td { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.015em; text-align: right; font-variant-numeric: tabular-nums; }
 
 /* ── Page hero (inner pages) ── */
-/* Horizon glow: the thin blue line of atmosphere rising from the bottom edge. */
-.page-hero.theme-dark, .section.theme-dark:has(> .cta) { background-image: var(--horizon); }
 .page-hero {
   padding-top: calc(var(--nav-h) + clamp(72px, 12vw, 160px));
   padding-bottom: clamp(56px, 8vw, 112px);

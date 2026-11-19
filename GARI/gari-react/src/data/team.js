@@ -133,15 +133,6 @@ export const cansatTeam = [
     linkedin: null,
   },
   {
-    name: 'Satya Rishi Chodesetty',
-    role: 'Power & Electrical Systems',
-    branch: 'Aerospace Engineering',
-    year: '2nd Year',
-    description: 'Leading power systems and electrical integration for the CanSat project.',
-    image: '/team/satya-rishi-chodesetty.jpg',
-    linkedin: 'https://www.linkedin.com/in/satya-rishi-chodesetty/',
-  },
-  {
     name: 'Hanzel Vergis Thomas',
     role: 'Descent & Recovery Systems',
     branch: 'Aerospace Engineering',

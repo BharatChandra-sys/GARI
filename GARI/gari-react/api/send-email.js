@@ -1,11 +1,20 @@
 // Vercel Serverless Function - GARI Email System
 // Sends emails via Brevo to bc833498@gmail.com
+import { rateLimit, waitMessage } from './_rateLimit.js';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { type, name, email, subject, message } = req.body;
+  const { type, name, email, subject, message } = req.body || {};
+
+  const wait = rateLimit(req, type, email);
+  if (wait) {
+    res.setHeader('Retry-After', String(wait));
+    return res.status(429).json({ error: waitMessage(wait), retryAfter: wait });
+  }
+
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
   
   if (!BREVO_API_KEY) {
