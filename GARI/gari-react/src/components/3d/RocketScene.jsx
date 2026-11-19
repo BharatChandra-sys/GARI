@@ -2,7 +2,7 @@ import React, { Suspense, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Center, ContactShadows, Environment, Lightformer, OrbitControls, PerformanceMonitor, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import { makeLiveryTexture, paintGeometry } from './livery';
+import { makeLiveryMaps, paintGeometry } from './livery';
 import { Flame, Smoke } from './exhaust';
 
 const MODEL = '/models/rocket.glb';
@@ -19,12 +19,13 @@ const Rocket = ({ progress, pointer, idle = true, fit }) => {
 
   const model = useMemo(() => {
     const clone = scene.clone(true);
-    const paint = new THREE.MeshPhysicalMaterial({
-      map: makeLiveryTexture(),
-      roughness: 0.34,
-      metalness: 0,
-      clearcoat: 0.7,
-      clearcoatRoughness: 0.2,
+    // Satin paint on fibreglass: broad, soft highlights rather than a glossy studio sheen.
+    const paint = new THREE.MeshStandardMaterial({
+      ...makeLiveryMaps(),
+      bumpScale: 0.35,
+      roughness: 1,
+      metalness: 1,
+      envMapIntensity: 0.55,
       side: THREE.DoubleSide,
     });
     clone.traverse((o) => {
@@ -69,7 +70,8 @@ const Rocket = ({ progress, pointer, idle = true, fit }) => {
 
     g.rotation.z = damp(g.rotation.z, (1 - stand) * (Math.PI / 2) - apogee * 0.5 + pointer.current.x * 0.04 * stand, 8, delta);
     g.rotation.x = damp(g.rotation.x, pointer.current.y * 0.04 * stand, 6, delta);
-    if (spin.current) spin.current.rotation.y += delta * stand * (0.2 + burn * 0.9);
+    // A gentle roll sway, not a full spin: the livery's front face stays toward the viewer.
+    if (spin.current) spin.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.45) * 0.38 * stand;
 
     const restY = lerp(0, -0.2, stand) + climb * 0.3;
     const x = apogee * (narrow ? 0 : vw * 0.22);
@@ -77,6 +79,12 @@ const Rocket = ({ progress, pointer, idle = true, fit }) => {
     const shake = burn * 0.008;
     g.position.x = damp(g.position.x, x, 6, delta) + (Math.random() - 0.5) * shake;
     g.position.y = damp(g.position.y, y, 6, delta);
+
+    // Camera shudders with the motor: hardest on the pad, easing off as the rocket gets away.
+    const cam = state.camera;
+    const quake = burn * (0.004 + 0.014 * (1 - climb));
+    cam.position.x = (Math.random() - 0.5) * quake;
+    cam.position.y = (Math.random() - 0.5) * quake;
   });
 
   return (
@@ -99,7 +107,7 @@ const Studio = () => (
   <Environment resolution={128}>
     <Lightformer form="rect" intensity={2.4} position={[0, 3, 2]} scale={[6, 2, 1]} />
     <Lightformer form="rect" intensity={1.2} position={[-4, 0, 1]} rotation-y={Math.PI / 2} scale={[4, 6, 1]} />
-    <Lightformer form="rect" intensity={0.8} color="#7f9dff" position={[4, -1, -1]} rotation-y={-Math.PI / 2} scale={[3, 5, 1]} />
+    <Lightformer form="rect" intensity={0.8} color="#ffffff" position={[4, -1, -1]} rotation-y={-Math.PI / 2} scale={[3, 5, 1]} />
   </Environment>
 );
 
@@ -130,9 +138,11 @@ const RocketScene = ({ progress, fit, active = true, mode = 'hero' }) => {
       aria-hidden="true"
     >
       <PerformanceMonitor onDecline={() => setDpr(1)} />
-      <hemisphereLight args={['#ffffff', '#0a1024', 1.1]} />
+      <hemisphereLight args={['#ffffff', '#0f1628', 1.1]} />
       <directionalLight position={[3, 4, 3]} intensity={2.4} />
       <directionalLight position={[-4, -1, -2]} intensity={0.9} color="#2b5bff" />
+      {/* Cool rim from behind, so the silhouette separates from the night sky. */}
+      <directionalLight position={[-2.5, 2, -4]} intensity={2.2} color="#d6e2ff" />
       <Suspense fallback={null}>
         <Rocket progress={inspect ? null : progress} fit={fit} pointer={pointer} idle={inspect} />
         <Studio />

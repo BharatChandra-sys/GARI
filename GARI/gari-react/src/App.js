@@ -16,6 +16,7 @@ import ApplicationPage from './pages/ApplicationPage';
 import Footer from './components/layout/Footer';
 import Boot from './components/common/Boot';
 import { ease } from './components/motion';
+import { scrollToTop, startSmoothScroll } from './components/motion/smooth';
 import './App.css';
 
 const pageNames = {
@@ -53,7 +54,7 @@ const AnimatedRoutes = () => {
     }
     if (reduce) {
       setShown(location);
-      window.scrollTo(0, 0);
+      scrollToTop();
       return;
     }
     setPhase('cover');
@@ -62,7 +63,7 @@ const AnimatedRoutes = () => {
   const onDone = () => {
     if (phase === 'cover') {
       setShown(latest.current);
-      window.scrollTo(0, 0);
+      scrollToTop();
       setPhase('reveal');
     } else if (phase === 'reveal') {
       setPhase('idle');
@@ -101,6 +102,8 @@ const AnimatedRoutes = () => {
 };
 
 function App() {
+  useEffect(() => startSmoothScroll(), []);
+
   return (
     <HelmetProvider>
       <MotionConfig reducedMotion="user">

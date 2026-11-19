@@ -11,6 +11,9 @@
   background: var(--black-2);
 }
 
+.hero-stars { position: absolute; inset: 0; }
+.hero-stars span { position: absolute; border-radius: 50%; background: #ffffff; }
+
 /* Altitude gradient, four stages tall; it slides down as the rocket climbs. */
 .hero-sky {
   position: absolute;
@@ -21,36 +24,34 @@
   background: var(--sky);
   will-change: transform;
 }
-.hero-stars { position: absolute; inset: 0; }
-.hero-stars span { position: absolute; border-radius: 50%; background: #dfe7ff; }
 
-/* Drafting grid: major and minor lines, fading toward the edges. */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(127, 157, 255, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127, 157, 255, 0.11) 1px, transparent 1px),
-    linear-gradient(rgba(127, 157, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127, 157, 255, 0.045) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
-  background-position: center;
-  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 55%, #000 30%, transparent 100%);
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 55%, #000 30%, transparent 100%);
-}
-
-/* The limb of the Earth at apogee: one thin bright line of atmosphere. */
+/* The limb of the Earth at apogee: one thin line of atmosphere. */
 .hero-limb {
   position: absolute;
   left: 50%;
-  bottom: -212vmax;
+  bottom: -229vmax;
   width: 240vmax;
   height: 240vmax;
   margin-left: -120vmax;
   border-radius: 50%;
-  background: radial-gradient(closest-side, #050814 0%, #071033 97.2%, #2b5bff 99.3%, #b9c9ff 99.8%, transparent 100%);
-  box-shadow: 0 0 140px 20px rgba(43, 91, 255, 0.35);
+  /* Night side of the planet: airglow just inside the rim, then the dark disc. */
+  background:
+    radial-gradient(closest-side, #0b1020 0%, #0d1428 93%, #14214a 97.4%, #22409c 98.9%, #3d66ff 99.45%, #dfe7ff 99.85%, transparent 100%);
+  box-shadow: 0 0 80px 10px rgba(61, 102, 255, 0.18);
   will-change: transform, opacity;
+}
+
+/* Melt the bottom of the pinned stage into the next section, so the planet never ends on a hard edge. */
+.hero-stage::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18%;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(11, 16, 32, 0), var(--black));
+  pointer-events: none;
 }
 
 .hero-drawing {
@@ -163,8 +164,8 @@
   width: 100%;
   height: 300%;
   background:
-    repeating-linear-gradient(to bottom, rgba(238, 242, 255, 0.55) 0 1px, transparent 1px 2%) right / 10px 100% no-repeat,
-    repeating-linear-gradient(to bottom, rgba(238, 242, 255, 0.9) 0 1px, transparent 1px 20%) right / 22px 100% no-repeat;
+    repeating-linear-gradient(to bottom, rgba(245, 245, 244, 0.55) 0 1px, transparent 1px 2%) right / 10px 100% no-repeat,
+    repeating-linear-gradient(to bottom, rgba(245, 245, 244, 0.9) 0 1px, transparent 1px 20%) right / 22px 100% no-repeat;
 }
 .hero-ruler-scale span {
   position: absolute;
@@ -224,7 +225,7 @@
 .hero-pitch-sub { font-size: var(--fs-lead); line-height: 1.42; color: var(--gray-1); max-width: 44ch; }
 
 /* Reduced motion / no WebGL: everything stacked, nothing pinned. */
-.hero--static { height: auto; background: var(--black-2) var(--horizon); }
+.hero--static { height: auto; background: var(--black-2); }
 .hero-static-inner { display: grid; gap: clamp(32px, 6vw, 64px); padding-top: calc(var(--nav-h) + 64px); padding-bottom: 72px; }
 .hero--static .hero-drawing { position: relative; left: auto; top: auto; transform: none; width: 100%; }
 .hero-pitch--static { position: relative; bottom: auto; }
@@ -286,8 +287,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(5, 8, 20, 0.92) 0%, rgba(5, 8, 20, 0.35) 45%, rgba(5, 8, 20, 0.55) 100%),
-    linear-gradient(90deg, rgba(5, 8, 20, 0.7) 0%, transparent 55%);
+    linear-gradient(to top, rgba(11, 16, 32, 0.92) 0%, rgba(11, 16, 32, 0.35) 45%, rgba(11, 16, 32, 0.55) 100%),
+    linear-gradient(90deg, rgba(11, 16, 32, 0.7) 0%, transparent 55%);
 }
 .prop-inner {
   position: relative;
@@ -309,7 +310,7 @@
   letter-spacing: 0.04em;
   color: var(--fg-3);
 }
-.prop-credit { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 20px); color: rgba(238, 242, 255, 0.55); }
+.prop-credit { position: absolute; right: var(--gutter); top: calc(var(--nav-h) + 20px); color: rgba(245, 245, 244, 0.55); }
 
 /* ── Vehicles ── */
 .vehicles-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
@@ -381,11 +382,11 @@
 .closing-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, var(--black) 0%, rgba(5, 8, 20, 0.5) 38%, rgba(5, 8, 20, 0.72) 100%);
+  background: linear-gradient(to bottom, var(--black) 0%, rgba(11, 16, 32, 0.5) 38%, rgba(11, 16, 32, 0.72) 100%);
 }
 .closing-inner { position: relative; padding-block: clamp(120px, 16vw, 240px) clamp(40px, 5vw, 64px); display: grid; gap: clamp(48px, 7vw, 96px); }
 .closing-inner em { color: var(--accent-hi); }
-.closing-doors { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(238, 242, 255, 0.28); }
+.closing-doors { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(245, 245, 244, 0.28); }
 .door {
   position: relative;
   display: grid;
@@ -395,7 +396,7 @@
   overflow: hidden;
   isolation: isolate;
 }
-.door + .door { padding-left: clamp(20px, 3vw, 44px); border-left: 1px solid rgba(238, 242, 255, 0.28); }
+.door + .door { padding-left: clamp(20px, 3vw, 44px); border-left: 1px solid rgba(245, 245, 244, 0.28); }
 .door::before {
   content: '';
   position: absolute;
@@ -455,6 +456,130 @@
   .process-steps { grid-template-columns: 1fr; row-gap: 0; }
   .process-step { padding: 24px 0; }
   .closing-doors { grid-template-columns: 1fr; }
-  .door + .door { padding-left: 0; border-left: 0; border-top: 1px solid rgba(238, 242, 255, 0.28); }
+  .door + .door { padding-left: 0; border-left: 0; border-top: 1px solid rgba(245, 245, 244, 0.28); }
   .door:first-child:hover, .door:first-child:focus-visible { padding-left: 0; }
+}
+
+/* ── Anatomy walk-through ── */
+.anatomy { position: relative; background: var(--black); }
+.anatomy-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.anatomy-grid {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+  padding-top: var(--nav-h);
+}
+.anatomy-copy { position: relative; z-index: 1; }
+.anatomy-panel { display: grid; gap: 22px; max-width: 520px; }
+.anatomy-panel .t-display em { color: var(--accent-hi); }
+.anatomy-panel .spec-table td { font-size: 1.0625rem; }
+.anatomy-panel .spec-table th, .anatomy-panel .spec-table td { padding: 14px 0; }
+
+.anatomy-view {
+  position: relative;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent);
+}
+.anatomy-figure {
+  height: calc(82svh - var(--nav-h));
+  aspect-ratio: 420 / 1200;
+  color: var(--white);
+  will-change: transform;
+}
+.anatomy-figure .bp-focus { fill: var(--accent); opacity: 0.32; }
+
+.anatomy-index {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  text-align: right;
+}
+.anatomy-index li { display: flex; gap: 10px; justify-content: flex-end; transition: color 0.3s; }
+.anatomy-index li span { color: inherit; opacity: 0.6; }
+.anatomy-index li.is-active { color: var(--fg); }
+.anatomy-index li.is-active span { color: var(--accent-hi); opacity: 1; }
+
+/* Exploded 3D view: the canvas bleeds past the column so the parts have room to spread. */
+.anatomy-view--3d {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.anatomy-view--3d > div {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: -22vw;
+  right: calc(-1 * var(--gutter));
+  width: auto !important;
+  height: auto !important;
+}
+.anatomy-grid:has(.anatomy-view--3d) .anatomy-index { display: none; }
+.xp-label {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding-bottom: 34px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--white);
+  transform: translateY(-50%);
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.xp-label span { color: var(--accent-hi); }
+.xp-label::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 28px;
+  background: rgba(243, 245, 249, 0.45);
+}
+.xp-label.is-dim { opacity: 0; }
+
+.anatomy--static .anatomy-static { display: grid; gap: 72px; }
+
+@media (max-width: 1023px) {
+  .anatomy-index { display: none; }
+}
+@media (max-width: 767px) {
+  .anatomy-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding-bottom: 28px;
+  }
+  .anatomy-view { order: -1; }
+  .anatomy-figure { height: 46svh; }
+  .anatomy-panel { gap: 14px; }
+  .anatomy-panel .t-lead { font-size: 1rem; }
+  .anatomy-panel .spec-table th, .anatomy-panel .spec-table td { padding: 10px 0; }
 }

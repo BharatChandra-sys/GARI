@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/home/Hero';
 import StatusStrip from '../components/home/StatusStrip';
 import Propulsion from '../components/home/Propulsion';
+import Anatomy from '../components/home/Anatomy';
 import Process from '../components/home/Process';
 import { ParallaxImage, Reveal, RevealGroup, RevealItem, ScrollText } from '../components/motion';
 import { projectArchives } from '../data/achievementsData';
@@ -112,6 +113,8 @@ const HomePage = () => {
             />
           </div>
         </section>
+
+        <Anatomy />
 
         <Propulsion />
 

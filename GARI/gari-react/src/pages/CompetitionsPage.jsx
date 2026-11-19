@@ -71,7 +71,7 @@ const programs = {
       { name: 'Ground Station Software', lead: 'Bodapati Bharat Chandra', desc: 'Custom GCS for live telemetry visualisation, packet parsing, mission logging and post-flight data export.' },
       { name: 'NavIC GNSS Integration', lead: 'Avionics team', desc: "Positional tracking during descent using India's NavIC constellation instead of GPS." },
       { name: 'Descent & Recovery', lead: 'Hanzel Vergis Thomas', desc: 'Drogue chute for stabilisation, main chute for the final descent, triggered by barometric altitude.' },
-      { name: 'Power & Electrical', lead: 'Satya Rishi Chodesetty', desc: 'Battery selection, power budgeting, voltage regulation and harness routing for the full mission envelope.' },
+      { name: 'Power & Electrical', lead: 'CanSat team', desc: 'Battery selection, power budgeting, voltage regulation and harness routing for the full mission envelope.' },
       { name: 'Structures & Mechanical', lead: 'Tanmaay Sharma', desc: '330 ml chassis designed for launch loads and parachute shock — CAD-modelled and stress-tested before fabrication.' },
       { name: 'Sensor & Payload', lead: 'Rohan Jason Bellapu', desc: 'Pressure, temperature, humidity, IMU and altitude sensors, calibrated for accuracy across the mission profile.' },
     ],

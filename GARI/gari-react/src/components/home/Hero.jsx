@@ -34,13 +34,48 @@ const draw = (delay, duration = 1.4) => ({
   transition: { pathLength: { duration, ease: ease.inOut, delay }, opacity: { duration: 0.2, delay } },
 });
 
-/* Side elevation traced from the CDR geometry. Callouts carry only reviewed data. */
-export const Blueprint = ({ labels = true, animate = true }) => {
+const BODY = 'M100 210 C 190 180 290 158 370 156 L 570 156 L 600 148 L 1100 148 L 1100 272 L 600 272 L 570 264 L 370 264 C 290 262 190 240 100 210 Z';
+
+/*
+  Side elevation traced from the CDR geometry. Callouts carry only reviewed data.
+  upright: nose up (rotated into a 420 × 1200 box). focus: [x0, x1] span along the body to tint.
+*/
+export const Blueprint = ({ labels = true, animate = true, upright = false, focus }) => {
   const d = (delay, dur) => (animate ? draw(delay, dur) : {});
+  const art = (
+    <>
+      {focus && (
+        <>
+          <defs>
+            <clipPath id="bp-body-clip"><path d={BODY} /></clipPath>
+          </defs>
+          {/* Clip on a static group: motion's x is a transform, which would drag a clip set on the rect. */}
+          <g clipPath="url(#bp-body-clip)">
+            <motion.rect
+              className="bp-focus"
+              y="0"
+              height="420"
+              initial={false}
+              animate={{ attrX: focus[0], width: focus[1] - focus[0] }}
+              transition={{ type: 'spring', stiffness: 140, damping: 24 }}
+            />
+          </g>
+        </>
+      )}
+      {drawing(d, labels)}
+    </>
+  );
   return (
-    <svg className="bp" viewBox="0 0 1200 420" fill="none" aria-hidden="true">
+    <svg className="bp" viewBox={upright ? '0 0 420 1200' : '0 0 1200 420'} fill="none" aria-hidden="true">
+      {upright ? <g transform="translate(420 0) rotate(90)">{art}</g> : art}
+    </svg>
+  );
+};
+
+const drawing = (d, labels) => (
+  <>
       <g stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" vectorEffect="non-scaling-stroke">
-        <motion.path {...d(0.2, 1.8)} d="M100 210 C 190 180 290 158 370 156 L 570 156 L 600 148 L 1100 148 L 1100 272 L 600 272 L 570 264 L 370 264 C 290 262 190 240 100 210 Z" />
+        <motion.path {...d(0.2, 1.8)} d={BODY} />
         <motion.path {...d(0.9, 0.5)} d="M370 156 V 264 M570 156 V 264 M600 148 V 272" opacity="0.55" />
         <motion.path {...d(1.1, 0.9)} d="M790 148 L 925 52 L 1105 52 L 1045 148" />
         <motion.path {...d(1.1, 0.9)} d="M790 272 L 925 368 L 1105 368 L 1045 272" />
@@ -59,9 +94,8 @@ export const Blueprint = ({ labels = true, animate = true }) => {
           </g>
         )}
       </g>
-    </svg>
-  );
-};
+  </>
+);
 
 const callouts = [
   { key: 'nose', title: 'Nose cone', body: 'Composite, fibreglass + carbon fibre', style: { left: '25.5%', top: '14%' } },
@@ -86,7 +120,7 @@ const canRender3D = () => {
 const Pitch = () => (
   <>
     <p className="hero-pitch-title">
-      One kilometre up.<br /><em>Built by students.</em>
+      One kilometre today.<br /><em>Higher next.</em>
     </p>
     <p className="hero-pitch-sub" itemProp="description">
       GARI is GITAM University's student rocketry team. We design, build and fly a solid-motor
@@ -134,16 +168,15 @@ const Hero = () => {
   const introOpacity = useScrollMap(scrollYProgress, [0.04, 0.16], [1, 0]);
   const introY = useScrollMap(scrollYProgress, [0, 0.16], [0, -40]);
   const bpOpacity = useScrollMap(scrollYProgress, [0.1, 0.2], [1, 0]);
-  const gridOpacity = useScrollMap(scrollYProgress, [0.14, 0.34], [1, 0]);
   const sceneOpacity = useScrollMap(scrollYProgress, [0.08, 0.18], [0, 1]);
   const skyY = useTransform(scrollYProgress, (p) => `${-75 * (1 - climb(p))}%`);
+  const limbRise = useScrollMap(scrollYProgress, [0.8, 1], [30, 0]);
+  const limbY = useTransform(limbRise, (v) => `${v}%`);
+  const limbOpacity = useScrollMap(scrollYProgress, [0.78, 0.92], [0, 1]);
   const starsOpacity = useScrollMap(scrollYProgress, [0.6, 0.86], [0, 1]);
   const hudOpacity = useScrollMap(scrollYProgress, [0.3, 0.38], [0, 1]);
   const rulerY = useTransform(scrollYProgress, (p) => `${climb(p) * 100}%`);
   const pitchEvents = useTransform(scrollYProgress, (p) => (p > 0.9 ? 'auto' : 'none'));
-  const limbRise = useScrollMap(scrollYProgress, [0.8, 1], [30, 0]);
-  const limbY = useTransform(limbRise, (v) => `${v}%`);
-  const limbOpacity = useScrollMap(scrollYProgress, [0.78, 0.92], [0, 1]);
   const pitchOpacity = useScrollMap(scrollYProgress, [0.88, 0.97], [0, 1]);
   const pitchY = useScrollMap(scrollYProgress, [0.88, 0.97], [36, 0]);
 
@@ -187,7 +220,6 @@ const Hero = () => {
             <span key={i} style={{ left: s.left, top: s.top, width: s.size, height: s.size, opacity: s.o }} />
           ))}
         </motion.div>
-        <motion.div className="hero-grid" style={{ opacity: gridOpacity }} aria-hidden="true" />
         <motion.div className="hero-limb" style={{ y: limbY, opacity: limbOpacity }} aria-hidden="true" />
 
         {/* 1 — the drawing */}

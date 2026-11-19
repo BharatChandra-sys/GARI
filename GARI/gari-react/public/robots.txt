@@ -79,6 +79,27 @@ Disallow: /
 User-agent: DataForSeoBot
 Disallow: /
 
+# AI search and answer engines: allowed, so GARI is cited accurately.
+# A summary written for language models lives at https://gari.live/llms.txt
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: meta-externalagent
+User-agent: cohere-ai
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+
 # Sitemap
 Sitemap: https://gari.live/sitemap.xml
 

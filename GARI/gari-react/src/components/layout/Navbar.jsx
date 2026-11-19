@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Logo from '../common/Logo';
 import { ease } from '../motion';
+import { lockScroll } from '../motion/smooth';
 import './Navbar.css';
 
 const navLinks = [
@@ -42,9 +43,11 @@ const Navbar = () => {
     if (!open) return;
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
     document.body.style.overflow = 'hidden';
+    lockScroll(true);
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
+      lockScroll(false);
       window.removeEventListener('keydown', onKey);
     };
   }, [open]);

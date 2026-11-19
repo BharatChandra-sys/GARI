@@ -131,12 +131,15 @@ const smokeVertex = /* glsl */ `
   attribute float aSize;
   attribute float aAlpha;
   attribute float aHeat;
+  attribute float aSeed;
   uniform float uPx;
   varying float vAlpha;
   varying float vHeat;
+  varying float vSeed;
   void main() {
     vAlpha = aAlpha;
     vHeat = aHeat;
+    vSeed = aSeed;
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     gl_PointSize = aSize * uPx / -mv.z;
     gl_Position = projectionMatrix * mv;
@@ -145,10 +148,20 @@ const smokeVertex = /* glsl */ `
 const smokeFragment = /* glsl */ `
   varying float vAlpha;
   varying float vHeat;
+  varying float vSeed;
+  float h(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+  float n2(vec2 p) {
+    vec2 i = floor(p), f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(h(i), h(i + vec2(1.0, 0.0)), f.x), mix(h(i + vec2(0.0, 1.0)), h(i + vec2(1.0, 1.0)), f.x), f.y);
+  }
   void main() {
-    float d = length(gl_PointCoord - 0.5);
-    float a = smoothstep(0.5, 0.05, d) * vAlpha;
-    vec3 cool = vec3(0.74, 0.78, 0.88);
+    vec2 c = gl_PointCoord - 0.5;
+    // Each puff gets its own lumpy edge and shade, so overlapping puffs read as billows.
+    float lumps = n2(c * 5.0 + vSeed * 17.0) * 0.6 + n2(c * 11.0 + vSeed * 31.0) * 0.4;
+    float d = length(c) + (lumps - 0.5) * 0.32;
+    float a = smoothstep(0.5, 0.0, d) * vAlpha * (0.55 + 0.6 * lumps);
+    vec3 cool = vec3(0.7, 0.73, 0.82) * (0.8 + 0.35 * lumps);
     vec3 warm = vec3(1.0, 0.6, 0.3);
     gl_FragColor = vec4(mix(cool, warm, vHeat), a);
   }
@@ -165,11 +178,13 @@ export const Smoke = ({ engine, nozzle }) => {
     g.setAttribute('aSize', new THREE.BufferAttribute(new Float32Array(SMOKE_N), 1));
     g.setAttribute('aAlpha', new THREE.BufferAttribute(new Float32Array(SMOKE_N), 1));
     g.setAttribute('aHeat', new THREE.BufferAttribute(new Float32Array(SMOKE_N), 1));
+    g.setAttribute('aSeed', new THREE.BufferAttribute(new Float32Array(SMOKE_N), 1));
     return {
       g,
       vel: new Float32Array(SMOKE_N * 3),
       age: new Float32Array(SMOKE_N).fill(99),
       life: new Float32Array(SMOKE_N).fill(1),
+      big: new Float32Array(SMOKE_N),
       next: 0,
       carry: 0,
     };
@@ -200,7 +215,9 @@ export const Smoke = ({ engine, nozzle }) => {
     const size = sim.g.attributes.aSize.array;
     const alpha = sim.g.attributes.aAlpha.array;
     const heat = sim.g.attributes.aHeat.array;
-    const { vel, age, life } = sim;
+    const { vel, age, life, big } = sim;
+    // 1 while the rocket is still on the pad: exhaust hits the ground and rolls outward.
+    const pad = 1 - Math.min(1, engine.current.flow / (1.1 * s));
 
     sim.carry += engine.current.power * 340 * dt;
     while (sim.carry >= 1) {
@@ -211,13 +228,16 @@ export const Smoke = ({ engine, nozzle }) => {
       pos[o] = at.x - up.x * 0.12 * s + (Math.random() - 0.5) * j;
       pos[o + 1] = at.y - up.y * 0.12 * s + (Math.random() - 0.5) * j;
       pos[o + 2] = at.z - up.z * 0.12 * s + (Math.random() - 0.5) * j;
-      const ex = (1.2 + Math.random() * 0.8) * s;
-      const spread = 0.35 * s;
+      const ex = (1.2 + Math.random() * 0.8) * s * (1 - 0.55 * pad);
+      const spread = (0.35 + 3.4 * pad) * s;
       vel[o] = -up.x * ex + (Math.random() - 0.5) * spread;
-      vel[o + 1] = -up.y * ex + (Math.random() - 0.5) * spread;
-      vel[o + 2] = -up.z * ex + (Math.random() - 0.5) * spread;
+      vel[o + 1] = -up.y * ex + (Math.random() - 0.5) * spread * (1 - 0.7 * pad);
+      vel[o + 2] = -up.z * ex + (Math.random() - 0.5) * spread * 0.6;
       age[i] = 0;
-      life[i] = 1.3 + Math.random() * 0.9;
+      life[i] = 1.3 + Math.random() * 0.9 + pad * 1.6;
+      big[i] = pad;
+      sim.g.attributes.aSeed.array[i] = Math.random();
+      sim.g.attributes.aSeed.needsUpdate = true;
       sim.carry -= 1;
     }
 
@@ -235,8 +255,8 @@ export const Smoke = ({ engine, nozzle }) => {
       pos[o] += vel[o] * dt;
       pos[o + 1] += (vel[o + 1] - flow) * dt;
       pos[o + 2] += vel[o + 2] * dt;
-      size[i] = (0.07 + 0.5 * Math.sqrt(k)) * s;
-      alpha[i] = Math.pow(1 - k, 1.6) * 0.3 * Math.min(1, age[i] * 10);
+      size[i] = (0.07 + (0.5 + 0.35 * big[i]) * Math.sqrt(k)) * s;
+      alpha[i] = Math.pow(1 - k, 1.6) * (0.26 - 0.08 * big[i]) * Math.min(1, age[i] * 10);
       heat[i] = Math.max(0, 1 - age[i] * 5);
     }
     sim.g.attributes.position.needsUpdate = true;

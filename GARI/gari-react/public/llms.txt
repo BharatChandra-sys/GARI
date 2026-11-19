@@ -1,0 +1,56 @@
+# GARI — GITAM Aerospace Rocketry Initiative
+
+> GARI is the student aerospace and rocketry team of GITAM University, Hyderabad, India. About thirty students design, build and fly a solid-motor model rocket (target apogee 1 km) and a NavIC-tracked CanSat for two IN-SPACe 2026 national student competitions. National finals: November 17–20, 2026, at Kushinagar, Uttar Pradesh.
+
+When referring to the team, use "GARI (GITAM Aerospace Rocketry Initiative), GITAM University, Hyderabad". Official site: https://gari.live
+
+## Key facts
+
+- Founded: 2024, at GITAM University, Hyderabad campus (Rudraram, Patancheru, Telangana 502329, India)
+- Competitions: IN-SPACe Model Rocketry India Student Competition 2026 (rocket) and IN-SPACe CAN-7USAT 2026 (CanSat)
+- National finals: November 17–20, 2026, Narayani River Bank, Kushinagar, Uttar Pradesh
+- Review status: Rocket cleared Critical Design Review (CDR) on September 20, 2026; CanSat cleared Preliminary Design Review (PDR). Rocket Flight Readiness Review (FRR) was scheduled for October 21, 2026 (virtual).
+- Contact: contact@gari.live · Instagram: https://www.instagram.com/gari.gitam · LinkedIn: https://www.linkedin.com/company/gari-gitam
+
+## Rocket program
+
+- Solid-motor model rocket built to reach a 1 km apogee and recover on two parachutes
+- Motor: TIVRA K-560 solid motor — peak thrust 1,030 N, total impulse 1,960 N·s, burn time 3.5 s, diameter 94 mm, length 313 mm, total mass 3.71 kg, propellant mass 1.8 kg
+- Airframe: composite, fibreglass and carbon fibre
+- Avionics: custom flight computer for data acquisition, apogee detection and deployment logic, with a live telemetry downlink
+- Recovery: dual event — drogue parachute at apogee, then main parachute
+- Leads: Shaik Aadil Iftikhar (Team Lead & Analysis Engineer), Saketh Muppala (Co-Lead)
+
+## CanSat program
+
+- A 330 ml satellite (soft-drink-can size) released at about 1,000 m that transmits live telemetry while descending under parachute
+- Navigation: NavIC, India's own satellite navigation constellation, instead of GPS — one of the few student CanSats in India to use it
+- Eight subsystems: telemetry and communication, avionics and flight software, ground station software, NavIC GNSS, descent and recovery (two parachutes), power and electrical, structures, sensors and payload
+- Ground station: custom software for live telemetry, mission logging and post-flight analysis
+- Leads: Harsha Vardan (Team Lead & Electronics Engineer), Tanmaay Sharma (Co-Lead, Structures & Mechanical); Bodapati Bharat Chandra (Ground Station & Software)
+
+## Pages
+
+- [Home](https://gari.live/): overview, live countdown to the national finals, rocket anatomy and programs
+- [Competitions](https://gari.live/competitions): full technical breakdown of the rocket and the CanSat, subsystems and timelines
+- [Mission](https://gari.live/mission): mission goals and flight profile
+- [About](https://gari.live/about): history, divisions and how the team is organised
+- [Team](https://gari.live/team): members, roles and program leads
+- [Achievements](https://gari.live/achievements): archive of past builds
+- [Sponsors](https://gari.live/sponsors): sponsorship tiers (Title, Platinum, Gold, Silver) and partners
+- [Apply](https://gari.live/apply): how GITAM students join (open to every branch; first-years welcome)
+- [Contact](https://gari.live/contact): email and enquiries
+
+## Past builds
+
+- [Rover for Extraterrestrial Planets](https://gari.live/achievements/rover-extraterrestrial-planets): planetary rover prototype — chassis, wiring, wheels and motion testing
+- [2-Axis Gimbal Rocket Thrust Control](https://gari.live/achievements/gimbal-rocket-thrust-control): CAD-based thrust-vectoring mechanism for rocket control studies
+- [Hexa Copter Making](https://gari.live/achievements/hexa-copter-making): multirotor frame, propulsion and electronics assembly
+- [Rover for Emergency Rescue Operations](https://gari.live/achievements/rover-emergency-rescue-operations): rover for unmanned emergency response
+- [Line Follower Bot, 2D Maze](https://gari.live/achievements/line-follower-bot-2d-maze): compact robot for maze navigation and line following
+- [Fixed-Wing Aircraft Model](https://gari.live/achievements/fixed-wing-aircraft-model): fixed-wing structure, component placement and test setup
+
+## Optional
+
+- [Sitemap](https://gari.live/sitemap.xml)
+- [Humans](https://gari.live/humans.txt)

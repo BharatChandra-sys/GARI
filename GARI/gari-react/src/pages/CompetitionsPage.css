@@ -46,7 +46,7 @@ html[data-nav='hidden'] .comp-switch { top: 0; }
   height: clamp(420px, 62vh, 680px);
   border-radius: var(--r-lg);
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 70%, #16307a 0%, #0a1024 55%, #050814 100%);
+  background: radial-gradient(ellipse at 50% 70%, #1c2740 0%, #0f1628 60%, #0b1020 100%);
   cursor: grab;
 }
 .viewer:active { cursor: grabbing; }

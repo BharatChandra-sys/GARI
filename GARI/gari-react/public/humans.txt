@@ -16,7 +16,6 @@ Key Members:
   Tanmaay Sharma — CanSat Co-Lead & Structures
   Varshith Pappuri — Communication & RF Systems
   Rohan Jason Bellapu — Sensor & Payload Systems
-  Satya Rishi Chodesetty — Power & Electrical Systems
   Hanzel Vergis Thomas — Descent & Recovery Systems
   Mokshagna Mopidevi — Computer Engineer
   Shreemann Narayana Karnakoti — Structural Engineer
